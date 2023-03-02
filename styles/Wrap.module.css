@@ -1,0 +1,7 @@
+.wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: var(--wrap-justify, space-between);
+	align-items: var(--wrap-align, center);
+	gap: var(--wrap-space, clamp(1.375rem, 1.2rem + 0.89vw, 2rem));
+}

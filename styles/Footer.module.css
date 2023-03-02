@@ -1,0 +1,75 @@
+.footerBg {
+	position: relative;
+}
+
+.footer {
+	padding-block-start: var(--s5);
+}
+
+.shapedivider {
+	composes: shapedivider from "../styles/ShapeDivider.module.css";
+	transform: rotate(0deg);
+}
+
+.switcher {
+	composes: switcher from "../styles/Switcher.module.css";
+	gap: var(--s3);
+}
+
+.switcher > * {
+	flex-basis: calc((40rem - 100%) * 999) !important;
+}
+
+.switcher > :nth-last-child(n + 5),
+.switcher > :nth-last-child(n + 5) ~ * {
+	flex-basis: 100%;
+}
+
+.mainStack,
+.servicesStack,
+.socialStack,
+.contactStack {
+	composes: stack from "../styles/Stack.module.css";
+}
+
+.contactStack,
+.socialStack,
+.servicesStack {
+	--stack-align: center;
+}
+
+.servicesStack .stack > * + *,
+.socialStack .stack > * + * {
+	margin-block-start: var(--s1);
+	/* text-align: center; */
+}
+
+.letterIcon {
+	width: var(--s5);
+	height: var(--s5);
+	position: relative;
+	display: block;
+	fill: var(--secondary);
+}
+
+.socialStack svg {
+	width: 45px;
+	height: 45px;
+}
+
+.socialStack .stack li:nth-child(1) svg {
+	border-radius: 1000px;
+	background-color: #000;
+}
+
+.footerCenter {
+	background-color: var(--primary);
+	color: var(--text-light);
+	font-size: var(--s-2);
+	text-align: center;
+	margin-block-start: auto;
+}
+
+.footerCenter {
+	composes: center from "../styles/Center.module.css";
+}

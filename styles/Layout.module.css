@@ -1,0 +1,13 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.layout > *:nth-child(1) {
+	flex-grow: 1;
+}
+
+.layout > *:last-child {
+	flex-shrink: 0;
+}

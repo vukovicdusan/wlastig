@@ -1,0 +1,19 @@
+.iconBoxLight,
+.iconBoxDark {
+	composes: stack from "../styles/Stack.module.css";
+	composes: box from "../styles/Box.module.css";
+	border: none;
+	background-color: transparent;
+	color: var(--text-light);
+	max-width: 15rem;
+	text-align: center;
+	--stack-align: center;
+}
+
+.iconBoxDark {
+	background-color: var(--primary);
+}
+
+.iconBoxLight {
+	background-color: #3e92cc;
+}
