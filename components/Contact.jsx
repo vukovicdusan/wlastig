@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react"
-import * as styles from "../styles/Contact.module.css"
 import { sendContactForm } from "../lib/api"
+import { InputWrapper } from "./styles/InputWrapper.styled"
+import { Stack } from "./styles/Stack.styled"
+import { ContactStyled } from "./styles/ContactStyled.styled"
+import { Button } from "./styles/Button.styled"
+
 // import Loader from "../components/Loader"
 
 const Contact = () => {
@@ -50,51 +54,54 @@ const Contact = () => {
 	}
 
 	return (
-		<form onSubmit={onSubmitHandler} className={styles.contactStack}>
-			<div>
-				<h3>Improve your Data Quality for FREE!</h3>
-				<p>Your decisions are only as good as your data.</p>
-			</div>
-			{!contactFormProccess.success && contactFormProccess.error ? (
-				<p className={styles.error}>
-					Došlo je do greške. Poruka nije poslata.
-				</p>
-			) : !contactFormProccess.success && !contactFormProccess.error ? (
-				""
-			) : (
-				<p className={styles.success}>Hvala na poruci! Javljamo se!</p>
-			)}
-			<div className={styles.inputWrapper}>
-				<input
-					type="text"
-					name="name"
-					id="name"
-					autoCapitalize="none"
-					autoCorrect="off"
-					required
-					onChange={inputHandler}
-				/>
-				<label className={styles.borderTitle} htmlFor="name">
-					Name
-				</label>
-			</div>
-			<div className={styles.inputWrapper}>
-				<input
-					type="text"
-					name="email"
-					id="email"
-					autoCapitalize="none"
-					autoCorrect="off"
-					required
-					pattern="[^@]+@[^\.]+\..+"
-					onChange={inputHandler}
-				/>
-				<label className={styles.borderTitle} htmlFor="email">
-					Email
-				</label>
-			</div>
-			<button className="button">Submit</button>
-		</form>
+		<ContactStyled>
+			<Stack
+				stackSpace={"s3"}
+				onSubmit={onSubmitHandler}
+				className="contactStack"
+			>
+				<div>
+					<h3>Improve your Data Quality for FREE!</h3>
+					<p>Your decisions are only as good as your data.</p>
+				</div>
+				{!contactFormProccess.success && contactFormProccess.error ? (
+					<p className="error">
+						Došlo je do greške. Poruka nije poslata.
+					</p>
+				) : !contactFormProccess.success &&
+				  !contactFormProccess.error ? (
+					""
+				) : (
+					<p className="success">Hvala na poruci! Javljamo se!</p>
+				)}
+				<InputWrapper>
+					<input
+						type="text"
+						name="name"
+						id="name"
+						autoCapitalize="none"
+						autoCorrect="off"
+						required
+						onChange={inputHandler}
+					/>
+					<label htmlFor="name">Name</label>
+				</InputWrapper>
+				<InputWrapper>
+					<input
+						type="text"
+						name="email"
+						id="email"
+						autoCapitalize="none"
+						autoCorrect="off"
+						required
+						pattern="[^@]+@[^\.]+\..+"
+						onChange={inputHandler}
+					/>
+					<label htmlFor="email">Email</label>
+				</InputWrapper>
+				<Button>Submit</Button>
+			</Stack>
+		</ContactStyled>
 	)
 }
 

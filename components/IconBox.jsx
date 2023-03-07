@@ -1,25 +1,29 @@
 import React from "react"
 import Image from "next/image"
-import styles from "../styles/IconBox.module.css"
+// import styles from "../styles/IconBox.module.css"
+import { Stack } from "./styles/Stack.styled"
+import { Box } from "./styles/Box.styled"
+import { IconBoxStyled } from "./styles/IconBoxStyled.styled"
 
 function IconBox(props) {
-	let boxClass = props.boxStyle ? props.boxStyle : ""
-	console.log(boxClass)
 	return (
-		<div
-			className={`${
-				boxClass === "light" ? styles.iconBoxLight : styles.iconBoxDark
-			}}`}
-		>
-			<Image
-				src={props.img}
-				width={props.width}
-				height={props.height}
-				alt="icon"
-			></Image>
-			<h4 className={styles.title}>{props.title}</h4>
-			<p>{props.content}</p>
-		</div>
+		<IconBoxStyled>
+			<Box
+				boxColor={props.color ? props.color : "var(--text-light)"}
+				// boxColor={"var(--text-light)"}
+			>
+				<Stack stackAlign={"center"}>
+					<Image
+						src={props.img}
+						width={props.width}
+						height={props.height}
+						alt="icon"
+					></Image>
+					<h4>{props.title}</h4>
+					<p>{props.content}</p>
+				</Stack>
+			</Box>
+		</IconBoxStyled>
 	)
 }
 

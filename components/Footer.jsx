@@ -1,16 +1,20 @@
 import React from "react"
-import styles from "../styles/Footer.module.css"
 import Image from "next/image"
 import logo from "../public/img/logo/Wlastig_logo_sajt_color-cut.png"
 import Link from "next/link"
-import Region from "./layout/Region"
-import Wrapper from "./layout/Wrapper"
+import { FooterStyled } from "./styles/Footer.styled"
+import { Wrapper } from "./styles/Wrapper.styled"
+import { Region } from "./styles/Region.styled"
+import { Switcher } from "./styles/Switcher.styled"
+import { Stack } from "./styles/Stack.styled"
+import { FullBackground } from "./styles/FullBackground.styled"
+import { Shapedivider } from "./styles/Shapedivider.styled"
 
 const Footer = () => {
 	let year = new Date().getFullYear()
 	return (
-		<div className={styles.footerBg}>
-			<div className={styles.shapedivider}>
+		<FullBackground>
+			<Shapedivider rotation={"0"}>
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
@@ -19,16 +23,15 @@ const Footer = () => {
 				>
 					<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
 				</svg>
-			</div>
-			<footer className={styles.footer}>
+			</Shapedivider>
+			<FooterStyled>
 				<Region>
 					<Wrapper>
-						<div className={styles.switcher}>
-							<div className={styles.mainStack}>
+						<Switcher elCount={5} gap={"s3"} flexBasis={"40"}>
+							<Stack>
 								<Image
 									src={logo}
 									width={150}
-									className={styles.logo}
 									alt="logo"
 								></Image>
 								<p className="mr-t-4">
@@ -40,12 +43,12 @@ const Footer = () => {
 									market leader and a household brand. What
 									company are we talking about? Yours!
 								</p>
-							</div>
-							<div className={styles.contactStack}>
+							</Stack>
+							<Stack stackAlign={"center"}>
 								<h4>Contact Us:</h4>
 								<Link className="a-exception" href={"/contact"}>
 									<svg
-										className={styles.letterIcon}
+										className="letterIcon"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512"
 										preserveAspectRatio="none"
@@ -55,10 +58,10 @@ const Footer = () => {
 										<path d="M262 92H161.5a10 10 0 000 20H262a10 10 0 000-20zM315.4 95c-1.9-2-4.4-3-7-3a10 10 0 00-10 10 10 10 0 0010 10c2.6 0 5.1-1 7-3a10 10 0 000-14zM350.5 164h-189a10 10 0 000 20h189a10 10 0 000-20zM350.5 236h-189a10 10 0 000 20h189a10 10 0 000-20z"></path>
 									</svg>
 								</Link>
-							</div>
-							<div className={styles.servicesStack}>
+							</Stack>
+							<Stack stackAlign={"center"}>
 								<h4>Services:</h4>
-								<ul className={styles.stack}>
+								<Stack as="ul" stackSpace={"s1"}>
 									<li>
 										<Link href={"/web-analytics"}>
 											Web Analytics
@@ -74,16 +77,21 @@ const Footer = () => {
 											Consulting
 										</Link>
 									</li>
-								</ul>
-							</div>
-							<div className={styles.socialStack}>
+								</Stack>
+							</Stack>
+							<Stack stackAlign={"center"}>
 								<h4>Follow Us:</h4>
-								<ul className={styles.stack}>
+								<Stack
+									as="ul"
+									stackAlign={"center"}
+									stackSpace={"s1"}
+								>
 									<li>
 										<a className="a-exception" href="">
 											<svg
-												height="250"
-												width="250"
+												className="social-icon clutch"
+												height="50"
+												width="50"
 												xmlns="http://www.w3.org/2000/svg"
 												viewBox="0 0 87.86099999999999 25"
 											>
@@ -104,6 +112,7 @@ const Footer = () => {
 									<li>
 										<a className="a-exception" href="">
 											<svg
+												className="social-icon"
 												xmlns="http://www.w3.org/2000/svg"
 												width="24"
 												height="24"
@@ -119,6 +128,7 @@ const Footer = () => {
 									<li>
 										<a className="a-exception" href="">
 											<svg
+												className="social-icon"
 												xmlns="http://www.w3.org/2000/svg"
 												width="24"
 												height="24"
@@ -131,17 +141,19 @@ const Footer = () => {
 											</svg>
 										</a>
 									</li>
-								</ul>
-							</div>
-						</div>
+								</Stack>
+							</Stack>
+						</Switcher>
 					</Wrapper>
 				</Region>
-				<p className={styles.footerCenter}>
+				<div className="footers-footer">
 					{" "}
-					Copyright © {year} Wlastig | Website by Dušan Vuković{" "}
-				</p>
-			</footer>
-		</div>
+					<p>
+						Copyright © {year} Wlastig | Website by Dušan Vuković{" "}
+					</p>
+				</div>
+			</FooterStyled>
+		</FullBackground>
 	)
 }
 

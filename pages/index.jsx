@@ -21,7 +21,10 @@ export default function Home() {
 			<Reel></Reel>
 			<FocusSection></FocusSection>
 			<Testimonials></Testimonials>
-			<ContactFormSection></ContactFormSection>
+			<ContactFormSection
+				title={"150+ Point Audit For Data Quality"}
+				subTitle={"(3X The Industry Average)"}
+			></ContactFormSection>
 		</main>
 	)
 }

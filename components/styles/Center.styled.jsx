@@ -1,4 +1,6 @@
-.center {
+import styled from "styled-components"
+
+export const Center = styled.div`
 	box-sizing: content-box;
 	margin-inline: auto;
 	margin-block: auto;
@@ -6,4 +8,4 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
+`
