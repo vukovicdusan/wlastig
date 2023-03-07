@@ -1,11 +1,6 @@
-/* html,
-body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-} */
+import { createGlobalStyle } from "styled-components"
 
+export const GlobalStyles = createGlobalStyle`
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
@@ -164,24 +159,24 @@ button:disabled {
 /* === FONTS === */
 @font-face {
 	font-family: "poppinsextrabold";
-	src: url("../fonts/poppins-extrabold-webfont.woff2") format("woff2"),
-		url("../fonts/poppins-extrabold-webfont.woff") format("woff");
+	src: url("/fonts/poppins-extrabold-webfont.woff2") format("woff2"),
+		url("/fonts/poppins-extrabold-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "poppinsmedium";
-	src: url("../fonts/poppins-medium-webfont.woff2") format("woff2"),
-		url("../fonts/poppins-medium-webfont.woff") format("woff");
+	src: url("/fonts/poppins-medium-webfont.woff2") format("woff2"),
+		url("/fonts/poppins-medium-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "poppinsregular";
-	src: url("../fonts/poppins-regular-webfont.woff2") format("woff2"),
-		url("../fonts/poppins-regular-webfont.woff") format("woff");
+	src: url("/fonts/poppins-regular-webfont.woff2") format("woff2"),
+		url("/fonts/poppins-regular-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -300,30 +295,7 @@ label {
 	color: var(--primary);
 	font-size: 0.9rem;
 }
-
-section {
-	margin-bottom: 4rem;
-	margin-bottom: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-}
-
 /* === UTILITIES === */
-.wrapper {
-	width: 70vw;
-	width: clamp(16rem, 100vw, 75rem);
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: clamp(0.9rem, 1rem + 0.47vw, 1.33rem);
-	padding-right: clamp(0.9rem, 1rem + 0.47vw, 1.33rem);
-	position: relative;
-}
-
-.region {
-	padding-bottom: 4rem;
-	padding-top: 4rem;
-	padding-top: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-	padding-bottom: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-}
-
 .full-bleed {
 	width: 100vw;
 	margin-left: calc(50% - 50vw);
@@ -375,38 +347,8 @@ section {
 	text-shadow: var(--text-shadow);
 }
 
-/** ==== BUTTON ==== */
-.button {
-	display: inline-block;
-	padding: var(--s-1, 0.8rem) var(--s0, 2.5rem);
-	border: 1px solid transparent;
-	border-radius: 5px;
+.text-light {
 	color: var(--text-light);
-	background-color: var(--secondary);
-	cursor: pointer;
-	line-height: 1;
-	text-align: center;
-	text-decoration: none !important;
-	text-transform: uppercase;
-	font-weight: bold;
-	transition: all 0.2s ease;
-}
-
-.button:hover {
-	border: 1px solid var(--text-light);
-	background-color: rgba(242, 84, 91, 0.8);
-}
-
-.button[data-state="reversed"] {
-	border-color: var(--primary);
-	color: var(--background-light);
-}
-
-@media (max-width: 900px) {
-	.button {
-		padding: var(--s-1);
-		font-size: var(--s-1);
-	}
 }
 
 /** ==== BORDER TITLE ==== */
@@ -475,40 +417,6 @@ textarea {
 	justify-content: center;
 }
 
-/** ==== SWITCHER ==== */
-.switcher {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--s1);
-}
-
-.switcher > * {
-	flex-grow: 1;
-	flex-basis: calc((30rem - 100%) * 999);
-}
-
-.switcher > :nth-last-child(n + 5),
-.switcher > :nth-last-child(n + 5) ~ * {
-	flex-basis: 100%;
-}
-
-/* === SIDEBAR === */
-.sidebar {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--s1);
-}
-
-.sidebar > :last-child {
-	flex-grow: 1;
-}
-
-.sidebar > :first-child {
-	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: 10%;
-}
-
 /* === NEXT LINK === */
 .next-link {
 	cursor: pointer;
@@ -522,24 +430,4 @@ textarea {
 .addInfo > * {
 	--stack-space: var(--s-1);
 }
-
-/* === ICON BOX COMPONENT === */
-.icon-box {
-	border: none;
-	background-color: transparent;
-	color: var(--text-light);
-	max-width: 15rem;
-	text-align: center;
-	--stack-align: center;
-}
-
-.icon-box.dark {
-	background-color: var(--primary);
-}
-
-.icon-box.light {
-	background-color: #3e92cc;
-}
-
-/* === === */
-/* === === */
+`

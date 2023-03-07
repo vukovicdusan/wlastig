@@ -1,12 +1,15 @@
 import React from "react"
-import styles from "../styles/FocusSection.module.css"
+// import styles from "../styles/FocusSection.module.css"
 import bulb from "../public/img/bulb.svg"
 import search from "../public/img/search.svg"
 import aim from "../public/img/aim.svg"
-import Wrapper from "./layout/Wrapper"
-import Region from "./layout/Region"
-import BackgroundWrapper from "./layout/BackgroundWrapper"
+import { Wrapper } from "./styles/Wrapper.styled"
+import { Region } from "./styles/Region.styled"
 import IconBox from "./IconBox"
+import { FullBackground } from "./styles/FullBackground.styled"
+import { Stack } from "./styles/Stack.styled"
+import { Switcher } from "./styles/Switcher.styled"
+import { Button } from "./styles/Button.styled"
 
 const FocusSection = () => {
 	const roiContent =
@@ -16,11 +19,16 @@ const FocusSection = () => {
 	const trackingContent =
 		"Using enhanced tracking solutions to discover bottom line movers"
 	return (
-		<BackgroundWrapper bckg={"#083d77"}>
+		<FullBackground background={"var(--primary)"}>
 			<Wrapper>
 				<Region>
-					<div className={styles.focusStack}>
-						<div className={styles.focusSwitcher}>
+					<Stack stackAlign={"center"} stackSpace={"s5"}>
+						<Switcher
+							switcherJustify={"center"}
+							flexBasis={"40"}
+							elCount={"3"}
+							gap={"s4"}
+						>
 							<IconBox
 								img={aim}
 								width={100}
@@ -43,12 +51,12 @@ const FocusSection = () => {
 								title={"Advanced Tracking"}
 								content={trackingContent}
 							></IconBox>
-						</div>
-						<button className="button">Contact us now</button>
-					</div>
+						</Switcher>
+						<Button>Contact us now</Button>
+					</Stack>
 				</Region>
 			</Wrapper>
-		</BackgroundWrapper>
+		</FullBackground>
 	)
 }
 

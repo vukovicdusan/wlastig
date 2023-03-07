@@ -1,15 +1,16 @@
-import { React, Fragment } from "react";
-import Header from "../Header";
-import Footer from "../Footer";
+import { React, Fragment } from "react"
+import Header from "../Header"
+import Footer from "../Footer"
+import { LayoutStyled } from "../styles/LayoutStyled.styled"
 
 const Layout = ({ children }) => {
 	return (
-		<Fragment>
+		<LayoutStyled>
 			<Header></Header>
 			{children}
 			<Footer></Footer>
-		</Fragment>
-	);
-};
+		</LayoutStyled>
+	)
+}
 
-export default Layout;
+export default Layout

@@ -1,43 +1,49 @@
 import React from "react"
-import Wrapper from "./layout/Wrapper"
-import Region from "./layout/Region"
-import styles from "../styles/Hero.module.css"
+import { Wrapper } from "./styles/Wrapper.styled"
+import { Region } from "./styles/Region.styled"
 import Image from "next/image"
 import dollar from "../public/img/dollar.png"
+import { Switcher } from "./styles/Switcher.styled"
+import { Stack } from "./styles/Stack.styled"
+import { Center } from "./styles/Center.styled"
+import { Button } from "./styles/Button.styled"
+import { HeroStyled } from "./styles/HeroStyled.styled"
+import { Shapedivider } from "./styles/Shapedivider.styled"
 
 function Hero() {
 	return (
-		<div className={styles.hero}>
+		<HeroStyled>
 			<Region>
 				<Wrapper>
-					<div className={styles.heroSwitcher}>
-						<div className={styles.titleStack}>
-							<h1 className={styles.heroTitle}>
-								&quot;50% of all advertising spent is
-								wasted&quot;
-								<span>John Wanamaker</span>
-							</h1>
-							<h4>
-								Due to the competitiveness of the digital
-								market, nowadays your waste is closer to 76%!
-							</h4>
-							<button className="button">
-								Find your money leaks!
-							</button>
-						</div>
-						<div className={styles.center}>
+					<Switcher gap={"s4"}>
+						<Center>
+							<Stack>
+								<h1 className="hero-title">
+									&quot;50% of all advertising spent is
+									wasted&quot;
+									<span>John Wanamaker</span>
+								</h1>
+								<h4>
+									Due to the competitiveness of the digital
+									market, nowadays your waste is closer to
+									76%!
+								</h4>
+								<Button>Find your money leaks!</Button>
+							</Stack>
+						</Center>
+						<Center>
 							<Image
 								src={dollar}
 								width={400}
 								height={300}
 								alt="dollar bill"
-								className={styles.heroImg}
+								className="hero-img"
 							></Image>
-						</div>
-					</div>
+						</Center>
+					</Switcher>
 				</Wrapper>
 			</Region>
-			<div className={styles.shapedivider}>
+			<Shapedivider fill={"var(--background-light)"} position={"bottom"}>
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
@@ -46,8 +52,8 @@ function Hero() {
 				>
 					<path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
 				</svg>
-			</div>
-		</div>
+			</Shapedivider>
+		</HeroStyled>
 	)
 }
 
