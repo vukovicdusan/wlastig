@@ -11,20 +11,22 @@ import { ContactFormSectionStyled } from "./styles/ContactFormSectionStyled.styl
 const ContactFormSection = (props) => {
 	return (
 		<FullBackground background={"var(--primary)"}>
-			<Shapedivider
-				height={"130px"}
-				rotation={"0"}
-				fill={"var(--background-light)"}
-			>
-				<svg
-					data-name="Layer 1"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 1200 120"
-					preserveAspectRatio="none"
+			{props.shapedivider ? (
+				<Shapedivider
+					height={"130px"}
+					rotation={"0"}
+					fill={"var(--background-light)"}
 				>
-					<path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
-				</svg>
-			</Shapedivider>
+					<svg
+						data-name="Layer 1"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 1200 120"
+						preserveAspectRatio="none"
+					>
+						<path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
+					</svg>
+				</Shapedivider>
+			) : null}
 			<Region>
 				<Wrapper>
 					<ContactFormSectionStyled>

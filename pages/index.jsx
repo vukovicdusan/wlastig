@@ -22,6 +22,7 @@ export default function Home() {
 			<FocusSection></FocusSection>
 			<Testimonials></Testimonials>
 			<ContactFormSection
+				shapedivider={true}
 				title={"150+ Point Audit For Data Quality"}
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>
