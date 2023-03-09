@@ -12,17 +12,23 @@ export const InfographicStyled = styled.ol`
 	--number-line-length: calc(var(--rocket-width) / 2 + var(--column-gap) / 2);
 	--number-line-dot-size: 0.25rem;
 
-	padding-bottom: 5rem;
+	@media (max-width: 30rem) {
+		--row-gap: 1rem;
+		--column-gap: 1rem;
+	}
+
+	padding-bottom: 10rem;
 	list-style: none;
 	display: grid;
 	column-gap: var(--column-gap);
 	row-gap: var(--row-gap);
 	counter-reset: liCount;
 	font-family: system-ui, sans-serif;
-	color: white;
+	color: var(--primary);
 	overflow: hidden;
 	width: min(45rem, 100%);
 	margin-inline: auto;
+	margin-block-end: -4rem;
 	--column-gap: 2rem;
 	--rocket-width: 6rem;
 	grid-template-columns: 1fr var(--rocket-width) 1fr;
@@ -83,7 +89,7 @@ export const InfographicStyled = styled.ol`
 		position: absolute;
 		width: 50%;
 		height: 200vh;
-		top: calc(100% - var(--rocket-height) * 0.2);
+		top: calc(100% - var(--rocket-height) * 0.21);
 		left: 25%;
 		z-index: -1;
 		background-image: radial-gradient(

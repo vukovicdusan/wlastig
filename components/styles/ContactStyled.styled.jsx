@@ -5,6 +5,7 @@ export const ContactStyled = styled.form`
 	border-radius: 5px;
 	box-shadow: var(--box-shadow);
 	padding: var(--s2) var(--s2);
+	height: max-content;
 
 	& h3,
 	& p {

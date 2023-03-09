@@ -10,7 +10,7 @@ export const ServicesHeroStyled = styled.div`
 		background-image: url(${(props) => props.backgroundImg || ""});
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: 15%;
+		background-position: ${(props) => props.deskPos || "15%"};
 	}
 
 	.hero-content {
@@ -23,6 +23,10 @@ export const ServicesHeroStyled = styled.div`
 		color: var(--text-dark);
 	}
 
+	.mobile {
+		display: none;
+	}
+
 	@media (max-width: 850px) {
 		.desktop {
 			display: none;
@@ -32,6 +36,10 @@ export const ServicesHeroStyled = styled.div`
 			font-size: var(--s2);
 		}
 
+		.mobile {
+			display: block;
+		}
+
 		.mobile button {
 			display: block;
 			margin-inline: auto;
@@ -39,24 +47,18 @@ export const ServicesHeroStyled = styled.div`
 
 		.hero-background {
 			height: 250px;
-			background-position: 30%;
+			background-position: ${(props) => props.tabPos || "30%"};
 		}
 	}
 
 	@media (max-width: 450px) {
 		.hero-background {
-			background-position: 40%;
+			background-position: ${(props) => props.mobPos || "40%"};
 			height: 150px;
 		}
 
 		h1 {
 			font-size: var(--s0);
-		}
-	}
-
-	@media (min-width: 850px) {
-		.mobile {
-			display: none;
 		}
 	}
 `

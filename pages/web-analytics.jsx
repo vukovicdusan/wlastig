@@ -14,6 +14,9 @@ import { FullBackground } from "../components/styles/FullBackground.styled"
 import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
+import { Shapedivider } from "../components/styles/Shapedivider.styled"
+import CompetitionSection from "../components/styles/CompetitionSection"
+import AnimationContainer from "../components/AnimationContainer"
 
 const webAnalytics = () => {
 	const subsArr = [
@@ -80,25 +83,57 @@ const webAnalytics = () => {
 		{ title: "Continual testing for constant improvement" },
 	]
 
+	let competitionArr = [
+		{
+			competition: "One-size-fits-all solutions",
+			us: "Tailor-made solutions to fit your specific needs",
+		},
+		{
+			competition: "No technical implementation documentation",
+			us: "In-depth, step by step procedure sheet",
+		},
+		{
+			competition: "Set-it-and-forget-it approach",
+			us: "Continuous testing and data quality improvement",
+		},
+		{
+			competition: "Vanity metrics ego boost reporting",
+			us: "Profit-oriented actionable insights ",
+		},
+		{
+			competition: "Inefficient tracking setup slowing down your website",
+			us: "Website-friendly tracking solutions",
+		},
+		{
+			competition: "Hiding behind the technical jargon",
+			us: "Transparent communication",
+		},
+		{ competition: "10 accounts per person", us: "3 accounts per person" },
+	]
+
 	return (
 		<>
 			<ServicesHeroStyled
-				backgroundImg={"./img/services/analytics/hero.png"}
+				backgroundImg={"./img/services/hero-analytics.png"}
 			>
 				<div className="hero-background">
 					<Region>
 						<Wrapper>
 							<div className="hero-content ">
 								<Stack stackAlign={"end"}>
-									<h1>
-										Every company’s data has hidden gems
-										that could skyrocket your profits
-									</h1>
-									<div className="desktop">
-										<Button reverse={true}>
-											Discover your gems!
-										</Button>
-									</div>
+									<AnimationContainer>
+										<h1>
+											Every company’s data has hidden gems
+											that could skyrocket your profits
+										</h1>
+									</AnimationContainer>
+									<AnimationContainer>
+										<div className="desktop">
+											<Button reverse={true}>
+												Discover your gems!
+											</Button>
+										</div>
+									</AnimationContainer>
 								</Stack>
 							</div>
 						</Wrapper>
@@ -115,10 +150,12 @@ const webAnalytics = () => {
 					<Switcher>
 						<Stack stackSpace={"s4"} className="service-info">
 							<Stack>
-								<h2>What is Web Analytics?</h2>
-								<UnderlineStyled
-									underlineMargin={"var(--s-4)"}
-								></UnderlineStyled>
+								<AnimationContainer>
+									<h2>What is Web Analytics?</h2>
+									<UnderlineStyled
+										underlineMargin={"var(--s-4)"}
+									></UnderlineStyled>
+								</AnimationContainer>
 								<p>
 									Web analytics is a measurement and analysis
 									of data to get a deep understanding of
@@ -128,10 +165,12 @@ const webAnalytics = () => {
 								</p>
 							</Stack>
 							<Stack>
-								<h2>Why do you need Web Analytics?</h2>
-								<UnderlineStyled
-									underlineMargin={"var(--s-4)"}
-								></UnderlineStyled>
+								<AnimationContainer>
+									<h2>Why do you need Web Analytics?</h2>
+									<UnderlineStyled
+										underlineMargin={"var(--s-4)"}
+									></UnderlineStyled>
+								</AnimationContainer>
 								<Stack as="ul">
 									<li>
 										You can’t optimize what you can’t
@@ -149,10 +188,12 @@ const webAnalytics = () => {
 								</Stack>
 							</Stack>
 							<Stack>
-								<h2>Do we make the right fit?</h2>
-								<UnderlineStyled
-									underlineMargin={"var(--s-4)"}
-								></UnderlineStyled>
+								<AnimationContainer>
+									<h2>Do we make the right fit?</h2>
+									<UnderlineStyled
+										underlineMargin={"var(--s-4)"}
+									></UnderlineStyled>
+								</AnimationContainer>
 								<p>
 									There are no big or small accounts. Just
 									right and wrong strategies. Whether you’re
@@ -173,19 +214,17 @@ const webAnalytics = () => {
 					</Switcher>
 				</Wrapper>
 			</Region>
-			<FullBackground background={"var(--primary)"}>
-				<Region>
-					<Wrapper>
-						<SubServicesGrid subsArr={subsArr}></SubServicesGrid>
-					</Wrapper>
-				</Region>
-				<Region>
-					<Wrapper>
-						<Infographic processArr={processArr}></Infographic>
-					</Wrapper>
-				</Region>
-			</FullBackground>
+
+			<SubServicesGrid subsArr={subsArr}></SubServicesGrid>
+
+			<Infographic processArr={processArr.reverse()}></Infographic>
+
+			<CompetitionSection
+				competitionArr={competitionArr}
+			></CompetitionSection>
+
 			<ContactFormSection
+				shapedivider={false}
 				title={"150+ Point Audit For Data Quality"}
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>

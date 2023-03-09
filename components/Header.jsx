@@ -11,11 +11,10 @@ import { Stack } from "./styles/Stack.styled"
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
 	const dropdownRef = useRef()
-	// let dropdownHeight
+
 	useEffect(() => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
 	}, [])
-	console.log(dropdownHeight)
 	return (
 		<HeaderStyled dropdownHeight={dropdownHeight}>
 			<Wrapper>
