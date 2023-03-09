@@ -7,7 +7,7 @@ import { Button } from "./styles/Button.styled"
 
 // import Loader from "../components/Loader"
 
-const Contact = () => {
+const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
 	const [contactFormData, setContactFormData] = useState({})
 	const [contactFormProccess, setContactFormProccess] = useState({
@@ -99,7 +99,7 @@ const Contact = () => {
 					/>
 					<label htmlFor="email">Email</label>
 				</InputWrapper>
-				<Button>Submit</Button>
+				<Button>{props.cta || "Submit"}</Button>
 			</Stack>
 		</ContactStyled>
 	)

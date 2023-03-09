@@ -114,7 +114,7 @@ const webAnalytics = () => {
 	return (
 		<>
 			<ServicesHeroStyled
-				backgroundImg={"./img/services/analytics/hero.png"}
+				backgroundImg={"./img/services/hero-analytics.png"}
 			>
 				<div className="hero-background">
 					<Region>
@@ -217,7 +217,7 @@ const webAnalytics = () => {
 
 			<SubServicesGrid subsArr={subsArr}></SubServicesGrid>
 
-			<Infographic processArr={processArr}></Infographic>
+			<Infographic processArr={processArr.reverse()}></Infographic>
 
 			<CompetitionSection
 				competitionArr={competitionArr}

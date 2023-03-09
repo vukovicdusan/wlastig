@@ -61,7 +61,7 @@ const SubServicesGrid = (props) => {
 							</AnimationContainer>
 						))}
 					</Wrap>
-					{subsCount <= props.subsArr.length ? (
+					{subsCount < props.subsArr.length ? (
 						<Center className="mr-t-4">
 							<Button onClick={seeMore}>See More</Button>
 						</Center>

@@ -12,14 +12,21 @@ const Infographic = (props) => {
 	const [show, setShow] = useState(false)
 
 	useEffect(() => {
+		let config = {
+			threshold: 0.5,
+		}
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
+					console.log(entry.boundingClientRect)
 					setShow(true)
 				}
 			})
-		})
+		}, config)
 		observer.observe(animationRef.current)
+		return () => {
+			observer.disconnect()
+		}
 	}, [])
 
 	return (

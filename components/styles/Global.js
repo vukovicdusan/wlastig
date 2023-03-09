@@ -216,6 +216,15 @@ h5 {
 h6 {
 	font-size: var(--s0);
 }
+.title-l {
+	font-size: var(--s2);
+	text-shadow: var(--text-shadow);
+}
+
+.title-xl {
+	font-size: var(--s5);
+	text-shadow: var(--text-shadow);
+}
 
 @media (max-width: 450px) {
 	h1 {
@@ -240,7 +249,10 @@ h6 {
 		font-size: var(--s-1);
 	}
 	.title-l {
-		font-size: var(--s3);
+		font-size: var(--s1);
+	}
+	.title-xl {
+	font-size: var(--s2);
 	}
 }
 
@@ -337,15 +349,7 @@ label {
 	margin-block-start: var(--s5, 4rem) !important;
 }
 
-.title-l {
-	font-size: var(--s2);
-	text-shadow: var(--text-shadow);
-}
 
-.title-xl {
-	font-size: var(--s5);
-	text-shadow: var(--text-shadow);
-}
 
 .text-light {
 	color: var(--text-light);

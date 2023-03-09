@@ -45,4 +45,11 @@ export const CompetitionSectionStyled = styled.div`
 	.card-container > * {
 		width: 100%;
 	}
+
+	.text-light {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-items: center;
+	}
 `

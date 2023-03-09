@@ -16,7 +16,11 @@ const CompetitionSection = (props) => {
 				<Wrapper>
 					<CompetitionSectionStyled>
 						<Center>
-							<h2 className="text-light">Competition VS Us</h2>
+							<h2 className="text-light">
+								<span>Competition</span>
+								<span>VS</span>
+								<span>Us</span>
+							</h2>
 							<UnderlineStyled></UnderlineStyled>
 						</Center>
 						<Stack stackAlign={"inherit"}>

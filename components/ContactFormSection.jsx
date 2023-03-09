@@ -7,6 +7,7 @@ import { Region } from "./styles/Region.styled"
 import { Switcher } from "./styles/Switcher.styled"
 import { Stack } from "./styles/Stack.styled"
 import { ContactFormSectionStyled } from "./styles/ContactFormSectionStyled.styled"
+import AnimationContainer from "./AnimationContainer"
 
 const ContactFormSection = (props) => {
 	return (
@@ -31,13 +32,15 @@ const ContactFormSection = (props) => {
 				<Wrapper>
 					<ContactFormSectionStyled>
 						<Switcher gap={"s5"}>
-							<Contact></Contact>
+							<Contact cta={props.cta}></Contact>
 							<Stack
 								stackJustify={"center"}
 								stackAlign={"center"}
 							>
-								<h3 className="title-xl">{props.title}</h3>
-								<p className="title-l">{props.subTitle}</p>
+								<AnimationContainer>
+									<h3 className="title-xl">{props.title}</h3>
+									<p className="title-l">{props.subTitle}</p>
+								</AnimationContainer>
 							</Stack>
 						</Switcher>
 					</ContactFormSectionStyled>

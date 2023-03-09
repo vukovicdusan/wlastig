@@ -14,6 +14,9 @@ const AnimationContainer = (props) => {
 			})
 		})
 		observer.observe(animationRef.current)
+		return () => {
+			observer.disconnect()
+		}
 	}, [])
 
 	return (
