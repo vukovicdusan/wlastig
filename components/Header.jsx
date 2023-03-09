@@ -10,11 +10,18 @@ import { Stack } from "./styles/Stack.styled"
 
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
+	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const dropdownRef = useRef()
+
+	const openDropdown = (e) => {
+		e.preventDefault()
+		dropdownOpen ? setDropdownOpen(false) : setDropdownOpen(true)
+	}
 
 	useEffect(() => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
-	}, [])
+	}, [dropdownOpen])
+
 	return (
 		<HeaderStyled dropdownHeight={dropdownHeight}>
 			<Wrapper>
@@ -37,14 +44,17 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className="dropdown-link">
-								<Link
-									className="dropdown-icon"
-									href={"/"}
-									passHref
+								<div
+									onClick={openDropdown}
+									className="disabled-link dropdown-icon"
 								>
 									Services{" "}
 									<svg
-										className="closed"
+										className={
+											dropdownOpen
+												? "icon-closed show"
+												: "icon-closed hidden"
+										}
 										height={24}
 										width={24}
 										clipRule="evenodd"
@@ -61,7 +71,11 @@ const Header = () => {
 										/>
 									</svg>
 									<svg
-										className="open"
+										className={
+											dropdownOpen
+												? "icon-open hidden"
+												: "icon-open show"
+										}
 										clipRule="evenodd"
 										fillRule="evenodd"
 										strokeLinejoin="round"
@@ -77,10 +91,14 @@ const Header = () => {
 											fill="#fff"
 										/>
 									</svg>
-								</Link>
+								</div>
 								<Stack
 									as="ul"
-									className="dropdown"
+									className={
+										!dropdownOpen
+											? "dropdown open"
+											: "dropdown closed"
+									}
 									ref={dropdownRef}
 								>
 									<li>
