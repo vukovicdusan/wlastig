@@ -1,4 +1,4 @@
-import { mailOptions, transporter } from "../../config/nodemailer"
+import { mailOptions, transporter } from "../../config/nodemailer.js"
 
 const handler = async (req, res) => {
 	if (req.method === "POST") {
