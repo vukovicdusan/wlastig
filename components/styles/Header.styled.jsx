@@ -4,7 +4,8 @@ export const HeaderStyled = styled.header`
 	padding-block: 0.5rem;
 	background-color: #020024;
 
-	& a {
+	& a,
+	& .disabled-link {
 		color: var(--text-light);
 	}
 
@@ -14,6 +15,7 @@ export const HeaderStyled = styled.header`
 
 	.dropdown-link {
 		position: relative;
+		cursor: pointer;
 	}
 
 	.dropdown {
@@ -31,21 +33,21 @@ export const HeaderStyled = styled.header`
 		box-sizing: content-box;
 	}
 
-	.dropdown-link:hover ul {
+	.dropdown.closed {
+		max-height: 0;
+	}
+
+	.dropdown.open {
 		max-height: ${(props) => props.dropdownHeight || ""}px;
 		opacity: 1;
 	}
 
-	.open {
-		display: none;
-	}
-
-	.dropdown-link:hover .closed {
-		display: none;
-	}
-
-	.dropdown-link:hover .open {
+	.show {
 		display: block;
+	}
+
+	.hidden {
+		display: none;
 	}
 
 	.dropdown-icon {

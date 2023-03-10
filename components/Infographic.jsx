@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import AnimationContainer from "./AnimationContainer"
 import { Center } from "./styles/Center.styled"
 import { FullBackground } from "./styles/FullBackground.styled"
 import { Region } from "./styles/Region.styled"
@@ -18,7 +19,6 @@ const Infographic = (props) => {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					console.log(entry.boundingClientRect)
 					setShow(true)
 				}
 			})
@@ -52,8 +52,10 @@ const Infographic = (props) => {
 			<Region>
 				<Wrapper>
 					<Center>
-						<h2>Our Proccess</h2>
-						<UnderlineStyled></UnderlineStyled>
+						<AnimationContainer>
+							<h2>Our Proccess</h2>
+							<UnderlineStyled></UnderlineStyled>
+						</AnimationContainer>
 					</Center>
 					<InfographicStyled ref={animationRef}>
 						<div

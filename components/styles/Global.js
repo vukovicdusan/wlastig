@@ -93,14 +93,14 @@ a:not([class]) {
 	text-decoration-skip-ink: auto;
 }
 
-a {
+a, .disabled-link {
 	color: var(--text-dark);
 	text-decoration: none;
 	transition: all 0.3s ease;
 	position: relative;
 }
 
-a::after {
+a::after, .disabled-link::after {
 	content: "";
 	position: absolute;
 	width: 0%;
@@ -112,7 +112,7 @@ a::after {
 	transition: width 0.2s ease-in-out;
 }
 
-a:hover::after,
+a:hover::after, .disabled-link:hover::after,
 .navlink-active::after {
 	width: 100%;
 }

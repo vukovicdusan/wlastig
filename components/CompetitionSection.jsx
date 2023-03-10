@@ -1,13 +1,13 @@
 import React from "react"
-import { Wrapper } from "./Wrapper.styled"
-import { Region } from "./Region.styled"
-import { Stack } from "./Stack.styled"
-import { Switcher } from "./Switcher.styled"
-import { FullBackground } from "./FullBackground.styled"
-import { CompetitionSectionStyled } from "./services/CompetitionSectionStyled.styled"
-import { Center } from "./Center.styled"
-import { UnderlineStyled } from "./UnderlineStyled.styled"
-import AnimationContainer from "../AnimationContainer"
+import { Wrapper } from "./styles/Wrapper.styled"
+import { Region } from "./styles/Region.styled"
+import { Stack } from "./styles/Stack.styled"
+import { Switcher } from "./styles/Switcher.styled"
+import { FullBackground } from "./styles/FullBackground.styled"
+import { CompetitionSectionStyled } from "./styles/services/CompetitionSectionStyled.styled"
+import { Center } from "./styles/Center.styled"
+import { UnderlineStyled } from "./styles/UnderlineStyled.styled"
+import AnimationContainer from "./AnimationContainer"
 
 const CompetitionSection = (props) => {
 	return (
@@ -15,14 +15,16 @@ const CompetitionSection = (props) => {
 			<Region>
 				<Wrapper>
 					<CompetitionSectionStyled>
-						<Center>
-							<h2 className="text-light">
-								<span>Competition</span>
-								<span>VS</span>
-								<span>Us</span>
-							</h2>
-							<UnderlineStyled></UnderlineStyled>
-						</Center>
+						<AnimationContainer>
+							<Center>
+								<h2 className="text-light">
+									<span>Competition</span>
+									<span>VS</span>
+									<span>Us</span>
+								</h2>
+								<UnderlineStyled></UnderlineStyled>
+							</Center>
+						</AnimationContainer>
 						<Stack stackAlign={"inherit"}>
 							{props.competitionArr.map((el, index) => (
 								<AnimationContainer

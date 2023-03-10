@@ -8,72 +8,16 @@ import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroSt
 import { Center } from "../components/styles/Center.styled"
 import { Button } from "../components/styles/Button.styled"
 import illustration from "../public/img/report_analysis_-1.svg"
-import SubServicesGrid from "../components/SubServicesGrid"
-import bulb from "../public/img/bulb.svg"
 import { FullBackground } from "../components/styles/FullBackground.styled"
 import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
-import CompetitionSection from "../components/styles/CompetitionSection"
+import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
+import Faq from "../components/Faq"
 
 const consulting = () => {
-	// const subsArr = [
-	// 	{
-	// 		title: "Tracking",
-	// 		content:
-	// 			"Get an advanced tracking solution for your company's success!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Conversion Attribution",
-	// 		content:
-	// 			"Don’t go for the one-size-fits-all attribution model, get yourself a custom fit!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Website optimization",
-	// 		content:
-	// 			"Transform your website into a conversion generating machine!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Marketing Databases",
-	// 		content:
-	// 			"Leverage your offline data to improve your online performance!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Predictive analytics and ML",
-	// 		content:
-	// 			"Predicting and capitalizing on the future trends and customer behaviour!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "A/B testing",
-	// 		content: "Test your hypothesis to improve your results!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Reporting and Visualization",
-	// 		content: "Uncover the story behind your data!",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Data Quality Testing",
-	// 		content:
-	// 			"Your decisions are only as good as your data. Improve your decisions by enhancing the quality of your data.",
-	// 		img: bulb,
-	// 	},
-	// 	{
-	// 		title: "Behavior Analysis",
-	// 		content:
-	// 			"Understand who your customers are, what they want and what impacts their decision making.",
-	// 		img: bulb,
-	// 	},
-	// ]
-
 	let processArr = [
 		{ title: "Getting to know your business" },
 		{ title: "Defining the goals" },
@@ -103,6 +47,33 @@ const consulting = () => {
 		{
 			competition: "Inflexible approach",
 			us: "Full-flexibility approach",
+		},
+	]
+
+	let faqArr = [
+		{
+			title: "Does consulting make sense for my business?",
+			body: (
+				<p>
+					Consulting is there to point you towards those details that
+					might have slipped your attention. Or for when you wanna try
+					something you haven’t tried before, but aren’t sure how to
+					go about it. Think Google Maps. With the right guidance,
+					you’ll get to the goal you set in no time, even though you
+					didn’t really know how to get there.
+				</p>
+			),
+		},
+		{
+			title: "When will I see results?",
+			body: (
+				<p>
+					Consulting takes time. You can’t expect results after a few
+					days or a month. (well, in some cases), but if we work
+					together and honour the agreement, the results will be
+					visible soon enough.
+				</p>
+			),
 		},
 	]
 
@@ -212,6 +183,7 @@ const consulting = () => {
 				subTitle={"(3X The Industry Average)"}
 				cta={"Improve your data quality for FREE!"}
 			></ContactFormSection>
+			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
 		</>
 	)
 }

@@ -15,8 +15,9 @@ import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
-import CompetitionSection from "../components/styles/CompetitionSection"
+import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
+import Faq from "../components/Faq"
 
 const webAnalytics = () => {
 	const subsArr = [
@@ -109,6 +110,30 @@ const webAnalytics = () => {
 			us: "Transparent communication",
 		},
 		{ competition: "10 accounts per person", us: "3 accounts per person" },
+	]
+
+	let faqArr = [
+		{
+			title: "How much experience do you have?",
+			body: (
+				<p>
+					The team that will help your business grow learned their
+					craft working for more than 200 clients, coming from a wide
+					array of business verticals with diverse professional needs.
+				</p>
+			),
+		},
+		{
+			title: "What is your specialty?",
+			body: (
+				<p>
+					Data Collection.<br></br>
+					<br></br> Make sure that the data portfolio contains all
+					valuable data touchpoints and that you have the highest data
+					quality possible.
+				</p>
+			),
+		},
 	]
 
 	return (
@@ -228,6 +253,7 @@ const webAnalytics = () => {
 				title={"150+ Point Audit For Data Quality"}
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>
+			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
 		</>
 	)
 }

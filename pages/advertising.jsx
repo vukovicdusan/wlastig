@@ -15,8 +15,9 @@ import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
-import CompetitionSection from "../components/styles/CompetitionSection"
+import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
+import Faq from "../components/Faq"
 
 const advertising = () => {
 	const subsArr = [
@@ -100,6 +101,99 @@ const advertising = () => {
 		},
 
 		{ competition: "10 accounts per person", us: "3 accounts per person" },
+	]
+
+	let faqArr = [
+		{
+			title: "What kind of clients have you served so far?",
+			body: (
+				<p>
+					Handling diverse budget constraints for a wide range of
+					business types, we worked with small, middle, and big
+					companies, spanning from e-commerce via lead generation to
+					B2B and SaaS. Our smallest client had a monthly advertising
+					budget of 5K and our largest went as high as 240K. We
+					learned how to squeeze the maximum out of smaller budgets
+					and decrease waste to a minimum with the big ones.
+				</p>
+			),
+		},
+		{
+			title: "Who will work on my project?",
+			body: (
+				<p>
+					Your assigned team comprises three persons. Depending on the
+					type of your business, you’ll get a chief account manager
+					who specializes in your field. Two A number of account
+					managers will be serving as peer reviewers to minimize the
+					possibility of human error. For more sophisticated issues, a
+					specialized web analyst will aid the chief account manager
+					with in-depth analysis questions.<br></br>
+					<br></br> When necessary, a web designer, graphic designer,
+					and copywriter will join the team as your mini-creative
+					department.
+				</p>
+			),
+		},
+		{
+			title: "How much experience do you have?",
+			body: (
+				<p>
+					The team that will help your business grow learned their
+					craft working for more than 200 clients, coming from a wide
+					array of business verticals with diverse professional needs.
+				</p>
+			),
+		},
+		{
+			title: "How long until I see results?",
+			body: (
+				<p>
+					It depends on too many factors. Get your FREE audit and
+					you’ll get an accurate estimate. Typically, clients see
+					improvements within a month from the moment they apply audit
+					recommendations.
+				</p>
+			),
+		},
+		{
+			title: "What tools and technologies do you use?",
+			body: (
+				<p>
+					We use whatever tool is best for your business. Primary
+					marketing platforms which work for most businesses, which we
+					regularly use are:
+					<br></br>
+					<br></br>* Google Ads<br></br>* Facebook and Instagram Ads
+					<br></br>* Bing Ads <br></br>* Linkedin Ads
+					<br></br>
+					<br></br>
+					We also employ various analytics tools to enhance marketing
+					performance.
+				</p>
+			),
+		},
+		{
+			title: "How long is your service contract?",
+			body: (
+				<p>
+					Where others chain you for half a year, your minimum
+					contractual obligation with us is four weeks. Every month a
+					revision takes place, upon which you may or may not re-sign.
+					We’re pretty sure you’ll want to continue.
+				</p>
+			),
+		},
+		{
+			title: "Can you guarantee results?",
+			body: (
+				<p>
+					Whoever says they can, is not being straight. We can
+					guarantee that each and every one decision will be based on
+					sound statistical and mathematical principles.
+				</p>
+			),
+		},
 	]
 
 	return (
@@ -201,6 +295,7 @@ const advertising = () => {
 				subTitle={"Stop wasting money, find your leaks for FREE!"}
 				cta={"Get a FREE Audit"}
 			></ContactFormSection>
+			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
 		</>
 	)
 }

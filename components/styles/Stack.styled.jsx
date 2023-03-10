@@ -13,7 +13,6 @@ export const Stack = styled.div`
 	}
 
 	& > * + * {
-		--stack-space: var(--s0);
 		margin-block-start: var(
 			--${(props) => (props.stackSpace ? props.stackSpace : "s0")}
 		);
