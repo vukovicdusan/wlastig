@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const ServicesHeroStyled = styled.div`
 	color: var(--text-light);
+	padding-block-start: 65px;
 
 	.hero-background {
 		display: flex;
@@ -11,6 +12,7 @@ export const ServicesHeroStyled = styled.div`
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: ${(props) => props.deskPos || "15%"};
+		min-height: 400px;
 	}
 
 	.hero-content {
@@ -46,7 +48,7 @@ export const ServicesHeroStyled = styled.div`
 		}
 
 		.hero-background {
-			height: 250px;
+			min-height: 250px;
 			background-position: ${(props) => props.tabPos || "30%"};
 		}
 	}
@@ -54,7 +56,7 @@ export const ServicesHeroStyled = styled.div`
 	@media (max-width: 450px) {
 		.hero-background {
 			background-position: ${(props) => props.mobPos || "40%"};
-			height: 150px;
+			min-height: 150px;
 		}
 
 		h1 {

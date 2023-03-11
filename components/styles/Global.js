@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
 	/** ==== VARIABLES ==== */
 
 	--primary: #083d77;
-	--primary-shade: #083d774d;
+	--primary-shade: #B4C5D6;
 	--secondary: #f2545b;
 	--text-dark: #1c2334;
 	--text-light: #f8f8ff;

@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"name": "wlastig-nextjs",
+			"path": ".."
+		},
+		{
+			"name": "config",
+			"path": "../../milicajanevski/config"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#0b55a7",
+			"activityBar.background": "#0b55a7",
+			"activityBar.foreground": "#e7e7e7",
+			"activityBar.inactiveForeground": "#e7e7e799",
+			"activityBarBadge.background": "#f34c9b",
+			"activityBarBadge.foreground": "#15202b",
+			"commandCenter.border": "#e7e7e799",
+			"sash.hoverBorder": "#0b55a7",
+			"statusBar.background": "#083d77",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#0b55a7",
+			"statusBarItem.remoteBackground": "#083d77",
+			"statusBarItem.remoteForeground": "#e7e7e7",
+			"titleBar.activeBackground": "#083d77",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#083d7799",
+			"titleBar.inactiveForeground": "#e7e7e799"
+		},
+		"peacock.color": "#083d77"
+	}
+}

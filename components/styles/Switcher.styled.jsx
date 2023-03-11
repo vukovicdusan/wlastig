@@ -5,7 +5,7 @@ export const Switcher = styled.div`
 	flex-wrap: wrap;
 	gap: var(--${(props) => props.gap || "s1"});
 	justify-content: ${(props) => props.switcherJustify || "flex-start"};
-
+	flex-direction: ${(props) => (props.reverse ? "row-reverse" : "revert")};
 	& > * {
 		flex-grow: 1;
 		flex-basis: calc(

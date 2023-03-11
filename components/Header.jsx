@@ -10,18 +10,11 @@ import { Stack } from "./styles/Stack.styled"
 
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
-	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const dropdownRef = useRef()
-
-	const openDropdown = (e) => {
-		e.preventDefault()
-		dropdownOpen ? setDropdownOpen(false) : setDropdownOpen(true)
-	}
 
 	useEffect(() => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
-	}, [dropdownOpen])
-
+	}, [])
 	return (
 		<HeaderStyled dropdownHeight={dropdownHeight}>
 			<Wrapper>
@@ -45,16 +38,17 @@ const Header = () => {
 							</li>
 							<li className="dropdown-link">
 								<div
-									onClick={openDropdown}
+									// onClick={openDropdown}
 									className="disabled-link dropdown-icon"
 								>
 									Services{" "}
 									<svg
-										className={
-											dropdownOpen
-												? "icon-closed show"
-												: "icon-closed hidden"
-										}
+										// className={
+										// 	dropdownOpen
+										// 		? "icon-closed hidden"
+										// 		: "icon-closed show"
+										// }
+										className="icon-closed"
 										height={24}
 										width={24}
 										clipRule="evenodd"
@@ -71,11 +65,12 @@ const Header = () => {
 										/>
 									</svg>
 									<svg
-										className={
-											dropdownOpen
-												? "icon-open hidden"
-												: "icon-open show"
-										}
+										// className={
+										// 	dropdownOpen
+										// 		? "icon-open show"
+										// 		: "icon-open hidden"
+										// }
+										className="icon-open"
 										clipRule="evenodd"
 										fillRule="evenodd"
 										strokeLinejoin="round"
@@ -94,11 +89,12 @@ const Header = () => {
 								</div>
 								<Stack
 									as="ul"
-									className={
-										!dropdownOpen
-											? "dropdown open"
-											: "dropdown closed"
-									}
+									// className={
+									// 	!dropdownOpen
+									// 		? "dropdown closed"
+									// 		: "dropdown open"
+									// }
+									className="dropdown"
 									ref={dropdownRef}
 								>
 									<li>
@@ -119,17 +115,17 @@ const Header = () => {
 								</Stack>
 							</li>
 							<li>
-								<Link href={"/"} passHref>
+								<Link href={"/our-team"} passHref>
 									Our Team
 								</Link>
 							</li>
 							<li>
-								<Link href={"/"} passHref>
+								<Link href={"/careers"} passHref>
 									Careers
 								</Link>
 							</li>
 							<li>
-								<Link href={"/"} passHref>
+								<Link href={"/contact"} passHref>
 									Contact Us
 								</Link>
 							</li>

@@ -16,7 +16,7 @@ const ContactFormSection = (props) => {
 				<Shapedivider
 					height={"130px"}
 					rotation={"0"}
-					fill={"var(--background-light)"}
+					fill={props.shapedividerColor || "var(--background-light)"}
 				>
 					<svg
 						data-name="Layer 1"
@@ -31,8 +31,7 @@ const ContactFormSection = (props) => {
 			<Region>
 				<Wrapper>
 					<ContactFormSectionStyled>
-						<Switcher gap={"s5"}>
-							<Contact cta={props.cta}></Contact>
+						<Switcher reverse={true} gap={"s5"}>
 							<Stack
 								stackJustify={"center"}
 								stackAlign={"center"}
@@ -42,6 +41,7 @@ const ContactFormSection = (props) => {
 									<p className="title-l">{props.subTitle}</p>
 								</AnimationContainer>
 							</Stack>
+							<Contact cta={props.cta}></Contact>
 						</Switcher>
 					</ContactFormSectionStyled>
 				</Wrapper>
