@@ -1,7 +1,10 @@
 import styled from "styled-components"
 
 export const FooterStyled = styled.footer`
-	padding-block-start: var(--s5);
+	padding-block-start: calc(var(--s5) + 3rem);
+	@media (max-width: 715px) {
+		padding-block-start: calc(var(--s5));
+	}
 
 	.letterIcon {
 		width: var(--s5);

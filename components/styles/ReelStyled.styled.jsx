@@ -91,9 +91,14 @@ export const ReelStyled = styled.div`
 	}
 
 	@media (max-width: 800px) {
+		block-size: 700px;
+
 		.reel-item--content {
 			font-size: var(--s0);
 			inline-size: 90%;
+			display: flex;
+			flex-direction: column;
+			padding-block-start: 4rem;
 		}
 		.reel-item--content > *:nth-child(1) {
 			flex: 1 1 40%;
