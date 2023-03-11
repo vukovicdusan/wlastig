@@ -21,7 +21,7 @@ const Reel = () => {
 
 	return (
 		<FullBackground>
-			<Region pb={"0"}>
+			<Region pb={"0"} pt={"0"}>
 				<ReelStyled className="reel">
 					<div className="reel-links">
 						<button

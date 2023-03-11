@@ -94,7 +94,7 @@ export const TestimonialsStyled = styled.div`
 		left: 50%;
 		transform: translateX(-50%);
 		width: 70%;
-		z-index: 100;
+		z-index: 9;
 	}
 
 	.reelButton {

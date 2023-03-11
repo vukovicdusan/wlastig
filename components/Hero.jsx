@@ -43,7 +43,11 @@ function Hero() {
 					</Switcher>
 				</Wrapper>
 			</Region>
-			<Shapedivider fill={"var(--background-light)"} position={"bottom"}>
+			<Shapedivider
+				fill={"var(--background-light)"}
+				position={"bottom"}
+				height={"100px"}
+			>
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
