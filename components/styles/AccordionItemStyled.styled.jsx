@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const AccordionItemStyled = styled.div`
-	width: 60ch;
+	max-width: 60ch;
 	color: ${(props) => props.color || ""};
 	.accordion-title {
 		display: flex;

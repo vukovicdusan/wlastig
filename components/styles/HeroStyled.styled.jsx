@@ -7,6 +7,7 @@ export const HeroStyled = styled.div`
 	color: var(--text-light);
 	position: relative;
 	padding-block-end: 10rem;
+	padding-block-start: 65px;
 
 	@media (max-width: 850px) {
 		padding-block-end: 5rem;

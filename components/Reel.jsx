@@ -7,6 +7,7 @@ import reel3 from "../public/img/google_ad.svg"
 import reelLink1 from "../public/img/analytics.svg"
 import reelLink2 from "../public/img/advertisement.svg"
 import reelLink3 from "../public/img/consultations.svg"
+import AnimationContainer from "./AnimationContainer"
 import { Region } from "./styles/Region.styled"
 import { Shapedivider } from "./styles/Shapedivider.styled"
 import { FullBackground } from "./styles/FullBackground.styled"
@@ -21,51 +22,57 @@ const Reel = () => {
 
 	return (
 		<FullBackground>
-			<Region pb={"0"}>
+			<Region pb={"0"} pt={"0"}>
 				<ReelStyled className="reel">
 					<div className="reel-links">
-						<button
-							onClick={() => reelLinkHandler(0)}
-							className="reel-button"
-						>
-							<span className="reel-link-icon">
-								<Image
-									src={reelLink1}
-									height={70}
-									width={70}
-									alt="analytics logo"
-								></Image>
-								Analytics
-							</span>
-						</button>
-						<button
-							onClick={() => reelLinkHandler(1)}
-							className="reel-button"
-						>
-							<span className="reel-link-icon">
-								<Image
-									src={reelLink2}
-									height={70}
-									width={70}
-									alt="advertisement logo"
-								></Image>
-								Advertising
-							</span>
-						</button>
-						<button
-							onClick={() => reelLinkHandler(2)}
-							className="reel-button"
-						>
-							<span className="reel-link-icon">
-								<Image
-									src={reelLink3}
-									height={70}
-									width={70}
-									alt="consulting logo"
-								></Image>
-								Consulting
-							</span>
-						</button>
+						<AnimationContainer delay={"1"}>
+							<button
+								onClick={() => reelLinkHandler(0)}
+								className="reel-button"
+							>
+								<span className="reel-link-icon">
+									<Image
+										src={reelLink1}
+										height={70}
+										width={70}
+										alt="analytics logo"
+									></Image>
+									Analytics
+								</span>
+							</button>
+						</AnimationContainer>
+						<AnimationContainer delay={"3"}>
+							<button
+								onClick={() => reelLinkHandler(1)}
+								className="reel-button"
+							>
+								<span className="reel-link-icon">
+									<Image
+										src={reelLink2}
+										height={70}
+										width={70}
+										alt="advertisement logo"
+									></Image>
+									Advertising
+								</span>
+							</button>
+						</AnimationContainer>
+						<AnimationContainer delay={"5"}>
+							<button
+								onClick={() => reelLinkHandler(2)}
+								className="reel-button"
+							>
+								<span className="reel-link-icon">
+									<Image
+										src={reelLink3}
+										height={70}
+										width={70}
+										alt="consulting logo"
+									></Image>
+									Consulting
+								</span>
+							</button>
+						</AnimationContainer>
 					</div>
 					<div
 						style={{
@@ -89,35 +96,43 @@ const Reel = () => {
 						<div className="reel-item">
 							<div className="reel-item--content">
 								<Image src={reel1} alt="analysis image"></Image>
-								<p>
-									A data analysis which allows deeper
-									understanding of{" "}
-									<span>CUSTOMER BEHAVIOUR, MARKETING</span>{" "}
-									and <span>WEBSITE PERFORMANCE</span>.
-								</p>
+								<AnimationContainer>
+									<p>
+										A data analysis which allows deeper
+										understanding of{" "}
+										<span>
+											CUSTOMER BEHAVIOUR, MARKETING
+										</span>{" "}
+										and <span>WEBSITE PERFORMANCE</span>.
+									</p>
+								</AnimationContainer>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
 								<Image src={reel3} alt="analysis image"></Image>
-								<p>
-									To optimize your campaigns and{" "}
-									<span>REDUCE ADVERTISING EXPENSES</span>, we
-									use state-of-the-art advertising methods
-									which leverage machine learning.
-								</p>
+								<AnimationContainer>
+									<p>
+										To optimize your campaigns and{" "}
+										<span>REDUCE ADVERTISING EXPENSES</span>
+										, we use state-of-the-art advertising
+										methods which leverage machine learning.
+									</p>
+								</AnimationContainer>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
 								<Image src={reel2} alt="analysis image"></Image>
-								<p>
-									When in trouble, get a fresh pair of eyes to{" "}
-									<span>SAVE YOUR TIME</span> and{" "}
-									<span>MONEY</span>. Whatever the problem,
-									we&quot;ll be there to promptly steer the
-									way towards solution.
-								</p>
+								<AnimationContainer>
+									<p>
+										When in trouble, get a fresh pair of
+										eyes to <span>SAVE YOUR TIME</span> and{" "}
+										<span>MONEY</span>. Whatever the
+										problem, we&quot;ll be there to promptly
+										steer the way towards solution.
+									</p>
+								</AnimationContainer>
 							</div>
 						</div>
 					</div>

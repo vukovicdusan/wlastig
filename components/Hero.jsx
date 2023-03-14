@@ -9,6 +9,7 @@ import { Center } from "./styles/Center.styled"
 import { Button } from "./styles/Button.styled"
 import { HeroStyled } from "./styles/HeroStyled.styled"
 import { Shapedivider } from "./styles/Shapedivider.styled"
+import AnimationContainer from "./AnimationContainer"
 
 function Hero() {
 	return (
@@ -18,32 +19,48 @@ function Hero() {
 					<Switcher gap={"s4"}>
 						<Center>
 							<Stack>
-								<h1 className="hero-title">
-									&quot;50% of all advertising spent is
-									wasted&quot;
-									<span>John Wanamaker</span>
-								</h1>
-								<h4>
-									Due to the competitiveness of the digital
-									market, nowadays your waste is closer to
-									76%!
-								</h4>
-								<Button>Find your money leaks!</Button>
+								<AnimationContainer>
+									<h1 className="hero-title">
+										&quot;50% of all advertising spent is
+										wasted&quot;
+										<span>John Wanamaker</span>
+									</h1>
+								</AnimationContainer>
+								<AnimationContainer
+									direction={"translateX"}
+									distance={"-500px"}
+									delay={"2"}
+								>
+									<h4>
+										Due to the competitiveness of the
+										digital market, nowadays your waste is
+										closer to 76%!
+									</h4>
+								</AnimationContainer>
+								<AnimationContainer delay={"3"}>
+									<Button>Find your money leaks!</Button>
+								</AnimationContainer>
 							</Stack>
 						</Center>
 						<Center>
-							<Image
-								src={dollar}
-								width={400}
-								height={300}
-								alt="dollar bill"
-								className="hero-img"
-							></Image>
+							<AnimationContainer direction={"translateX"}>
+								<Image
+									src={dollar}
+									width={400}
+									height={300}
+									alt="dollar bill"
+									className="hero-img"
+								></Image>
+							</AnimationContainer>
 						</Center>
 					</Switcher>
 				</Wrapper>
 			</Region>
-			<Shapedivider fill={"var(--background-light)"} position={"bottom"}>
+			<Shapedivider
+				fill={"var(--background-light)"}
+				position={"bottom"}
+				height={"100px"}
+			>
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
