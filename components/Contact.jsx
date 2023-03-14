@@ -20,6 +20,10 @@ const Contact = (props) => {
 		setHasMounted(true)
 	}, [])
 
+	useEffect(() => {
+		props.onFormSubmitHandler(contactFormProccess.success)
+	}, [contactFormProccess.success, props])
+
 	if (!hasMounted) {
 		return null
 	}
@@ -54,25 +58,23 @@ const Contact = (props) => {
 	}
 
 	return (
-		<ContactStyled>
-			<Stack
-				stackSpace={"s3"}
-				onSubmit={onSubmitHandler}
-				className="contactStack"
-			>
+		<ContactStyled onSubmit={onSubmitHandler}>
+			<Stack stackSpace={"s3"} className="contactStack">
 				<div>
 					<h3>Improve your Data Quality for FREE!</h3>
 					<p>Your decisions are only as good as your data.</p>
 				</div>
 				{!contactFormProccess.success && contactFormProccess.error ? (
 					<p className="error">
-						Došlo je do greške. Poruka nije poslata.
+						Something went wrong. Message was not sent.
 					</p>
 				) : !contactFormProccess.success &&
 				  !contactFormProccess.error ? (
 					""
 				) : (
-					<p className="success">Hvala na poruci! Javljamo se!</p>
+					<p className="success">
+						Thak you for your message! We will contact you ASAP!
+					</p>
 				)}
 				<InputWrapper>
 					<input

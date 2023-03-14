@@ -77,7 +77,7 @@ export const ReelStyled = styled.div`
 	}
 
 	.reel-button:focus {
-		transform: translateY(-25px) scale(1.15);
+		/* transform: translateY(-25px) scale(1.15); */
 		outline: none;
 		border-bottom: 2px solid var(--primary);
 	}

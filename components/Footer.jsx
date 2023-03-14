@@ -29,11 +29,13 @@ const Footer = () => {
 					<Wrapper>
 						<Switcher elCount={5} gap={"s3"} flexBasis={"40"}>
 							<Stack>
-								<Image
-									src={logo}
-									width={150}
-									alt="logo"
-								></Image>
+								<Link href={"/"} className="a-exception">
+									<Image
+										src={logo}
+										width={150}
+										alt="logo"
+									></Image>
+								</Link>
 								<p className="mr-t-4">
 									Wanna hear a great story?
 								</p>

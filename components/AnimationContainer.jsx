@@ -6,13 +6,16 @@ const AnimationContainer = (props) => {
 	const [show, setShow] = React.useState(false)
 
 	React.useEffect(() => {
+		let config = {
+			threshold: 0.4,
+		}
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					setShow(true)
 				}
 			})
-		})
+		}, config)
 		observer.observe(animationRef.current)
 		return () => {
 			observer.disconnect()

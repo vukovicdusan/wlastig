@@ -15,6 +15,7 @@ import { Shapedivider } from "./styles/Shapedivider.styled"
 import { Stack } from "./styles/Stack.styled"
 import { TestimonialsStyled } from "./styles/TestimonialsStyled.styled"
 import { Sidebar } from "./styles/Sidebar.styled"
+import AnimationContainer from "./AnimationContainer"
 
 const testimonials = [
 	{
@@ -81,100 +82,112 @@ const Testimonials = () => {
 			</Shapedivider>
 			<Region pb={"0"}>
 				<Wrapper>
-					<TestimonialsStyled>
-						<div className="reelButtons">
-							<button
-								onClick={() => reelLinkHandler("left")}
-								className="reelButton"
-								disabled={leftButtonDisabled}
-							>
-								<ChevronLeft
-									svgFill={leftButtonDisabled && "#d0d2e7"}
-								></ChevronLeft>
-							</button>
-							<button
-								onClick={() => reelLinkHandler("right")}
-								className="reelButton"
-								disabled={rightButtonDisabled}
-							>
-								<ChevronRight
-									svgFill={rightButtonDisabled && "#d0d2e7"}
-								></ChevronRight>
-							</button>
-						</div>
+					<AnimationContainer delay={"4"}>
+						<TestimonialsStyled>
+							<div className="reelButtons">
+								<button
+									onClick={() => reelLinkHandler("left")}
+									className="reelButton"
+									disabled={leftButtonDisabled}
+								>
+									<ChevronLeft
+										svgFill={
+											leftButtonDisabled && "#d0d2e7"
+										}
+									></ChevronLeft>
+								</button>
+								<button
+									onClick={() => reelLinkHandler("right")}
+									className="reelButton"
+									disabled={rightButtonDisabled}
+								>
+									<ChevronRight
+										svgFill={
+											rightButtonDisabled && "#d0d2e7"
+										}
+									></ChevronRight>
+								</button>
+							</div>
 
-						<div
-							style={{
-								transform: `translateX(${-100 * reelIndex}vw)`,
-								inlineSize: `${(slidesNum + 1) * 100}vw`,
-							}}
-							className="reelInside"
-						>
-							{testimonials.map((testimonial, index) => (
-								<div key={index} className="reelItem">
-									<Stack
-										stackJustify={"center"}
-										stackAlign={"center"}
-										stackSpace={"s-3"}
-									>
-										<div className="reelItemBody">
-											<Sidebar
-												reverse={false}
-												sidebarPercent={"80%"}
-											>
-												<Image
-													className="testimonialImg"
-													src={testimonial.img}
-													width={75}
-													height={75}
-													alt="logo"
-												></Image>
-												<blockquote>
-													<span className="quoteStart">
-														<Image
-															src={quoteStart}
-															width={20}
-															height={20}
-															alt="quote"
-														></Image>
+							<div
+								style={{
+									transform: `translateX(${
+										-100 * reelIndex
+									}vw)`,
+									inlineSize: `${(slidesNum + 1) * 100}vw`,
+								}}
+								className="reelInside"
+							>
+								{testimonials.map((testimonial, index) => (
+									<div key={index} className="reelItem">
+										<Stack
+											stackJustify={"center"}
+											stackAlign={"center"}
+											stackSpace={"s-3"}
+										>
+											<div className="reelItemBody">
+												<Sidebar
+													reverse={false}
+													sidebarPercent={"80%"}
+												>
+													<Image
+														className="testimonialImg"
+														src={testimonial.img}
+														width={75}
+														height={75}
+														alt="logo"
+													></Image>
+													<blockquote>
+														<span className="quoteStart">
+															<Image
+																src={quoteStart}
+																width={20}
+																height={20}
+																alt="quote"
+															></Image>
+														</span>
+														<p>
+															{
+																testimonial.content
+															}
+														</p>
+														<span className="quoteEnd">
+															<Image
+																src={quoteEnd}
+																width={20}
+																height={20}
+																alt="quote"
+															></Image>
+														</span>
+													</blockquote>
+												</Sidebar>
+											</div>
+											<div className="reelItemFooter">
+												<div className="frame">
+													<span>
+														{testimonial.frame1[0]}
 													</span>
-													<p>{testimonial.content}</p>
-													<span className="quoteEnd">
-														<Image
-															src={quoteEnd}
-															width={20}
-															height={20}
-															alt="quote"
-														></Image>
+													{testimonial.frame1[1]}
+												</div>
+												<div className="frame">
+													<span>
+														{testimonial.frame2[0]}
 													</span>
-												</blockquote>
-											</Sidebar>
-										</div>
-										<div className="reelItemFooter">
-											<div className="frame">
-												<span>
-													{testimonial.frame1[0]}
-												</span>
-												{testimonial.frame1[1]}
+													{testimonial.frame2[1]}
+												</div>
+												<div className="frame">
+													<span>
+														{testimonial.frame3[0]}
+													</span>
+													{testimonial.frame3[1]}
+												</div>
 											</div>
-											<div className="frame">
-												<span>
-													{testimonial.frame2[0]}
-												</span>
-												{testimonial.frame2[1]}
-											</div>
-											<div className="frame">
-												<span>
-													{testimonial.frame3[0]}
-												</span>
-												{testimonial.frame3[1]}
-											</div>
-										</div>
-									</Stack>
-								</div>
-							))}
-						</div>
-					</TestimonialsStyled>
+										</Stack>
+									</div>
+								))}
+							</div>
+						</TestimonialsStyled>
+					</AnimationContainer>
 				</Wrapper>
 			</Region>
 		</FullBackground>

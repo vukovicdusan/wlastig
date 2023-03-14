@@ -5,6 +5,7 @@ export const Box = styled.div`
 	border: 1px solid ${(props) => props.boxBorderColor || "var(--primary)"};
 	color: ${(props) => props.boxColor || "var(--text-dark)"};
 	background-color: ${(props) => props.boxBackground || "transparent"};
+	border-radius: ${(props) => props.borderRadius || ""};
 
 	& * {
 		color: inherit;

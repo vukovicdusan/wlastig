@@ -10,6 +10,7 @@ import { FullBackground } from "./styles/FullBackground.styled"
 import { Stack } from "./styles/Stack.styled"
 import { Switcher } from "./styles/Switcher.styled"
 import { Button } from "./styles/Button.styled"
+import AnimationContainer from "../components/AnimationContainer"
 
 const FocusSection = () => {
 	const roiContent =
@@ -29,28 +30,33 @@ const FocusSection = () => {
 							elCount={"3"}
 							gap={"s4"}
 						>
-							<IconBox
-								img={aim}
-								width={100}
-								height={100}
-								title={"ROI Focused"}
-								content={roiContent}
-							></IconBox>
-							<IconBox
-								img={bulb}
-								width={100}
-								height={100}
-								title={"Performance Forecasting"}
-								content={performanceContent}
-							></IconBox>
-
-							<IconBox
-								img={search}
-								width={100}
-								height={100}
-								title={"Advanced Tracking"}
-								content={trackingContent}
-							></IconBox>
+							<AnimationContainer>
+								<IconBox
+									img={aim}
+									width={100}
+									height={100}
+									title={"ROI Focused"}
+									content={roiContent}
+								></IconBox>
+							</AnimationContainer>
+							<AnimationContainer delay={"2"}>
+								<IconBox
+									img={bulb}
+									width={100}
+									height={100}
+									title={"Performance Forecasting"}
+									content={performanceContent}
+								></IconBox>
+							</AnimationContainer>
+							<AnimationContainer delay={"4"}>
+								<IconBox
+									img={search}
+									width={100}
+									height={100}
+									title={"Advanced Tracking"}
+									content={trackingContent}
+								></IconBox>
+							</AnimationContainer>
 						</Switcher>
 						<Button>Contact us now</Button>
 					</Stack>
