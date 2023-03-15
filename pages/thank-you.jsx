@@ -8,7 +8,6 @@ import { ThankYouStyled } from "../components/styles/ThankYouStyled.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
 import { Center } from "../components/styles/Center.styled"
 import AnimationContainer from "../components/AnimationContainer"
-import ThankYouContact from "../components/ThankYouContact"
 
 import CheckSvg from "../components/CheckSvg"
 
@@ -199,7 +198,6 @@ const ThankYou = () => {
 								</div>
 							</div>
 						</Switcher>
-						<ThankYouContact></ThankYouContact>
 					</Wrapper>
 				</Region>
 			</ThankYouStyled>
