@@ -25,7 +25,7 @@ const ThankYou = () => {
 	const [loading, setLoading] = useState(false)
 	const router = useRouter()
 	const data = router.query
-	// console.log(data)
+
 	useEffect(() => {
 		if (!router.query.page) {
 			router.push("/")
@@ -219,14 +219,13 @@ const ThankYou = () => {
 								</div>
 							</div>
 						</Switcher>
-						<Center>
-							<div className="button-loader mr-t-4">
-								<Button onClick={firebaseWriteHandler}>
-									Request!
-								</Button>
-								{loading ? <Loader></Loader> : null}
-							</div>
-						</Center>
+
+						<div className="button-loader mr-t-4">
+							<Button onClick={firebaseWriteHandler}>
+								Request!
+							</Button>
+							{loading ? <Loader></Loader> : null}
+						</div>
 					</Wrapper>
 				</Region>
 			</ThankYouStyled>

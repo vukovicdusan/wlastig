@@ -4,7 +4,7 @@ export const ReelStyled = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	block-size: 800px;
+	block-size: 900px;
 	inline-size: 100%;
 	overflow: hidden;
 	scrollbar-color: #fff #000;
@@ -20,21 +20,21 @@ export const ReelStyled = styled.div`
 	.reel-item {
 		display: flex;
 		justify-content: center;
-		block-size: 700px;
+		block-size: 750px;
 		inline-size: 100vw;
 	}
 
 	.reel-item--content {
 		display: flex;
+		flex-direction: column;
 		inline-size: 65%;
-		margin-inline: auto;
-		justify-content: center;
+		margin-block-start: 8rem;
 		align-items: center;
 		font-size: var(--s1);
 		font-family: var(--poppinsregular);
 	}
 
-	.reel-item--content img {
+	.reel-item .reel-item--content img {
 		object-fit: contain;
 	}
 
@@ -42,14 +42,18 @@ export const ReelStyled = styled.div`
 		font-family: var(--poppinsbold);
 	}
 
-	.reel-item--content > *:nth-child(1) {
+	.reel-item--content button {
+		align-self: flex-end;
+	}
+
+	/* .reel-item--content > *:nth-child(1) {
 		flex: 1 1 60%;
 	}
 
 	.reel-item--content > *:nth-child(2) {
 		flex: 1 1 40%;
 		max-width: 60ch;
-	}
+	} */
 
 	.reel-links {
 		display: flex;
@@ -77,7 +81,6 @@ export const ReelStyled = styled.div`
 	}
 
 	.reel-button:focus {
-		/* transform: translateY(-25px) scale(1.15); */
 		outline: none;
 		border-bottom: 2px solid var(--primary);
 	}
@@ -91,23 +94,28 @@ export const ReelStyled = styled.div`
 	}
 
 	@media (max-width: 800px) {
-		block-size: 700px;
+		block-size: 750px;
+
+		.reel-item {
+			block-size: 700px;
+		}
 
 		.reel-item--content {
 			font-size: var(--s0);
 			inline-size: 90%;
 			display: flex;
-			flex-direction: column;
-			padding-block-start: 4rem;
+			/* flex-direction: column; */
+			padding-block-start: 0;
+			margin-block-start: 1rem;
 		}
-		.reel-item--content > *:nth-child(1) {
+		/* .reel-item--content > *:nth-child(1) {
 			flex: 1 1 40%;
 		}
 
 		.reel-item--content > *:nth-child(2) {
 			flex: 1 1 60%;
 			max-width: 60ch;
-		}
+		} */
 
 		.reel-links {
 			gap: var(--s2);

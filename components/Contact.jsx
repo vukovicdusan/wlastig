@@ -5,7 +5,6 @@ import { Stack } from "./styles/Stack.styled"
 import { ContactStyled } from "./styles/ContactStyled.styled"
 import { Button } from "./styles/Button.styled"
 import Loader from "./Loader"
-import { Center } from "./styles/Center.styled"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)

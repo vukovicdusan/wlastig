@@ -37,17 +37,9 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className="dropdown-link">
-								<div
-									// onClick={openDropdown}
-									className="disabled-link dropdown-icon"
-								>
+								<div className="disabled-link dropdown-icon">
 									Services{" "}
 									<svg
-										// className={
-										// 	dropdownOpen
-										// 		? "icon-closed hidden"
-										// 		: "icon-closed show"
-										// }
 										className="icon-closed"
 										height={24}
 										width={24}
@@ -65,11 +57,6 @@ const Header = () => {
 										/>
 									</svg>
 									<svg
-										// className={
-										// 	dropdownOpen
-										// 		? "icon-open show"
-										// 		: "icon-open hidden"
-										// }
 										className="icon-open"
 										clipRule="evenodd"
 										fillRule="evenodd"
@@ -89,11 +76,6 @@ const Header = () => {
 								</div>
 								<Stack
 									as="ul"
-									// className={
-									// 	!dropdownOpen
-									// 		? "dropdown closed"
-									// 		: "dropdown open"
-									// }
 									className="dropdown"
 									ref={dropdownRef}
 								>

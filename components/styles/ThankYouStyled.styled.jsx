@@ -85,4 +85,12 @@ export const ThankYouStyled = styled.div`
 		font-family: var(--poppinsbold);
 		margin-inline: auto;
 	}
+
+	.button-loader {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 3rem;
+	}
 `
