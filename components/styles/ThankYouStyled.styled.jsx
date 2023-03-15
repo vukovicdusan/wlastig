@@ -11,6 +11,10 @@ export const ThankYouStyled = styled.div`
 		margin-inline: auto;
 	}
 
+	.display-none {
+		display: none;
+	}
+
 	.disabled {
 		pointer-events: none;
 	}

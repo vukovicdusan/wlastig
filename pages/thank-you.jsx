@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { FullBackground } from "../components/styles/FullBackground.styled"
 import { Region } from "../components/styles/Region.styled"
 import { Stack } from "../components/styles/Stack.styled"
@@ -8,18 +8,24 @@ import { ThankYouStyled } from "../components/styles/ThankYouStyled.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
 import { Center } from "../components/styles/Center.styled"
 import AnimationContainer from "../components/AnimationContainer"
+import ThankYouContact from "../components/ThankYouContact"
 
 import CheckSvg from "../components/CheckSvg"
 
 const ThankYou = () => {
-	const [selected, setSelected] = React.useState({
+	const [selected, setSelected] = useState({
 		ga: { focus: false, disabled: false },
 		gtm: { focus: false, disabled: false },
 		aw: { focus: false, disabled: false },
 	})
+	const [protect, setProtect] = useState(true)
 	const router = useRouter()
 
 	useEffect(() => {
+		if (!router.query.page) {
+			router.push("/")
+		}
+		setProtect(false)
 		router.query.page === "/web-analytics" ||
 		router.query.page === "/consulting" ||
 		router.query.page === "/"
@@ -74,7 +80,10 @@ const ThankYou = () => {
 	}
 
 	return (
-		<FullBackground background={"var(--primary)"}>
+		<FullBackground
+			className={protect ? "display-none" : ""}
+			background={"var(--primary)"}
+		>
 			<ThankYouStyled>
 				<Region>
 					<Wrapper>
@@ -190,6 +199,7 @@ const ThankYou = () => {
 								</div>
 							</div>
 						</Switcher>
+						<ThankYouContact></ThankYouContact>
 					</Wrapper>
 				</Region>
 			</ThankYouStyled>
