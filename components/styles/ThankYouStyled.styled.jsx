@@ -2,10 +2,19 @@ import styled from "styled-components"
 
 export const ThankYouStyled = styled.div`
 	padding-block-start: 65px;
+	h1 {
+		color: var(--text-light);
+		margin-bottom: var(--s4);
+	}
 
 	h4 {
 		margin-inline: auto;
 	}
+
+	.disabled {
+		pointer-events: none;
+	}
+
 	.audit-card--outer {
 		position: relative;
 		color: #2780ba;
@@ -14,6 +23,11 @@ export const ThankYouStyled = styled.div`
 		padding: 0.5rem;
 		transition: all 0.4s ease;
 		max-width: 20rem;
+		cursor: pointer;
+	}
+
+	.audit-card--outer:hover {
+		transform: scale(1.02) translateY(-5px);
 	}
 
 	.audit-card--outer > span {

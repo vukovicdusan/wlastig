@@ -10,13 +10,21 @@ export const ContactStyled = styled.form`
 	& h3,
 	& p {
 		color: var(--primary);
+	}
 
-		.success {
-			color: var(--secondary);
-		}
+	.success {
+		color: #4bb543;
+	}
 
-		.error {
-			color: indianred;
-		}
+	.error {
+		color: indianred;
+	}
+
+	.button-loader {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 3rem;
 	}
 `

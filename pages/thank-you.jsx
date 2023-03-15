@@ -1,65 +1,104 @@
 import { useRouter } from "next/router"
-import React from "react"
+import React, { useEffect } from "react"
 import { FullBackground } from "../components/styles/FullBackground.styled"
 import { Region } from "../components/styles/Region.styled"
 import { Stack } from "../components/styles/Stack.styled"
 import { Switcher } from "../components/styles/Switcher.styled"
 import { ThankYouStyled } from "../components/styles/ThankYouStyled.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
+import { Center } from "../components/styles/Center.styled"
+import AnimationContainer from "../components/AnimationContainer"
+
 import CheckSvg from "../components/CheckSvg"
 
 const ThankYou = () => {
 	const [selected, setSelected] = React.useState({
-		ga: false,
-		gtm: false,
-		aw: false,
+		ga: { focus: false, disabled: false },
+		gtm: { focus: false, disabled: false },
+		aw: { focus: false, disabled: false },
 	})
+	const router = useRouter()
+
+	useEffect(() => {
+		router.query.page === "/web-analytics" ||
+		router.query.page === "/consulting" ||
+		router.query.page === "/"
+			? setSelected({
+					...selected,
+					ga: { focus: true, disabled: true },
+			  })
+			: setSelected({
+					...selected,
+					aw: { focus: true, disabled: true },
+			  })
+	}, [])
 
 	const cardSelectHandler = (card) => {
 		switch (card) {
 			case "ga":
-				selected.ga
-					? setSelected({ ...selected, ga: false })
-					: setSelected({ ...selected, ga: true })
+				selected.ga.focus
+					? setSelected({
+							...selected,
+							ga: { ...selected.ga, focus: false },
+					  })
+					: setSelected({
+							...selected,
+							ga: { ...selected.ga, focus: true },
+					  })
 				break
 			case "gtm":
-				selected.gtm
-					? setSelected({ ...selected, gtm: false })
-					: setSelected({ ...selected, gtm: true })
+				selected.gtm.focus
+					? setSelected({
+							...selected,
+							gtm: { ...selected.gtm, focus: false },
+					  })
+					: setSelected({
+							...selected,
+							gtm: { ...selected.gtm, focus: true },
+					  })
 				break
 			case "aw":
-				selected.aw
-					? setSelected({ ...selected, aw: false })
-					: setSelected({ ...selected, aw: true })
+				selected.aw.focus
+					? setSelected({
+							...selected,
+							aw: { ...selected.aw, focus: false },
+					  })
+					: setSelected({
+							...selected,
+							aw: { ...selected.aw, focus: true },
+					  })
 				break
 			default:
 				""
 		}
 	}
 
-	console.log(selected)
-	const router = useRouter()
-	console.log("this is thank you page", router.query.page)
 	return (
 		<FullBackground background={"var(--primary)"}>
 			<ThankYouStyled>
-				<h1>Thank You!</h1>
 				<Region>
 					<Wrapper>
+						<AnimationContainer>
+							<Center>
+								<h1>Thank You!</h1>
+							</Center>
+						</AnimationContainer>
 						<Switcher switcherJustify={"center"}>
 							<div
 								onClick={() => cardSelectHandler("ga")}
 								className={`audit-card--outer ${
-									selected.ga ? "selected" : ""
-								}`}
+									selected.ga.focus ? "selected" : ""
+								} ${selected.ga.disabled ? "disabled" : ""}`}
 							>
-								{selected.ga ? (
+								{selected.ga.focus ? (
 									<span>
 										{router.query.page ===
-										"/advertising" ? (
-											<CheckSvg></CheckSvg>
-										) : (
+											"/web-analytics" ||
+										router.query.page === "/consulting" ||
+										router.query.page === "/" ? (
 											<p>FREE</p>
+										) : (
+											<CheckSvg></CheckSvg>
 										)}
 									</span>
 								) : null}
@@ -86,10 +125,10 @@ const ThankYou = () => {
 							<div
 								onClick={() => cardSelectHandler("gtm")}
 								className={`audit-card--outer ${
-									selected.gtm ? "selected" : ""
+									selected.gtm.focus ? "selected" : ""
 								}`}
 							>
-								{selected.gtm ? (
+								{selected.gtm.focus ? (
 									<span>
 										<CheckSvg></CheckSvg>
 									</span>
@@ -117,10 +156,10 @@ const ThankYou = () => {
 							<div
 								onClick={() => cardSelectHandler("aw")}
 								className={`audit-card--outer ${
-									selected.aw ? "selected" : ""
-								}`}
+									selected.aw.focus ? "selected" : ""
+								} ${selected.aw.disabled ? "disabled" : ""}`}
 							>
-								{selected.aw ? (
+								{selected.aw.focus ? (
 									<span>
 										{router.query.page ===
 										"/advertising" ? (
