@@ -21,7 +21,7 @@ const Contact = (props) => {
 	}, [])
 
 	useEffect(() => {
-		props.onFormSubmitHandler(contactFormProccess.success)
+		props.onFormSubmitHandler(contactFormProccess.success, contactFormData)
 	}, [contactFormProccess.success, props])
 
 	if (!hasMounted) {
@@ -53,7 +53,7 @@ const Contact = (props) => {
 			? setContactFormData({ ...contactFormData, email: e.target.value })
 			: setContactFormData({
 					...contactFormData,
-					message: e.target.value,
+					name: e.target.value,
 			  })
 	}
 

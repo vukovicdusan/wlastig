@@ -8,8 +8,12 @@ import { ThankYouStyled } from "../components/styles/ThankYouStyled.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
 import { Center } from "../components/styles/Center.styled"
 import AnimationContainer from "../components/AnimationContainer"
-
 import CheckSvg from "../components/CheckSvg"
+import { collection, addDoc } from "firebase/firestore"
+import { db } from "../public/firebase/firebase"
+import { serverTimestamp } from "firebase/firestore"
+import { Button } from "../components/styles/Button.styled"
+import Loader from "../components/Loader"
 
 const ThankYou = () => {
 	const [selected, setSelected] = useState({
@@ -18,13 +22,16 @@ const ThankYou = () => {
 		aw: { focus: false, disabled: false },
 	})
 	const [protect, setProtect] = useState(true)
+	const [loading, setLoading] = useState(false)
 	const router = useRouter()
-
+	const data = router.query
+	// console.log(data)
 	useEffect(() => {
 		if (!router.query.page) {
 			router.push("/")
 		}
 		setProtect(false)
+
 		router.query.page === "/web-analytics" ||
 		router.query.page === "/consulting" ||
 		router.query.page === "/"
@@ -78,6 +85,20 @@ const ThankYou = () => {
 		}
 	}
 
+	const firebaseWriteHandler = async () => {
+		setLoading(true)
+		await addDoc(collection(db, "clients"), {
+			name: data.name,
+			mail: data.mail,
+			ga: selected.ga.focus,
+			gtm: selected.gtm.focus,
+			aw: selected.aw.focus,
+			created_at: serverTimestamp(),
+		})
+		setLoading(false)
+		router.push("/")
+	}
+
 	return (
 		<FullBackground
 			className={protect ? "display-none" : ""}
@@ -126,7 +147,7 @@ const ThankYou = () => {
 											quod eligendi suscipit provident
 											nisi dolores.
 										</p>
-										<span>350$</span>
+										<span>300$</span>
 									</Stack>
 								</div>
 							</div>
@@ -193,11 +214,19 @@ const ThankYou = () => {
 											quod eligendi suscipit provident
 											nisi dolores.
 										</p>
-										<span>350$</span>
+										<span>400$</span>
 									</Stack>
 								</div>
 							</div>
 						</Switcher>
+						<Center>
+							<div className="button-loader mr-t-4">
+								<Button onClick={firebaseWriteHandler}>
+									Request!
+								</Button>
+								{loading ? <Loader></Loader> : null}
+							</div>
+						</Center>
 					</Wrapper>
 				</Region>
 			</ThankYouStyled>
