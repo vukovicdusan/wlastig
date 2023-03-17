@@ -2,10 +2,23 @@ import styled from "styled-components"
 
 export const ThankYouStyled = styled.div`
 	padding-block-start: 65px;
+	h1 {
+		color: var(--text-light);
+		margin-bottom: var(--s4);
+	}
 
 	h4 {
 		margin-inline: auto;
 	}
+
+	.display-none {
+		display: none;
+	}
+
+	.disabled {
+		pointer-events: none;
+	}
+
 	.audit-card--outer {
 		position: relative;
 		color: #2780ba;
@@ -14,6 +27,11 @@ export const ThankYouStyled = styled.div`
 		padding: 0.5rem;
 		transition: all 0.4s ease;
 		max-width: 20rem;
+		cursor: pointer;
+	}
+
+	.audit-card--outer:hover {
+		transform: scale(1.02) translateY(-5px);
 	}
 
 	.audit-card--outer > span {
@@ -66,5 +84,13 @@ export const ThankYouStyled = styled.div`
 		font-size: var(--s3);
 		font-family: var(--poppinsbold);
 		margin-inline: auto;
+	}
+
+	.button-loader {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 3rem;
 	}
 `

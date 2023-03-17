@@ -4,8 +4,7 @@ import { InputWrapper } from "./styles/InputWrapper.styled"
 import { Stack } from "./styles/Stack.styled"
 import { ContactStyled } from "./styles/ContactStyled.styled"
 import { Button } from "./styles/Button.styled"
-
-// import Loader from "../components/Loader"
+import Loader from "./Loader"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
@@ -21,7 +20,7 @@ const Contact = (props) => {
 	}, [])
 
 	useEffect(() => {
-		props.onFormSubmitHandler(contactFormProccess.success)
+		props.onFormSubmitHandler(contactFormProccess.success, contactFormData)
 	}, [contactFormProccess.success, props])
 
 	if (!hasMounted) {
@@ -53,7 +52,7 @@ const Contact = (props) => {
 			? setContactFormData({ ...contactFormData, email: e.target.value })
 			: setContactFormData({
 					...contactFormData,
-					message: e.target.value,
+					name: e.target.value,
 			  })
 	}
 
@@ -101,7 +100,10 @@ const Contact = (props) => {
 					/>
 					<label htmlFor="email">Email</label>
 				</InputWrapper>
-				<Button>{props.cta || "Submit"}</Button>
+				<div className="button-loader">
+					<Button>{props.cta || "Submit"}</Button>
+					{contactFormProccess.loading ? <Loader></Loader> : null}
+				</div>
 			</Stack>
 		</ContactStyled>
 	)

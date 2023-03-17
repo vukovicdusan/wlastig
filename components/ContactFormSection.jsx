@@ -12,21 +12,32 @@ import { useRouter } from "next/router"
 
 const ContactFormSection = (props) => {
 	const [formSubmited, setFormSubmited] = useState(false)
+	const [formData, setFormData] = useState({})
 	const router = useRouter()
 	const page = router.asPath
-	// console.log(router)
 
-	const onFormSubmitHandler = (isSubmited) => {
+	console.log(formData)
+
+	const onFormSubmitHandler = (isSubmited, data) => {
 		setFormSubmited(isSubmited)
+		setFormData(data)
 	}
 
 	useEffect(() => {
-		formSubmited &&
+		formData &&
+			formSubmited &&
 			router.push(
-				{ pathname: "/thank-you", query: { page: page } },
+				{
+					pathname: "/thank-you",
+					query: {
+						page: page,
+						mail: formData.email,
+						name: formData.name,
+					},
+				},
 				"/thank-you"
 			)
-	}, [formSubmited, router, page])
+	}, [formSubmited, router, page, formData])
 
 	return (
 		<FullBackground background={"var(--primary)"}>

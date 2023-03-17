@@ -12,6 +12,8 @@ import { Region } from "./styles/Region.styled"
 import { Shapedivider } from "./styles/Shapedivider.styled"
 import { FullBackground } from "./styles/FullBackground.styled"
 import { ReelStyled } from "./styles/ReelStyled.styled"
+import { Button } from "./styles/Button.styled"
+import { Stack } from "./styles/Stack.styled"
 
 const Reel = () => {
 	const [reelIndex, setReelIndex] = useState(0)
@@ -83,6 +85,7 @@ const Reel = () => {
 						<Shapedivider
 							position={"top"}
 							fill={"var(--background-light)"}
+							height={"100px"}
 						>
 							<svg
 								data-name="Layer 1"
@@ -97,14 +100,18 @@ const Reel = () => {
 							<div className="reel-item--content">
 								<Image src={reel1} alt="analysis image"></Image>
 								<AnimationContainer>
-									<p>
-										A data analysis which allows deeper
-										understanding of{" "}
-										<span>
-											CUSTOMER BEHAVIOUR, MARKETING
-										</span>{" "}
-										and <span>WEBSITE PERFORMANCE</span>.
-									</p>
+									<Stack>
+										<p>
+											A data analysis which allows deeper
+											understanding of{" "}
+											<span>
+												CUSTOMER BEHAVIOUR, MARKETING
+											</span>{" "}
+											and <span>WEBSITE PERFORMANCE</span>
+											.
+										</p>
+										<Button>Web Analytics</Button>
+									</Stack>
 								</AnimationContainer>
 							</div>
 						</div>
@@ -112,12 +119,18 @@ const Reel = () => {
 							<div className="reel-item--content">
 								<Image src={reel3} alt="analysis image"></Image>
 								<AnimationContainer>
-									<p>
-										To optimize your campaigns and{" "}
-										<span>REDUCE ADVERTISING EXPENSES</span>
-										, we use state-of-the-art advertising
-										methods which leverage machine learning.
-									</p>
+									<Stack>
+										<p>
+											To optimize your campaigns and{" "}
+											<span>
+												REDUCE ADVERTISING EXPENSES
+											</span>
+											, we use state-of-the-art
+											advertising methods which leverage
+											machine learning.
+										</p>
+										<Button>Advertising</Button>
+									</Stack>
 								</AnimationContainer>
 							</div>
 						</div>
@@ -125,13 +138,17 @@ const Reel = () => {
 							<div className="reel-item--content">
 								<Image src={reel2} alt="analysis image"></Image>
 								<AnimationContainer>
-									<p>
-										When in trouble, get a fresh pair of
-										eyes to <span>SAVE YOUR TIME</span> and{" "}
-										<span>MONEY</span>. Whatever the
-										problem, we&quot;ll be there to promptly
-										steer the way towards solution.
-									</p>
+									<Stack>
+										<p>
+											When in trouble, get a fresh pair of
+											eyes to <span>SAVE YOUR TIME</span>{" "}
+											and <span>MONEY</span>. Whatever the
+											problem, we&quot;ll be there to
+											promptly steer the way towards
+											solution.
+										</p>
+										<Button>Consulting</Button>
+									</Stack>
 								</AnimationContainer>
 							</div>
 						</div>
