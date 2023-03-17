@@ -4,7 +4,7 @@ export const ReelStyled = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	block-size: 900px;
+	block-size: 800px;
 	inline-size: 100%;
 	overflow: hidden;
 	scrollbar-color: #fff #000;
@@ -28,14 +28,10 @@ export const ReelStyled = styled.div`
 		display: flex;
 		flex-direction: column;
 		inline-size: 65%;
-		margin-block-start: 8rem;
+		margin-block-start: 6rem;
 		align-items: center;
 		font-size: var(--s1);
 		font-family: var(--poppinsregular);
-	}
-
-	.reel-item .reel-item--content img {
-		object-fit: contain;
 	}
 
 	.reel-item--content span {
@@ -45,15 +41,6 @@ export const ReelStyled = styled.div`
 	.reel-item--content button {
 		align-self: flex-end;
 	}
-
-	/* .reel-item--content > *:nth-child(1) {
-		flex: 1 1 60%;
-	}
-
-	.reel-item--content > *:nth-child(2) {
-		flex: 1 1 40%;
-		max-width: 60ch;
-	} */
 
 	.reel-links {
 		display: flex;
@@ -93,6 +80,10 @@ export const ReelStyled = styled.div`
 		align-items: center;
 	}
 
+	.reel-item--text {
+		max-width: 60ch;
+	}
+
 	@media (max-width: 800px) {
 		block-size: 750px;
 
@@ -104,18 +95,13 @@ export const ReelStyled = styled.div`
 			font-size: var(--s0);
 			inline-size: 90%;
 			display: flex;
-			/* flex-direction: column; */
 			padding-block-start: 0;
 			margin-block-start: 1rem;
 		}
-		/* .reel-item--content > *:nth-child(1) {
-			flex: 1 1 40%;
-		}
 
-		.reel-item--content > *:nth-child(2) {
-			flex: 1 1 60%;
-			max-width: 60ch;
-		} */
+		.reel-item .reel-item--content svg {
+			height: 300px;
+		}
 
 		.reel-links {
 			gap: var(--s2);
@@ -123,6 +109,10 @@ export const ReelStyled = styled.div`
 
 		.reel-button {
 			font-size: var(--s-1);
+		}
+
+		.reel-item--text {
+			max-width: 40ch;
 		}
 	}
 `
