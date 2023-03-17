@@ -28,7 +28,7 @@ const Footer = () => {
 				<Region>
 					<Wrapper>
 						<Switcher elCount={5} gap={"s3"} flexBasis={"40"}>
-							<Stack>
+							<Stack exceptionChild={1} exceptionMr={"var(--s1)"}>
 								<Link href={"/"} className="a-exception">
 									<Image
 										src={logo}
@@ -36,9 +36,7 @@ const Footer = () => {
 										alt="logo"
 									></Image>
 								</Link>
-								<p className="mr-t-4">
-									Wanna hear a great story?
-								</p>
+								<p>Wanna hear a great story?</p>
 								<p>
 									A moving story about a brave company that
 									made use of data on her way to become a
@@ -63,7 +61,7 @@ const Footer = () => {
 							</Stack>
 							<Stack stackAlign={"center"}>
 								<h4>Services:</h4>
-								<Stack as="ul" stackSpace={"s1"}>
+								<Stack as="ul" stackSpace={"var(--s1)"}>
 									<li>
 										<Link href={"/web-analytics"}>
 											Web Analytics
@@ -86,7 +84,7 @@ const Footer = () => {
 								<Stack
 									as="ul"
 									stackAlign={"center"}
-									stackSpace={"s1"}
+									stackSpace={"--var(s1)"}
 								>
 									<li>
 										<a className="a-exception" href="">

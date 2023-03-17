@@ -22,7 +22,7 @@ const Faq = (props) => {
 								></UnderlineStyled>
 							</Center>
 						</AnimationContainer>
-						<Stack className="mr-t-4" stackSpace={"s3"}>
+						<Stack mt={"var(--s4)"} stackSpace={"var(--s3)"}>
 							{props.faqArr.map((faq, index) => (
 								<AnimationContainer
 									direction={"translateX"}

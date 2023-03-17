@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export const Wrap = styled.div`
+	margin-block-start: ${(props) => props.mt || null};
+	margin-block-end: ${(props) => props.mb || null};
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: ${(props) => props.wrapJustify || "space-between"};

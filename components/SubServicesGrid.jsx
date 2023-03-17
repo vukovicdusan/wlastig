@@ -44,7 +44,7 @@ const SubServicesGrid = (props) => {
 						</Center>
 					</AnimationContainer>
 					<Wrap
-						className="mr-t-4"
+						mt={"var(--s4)"}
 						wrapJustify={"center"}
 						wrapAlign={"flex-start"}
 					>
@@ -62,7 +62,7 @@ const SubServicesGrid = (props) => {
 						))}
 					</Wrap>
 					{subsCount < props.subsArr.length ? (
-						<Center className="mr-t-4">
+						<Center mt={"var(--s4)"}>
 							<Button onClick={seeMore}>See More</Button>
 						</Center>
 					) : null}

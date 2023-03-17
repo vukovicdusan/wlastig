@@ -5,6 +5,9 @@ import { Stack } from "./styles/Stack.styled"
 import { ContactStyled } from "./styles/ContactStyled.styled"
 import { Button } from "./styles/Button.styled"
 import Loader from "./Loader"
+import Image from "next/image"
+import img from "../public/img/popup_pic.png"
+import { Switcher } from "./styles/Switcher.styled"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
@@ -20,7 +23,12 @@ const Contact = (props) => {
 	}, [])
 
 	useEffect(() => {
-		props.onFormSubmitHandler(contactFormProccess.success, contactFormData)
+		props.onFormSubmitHandler
+			? props.onFormSubmitHandler(
+					contactFormProccess.success,
+					contactFormData
+			  )
+			: null
 	}, [contactFormProccess.success, props])
 
 	if (!hasMounted) {
@@ -57,8 +65,8 @@ const Contact = (props) => {
 	}
 
 	return (
-		<ContactStyled onSubmit={onSubmitHandler}>
-			<Stack stackSpace={"s3"} className="contactStack">
+		<ContactStyled popup={props.popup} onSubmit={onSubmitHandler}>
+			<Stack stackSpace={"var(--s3)"} className="contactStack">
 				<div>
 					<h3>Improve your Data Quality for FREE!</h3>
 					<p>Your decisions are only as good as your data.</p>
@@ -75,31 +83,49 @@ const Contact = (props) => {
 						Thak you for your message! We will contact you ASAP!
 					</p>
 				)}
-				<InputWrapper>
-					<input
-						type="text"
-						name="name"
-						id="name"
-						autoCapitalize="none"
-						autoCorrect="off"
-						required
-						onChange={inputHandler}
-					/>
-					<label htmlFor="name">Name</label>
-				</InputWrapper>
-				<InputWrapper>
-					<input
-						type="text"
-						name="email"
-						id="email"
-						autoCapitalize="none"
-						autoCorrect="off"
-						required
-						pattern="[^@]+@[^\.]+\..+"
-						onChange={inputHandler}
-					/>
-					<label htmlFor="email">Email</label>
-				</InputWrapper>
+				<Switcher
+					className="full-width"
+					switcherAlign={"center"}
+					gap={"var(--s5)"}
+					elCount={"2"}
+					flexBasis={"20rem"}
+				>
+					<Stack stackSpace={"var(--s3)"}>
+						<InputWrapper>
+							<input
+								type="text"
+								name="name"
+								id="name"
+								autoCapitalize="none"
+								autoCorrect="off"
+								required
+								onChange={inputHandler}
+							/>
+							<label htmlFor="name">Name</label>
+						</InputWrapper>
+						<InputWrapper>
+							<input
+								type="text"
+								name="email"
+								id="email"
+								autoCapitalize="none"
+								autoCorrect="off"
+								required
+								pattern="[^@]+@[^\.]+\..+"
+								onChange={inputHandler}
+							/>
+							<label htmlFor="email">Email</label>
+						</InputWrapper>
+					</Stack>
+					{props.popup ? (
+						<Image
+							src={img}
+							alt="popup img"
+							height={250}
+							width={250}
+						></Image>
+					) : null}
+				</Switcher>
 				<div className="button-loader">
 					<Button>{props.cta || "Submit"}</Button>
 					{contactFormProccess.loading ? <Loader></Loader> : null}

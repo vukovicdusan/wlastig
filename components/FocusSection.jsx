@@ -23,7 +23,7 @@ const FocusSection = () => {
 		<FullBackground background={"var(--primary)"}>
 			<Wrapper>
 				<Region>
-					<Stack stackAlign={"center"} stackSpace={"s5"}>
+					<Stack stackAlign={"center"} stackSpace={"var(--s5)"}>
 						<Switcher
 							switcherJustify={"center"}
 							flexBasis={"40"}

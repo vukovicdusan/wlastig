@@ -6,10 +6,18 @@ export const ContactStyled = styled.form`
 	box-shadow: var(--box-shadow);
 	padding: var(--s2) var(--s2);
 	height: max-content;
+	max-width: ${(props) => (props.popup ? "max-content" : "auto")};
 
+	& img {
+		object-fit: contain;
+	}
 	& h3,
 	& p {
 		color: var(--primary);
+	}
+
+	.full-width {
+		width: 100%;
 	}
 
 	.success {

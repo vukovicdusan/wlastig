@@ -1,8 +1,5 @@
 import React, { useState } from "react"
 import Image from "next/image"
-import reel1 from "../public/img/report_analysis_.svg"
-import reel2 from "../public/img/report_analysis_-1.svg"
-import reel3 from "../public/img/google_ad.svg"
 import reelLink1 from "../public/img/analytics.svg"
 import reelLink2 from "../public/img/advertisement.svg"
 import reelLink3 from "../public/img/consultations.svg"

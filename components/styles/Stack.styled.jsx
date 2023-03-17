@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export const Stack = styled.div`
+	margin-block-start: ${(props) => props.mt || null};
+	margin-block-end: ${(props) => props.mb || null};
 	display: flex;
 	flex-direction: column;
 	justify-content: ${(props) =>
@@ -13,8 +15,11 @@ export const Stack = styled.div`
 	}
 
 	& > * + * {
-		margin-block-start: var(
-			--${(props) => (props.stackSpace ? props.stackSpace : "s0")}
-		);
+		margin-block-start: ${(props) =>
+			props.stackSpace ? props.stackSpace : "var(--s0)"};
+	}
+
+	& > :nth-child(${(props) => props.exceptionChild || null}) {
+		margin-block-end: ${(props) => props.exceptionMr || "auto"};
 	}
 `
