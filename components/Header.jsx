@@ -112,7 +112,9 @@ const Header = () => {
 								</Link>
 							</li>
 							<li>
-								<Button>Let&apos;s Talk!</Button>
+								<Button content={"haha"}>
+									Let&apos;s Talk!
+								</Button>
 							</li>
 						</Wrap>
 					</nav>
