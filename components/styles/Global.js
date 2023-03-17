@@ -182,8 +182,7 @@ button:disabled {
 }
 
 body {
-	font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
-		Tahoma, sans-serif;
+	font-family: var(--poppinsregular), 'Times New Roman', Times, serif;
 	color: var(--text-dark);
 }
 
@@ -194,7 +193,7 @@ h4,
 h5,
 h6 {
 	max-width: 35ch;
-	font-family: "poppinsextrabold", Times, serif;
+	font-family: var(--poppinsbold), 'Times New Roman', Times, serif;
 	line-height: 1.1;
 }
 
