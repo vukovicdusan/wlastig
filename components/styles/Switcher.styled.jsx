@@ -8,7 +8,7 @@ export const Switcher = styled.div`
 	gap: ${(props) => props.gap || "var(--s1)"};
 	justify-content: ${(props) => props.switcherJustify || "flex-start"};
 	align-items: ${(props) => props.switcherAlign || ""};
-	flex-direction: ${(props) => (props.reverse ? "row-reverse" : "revert")};
+	flex-direction: ${(props) => props.reverse || "revert"};
 
 	& > * {
 		flex-grow: 1;

@@ -15,8 +15,9 @@ import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
 import ReelImage from "../components/ReelImage"
+import Modal from "../components/Modal"
 
-const advertising = () => {
+const Advertising = () => {
 	const subsArr = [
 		{
 			title: "Keyword research",
@@ -307,8 +308,9 @@ const advertising = () => {
 				cta={"Get a FREE Audit"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+			{/* <Modal></Modal> */}
 		</main>
 	)
 }
 
-export default advertising
+export default Advertising

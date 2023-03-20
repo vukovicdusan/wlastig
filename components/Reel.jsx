@@ -121,20 +121,16 @@ const Reel = () => {
 									svgWidth={350}
 									svgHeight={250}
 								></ReelImage>
-								<AnimationContainer>
-									<Stack className="reel-item--text">
-										<p>
-											To optimize your campaigns and{" "}
-											<span>
-												REDUCE ADVERTISING EXPENSES
-											</span>
-											, we use state-of-the-art
-											advertising methods which leverage
-											machine learning.
-										</p>
-										<Button>Advertising</Button>
-									</Stack>
-								</AnimationContainer>
+
+								<Stack className="reel-item--text">
+									<p>
+										To optimize your campaigns and{" "}
+										<span>REDUCE ADVERTISING EXPENSES</span>
+										, we use state-of-the-art advertising
+										methods which leverage machine learning.
+									</p>
+									<Button>Advertising</Button>
+								</Stack>
 							</div>
 						</div>
 						<div className="reel-item">

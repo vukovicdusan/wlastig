@@ -12,8 +12,13 @@ export const ContactStyled = styled.form`
 		object-fit: contain;
 	}
 	& h3,
+	& h4,
 	& p {
 		color: var(--primary);
+	}
+
+	.title-xl {
+		text-shadow: none;
 	}
 
 	.full-width {
@@ -34,5 +39,11 @@ export const ContactStyled = styled.form`
 		justify-content: flex-start;
 		align-items: center;
 		gap: 3rem;
+	}
+
+	@media (max-width: 719px) {
+		.full-width {
+			flex-direction: column-reverse;
+		}
 	}
 `

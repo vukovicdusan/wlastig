@@ -1,20 +1,38 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
+import ModalCtx from "../public/store/ModalCtx"
 import Contact from "./Contact"
 
 const Modal = () => {
+	const modalCtx = useContext(ModalCtx)
+
 	const [modalOpen, setModalOpen] = useState(false)
-	const modalCloseHandler = () => {}
+
+	const modalCloseHandler = () => {
+		modalOpen ? setModalOpen(false) : setModalOpen(true)
+	}
 
 	useEffect(() => {
 		modalOpen
 			? (document.body.style.overflow = "hidden")
 			: (document.body.style.overflow = "auto")
 	}, [modalOpen])
+
+	useEffect(() => {
+		modalCtx.pageLoadedCountIncrementer()
+		modalCtx.pageLoadedCount > 0 && modalCtx.pageLoadedCount < 3
+			? setModalOpen(true)
+			: null
+	}, [])
+
 	return (
 		<>
 			{modalOpen ? (
-				<ModalStyled>
+				<ModalStyled
+					show={setTimeout(() => {
+						modalOpen ? true : false
+					}, 500)}
+				>
 					<dialog>
 						<span
 							onClick={modalCloseHandler}
@@ -44,7 +62,6 @@ export const ModalStyled = styled.div`
 	inset-inline-start: 50%;
 	transform: translate(-50%, -50%);
 	background-color: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(0);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,8 +69,18 @@ export const ModalStyled = styled.div`
 	height: 100vh;
 	z-index: 10;
 	overflow: auto;
-	opacity: 1;
+	opacity: 0;
+	animation: ${(props) => (props.show ? "fadeIn .4s forwards" : "")};
 	transition: all 0.4s ease-in;
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 
 	dialog {
 		display: block;
@@ -62,6 +89,18 @@ export const ModalStyled = styled.div`
 		border: none;
 		padding: 0;
 		margin-block: auto;
+		animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
+	}
+
+	@keyframes slideDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-500px);
+		}
+		100% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
 	}
 
 	.modal-close {
@@ -69,6 +108,7 @@ export const ModalStyled = styled.div`
 		top: 1rem;
 		right: 1rem;
 		z-index: 10;
+		cursor: pointer;
 	}
 
 	.modal-close svg {

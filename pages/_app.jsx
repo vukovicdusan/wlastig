@@ -2,6 +2,7 @@ import { GlobalStyles } from "../components/styles/Global"
 import "../components/layout/Layout"
 import Layout from "../components/layout/Layout"
 import Head from "next/head"
+import { ModalCtxProvider } from "../public/store/ModalCtx"
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -30,9 +31,11 @@ function MyApp({ Component, pageProps }) {
 				/>
 			</Head>
 			<GlobalStyles></GlobalStyles>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<ModalCtxProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</ModalCtxProvider>
 		</>
 	)
 }

@@ -69,6 +69,9 @@ const Contact = (props) => {
 			<Stack stackSpace={"var(--s3)"} className="contactStack">
 				<div>
 					<h3>Improve your Data Quality for FREE!</h3>
+					{props.popup ? (
+						<h4 className="title-xl">For FREE!</h4>
+					) : null}
 					<p>Your decisions are only as good as your data.</p>
 				</div>
 				{!contactFormProccess.success && contactFormProccess.error ? (
@@ -84,13 +87,23 @@ const Contact = (props) => {
 					</p>
 				)}
 				<Switcher
-					className="full-width"
+					className={`${
+						props.popup ? "column-reverse" : ""
+					} full-width`}
 					switcherAlign={"center"}
 					gap={"var(--s5)"}
 					elCount={"2"}
 					flexBasis={"20rem"}
 				>
 					<Stack stackSpace={"var(--s3)"}>
+						{props.popup ? (
+							<div>
+								<h4>150% Point Audit For Data Quality</h4>
+								<p>(3x The Industry Average)</p>
+							</div>
+						) : (
+							""
+						)}
 						<InputWrapper>
 							<input
 								type="text"

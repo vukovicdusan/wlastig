@@ -15,8 +15,9 @@ import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
 import ReelImage from "../components/ReelImage"
+import Modal from "../components/Modal"
 
-const consulting = () => {
+const Consulting = () => {
 	let processArr = [
 		{ title: "Getting to know your business" },
 		{ title: "Defining the goals" },
@@ -195,8 +196,9 @@ const consulting = () => {
 				cta={"Improve your data quality for FREE!"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+			<Modal></Modal>
 		</>
 	)
 }
 
-export default consulting
+export default Consulting

@@ -17,6 +17,7 @@ import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
 import ReelImage from "../components/ReelImage"
+import Modal from "../components/Modal"
 
 const webAnalytics = () => {
 	const subsArr = [
@@ -267,6 +268,7 @@ const webAnalytics = () => {
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+			<Modal></Modal>
 		</main>
 	)
 }
