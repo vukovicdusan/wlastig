@@ -296,7 +296,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-	border: 2px solid var(--primary);
+	border: 1px solid var(--primary);
 	-webkit-text-fill-color: inherit;
 	-webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset;
 	/* transition: background-color 5000s ease-in-out 0s; */
@@ -307,10 +307,7 @@ label {
 	font-size: 0.9rem;
 }
 /* === UTILITIES === */
-.full-bleed {
-	width: 100vw;
-	margin-left: calc(50% - 50vw);
-}
+
 
 .visually-hidden {
 	border: 0;
@@ -332,51 +329,7 @@ label {
 	text-align: center;
 }
 
-.mr-t-1 {
-	margin-block-start: var(--s0, 1rem) !important;
-}
-
-.mr-t-2 {
-	margin-block-start: var(--s2, 2rem) !important;
-}
-
-.mr-t-4 {
-	margin-block-start: var(--s4, 3rem) !important;
-}
-
-.mr-t-5 {
-	margin-block-start: var(--s5, 4rem) !important;
-}
-
-
-
 .text-light {
 	color: var(--text-light);
-}
-
-/** ==== BORDER TITLE ==== */
-
-.border-title--wrapper {
-	position: relative;
-}
-
-.border-title {
-	position: absolute;
-	--border-title--top: -8px;
-	top: var(--border-title--top);
-	right: 15px;
-	background-color: var(--background-light);
-	padding-inline: 0.5rem;
-	transition: all 0.2s ease;
-}
-
-input:focus + .border-title,
-select:focus + .border-title,
-textarea:focus + .border-title {
-	font-size: 0.7rem;
-}
-
-textarea {
-	resize: none;
 }
 `

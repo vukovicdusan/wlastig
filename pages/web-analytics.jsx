@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "next/image"
+
 import { Wrapper } from "../components/styles/Wrapper.styled"
 import { Region } from "../components/styles/Region.styled"
 import { Stack } from "../components/styles/Stack.styled"
@@ -7,18 +7,17 @@ import { Switcher } from "../components/styles/Switcher.styled"
 import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroStyled.styled"
 import { Center } from "../components/styles/Center.styled"
 import { Button } from "../components/styles/Button.styled"
-import illustration from "../public/img/report_analysis_-1.svg"
 import SubServicesGrid from "../components/SubServicesGrid"
 import bulb from "../public/img/bulb.svg"
-import { FullBackground } from "../components/styles/FullBackground.styled"
 import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
-import { Shapedivider } from "../components/styles/Shapedivider.styled"
 import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
+import ReelImage from "../components/ReelImage"
+import Modal from "../components/Modal"
 
 const webAnalytics = () => {
 	const subsArr = [
@@ -151,39 +150,45 @@ const webAnalytics = () => {
 			<ServicesHeroStyled
 				backgroundImg={"./img/pages/hero-analytics.png"}
 			>
-				<div className="hero-background">
-					<Region>
+				<Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
+					<div className="hero-background">
+						<Region>
+							<Wrapper>
+								<div className="hero-content ">
+									<Stack stackAlign={"end"}>
+										<AnimationContainer>
+											<h1>
+												Every company’s data has hidden
+												gems that could skyrocket your
+												profits
+											</h1>
+										</AnimationContainer>
+										<AnimationContainer>
+											<div className="desktop">
+												<Button reverse={true}>
+													Discover your gems!
+												</Button>
+											</div>
+										</AnimationContainer>
+									</Stack>
+								</div>
+							</Wrapper>
+						</Region>
+					</div>
+					<div className="mobile mr-t-4">
 						<Wrapper>
-							<div className="hero-content ">
-								<Stack stackAlign={"end"}>
-									<AnimationContainer>
-										<h1>
-											Every company’s data has hidden gems
-											that could skyrocket your profits
-										</h1>
-									</AnimationContainer>
-									<AnimationContainer>
-										<div className="desktop">
-											<Button reverse={true}>
-												Discover your gems!
-											</Button>
-										</div>
-									</AnimationContainer>
-								</Stack>
-							</div>
+							<Button>Discover your gems!</Button>
 						</Wrapper>
-					</Region>
-				</div>
-				<div className="mobile mr-t-4">
-					<Wrapper>
-						<Button>Discover your gems!</Button>
-					</Wrapper>
-				</div>
+					</div>
+				</Stack>
 			</ServicesHeroStyled>
 			<Region>
 				<Wrapper>
 					<Switcher>
-						<Stack stackSpace={"s4"} className="service-info">
+						<Stack
+							stackSpace={"var(--s4)"}
+							className="service-info"
+						>
 							<Stack>
 								<AnimationContainer>
 									<h2>What is Web Analytics?</h2>
@@ -239,12 +244,11 @@ const webAnalytics = () => {
 							</Stack>
 						</Stack>
 						<Center>
-							<Image
-								height={400}
-								width={400}
-								src={illustration}
-								alt="illustration"
-							></Image>
+							<ReelImage
+								svgHeight={300}
+								svgWidth={400}
+								content={"reel1"}
+							></ReelImage>
 						</Center>
 					</Switcher>
 				</Wrapper>
@@ -264,6 +268,7 @@ const webAnalytics = () => {
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+			<Modal></Modal>
 		</main>
 	)
 }

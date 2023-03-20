@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const CompetitionSectionStyled = styled.div`
 	& p {
-		font-family: var(--poppinsmedium);
+		font-family: var(--poppinsbold);
 		color: var(--primary);
 	}
 	.card {

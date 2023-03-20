@@ -1,12 +1,13 @@
 import Head from "next/head"
 import React from "react"
 import AnimationContainer from "../components/AnimationContainer"
+import Modal from "../components/Modal"
 import { Region } from "../components/styles/Region.styled"
 import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroStyled.styled"
 import { Stack } from "../components/styles/Stack.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
 
-const contact = () => {
+const Contact = () => {
 	return (
 		<>
 			<Head>
@@ -33,8 +34,9 @@ const contact = () => {
 					</Region>
 				</div>
 			</ServicesHeroStyled>
+			<Modal></Modal>
 		</>
 	)
 }
 
-export default contact
+export default Contact

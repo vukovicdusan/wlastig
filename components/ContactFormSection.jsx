@@ -16,8 +16,6 @@ const ContactFormSection = (props) => {
 	const router = useRouter()
 	const page = router.asPath
 
-	console.log(formData)
-
 	const onFormSubmitHandler = (isSubmited, data) => {
 		setFormSubmited(isSubmited)
 		setFormData(data)
@@ -60,7 +58,7 @@ const ContactFormSection = (props) => {
 			<Region>
 				<Wrapper>
 					<ContactFormSectionStyled>
-						<Switcher reverse={true} gap={"s5"}>
+						<Switcher reverse={"row-reverse"} gap={"var(--s5)"}>
 							<Stack
 								stackJustify={"center"}
 								stackAlign={"center"}

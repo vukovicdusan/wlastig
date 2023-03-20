@@ -123,7 +123,7 @@ const Testimonials = () => {
 										<Stack
 											stackJustify={"center"}
 											stackAlign={"center"}
-											stackSpace={"s-3"}
+											stackSpace={"var(--s-3)"}
 										>
 											<div className="reelItemBody">
 												<Sidebar

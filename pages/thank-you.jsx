@@ -134,7 +134,7 @@ const ThankYou = () => {
 
 								<div className="audit-card--inner">
 									<Stack
-										stackSpace={"s3"}
+										stackSpace={"var(--s3)"}
 										stackJustify={"space-around"}
 									>
 										<h4>GA AUDIT</h4>
@@ -165,7 +165,7 @@ const ThankYou = () => {
 
 								<div className="audit-card--inner">
 									<Stack
-										stackSpace={"s3"}
+										stackSpace={"var(--s3)"}
 										stackJustify={"space-around"}
 									>
 										<h4>GTM AUDIT</h4>
@@ -201,7 +201,7 @@ const ThankYou = () => {
 
 								<div className="audit-card--inner">
 									<Stack
-										stackSpace={"s3"}
+										stackSpace={"var(--s3)"}
 										stackJustify={"space-around"}
 									>
 										<h4>AW AUDIT</h4>

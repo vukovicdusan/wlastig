@@ -1,9 +1,5 @@
 import React, { useState } from "react"
-// import styles from "../styles/Reel.module.css"
 import Image from "next/image"
-import reel1 from "../public/img/report_analysis_.svg"
-import reel2 from "../public/img/report_analysis_-1.svg"
-import reel3 from "../public/img/google_ad.svg"
 import reelLink1 from "../public/img/analytics.svg"
 import reelLink2 from "../public/img/advertisement.svg"
 import reelLink3 from "../public/img/consultations.svg"
@@ -14,6 +10,7 @@ import { FullBackground } from "./styles/FullBackground.styled"
 import { ReelStyled } from "./styles/ReelStyled.styled"
 import { Button } from "./styles/Button.styled"
 import { Stack } from "./styles/Stack.styled"
+import ReelImage from "./ReelImage"
 
 const Reel = () => {
 	const [reelIndex, setReelIndex] = useState(0)
@@ -98,58 +95,61 @@ const Reel = () => {
 						</Shapedivider>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<Image src={reel1} alt="analysis image"></Image>
-								<AnimationContainer>
-									<Stack>
-										<p>
-											A data analysis which allows deeper
-											understanding of{" "}
-											<span>
-												CUSTOMER BEHAVIOUR, MARKETING
-											</span>{" "}
-											and <span>WEBSITE PERFORMANCE</span>
-											.
-										</p>
-										<Button>Web Analytics</Button>
-									</Stack>
-								</AnimationContainer>
+								{/* <Image src={reel1} alt="analysis image"></Image> */}
+								<ReelImage
+									content={"reel1"}
+									svgWidth={350}
+									svgHeight={250}
+								></ReelImage>
+								<Stack className="reel-item--text">
+									<p>
+										A data analysis which allows deeper
+										understanding of{" "}
+										<span>
+											CUSTOMER BEHAVIOUR, MARKETING
+										</span>{" "}
+										and <span>WEBSITE PERFORMANCE</span>.
+									</p>
+									<Button>Web Analytics</Button>
+								</Stack>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<Image src={reel3} alt="analysis image"></Image>
-								<AnimationContainer>
-									<Stack>
-										<p>
-											To optimize your campaigns and{" "}
-											<span>
-												REDUCE ADVERTISING EXPENSES
-											</span>
-											, we use state-of-the-art
-											advertising methods which leverage
-											machine learning.
-										</p>
-										<Button>Advertising</Button>
-									</Stack>
-								</AnimationContainer>
+								<ReelImage
+									content={"reel3"}
+									svgWidth={350}
+									svgHeight={250}
+								></ReelImage>
+
+								<Stack className="reel-item--text">
+									<p>
+										To optimize your campaigns and{" "}
+										<span>REDUCE ADVERTISING EXPENSES</span>
+										, we use state-of-the-art advertising
+										methods which leverage machine learning.
+									</p>
+									<Button>Advertising</Button>
+								</Stack>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<Image src={reel2} alt="analysis image"></Image>
-								<AnimationContainer>
-									<Stack>
-										<p>
-											When in trouble, get a fresh pair of
-											eyes to <span>SAVE YOUR TIME</span>{" "}
-											and <span>MONEY</span>. Whatever the
-											problem, we&quot;ll be there to
-											promptly steer the way towards
-											solution.
-										</p>
-										<Button>Consulting</Button>
-									</Stack>
-								</AnimationContainer>
+								<ReelImage
+									content={"reel2"}
+									svgWidth={350}
+									svgHeight={250}
+								></ReelImage>
+								<Stack className="reel-item--text">
+									<p>
+										When in trouble, get a fresh pair of
+										eyes to <span>SAVE YOUR TIME</span> and{" "}
+										<span>MONEY</span>. Whatever the
+										problem, we&quot;ll be there to promptly
+										steer the way towards solution.
+									</p>
+									<Button>Consulting</Button>
+								</Stack>
 							</div>
 						</div>
 					</div>

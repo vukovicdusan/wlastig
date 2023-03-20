@@ -23,6 +23,7 @@ import { FullBackground } from "../components/styles/FullBackground.styled"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
 import ContactFormSection from "../components/ContactFormSection"
 import Head from "next/head"
+import Modal from "../components/Modal"
 
 const ourTeam = () => {
 	let teamArr = [
@@ -370,6 +371,7 @@ const ourTeam = () => {
 				shapedivider={true}
 				shapedividerColor={"var(--primary-shade)"}
 			></ContactFormSection>
+			<Modal></Modal>
 		</main>
 	)
 }

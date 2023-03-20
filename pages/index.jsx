@@ -4,6 +4,7 @@ import Reel from "../components/Reel"
 import FocusSection from "../components/FocusSection"
 import Testimonials from "../components/Testimonials"
 import ContactFormSection from "../components/ContactFormSection"
+import Modal from "../components/Modal"
 
 export default function Home() {
 	return (
@@ -26,6 +27,7 @@ export default function Home() {
 				title={"150+ Point Audit For Data Quality"}
 				subTitle={"(3X The Industry Average)"}
 			></ContactFormSection>
+			<Modal></Modal>
 		</main>
 	)
 }
