@@ -45,5 +45,9 @@ export const ContactStyled = styled.form`
 		.full-width {
 			flex-direction: column-reverse;
 		}
+
+		.full-width > div {
+			width: 100%;
+		}
 	}
 `

@@ -27,7 +27,11 @@ const Footer = () => {
 			<FooterStyled>
 				<Region>
 					<Wrapper>
-						<Switcher elCount={5} gap={"s3"} flexBasis={"40"}>
+						<Switcher
+							elCount={5}
+							gap={"var(--s3)"}
+							flexBasis={"40"}
+						>
 							<Stack exceptionChild={1} exceptionMr={"var(--s1)"}>
 								<Link href={"/"} className="a-exception">
 									<Image
@@ -61,7 +65,11 @@ const Footer = () => {
 							</Stack>
 							<Stack stackAlign={"center"}>
 								<h4>Services:</h4>
-								<Stack as="ul" stackSpace={"var(--s1)"}>
+								<Stack
+									as="ul"
+									stackAlign={"center"}
+									stackSpace={"var(--s1)"}
+								>
 									<li>
 										<Link href={"/web-analytics"}>
 											Web Analytics
@@ -81,11 +89,7 @@ const Footer = () => {
 							</Stack>
 							<Stack stackAlign={"center"}>
 								<h4>Follow Us:</h4>
-								<Stack
-									as="ul"
-									stackAlign={"center"}
-									stackSpace={"--var(s1)"}
-								>
+								<ul>
 									<li>
 										<a className="a-exception" href="">
 											<svg
@@ -141,7 +145,7 @@ const Footer = () => {
 											</svg>
 										</a>
 									</li>
-								</Stack>
+								</ul>
 							</Stack>
 						</Switcher>
 					</Wrapper>

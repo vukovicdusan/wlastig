@@ -3,11 +3,17 @@ import styled from "styled-components"
 export const AccordionItemStyled = styled.div`
 	max-width: 60ch;
 	color: ${(props) => props.color || ""};
+
 	.accordion-title {
 		display: flex;
 		justify-content: space-between;
 		cursor: pointer;
 		text-transform: capitalize;
+		gap: var(--s0);
+	}
+
+	.accordion-title svg {
+		flex-shrink: 0;
 	}
 
 	.accordion-body {

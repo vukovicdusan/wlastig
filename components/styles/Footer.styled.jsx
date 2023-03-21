@@ -13,6 +13,10 @@ export const FooterStyled = styled.footer`
 		display: block;
 		fill: var(--secondary);
 	}
+	ul {
+		display: flex;
+		gap: 1rem;
+	}
 
 	.social-icon {
 		width: 45px;
