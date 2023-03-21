@@ -20,7 +20,7 @@ const Modal = () => {
 
 	useEffect(() => {
 		modalCtx.pageLoadedCountIncrementer()
-		modalCtx.pageLoadedCount > 0 && modalCtx.pageLoadedCount < 3
+		modalCtx.pageLoadedCount > 0 && modalCtx.pageLoadedCount <= 2
 			? setModalOpen(true)
 			: null
 	}, [])

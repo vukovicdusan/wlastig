@@ -58,7 +58,11 @@ const ContactFormSection = (props) => {
 			<Region>
 				<Wrapper>
 					<ContactFormSectionStyled>
-						<Switcher reverse={"row-reverse"} gap={"var(--s5)"}>
+						<Switcher
+							reverse={"row-reverse"}
+							switcherJustify={"center"}
+							gap={"var(--s5)"}
+						>
 							<Stack
 								stackJustify={"center"}
 								stackAlign={"center"}
