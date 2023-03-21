@@ -10,17 +10,22 @@ import { Stack } from "./styles/Stack.styled"
 
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
+	const [menuOpen, setMenuOpen] = useState(false)
 	const dropdownRef = useRef()
 
 	useEffect(() => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
 	}, [])
 
+	const menuOpenHandler = () => {
+		menuOpen ? setMenuOpen(false) : setMenuOpen(true)
+	}
+
 	return (
-		<HeaderStyled dropdownHeight={dropdownHeight}>
+		<HeaderStyled dropdownHeight={dropdownHeight} menuOpen={menuOpen}>
 			<Wrapper>
 				<Wrap>
-					<div href="" className="logo">
+					<div className="logo">
 						<Link href={"/"} className="a-exception" passHref>
 							<Image
 								width="100"
@@ -119,6 +124,40 @@ const Header = () => {
 							</li>
 						</Wrap>
 					</nav>
+					<button
+						onClick={menuOpenHandler}
+						className="hamburger"
+						aria-label="open menu"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="hamburger-svg"
+							height="32"
+							width="32"
+						>
+							<line
+								id="top-line"
+								x1="4.8"
+								y1="9.6"
+								x2="27.2"
+								y2="9.6"
+								stroke="var(--text-light)"
+								strokeWidth="3"
+								strokeLinecap="round"
+							></line>
+
+							<line
+								id="bottom-line"
+								x1="27.2"
+								y1="22.4"
+								x2="4.8"
+								y2="22.4"
+								stroke="var(--text-light)"
+								strokeWidth="3"
+								strokeLinecap="round"
+							></line>
+						</svg>
+					</button>
 				</Wrap>
 			</Wrapper>
 		</HeaderStyled>
@@ -205,6 +244,45 @@ export const HeaderStyled = styled.header`
 		justify-content: center;
 		align-items: center;
 		gap: 0.4rem;
+	}
+
+	.hamburger {
+		background: none;
+		border: none;
+		z-index: 10;
+	}
+
+	.hamburger svg {
+		fill: #fff;
+		transform: ${(props) =>
+			props.menuOpen ? "rotateZ(225deg)" : "rotate(0)"};
+		transition: transform 0.4s ease;
+	}
+
+	.hamburger line {
+		transition: transform 0.6s ease-in-out;
+	}
+
+	.hamburger line:nth-child(1) {
+		transform: ${(props) =>
+			props.menuOpen
+				? "rotate(-90deg) translate(-29px, 7px)"
+				: "rotate(0deg)"};
+	}
+
+	.hamburger line:nth-child(2) {
+		transform: ${(props) =>
+			props.menuOpen ? "rotate(0deg) translate(0,-9px)" : "rotate(-deg)"};
+	}
+
+	@media (max-width: 850px) {
+		nav {
+			display: none;
+		}
+
+		.hamburger {
+			display: block;
+		}
 	}
 `
 

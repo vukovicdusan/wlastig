@@ -159,10 +159,22 @@ const Contact = () => {
 								stackAlign={"center"}
 							>
 								<h2>Reach Out!</h2>
-								<span className="text-red">
-									info@wlastig.com
+								<span>
+									<a
+										className="text-red"
+										href="mailto: info@wlastig.com"
+									>
+										info@wlastig.com
+									</a>
 								</span>
-								<span className="text-red">+38169123456</span>
+								<span>
+									<a
+										className="text-red"
+										href="tel: +38169123456"
+									>
+										+38169123456
+									</a>
+								</span>
 							</Stack>
 							<Stack
 								as="form"
