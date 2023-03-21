@@ -1,8 +1,8 @@
 import React from "react"
+import styled from "styled-components"
 import Image from "next/image"
 import logo from "../public/img/logo/Wlastig_logo_sajt_color-cut.png"
 import Link from "next/link"
-import { FooterStyled } from "./styles/Footer.styled"
 import { Wrapper } from "./styles/Wrapper.styled"
 import { Region } from "./styles/Region.styled"
 import { Switcher } from "./styles/Switcher.styled"
@@ -27,7 +27,11 @@ const Footer = () => {
 			<FooterStyled>
 				<Region>
 					<Wrapper>
-						<Switcher elCount={5} gap={"s3"} flexBasis={"40"}>
+						<Switcher
+							elCount={5}
+							gap={"var(--s3)"}
+							flexBasis={"40rem"}
+						>
 							<Stack exceptionChild={1} exceptionMr={"var(--s1)"}>
 								<Link href={"/"} className="a-exception">
 									<Image
@@ -61,7 +65,11 @@ const Footer = () => {
 							</Stack>
 							<Stack stackAlign={"center"}>
 								<h4>Services:</h4>
-								<Stack as="ul" stackSpace={"var(--s1)"}>
+								<Stack
+									as="ul"
+									stackAlign={"center"}
+									stackSpace={"var(--s1)"}
+								>
 									<li>
 										<Link href={"/web-analytics"}>
 											Web Analytics
@@ -81,11 +89,7 @@ const Footer = () => {
 							</Stack>
 							<Stack stackAlign={"center"}>
 								<h4>Follow Us:</h4>
-								<Stack
-									as="ul"
-									stackAlign={"center"}
-									stackSpace={"--var(s1)"}
-								>
+								<ul>
 									<li>
 										<a className="a-exception" href="">
 											<svg
@@ -141,7 +145,7 @@ const Footer = () => {
 											</svg>
 										</a>
 									</li>
-								</Stack>
+								</ul>
 							</Stack>
 						</Switcher>
 					</Wrapper>
@@ -156,5 +160,43 @@ const Footer = () => {
 		</FullBackground>
 	)
 }
+
+export const FooterStyled = styled.footer`
+	padding-block-start: calc(var(--s5) + 3rem);
+	@media (max-width: 715px) {
+		padding-block-start: calc(var(--s5));
+	}
+
+	.letterIcon {
+		width: var(--s5);
+		height: var(--s5);
+		position: relative;
+		display: block;
+		fill: var(--secondary);
+	}
+
+	ul {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-icon {
+		width: 45px;
+		height: 45px;
+	}
+
+	.clutch.social-icon {
+		border-radius: 1000px;
+		background-color: #000;
+	}
+
+	.footers-footer {
+		background-color: var(--primary);
+		color: var(--text-light);
+		font-size: var(--s-2);
+		text-align: center;
+		margin-block-start: auto;
+	}
+`
 
 export default Footer

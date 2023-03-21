@@ -51,12 +51,12 @@ const Infographic = (props) => {
 			</Shapedivider>
 			<Region>
 				<Wrapper>
-					<Center>
-						<AnimationContainer>
+					<AnimationContainer>
+						<Center>
 							<h2>Our Proccess</h2>
 							<UnderlineStyled></UnderlineStyled>
-						</AnimationContainer>
-					</Center>
+						</Center>
+					</AnimationContainer>
 					<InfographicStyled ref={animationRef}>
 						<div
 							className={

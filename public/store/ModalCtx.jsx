@@ -6,10 +6,9 @@ export const ModalCtxProvider = (props) => {
 	const [pageLoadedCount, setPageLoadedCount] = useState(0)
 
 	const pageLoadedCountIncrementer = () => {
-		console.log("fired")
-		if (pageLoadedCount < 3)
-			setPageLoadedCount((prevState) => prevState + 1) <
-				sessionStorage.setItem("viewCount", pageLoadedCount)
+		if (pageLoadedCount <= 2)
+			setPageLoadedCount((prevState) => prevState + 1)
+		sessionStorage.setItem("viewCount", pageLoadedCount)
 	}
 
 	const ctxValue = { pageLoadedCount, pageLoadedCountIncrementer }

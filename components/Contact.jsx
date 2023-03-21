@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
+import styled from "styled-components"
 import { sendContactForm } from "../lib/api"
 import { InputWrapper } from "./styles/InputWrapper.styled"
 import { Stack } from "./styles/Stack.styled"
-import { ContactStyled } from "./styles/ContactStyled.styled"
 import { Button } from "./styles/Button.styled"
 import Loader from "./Loader"
 import Image from "next/image"
@@ -11,7 +11,7 @@ import { Switcher } from "./styles/Switcher.styled"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
-	const [contactFormData, setContactFormData] = useState({})
+	const [contactFormData, setContactFormData] = useState({ audit: true })
 	const [contactFormProccess, setContactFormProccess] = useState({
 		success: false,
 		error: false,
@@ -63,7 +63,6 @@ const Contact = (props) => {
 					name: e.target.value,
 			  })
 	}
-
 	return (
 		<ContactStyled popup={props.popup} onSubmit={onSubmitHandler}>
 			<Stack stackSpace={"var(--s3)"} className="contactStack">
@@ -83,7 +82,7 @@ const Contact = (props) => {
 					""
 				) : (
 					<p className="success">
-						Thak you for your message! We will contact you ASAP!
+						Thank you for your message! We will contact you ASAP!
 					</p>
 				)}
 				<Switcher
@@ -147,5 +146,57 @@ const Contact = (props) => {
 		</ContactStyled>
 	)
 }
+
+export const ContactStyled = styled.form`
+	background-color: var(--background-light);
+	border-radius: 5px;
+	box-shadow: var(--box-shadow);
+	padding: var(--s2) var(--s2);
+	height: max-content;
+	max-width: ${(props) => (props.popup ? "max-content" : "auto")};
+
+	& img {
+		object-fit: contain;
+	}
+	& h3,
+	& h4,
+	& p {
+		color: var(--primary);
+	}
+
+	.title-xl {
+		text-shadow: none;
+	}
+
+	.full-width {
+		width: 100%;
+	}
+
+	.success {
+		color: #4bb543;
+	}
+
+	.error {
+		color: indianred;
+	}
+
+	.button-loader {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	@media (max-width: 719px) {
+		.full-width {
+			flex-direction: column-reverse;
+		}
+
+		.full-width > div {
+			width: 100%;
+		}
+	}
+`
 
 export default Contact

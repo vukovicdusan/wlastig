@@ -307,8 +307,6 @@ label {
 	font-size: 0.9rem;
 }
 /* === UTILITIES === */
-
-
 .visually-hidden {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -319,10 +317,6 @@ label {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
-}
-
-.display-none {
-	display: none !important;
 }
 
 .text-center {

@@ -13,7 +13,7 @@ export const Switcher = styled.div`
 	& > * {
 		flex-grow: 1;
 		flex-basis: calc(
-			(${(props) => props.flexBasis || "50"}rem - 100%) * 999
+			(${(props) => props.flexBasis || "50rem"} - 100%) * 999
 		);
 	}
 

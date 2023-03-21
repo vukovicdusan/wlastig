@@ -112,7 +112,7 @@ const ThankYou = () => {
 								<h1>Thank You!</h1>
 							</Center>
 						</AnimationContainer>
-						<Switcher switcherJustify={"center"}>
+						<Switcher switcherJustify={"center"} mb={"var(--s3)"}>
 							<div
 								onClick={() => cardSelectHandler("ga")}
 								className={`audit-card--outer ${
@@ -220,7 +220,7 @@ const ThankYou = () => {
 							</div>
 						</Switcher>
 
-						<div className="button-loader mr-t-4">
+						<div className="button-loader">
 							<Button onClick={firebaseWriteHandler}>
 								Request!
 							</Button>

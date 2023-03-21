@@ -5,6 +5,7 @@ import search from "../public/img/search.svg"
 import aim from "../public/img/aim.svg"
 import { Wrapper } from "./styles/Wrapper.styled"
 import { Region } from "./styles/Region.styled"
+import { Center } from "./styles/Center.styled"
 import IconBox from "./IconBox"
 import { FullBackground } from "./styles/FullBackground.styled"
 import { Stack } from "./styles/Stack.styled"
@@ -26,36 +27,42 @@ const FocusSection = () => {
 					<Stack stackAlign={"center"} stackSpace={"var(--s5)"}>
 						<Switcher
 							switcherJustify={"center"}
-							flexBasis={"40"}
+							flexBasis={"40rem"}
 							elCount={"3"}
-							gap={"s4"}
+							gap={"var(--s4)"}
 						>
 							<AnimationContainer>
-								<IconBox
-									img={aim}
-									width={100}
-									height={100}
-									title={"ROI Focused"}
-									content={roiContent}
-								></IconBox>
+								<Center>
+									<IconBox
+										img={aim}
+										width={100}
+										height={100}
+										title={"ROI Focused"}
+										content={roiContent}
+									></IconBox>
+								</Center>
 							</AnimationContainer>
 							<AnimationContainer delay={"2"}>
-								<IconBox
-									img={bulb}
-									width={100}
-									height={100}
-									title={"Performance Forecasting"}
-									content={performanceContent}
-								></IconBox>
+								<Center>
+									<IconBox
+										img={bulb}
+										width={100}
+										height={100}
+										title={"Performance Forecasting"}
+										content={performanceContent}
+									></IconBox>
+								</Center>
 							</AnimationContainer>
 							<AnimationContainer delay={"4"}>
-								<IconBox
-									img={search}
-									width={100}
-									height={100}
-									title={"Advanced Tracking"}
-									content={trackingContent}
-								></IconBox>
+								<Center>
+									<IconBox
+										img={search}
+										width={100}
+										height={100}
+										title={"Advanced Tracking"}
+										content={trackingContent}
+									></IconBox>
+								</Center>
 							</AnimationContainer>
 						</Switcher>
 						<Button>Contact us now</Button>
