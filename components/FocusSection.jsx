@@ -27,9 +27,9 @@ const FocusSection = () => {
 					<Stack stackAlign={"center"} stackSpace={"var(--s5)"}>
 						<Switcher
 							switcherJustify={"center"}
-							flexBasis={"40"}
+							flexBasis={"40rem"}
 							elCount={"3"}
-							gap={"s4"}
+							gap={"var(--s4)"}
 						>
 							<AnimationContainer>
 								<Center>

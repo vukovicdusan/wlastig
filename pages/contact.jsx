@@ -1,15 +1,21 @@
-import Head from "next/head"
 import React from "react"
+import Head from "next/head"
+import styled from "styled-components"
 import AnimationContainer from "../components/AnimationContainer"
 import Modal from "../components/Modal"
 import { Region } from "../components/styles/Region.styled"
 import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroStyled.styled"
 import { Stack } from "../components/styles/Stack.styled"
 import { Wrapper } from "../components/styles/Wrapper.styled"
+import { Switcher } from "../components/styles/Switcher.styled"
+import { InputWrapper } from "../components/styles/InputWrapper.styled"
+import { Button } from "../components/styles/Button.styled"
+import { Shapedivider } from "../components/styles/Shapedivider.styled"
 
 const Contact = () => {
+	const inputHandler = () => {}
 	return (
-		<>
+		<ContactPageStyled>
 			<Head>
 				<title>Wlastig Analytics - Contact Us</title>
 				<meta
@@ -26,7 +32,7 @@ const Contact = () => {
 							<div className="hero-content ">
 								<Stack stackAlign={"end"}>
 									<AnimationContainer>
-										<h1>Let&#39;s talk!</h1>
+										<h1>Let&#39;;s talk!</h1>
 									</AnimationContainer>
 								</Stack>
 							</div>
@@ -34,9 +40,206 @@ const Contact = () => {
 					</Region>
 				</div>
 			</ServicesHeroStyled>
+			<Region>
+				<Wrapper>
+					<Switcher gap={"var(--s3)"} mb={"var(--s5)"}>
+						<Stack>
+							<h2>Are We The Best Fit For You?</h2>
+							<span>
+								You&#39;ll love working with Wlastig if…
+							</span>
+							<Stack as="ul">
+								<li>You&#39;re big on communication</li>
+								<li>
+									You&#39;re not afraid to explore new ideas
+									with a proven partner
+								</li>
+								<li>
+									You treat marketing like an investment, not
+									a slot machine
+								</li>
+								<li>
+									You&#39;ve got enough bandwidth to handle
+									much more business
+								</li>
+							</Stack>
+						</Stack>
+						<Stack
+							stackSpace={"var(--s2)"}
+							stackJustify={"center"}
+							stackAlign={"center"}
+						>
+							<Stack
+								stackJustify={"center"}
+								stackAlign={"center"}
+							>
+								<h2>Reach Out!</h2>
+								<span className="text-red">
+									info@wlastig.com
+								</span>
+								<span className="text-red">+38169123456</span>
+							</Stack>
+							<Stack
+								as="form"
+								stackJustify={"center"}
+								stackAlign={"center"}
+							>
+								<Switcher elCount={2} flexBasis={"20rem"}>
+									<InputWrapper>
+										<input
+											type="text"
+											name="name"
+											id="name"
+											autoCapitalize="none"
+											autoCorrect="off"
+											required
+											onChange={inputHandler}
+										/>
+										<label htmlFor="name">Name</label>
+									</InputWrapper>
+									<InputWrapper>
+										<input
+											type="text"
+											name="email"
+											id="email"
+											autoCapitalize="none"
+											autoCorrect="off"
+											required
+											pattern="[^@]+@[^\.]+\..+"
+											onChange={inputHandler}
+										/>
+										<label htmlFor="email">Email</label>
+									</InputWrapper>
+								</Switcher>
+								<Switcher elCount={2} flexBasis={"20rem"}>
+									<InputWrapper>
+										<input
+											type="tel"
+											name="phone"
+											id="phone"
+											autoCapitalize="none"
+											autoCorrect="off"
+											onChange={inputHandler}
+										/>
+										<label htmlFor="website">
+											Your Phone Number
+										</label>
+									</InputWrapper>
+									<InputWrapper>
+										<input
+											type="text"
+											name="company"
+											id="company"
+											autoCapitalize="none"
+											autoCorrect="off"
+											required
+											onChange={inputHandler}
+										/>
+										<label htmlFor="company">
+											Company Name
+										</label>
+									</InputWrapper>
+								</Switcher>
+								<InputWrapper>
+									<input
+										type="text"
+										name="website"
+										id="website"
+										autoCapitalize="none"
+										autoCorrect="off"
+										onChange={inputHandler}
+									/>
+									<label htmlFor="website">
+										Company Website
+									</label>
+								</InputWrapper>
+								<InputWrapper>
+									<textarea
+										id="comments"
+										name="comments"
+										rows="4"
+										onChange={inputHandler}
+									></textarea>
+									<label htmlFor="website">
+										Any Comments?
+									</label>
+								</InputWrapper>
+								<Button>Send My Message</Button>
+							</Stack>
+							<p>Want a quote and a game plan fast?</p>
+							<button className="text-red arrow ghost-button">
+								Start your custom marketing plan now
+								<svg
+									clipRule="evenodd"
+									fillRule="evenodd"
+									strokeLinejoin="round"
+									strokeMiterlimit="2"
+									viewBox="0 0 24 24"
+									height={24}
+									width={24}
+									xmlns="http://www.w3.org/2000/svg"
+									fill={"var(--secondary)"}
+								>
+									<path
+										d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"
+										fillRule="nonzero"
+									/>
+								</svg>
+							</button>
+						</Stack>
+					</Switcher>
+				</Wrapper>
+				<Shapedivider
+					position={"bottom"}
+					rotation={"0"}
+					height={"80px"}
+				>
+					<svg
+						dataName="Layer 1"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 1200 120"
+						preserveAspectRatio="none"
+					>
+						<path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+					</svg>
+				</Shapedivider>
+			</Region>
 			<Modal></Modal>
-		</>
+		</ContactPageStyled>
 	)
 }
+
+export const ContactPageStyled = styled.div`
+	position: relative;
+	& > div > div:nth-child(2) {
+		box-shadow: var(--box-shadow);
+		padding: var(--s1) var(--s0);
+		border-radius: 5px;
+	}
+	.text-red {
+		color: var(--secondary);
+	}
+
+	p,
+	.text-red {
+		font-family: var(--poppinsbold);
+	}
+	.arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.ghost-button {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	.ghost-button:hover {
+		text-decoration: underline;
+	}
+`
 
 export default Contact

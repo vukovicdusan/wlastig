@@ -33,7 +33,7 @@ const CompetitionSection = (props) => {
 									delay={index}
 								>
 									<Switcher
-										flexBasis={"20"}
+										flexBasis={"20rem"}
 										elCount={3}
 										className="card"
 										gap={"s0"}
