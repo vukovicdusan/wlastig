@@ -11,7 +11,7 @@ import { Switcher } from "./styles/Switcher.styled"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
-	const [contactFormData, setContactFormData] = useState({})
+	const [contactFormData, setContactFormData] = useState({ audit: true })
 	const [contactFormProccess, setContactFormProccess] = useState({
 		success: false,
 		error: false,
@@ -63,7 +63,6 @@ const Contact = (props) => {
 					name: e.target.value,
 			  })
 	}
-
 	return (
 		<ContactStyled popup={props.popup} onSubmit={onSubmitHandler}>
 			<Stack stackSpace={"var(--s3)"} className="contactStack">

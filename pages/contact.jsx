@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Head from "next/head"
 import styled from "styled-components"
 import AnimationContainer from "../components/AnimationContainer"
@@ -11,9 +11,87 @@ import { Switcher } from "../components/styles/Switcher.styled"
 import { InputWrapper } from "../components/styles/InputWrapper.styled"
 import { Button } from "../components/styles/Button.styled"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
+import { TextMedium } from "../components/styles/TextMedium.styled"
+import CheckSvg from "../components/CheckSvg"
+import { sendContactForm } from "../lib/api"
+import Loader from "../components/Loader"
 
 const Contact = () => {
-	const inputHandler = () => {}
+	const [hasMounted, setHasMounted] = useState(false)
+	const [contactFormData, setContactFormData] = useState({ audit: false })
+	const [contactFormProccess, setContactFormProccess] = useState({
+		success: false,
+		error: false,
+		loading: false,
+	})
+
+	useEffect(() => {
+		setHasMounted(true)
+	}, [])
+
+	if (!hasMounted) {
+		return null
+	}
+	const onSubmitHandler = async (e) => {
+		e.preventDefault()
+		setContactFormProccess((prev) => ({ ...prev, loading: true }))
+		try {
+			await sendContactForm(contactFormData)
+			setContactFormProccess((prev) => ({
+				...prev,
+				success: true,
+				loading: false,
+			}))
+		} catch (err) {
+			console.log(err)
+			setContactFormProccess((prev) => ({
+				...prev,
+				error: true,
+				loading: false,
+			}))
+		}
+	}
+
+	const inputHandler = (e) => {
+		switch (e.target.name) {
+			case "email":
+				setContactFormData({
+					...contactFormData,
+					email: e.target.value,
+				})
+				break
+			case "name":
+				setContactFormData({ ...contactFormData, name: e.target.value })
+				break
+			case "phone":
+				setContactFormData({
+					...contactFormData,
+					phone: e.target.value,
+				})
+				break
+			case "company":
+				setContactFormData({
+					...contactFormData,
+					company: e.target.value,
+				})
+				break
+			case "website":
+				setContactFormData({
+					...contactFormData,
+					website: e.target.value,
+				})
+				break
+			case "comments":
+				setContactFormData({
+					...contactFormData,
+					comments: e.target.value,
+				})
+				break
+			default:
+				""
+		}
+	}
+
 	return (
 		<ContactPageStyled>
 			<Head>
@@ -32,7 +110,7 @@ const Contact = () => {
 							<div className="hero-content ">
 								<Stack stackAlign={"end"}>
 									<AnimationContainer>
-										<h1>Let&#39;;s talk!</h1>
+										<h1>Let&#39;s talk!</h1>
 									</AnimationContainer>
 								</Stack>
 							</div>
@@ -43,28 +121,35 @@ const Contact = () => {
 			<Region>
 				<Wrapper>
 					<Switcher gap={"var(--s3)"} mb={"var(--s5)"}>
-						<Stack>
+						<Stack stackJustify={"center"} stackSpace={"var(--s2)"}>
 							<h2>Are We The Best Fit For You?</h2>
-							<span>
+							<TextMedium>
 								You&#39;ll love working with Wlastig if…
-							</span>
+							</TextMedium>
 							<Stack as="ul">
-								<li>You&#39;re big on communication</li>
 								<li>
+									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
+									You&#39;re big on communication
+								</li>
+								<li>
+									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
 									You&#39;re not afraid to explore new ideas
 									with a proven partner
 								</li>
 								<li>
+									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
 									You treat marketing like an investment, not
 									a slot machine
 								</li>
 								<li>
+									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
 									You&#39;ve got enough bandwidth to handle
 									much more business
 								</li>
 							</Stack>
 						</Stack>
 						<Stack
+							className="form-container"
 							stackSpace={"var(--s2)"}
 							stackJustify={"center"}
 							stackAlign={"center"}
@@ -83,6 +168,7 @@ const Contact = () => {
 								as="form"
 								stackJustify={"center"}
 								stackAlign={"center"}
+								onSubmit={onSubmitHandler}
 							>
 								<Switcher elCount={2} flexBasis={"20rem"}>
 									<InputWrapper>
@@ -164,8 +250,27 @@ const Contact = () => {
 										Any Comments?
 									</label>
 								</InputWrapper>
-								<Button>Send My Message</Button>
+								<div className="button-loader">
+									<Button>Send My Message</Button>
+									{contactFormProccess.loading ? (
+										<Loader></Loader>
+									) : null}
+								</div>
 							</Stack>
+							{!contactFormProccess.success &&
+							contactFormProccess.error ? (
+								<p className="error">
+									Something went wrong. Message was not sent.
+								</p>
+							) : !contactFormProccess.success &&
+							  !contactFormProccess.error ? (
+								""
+							) : (
+								<p className="success">
+									Thank you for your message! We will contact
+									you ASAP!
+								</p>
+							)}
 							<p>Want a quote and a game plan fast?</p>
 							<button className="text-red arrow ghost-button">
 								Start your custom marketing plan now
@@ -195,7 +300,6 @@ const Contact = () => {
 					height={"80px"}
 				>
 					<svg
-						dataName="Layer 1"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 1200 120"
 						preserveAspectRatio="none"
@@ -211,7 +315,8 @@ const Contact = () => {
 
 export const ContactPageStyled = styled.div`
 	position: relative;
-	& > div > div:nth-child(2) {
+
+	.form-container:nth-child(2) {
 		box-shadow: var(--box-shadow);
 		padding: var(--s1) var(--s0);
 		border-radius: 5px;
@@ -220,9 +325,15 @@ export const ContactPageStyled = styled.div`
 		color: var(--secondary);
 	}
 
-	p,
-	.text-red {
+	.form-container p,
+	.form-container .text-red {
 		font-family: var(--poppinsbold);
+	}
+
+	ul li {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
 	}
 	.arrow {
 		display: flex;
@@ -239,6 +350,22 @@ export const ContactPageStyled = styled.div`
 
 	.ghost-button:hover {
 		text-decoration: underline;
+	}
+
+	.success {
+		color: #4bb543;
+	}
+
+	.error {
+		color: indianred;
+	}
+
+	.button-loader {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 3rem;
 	}
 `
 
