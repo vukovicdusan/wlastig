@@ -7,11 +7,19 @@ import logo from "../public/img/logo/logo-white.png"
 import { Wrap } from "./styles/Wrap.styled"
 import { Button } from "./styles/Button.styled"
 import { Stack } from "./styles/Stack.styled"
+import { DisabledLink } from "./styles/DisabledLink.styled"
+import MobileMenu from "./MobileMenu"
+import { useRouter } from "next/router"
 
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
 	const [menuOpen, setMenuOpen] = useState(false)
 	const dropdownRef = useRef()
+	const router = useRouter()
+
+	useEffect(() => {
+		setMenuOpen(false)
+	}, [router.asPath])
 
 	useEffect(() => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
@@ -23,6 +31,7 @@ const Header = () => {
 
 	return (
 		<HeaderStyled dropdownHeight={dropdownHeight} menuOpen={menuOpen}>
+			<MobileMenu menuOpen={menuOpen}></MobileMenu>
 			<Wrapper>
 				<Wrap>
 					<div className="logo">
@@ -35,7 +44,7 @@ const Header = () => {
 							/>
 						</Link>
 					</div>
-					<nav>
+					<nav className="desktop-nav">
 						<Wrap as={"ul"} className={"text-bold"} role="list">
 							<li>
 								<Link href={"/"} passHref>
@@ -43,7 +52,10 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className="dropdown-link">
-								<div className="disabled-link dropdown-icon">
+								<DisabledLink
+									color={"var(--text-light)"}
+									className="dropdown-icon"
+								>
 									Services{" "}
 									<svg
 										className="icon-closed"
@@ -79,7 +91,7 @@ const Header = () => {
 											fill="#fff"
 										/>
 									</svg>
-								</div>
+								</DisabledLink>
 								<Stack
 									as="ul"
 									className="dropdown"
@@ -247,6 +259,7 @@ export const HeaderStyled = styled.header`
 	}
 
 	.hamburger {
+		display: none;
 		background: none;
 		border: none;
 		z-index: 10;
@@ -276,7 +289,7 @@ export const HeaderStyled = styled.header`
 	}
 
 	@media (max-width: 850px) {
-		nav {
+		.desktop-nav {
 			display: none;
 		}
 
