@@ -14,11 +14,12 @@ import { useRouter } from "next/router"
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const dropdownRef = useRef()
 	const router = useRouter()
 
 	useEffect(() => {
-		setMenuOpen(false)
+		setMobileMenuOpen(false)
 	}, [router.asPath])
 
 	useEffect(() => {
@@ -26,12 +27,12 @@ const Header = () => {
 	}, [])
 
 	const menuOpenHandler = () => {
-		menuOpen ? setMenuOpen(false) : setMenuOpen(true)
+		mobileMenuOpen ? setMobileMenuOpen(false) : setMobileMenuOpen(true)
 	}
 
 	return (
-		<HeaderStyled dropdownHeight={dropdownHeight} menuOpen={menuOpen}>
-			<MobileMenu menuOpen={menuOpen}></MobileMenu>
+		<HeaderStyled dropdownHeight={dropdownHeight} menuOpen={mobileMenuOpen}>
+			<MobileMenu menuOpen={mobileMenuOpen}></MobileMenu>
 			<Wrapper>
 				<Wrap>
 					<div className="logo">
