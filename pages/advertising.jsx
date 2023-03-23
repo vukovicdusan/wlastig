@@ -16,6 +16,7 @@ import Faq from "../components/Faq"
 import Head from "next/head"
 import ReelImage from "../components/ReelImage"
 import Modal from "../components/Modal"
+import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 
 const Advertising = () => {
 	const subsArr = [
@@ -220,9 +221,7 @@ const Advertising = () => {
 												In a fast-paced world of change,
 												finding the right digital
 												advertising services recipe is
-												of the utmost importance. Let’s
-												make a winning cocktail for your
-												business!
+												of the utmost importance.
 											</h1>
 										</AnimationContainer>
 										<AnimationContainer>
@@ -251,6 +250,15 @@ const Advertising = () => {
 							stackSpace={"var(--s4)"}
 							className="service-info"
 						>
+							<AnimationContainer delay={"3"}>
+								<h2>
+									{" "}
+									Let’s make a winning cocktail for your
+									business!
+								</h2>
+								<UnderlineStyled></UnderlineStyled>
+							</AnimationContainer>
+
 							<p>
 								If you’re failing to capitalize on the
 								top-quality product and superb service you’re
@@ -308,7 +316,7 @@ const Advertising = () => {
 				cta={"Get a FREE Audit"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
-			{/* <Modal></Modal> */}
+			<Modal></Modal>
 		</main>
 	)
 }

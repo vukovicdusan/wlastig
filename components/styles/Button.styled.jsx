@@ -17,6 +17,8 @@ export const Button = styled.button`
 	font-weight: bold;
 	transition: all 0.2s ease;
 	overflow: hidden;
+	margin-block-start: ${(props) => props.mt || null};
+	margin-block-end: ${(props) => props.mb || null};
 
 	&::before,
 	&::after {

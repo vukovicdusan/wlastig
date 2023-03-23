@@ -13,7 +13,6 @@ import { useRouter } from "next/router"
 
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
-	const [menuOpen, setMenuOpen] = useState(false)
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const dropdownRef = useRef()
 	const router = useRouter()

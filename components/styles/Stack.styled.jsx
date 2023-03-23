@@ -20,6 +20,6 @@ export const Stack = styled.div`
 	}
 
 	& > :nth-child(${(props) => props.exceptionChild || null}) {
-		margin-block-end: ${(props) => props.exceptionMr || "auto"};
+		margin-block-start: ${(props) => props.exceptionMr || "auto"};
 	}
 `

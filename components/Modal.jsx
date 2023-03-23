@@ -7,12 +7,9 @@ const Modal = () => {
 	const modalCtx = useContext(ModalCtx)
 
 	const [modalOpen, setModalOpen] = useState(false)
-	const [closedForGood, setClosedForGood] = useState(false)
 
 	const modalCloseHandler = () => {
-		modalOpen
-			? setModalOpen(false) && setClosedForGood(true)
-			: setModalOpen(true)
+		modalOpen ? setModalOpen(false) : setModalOpen(true)
 	}
 
 	useEffect(() => {
@@ -23,9 +20,7 @@ const Modal = () => {
 
 	useEffect(() => {
 		modalCtx.pageLoadedCountIncrementer()
-		modalCtx.pageLoadedCount > 0 &&
-		modalCtx.pageLoadedCount <= 2 &&
-		!closedForGood
+		modalCtx.pageLoadedCount > 0 && modalCtx.pageLoadedCount < 2
 			? setModalOpen(true)
 			: null
 	}, [])
