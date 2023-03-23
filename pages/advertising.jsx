@@ -308,7 +308,7 @@ const Advertising = () => {
 				cta={"Get a FREE Audit"}
 			></ContactFormSection>
 			<Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
-			{/* <Modal></Modal> */}
+			<Modal></Modal>
 		</main>
 	)
 }
