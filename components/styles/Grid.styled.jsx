@@ -6,7 +6,7 @@ export const Grid = styled.div`
 
 	@supports (width: min(${(props) => props.gridColumn || "250px"}, 100%)) {
 		grid-template-columns: repeat(
-			auto-fit,
+			${(props) => props.auto || "auto-fit"},
 			minmax(min(${(props) => props.gridColumn || "250px"}, 100%), 1fr)
 		);
 	}

@@ -6,8 +6,12 @@ export const Box = styled.div`
 	color: ${(props) => props.boxColor || "var(--text-dark)"};
 	background-color: ${(props) => props.boxBackground || "transparent"};
 	border-radius: ${(props) => props.borderRadius || ""};
-
+	max-width: ${(props) => props.maxWidth || null};
 	& * {
 		color: inherit;
+	}
+
+	& > div {
+		height: 100%;
 	}
 `
