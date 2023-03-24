@@ -208,8 +208,8 @@ export const HeaderStyled = styled.header`
 	position: fixed;
 	width: 100%;
 	z-index: 10;
-	transform: translateY(${(props) => (props.hideHeader ? "-100px" : "0px")});
-	transition: transform 0.4s ease-in-out;
+	transform: translateY(${(props) => (props.hideHeader ? "-100px" : "")});
+	transition: transform 0.4s ease;
 
 	& a,
 	& .disabled-link {

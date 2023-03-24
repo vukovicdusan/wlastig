@@ -91,6 +91,11 @@ export const MobileMenuStyled = styled.div`
 	animation: ${(props) =>
 		props.show ? "slideIn .4s both" : "slideOut .4s both"};
 	transition: transform 0.4s ease-in-out;
+	/* z-index: 10; */
+
+	a {
+		color: var(--text-light);
+	}
 
 	@keyframes slideIn {
 		0% {
