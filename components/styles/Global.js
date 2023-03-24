@@ -24,7 +24,6 @@ export const GlobalStyles = createGlobalStyle`
 	--primary: #083d77;
 	--theme-primary: #083d77;
 	--primary-shade: #B4C5D6;
-	--theme-primary-shade: #B4C5D6;
 	--secondary: #f2545b;
 	--text-dark: #1c2334;
 	--theme-text-dark: #1c2334;
@@ -82,6 +81,8 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	color: var(--text-dark);
+	background: var(--background-light);
 }
 
 /* A elements that don't have a class get default styles */
@@ -263,6 +264,7 @@ textarea {
 	padding: 0.6rem;
 	border: 1px solid #ccc;
 	min-inline-size: 15rem;
+	background-color: var(--background-light);
 }
 
 select {
@@ -299,7 +301,7 @@ select:-webkit-autofill:focus {
 }
 
 label {
-	color: var(--primary);
+	color: var(--theme-primary);
 	font-size: 0.9rem;
 }
 /* === UTILITIES === */
@@ -327,23 +329,22 @@ label {
 	html {
 		color-scheme: dark;
 	}
-	body {
+	/* body {
 		color: var(--text-dark);
 		background: var(--background-dark);
-	}
+	} */
 
 	:root {
 		--primary: #083d77;
 		--theme-primary: #f8f8ff;
 		--primary-shade: #B4C5D6;
-		--theme-primary-shade: #f8f8ff;
 		--secondary: #f2545b;
 		--text-dark: #1c2334;
 		--theme-text-dark: #f8f8ff;
 		--text-light: #f8f8ff;
 		--text-gray: #909090;
-		--background-dark: #052547;
-		--background-light: #052547;
+		--background-dark: #49709B;
+		--background-light: #49709B;
 		--testimonial-frames: rgba(250,250,250,0.5);
 	}
 }
