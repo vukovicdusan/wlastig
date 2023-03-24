@@ -33,7 +33,7 @@ export const Button = styled.button`
 			props.reverse ? "var(--secondary)" : "var(--primary)"};
 		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 		border-radius: 5px;
-		transition: transform 0.2s ease-in-out;
+		transition: transform 0.3s ease-in-out;
 	}
 
 	&:after {

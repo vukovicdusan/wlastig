@@ -1,9 +1,8 @@
 import React from "react"
+import styled from "styled-components"
 import Image from "next/image"
-// import styles from "../styles/IconBox.module.css"
 import { Stack } from "./styles/Stack.styled"
 import { Box } from "./styles/Box.styled"
-import { IconBoxStyled } from "./styles/IconBoxStyled.styled"
 
 function IconBox(props) {
 	return (
@@ -26,5 +25,10 @@ function IconBox(props) {
 		</IconBoxStyled>
 	)
 }
+
+export const IconBoxStyled = styled.div`
+	max-width: 15rem;
+	text-align: center;
+`
 
 export default IconBox

@@ -161,7 +161,7 @@ export const ContactStyled = styled.form`
 	& h3,
 	& h4,
 	& p {
-		color: var(--primary);
+		color: var(--theme-primary);
 	}
 
 	.title-xl {

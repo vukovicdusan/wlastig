@@ -3,20 +3,19 @@ import React, { useEffect, useState } from "react"
 export const ModalCtx = React.createContext(0)
 
 export const ModalCtxProvider = (props) => {
-	const [pageLoadedCount, setPageLoadedCount] = useState("", () => {
-		const sessionData = sessionStorage.getItem("viewCount")
-		return Number(sessionData) || ""
-	})
-
-	const pageLoadedCountIncrementer = () => {
-		if (pageLoadedCount < 2) setPageLoadedCount(Number(pageLoadedCount) + 1)
-	}
+	const [hasOpened, setHasOpened] = useState(false)
 
 	useEffect(() => {
-		sessionStorage.setItem("viewCount", pageLoadedCount.toString())
-	}, [pageLoadedCount])
+		const sessionData = sessionStorage.getItem("modalOpened")
+		setHasOpened(sessionData)
+	}, [])
 
-	const ctxValue = { pageLoadedCount, pageLoadedCountIncrementer }
+	const modalOpenedHandler = () => {
+		setHasOpened(true)
+		sessionStorage.setItem("modalOpened", hasOpened)
+	}
+
+	const ctxValue = { hasOpened, modalOpenedHandler }
 
 	return (
 		<ModalCtx.Provider value={ctxValue}>{props.children}</ModalCtx.Provider>

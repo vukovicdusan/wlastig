@@ -14,6 +14,7 @@ import { useRouter } from "next/router"
 const Header = () => {
 	const [dropdownHeight, setDropdownHeight] = useState("")
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+	const [hideHeader, setHideHeader] = useState(false)
 	const dropdownRef = useRef()
 	const router = useRouter()
 
@@ -25,12 +26,37 @@ const Header = () => {
 		setDropdownHeight(dropdownRef.current.scrollHeight)
 	}, [])
 
+	useEffect(() => {
+		let direction = 0
+		let prevDirection = 0
+		let prevScroll = window.scrollY
+		let currentScroll
+		window.addEventListener("scroll", () => {
+			currentScroll = window.scrollY
+			currentScroll > prevScroll ? (direction = 2) : (direction = 1)
+			direction !== prevDirection &&
+				toggleHeader(direction, currentScroll)
+			prevScroll = currentScroll
+		})
+	})
+
+	const toggleHeader = (direction, currentScroll) => {
+		direction === 2 && currentScroll > 70
+			? setHideHeader(true)
+			: setHideHeader(false)
+	}
+
+	console.log(hideHeader)
 	const menuOpenHandler = () => {
 		mobileMenuOpen ? setMobileMenuOpen(false) : setMobileMenuOpen(true)
 	}
 
 	return (
-		<HeaderStyled dropdownHeight={dropdownHeight} menuOpen={mobileMenuOpen}>
+		<HeaderStyled
+			hideHeader={hideHeader}
+			dropdownHeight={dropdownHeight}
+			menuOpen={mobileMenuOpen}
+		>
 			<MobileMenu menuOpen={mobileMenuOpen}></MobileMenu>
 			<Wrapper>
 				<Wrap>
@@ -182,6 +208,8 @@ export const HeaderStyled = styled.header`
 	position: fixed;
 	width: 100%;
 	z-index: 10;
+	transform: translateY(${(props) => (props.hideHeader ? "-100px" : "0px")});
+	transition: transform 0.4s ease-in-out;
 
 	& a,
 	& .disabled-link {

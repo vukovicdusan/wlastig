@@ -6,7 +6,7 @@ import { Wrapper } from "./styles/Wrapper.styled"
 import { Region } from "./styles/Region.styled"
 import { Switcher } from "./styles/Switcher.styled"
 import { Stack } from "./styles/Stack.styled"
-import { ContactFormSectionStyled } from "./styles/ContactFormSectionStyled.styled"
+import styled from "styled-components"
 import AnimationContainer from "./AnimationContainer"
 import { useRouter } from "next/router"
 
@@ -83,5 +83,15 @@ const ContactFormSection = (props) => {
 		</FullBackground>
 	)
 }
+
+export const ContactFormSectionStyled = styled.div`
+	margin-block-start: var(--s5);
+
+	& .title-xl,
+	& .title-l {
+		text-align: center;
+		color: var(--text-light);
+	}
+`
 
 export default ContactFormSection

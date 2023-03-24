@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import ModalCtx from "../public/store/ModalCtx"
@@ -5,6 +6,7 @@ import Contact from "./Contact"
 
 const Modal = () => {
 	const modalCtx = useContext(ModalCtx)
+	const router = useRouter()
 
 	const [modalOpen, setModalOpen] = useState(false)
 
@@ -19,20 +21,19 @@ const Modal = () => {
 	}, [modalOpen])
 
 	useEffect(() => {
-		modalCtx.pageLoadedCountIncrementer()
-		modalCtx.pageLoadedCount > 0 && modalCtx.pageLoadedCount < 2
-			? setModalOpen(true)
-			: null
-	}, [])
+		if (
+			Object.keys(router.components).length === 3 &&
+			!modalCtx.hasOpened
+		) {
+			setModalOpen(true)
+			modalCtx.modalOpenedHandler()
+		}
+	}, [router, modalCtx])
 
 	return (
 		<>
 			{modalOpen ? (
-				<ModalStyled
-					show={setTimeout(() => {
-						modalOpen ? true : false
-					}, 500)}
-				>
+				<ModalStyled show={modalOpen}>
 					<dialog>
 						<span
 							onClick={modalCloseHandler}
