@@ -1,15 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
-	}
-	body {
-		color: white;
-		background: black;
-	}
-}
+
 
 /*===================*/
 /** ==== MODULAR SCALE ==== */
@@ -30,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
 	/** ==== VARIABLES ==== */
 
 	--primary: #083d77;
+	--theme-primary: #083d77;
 	--primary-shade: #B4C5D6;
 	--secondary: #f2545b;
 	--text-dark: #1c2334;
@@ -325,5 +318,27 @@ label {
 
 .text-light {
 	color: var(--text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+	body {
+		color: var(--text-dark);
+		background: var(--background-dark);
+	}
+
+	:root {
+		--primary: #083d77;
+		--theme-primary: #f8f8ff;
+		--primary-shade: #B4C5D6;
+		--secondary: #f2545b;
+		--text-dark: #1c2334;
+		--text-light: #f8f8ff;
+		--text-gray: #909090;
+		--background-dark: #052547;
+		--background-light: #052547;
+	}
 }
 `

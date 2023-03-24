@@ -1,9 +1,5 @@
 import React, { useState } from "react"
-import Image from "next/image"
 import styled from "styled-components"
-import reelLink1 from "../public/img/analytics.svg"
-import reelLink2 from "../public/img/advertisement.svg"
-import reelLink3 from "../public/img/consultations.svg"
 import AnimationContainer from "./AnimationContainer"
 import { Region } from "./styles/Region.styled"
 import { Shapedivider } from "./styles/Shapedivider.styled"
@@ -30,12 +26,13 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<Image
-										src={reelLink1}
-										height={70}
-										width={70}
-										alt="analytics logo"
-									></Image>
+									<ReelImage
+										content={"button1"}
+										svgWidth={70}
+										svgHeight={70}
+										viewBox={"0 0 24 24"}
+										svgFill={"var(--theme-primary)"}
+									></ReelImage>
 									Analytics
 								</span>
 							</button>
@@ -46,12 +43,13 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<Image
-										src={reelLink2}
-										height={70}
-										width={70}
-										alt="advertisement logo"
-									></Image>
+									<ReelImage
+										content={"button2"}
+										svgWidth={70}
+										svgHeight={70}
+										viewBox={"0 0 24 24"}
+										svgFill={"var(--theme-primary)"}
+									></ReelImage>
 									Advertising
 								</span>
 							</button>
@@ -62,12 +60,13 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<Image
-										src={reelLink3}
-										height={70}
-										width={70}
-										alt="consulting logo"
-									></Image>
+									<ReelImage
+										content={"button3"}
+										svgWidth={70}
+										svgHeight={70}
+										viewBox={"0 0 24 24"}
+										svgFill={"var(--theme-primary)"}
+									></ReelImage>
 									Consulting
 								</span>
 							</button>
@@ -235,7 +234,7 @@ export const ReelStyled = styled.div`
 		border-bottom: 2px solid transparent;
 		background-color: none;
 		background: none;
-		color: var(--primary);
+		color: var(--theme-primary);
 		cursor: pointer;
 		text-align: center;
 		text-decoration: none !important;
@@ -246,7 +245,7 @@ export const ReelStyled = styled.div`
 
 	.reel-button:focus {
 		outline: none;
-		border-bottom: 2px solid var(--primary);
+		border-bottom: 2px solid var(--theme-primary);
 	}
 
 	.reel-link-icon {
