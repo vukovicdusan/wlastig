@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-
 export const GlobalStyles = createGlobalStyle`
-
 
 /*===================*/
 /** ==== MODULAR SCALE ==== */
@@ -297,7 +295,6 @@ select:-webkit-autofill:focus {
 	border: 1px solid var(--primary);
 	-webkit-text-fill-color: inherit;
 	-webkit-box-shadow: 0 0 0px 1000px var(--background-light) inset;
-	/* transition: background-color 5000s ease-in-out 0s; */
 }
 
 label {
@@ -329,10 +326,6 @@ label {
 	html {
 		color-scheme: dark;
 	}
-	/* body {
-		color: var(--text-dark);
-		background: var(--background-dark);
-	} */
 
 	:root {
 		--primary: #083d77;

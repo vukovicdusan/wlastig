@@ -411,6 +411,12 @@ export const OurTeamStyled = styled.div`
 	.member-content-container {
 		padding-block-end: 1rem;
 	}
+
+	@media (max-width: 700px) {
+		.member-content-container:last-child {
+			padding-block-end: var(--s4);
+		}
+	}
 `
 
 export default ourTeam
