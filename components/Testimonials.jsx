@@ -223,7 +223,7 @@ export const TestimonialsStyled = styled.div`
 		position: relative;
 		padding: var(--s2);
 		border-radius: 20px;
-		color: var(--text-dark);
+		color: var(--theme-text-dark);
 	}
 
 	.testimonialImg {
@@ -253,7 +253,7 @@ export const TestimonialsStyled = styled.div`
 		flex-basis: 100%;
 		border: 4px solid rgba(8, 61, 119, 0.5);
 		border-radius: 5px;
-		background-color: rgba(0, 0, 0, 0.05);
+		background-color: var(--testimonial-frames);
 		background-size: cover;
 		padding: var(--s0) var(--s1);
 		color: var(--primary);

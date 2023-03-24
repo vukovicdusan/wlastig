@@ -24,12 +24,15 @@ export const GlobalStyles = createGlobalStyle`
 	--primary: #083d77;
 	--theme-primary: #083d77;
 	--primary-shade: #B4C5D6;
+	--theme-primary-shade: #B4C5D6;
 	--secondary: #f2545b;
 	--text-dark: #1c2334;
+	--theme-text-dark: #1c2334;
 	--text-light: #f8f8ff;
 	--text-gray: #909090;
 	--background-dark: #000;
 	--background-light: #fff;
+	--testimonial-frames: rgba(0, 0, 0, 0.05);
 	--color-shadow: rgba(23, 11, 41, 0.12);
 	--box-shadow: 0 2px 10px var(--color-shadow);
 	--text-shadow: 0 0 10px rgb(0 0 0 / 30%);
@@ -333,12 +336,15 @@ label {
 		--primary: #083d77;
 		--theme-primary: #f8f8ff;
 		--primary-shade: #B4C5D6;
+		--theme-primary-shade: #f8f8ff;
 		--secondary: #f2545b;
 		--text-dark: #1c2334;
+		--theme-text-dark: #f8f8ff;
 		--text-light: #f8f8ff;
 		--text-gray: #909090;
 		--background-dark: #052547;
 		--background-light: #052547;
+		--testimonial-frames: rgba(250,250,250,0.5);
 	}
 }
 `
