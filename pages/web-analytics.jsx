@@ -8,7 +8,17 @@ import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroSt
 import { Center } from "../components/styles/Center.styled"
 import { Button } from "../components/styles/Button.styled"
 import SubServicesGrid from "../components/SubServicesGrid"
-import bulb from "../public/img/bulb.svg"
+import analysis from "../public/img/subservices/data-analysis.svg"
+import funnel from "../public/img/subservices/funnel.svg"
+import rocket from "../public/img/subservices/rocket.svg"
+import search from "../public/img/subservices/search.svg"
+import marketing from "../public/img/subservices/marketing.svg"
+import report from "../public/img/subservices/report.svg"
+import testing from "../public/img/subservices/testing.svg"
+import chart from "../public/img/subservices/chart.svg"
+import direction from "../public/img/subservices/direction.svg"
+import customer from "../public/img/subservices/customer.svg"
+
 import Infographic from "../components/Infographic"
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import ContactFormSection from "../components/ContactFormSection"
@@ -25,53 +35,53 @@ const webAnalytics = () => {
 			title: "Tracking",
 			content:
 				"Get an advanced tracking solution for your company's success!",
-			img: bulb,
+			img: analysis,
 		},
 		{
 			title: "Conversion Attribution",
 			content:
 				"Don’t go for the one-size-fits-all attribution model, get yourself a custom fit!",
-			img: bulb,
+			img: funnel,
 		},
 		{
 			title: "Website optimization",
 			content:
 				"Transform your website into a conversion generating machine!",
-			img: bulb,
+			img: search,
 		},
 		{
 			title: "Marketing Databases",
 			content:
 				"Leverage your offline data to improve your online performance!",
-			img: bulb,
+			img: marketing,
 		},
 		{
 			title: "Predictive analytics and ML",
 			content:
 				"Predicting and capitalizing on the future trends and customer behaviour!",
-			img: bulb,
+			img: report,
 		},
 		{
 			title: "A/B testing",
 			content: "Test your hypothesis to improve your results!",
-			img: bulb,
+			img: testing,
 		},
 		{
 			title: "Reporting and Visualization",
 			content: "Uncover the story behind your data!",
-			img: bulb,
+			img: chart,
 		},
 		{
 			title: "Data Quality Testing",
 			content:
 				"Your decisions are only as good as your data. Improve your decisions by enhancing the quality of your data.",
-			img: bulb,
+			img: direction,
 		},
 		{
 			title: "Behavior Analysis",
 			content:
 				"Understand who your customers are, what they want and what impacts their decision making.",
-			img: bulb,
+			img: customer,
 		},
 	]
 
