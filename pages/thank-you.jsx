@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import { FullBackground } from "../components/styles/FullBackground.styled"
 import { Region } from "../components/styles/Region.styled"
@@ -14,6 +14,7 @@ import { db } from "../public/firebase/firebase"
 import { serverTimestamp } from "firebase/firestore"
 import { Button } from "../components/styles/Button.styled"
 import Loader from "../components/Loader"
+import ModalCtx from "../public/store/ModalCtx"
 
 const ThankYou = () => {
 	const [selected, setSelected] = useState({
@@ -25,13 +26,14 @@ const ThankYou = () => {
 	const [loading, setLoading] = useState(false)
 	const router = useRouter()
 	const data = router.query
+	const modalCtx = useContext(ModalCtx)
 
 	useEffect(() => {
 		if (!router.query.page) {
 			router.push("/")
 		}
 		setProtect(false)
-
+		modalCtx.modalOpenedHandler()
 		router.query.page === "/web-analytics" ||
 		router.query.page === "/consulting" ||
 		router.query.page === "/"

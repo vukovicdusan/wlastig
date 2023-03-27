@@ -28,7 +28,7 @@ const Modal = () => {
 			setModalOpen(true)
 			modalCtx.modalOpenedHandler()
 		}
-	}, [router, modalCtx])
+	}, [router])
 
 	return (
 		<>
