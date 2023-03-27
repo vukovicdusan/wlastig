@@ -46,7 +46,6 @@ const Header = () => {
 			: setHideHeader(false)
 	}
 
-	console.log(hideHeader)
 	const menuOpenHandler = () => {
 		mobileMenuOpen ? setMobileMenuOpen(false) : setMobileMenuOpen(true)
 	}

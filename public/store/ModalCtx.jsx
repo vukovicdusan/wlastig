@@ -6,15 +6,16 @@ export const ModalCtxProvider = (props) => {
 	const [hasOpened, setHasOpened] = useState(false)
 
 	useEffect(() => {
-		const sessionData = sessionStorage.getItem("modalOpened")
+		let sessionData = sessionStorage.getItem("modalOpened") || false
 		setHasOpened(sessionData)
 	}, [])
 
 	const modalOpenedHandler = () => {
-		setHasOpened(true)
-		sessionStorage.setItem("modalOpened", hasOpened)
+		!hasOpened ? setHasOpened(true) : ""
+		sessionStorage.setItem("modalOpened", true)
+		console.log("modalOpenedHandler fired")
 	}
-
+	console.log("hasOpened in ctx", hasOpened)
 	const ctxValue = { hasOpened, modalOpenedHandler }
 
 	return (
