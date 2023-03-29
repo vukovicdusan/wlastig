@@ -15,7 +15,7 @@ import Modal from "../components/Modal"
 
 const ourTeam = () => {
 	return (
-		<main>
+		<>
 			<Head>
 				<title>Wlastig Analytics - Our Team</title>
 				<meta
@@ -94,7 +94,7 @@ const ourTeam = () => {
 				</Shapedivider>
 			</OurTeamStyled>
 			<Modal></Modal>
-		</main>
+		</>
 	)
 }
 

@@ -20,7 +20,7 @@ const Careers = ({ data }) => {
 	return (
 		<>
 			<Head>
-				<title>Wlastig Analytics - Consulting Service</title>
+				<title>Wlastig Analytics - Careers</title>
 				<meta
 					name="Wlastig Analytics - Web Analytics, Advertising and
 	Consulting"
