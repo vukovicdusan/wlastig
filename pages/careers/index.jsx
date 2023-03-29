@@ -14,7 +14,7 @@ import { Switcher } from "../../components/styles/Switcher.styled"
 import Head from "next/head"
 import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled"
 import Link from "next/link"
-import { careersArr } from "../../public/careersArr"
+import { careersArr } from "../../public/content/careersArr"
 
 const Careers = ({ data }) => {
 	return (
