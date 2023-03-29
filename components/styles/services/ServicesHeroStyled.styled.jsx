@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const ServicesHeroStyled = styled.div`
 	color: var(--text-light);
-	padding-block-start: 65px;
 
 	.hero-background {
 		display: flex;

@@ -1,46 +1,22 @@
 import React from "react"
-import Modal from "../components/Modal"
-import { Box } from "../components/styles/Box.styled"
-import { Region } from "../components/styles/Region.styled"
-import { Stack } from "../components/styles/Stack.styled"
-import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
-import { Wrapper } from "../components/styles/Wrapper.styled"
-import { Button } from "../components/styles/Button.styled"
-import { StyledText } from "../components/styles/StyledText.styled"
-import { Center } from "../components/styles/Center.styled"
-import { FullBackground } from "../components/styles/FullBackground.styled"
-import { Shapedivider } from "../components/styles/Shapedivider.styled"
-import AnimationContainer from "../components/AnimationContainer"
-import { Switcher } from "../components/styles/Switcher.styled"
-import { TextMedium } from "../components/styles/TextMedium.styled"
-
+import Modal from "../../components/Modal"
+import { Box } from "../../components/styles/Box.styled"
+import { Region } from "../../components/styles/Region.styled"
+import { Stack } from "../../components/styles/Stack.styled"
+import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled"
+import { Wrapper } from "../../components/styles/Wrapper.styled"
+import { Button } from "../../components/styles/Button.styled"
+import { StyledText } from "../../components/styles/StyledText.styled"
+import { FullBackground } from "../../components/styles/FullBackground.styled"
+import { Shapedivider } from "../../components/styles/Shapedivider.styled"
+import AnimationContainer from "../../components/AnimationContainer"
+import { Switcher } from "../../components/styles/Switcher.styled"
 import Head from "next/head"
-import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroStyled.styled"
+import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled"
+import Link from "next/link"
+import { careersArr } from "../../public/careersArr"
 
-const Careers = () => {
-	const careersArr = [
-		{
-			career: "Software Developer",
-			content:
-				"We need a software engineer who will be responsible for developing eCommerce cloud solutions for some of well-known world brands. You will be part of the multinational company and work with experienced team members.",
-			location: "Belgrade, Serbia",
-			type: "full time",
-		},
-		{
-			career: "SEO Specialist",
-			content:
-				"We need a software engineer who will be responsible for developing eCommerce cloud solutions for some of well-known world brands. You will be part of the multinational company and work with experienced team members.",
-			location: "Belgrade, Serbia",
-			type: "part time",
-		},
-		{
-			career: "Marketing Cloud Consultant",
-			content:
-				"We need a software engineer who will be responsible for developing eCommerce cloud solutions for some of well-known world brands. You will be part of the multinational company and work with experienced team members.",
-			location: "Belgrade, Serbia",
-			type: "full time",
-		},
-	]
+const Careers = ({ data }) => {
 	return (
 		<>
 			<Head>
@@ -55,7 +31,7 @@ const Careers = () => {
 			<ServicesHeroStyled backgroundImg={"./img/pages/hero-careers.png"}>
 				<Stack stackAlign={"inherit"}>
 					<div className="hero-background">
-						<Region>
+						<Region first={true}>
 							<Wrapper>
 								<div className="hero-content ">
 									<Stack stackAlign={"end"}>
@@ -114,7 +90,7 @@ const Careers = () => {
 							</AnimationContainer>
 
 							<Switcher switcherJustify={"center"}>
-								{careersArr.map((card, index) => (
+								{data.map((career, index) => (
 									<Box
 										key={index}
 										borderRadius={"15px"}
@@ -136,20 +112,26 @@ const Careers = () => {
 													color={"var(--secondary)"}
 													transform={"uppercase"}
 												>
-													{card.location} |{" "}
-													{card.type}
+													{career.location} |{" "}
+													{career.type}
 												</StyledText>
 												<StyledText
 													as={"h3"}
 													align={"center"}
 												>
-													{card.career}
+													{career.careerTitle}
 												</StyledText>
 												<StyledText align={"center"}>
-													{card.content}
+													{career.content}
 												</StyledText>
 											</Stack>
-											<Button>View Vacancy</Button>
+											<Button as={"div"}>
+												<Link
+													href={`/careers/${career.careerSlug}`}
+												>
+													View Vacancy
+												</Link>
+											</Button>
 										</Stack>
 									</Box>
 								))}
@@ -174,6 +156,15 @@ const Careers = () => {
 			<Modal></Modal>
 		</>
 	)
+}
+
+export const getStaticProps = () => {
+	const careersArrData = careersArr
+	return {
+		props: {
+			data: careersArrData,
+		},
+	}
 }
 
 export default Careers

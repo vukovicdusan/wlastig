@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const Region = styled.section`
+	margin-block-start: ${(props) => (props.first ? "65px" : "")};
 	padding-bottom: 4rem;
 	padding-top: 4rem;
 	padding-top: ${(props) =>
