@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import ChevronLeft from "./ChevronLeft"
 import ChevronRight from "./ChevronRight"
-import bex from "../public/img/bex.png"
-import strategyx from "../public/img/strategyx-logo.svg"
-import yolobook from "../public/img/yolobook-logo.jpg"
 import quoteStart from "../public/img/quote-start.svg"
 import quoteEnd from "../public/img/quote-end.svg"
 import { Wrapper } from "./styles/Wrapper.styled"
@@ -15,33 +12,7 @@ import { Stack } from "./styles/Stack.styled"
 import styled from "styled-components"
 import { Sidebar } from "./styles/Sidebar.styled"
 import AnimationContainer from "./AnimationContainer"
-
-const testimonials = [
-	{
-		content:
-			"We looked for an end-to-end Web analytics agency to consolidate our collection and improve our analytical potential. And guys from Wlastig exceeded our expectations. All the project aspects were handled professionally, and the results were quite impressive. They delivered additional performance measurements that became our new business objectives alongside required KPIs.",
-		img: strategyx,
-		frame1: ["+23%", "Leads"],
-		frame2: ["-15%", "Recurring Revenue"],
-		frame3: ["+55%", "Churn Rate"],
-	},
-	{
-		content:
-			"We were referred to Wlastig as the agency that was an expert in Google Ads, Bing Ads and most importantly, the agency that understands how to use data to make informed investment decisions. We have 6 years of experience with PPC/SEM consultants. Wlastig agency stands apart from the rest regarding its knowledge and expertise.",
-		img: bex,
-		frame1: ["+56%", "ROAS"],
-		frame2: ["+22%", "CVR"],
-		frame3: ["+23%", "AOV"],
-	},
-	{
-		content:
-			"We hired them to set up tracking on our website and to analyze the offline data that we gathered with online data through our website. We located our target groups and made clusters from them so we indicated our audience and gave them a “slight push” to become our loyal customers.",
-		img: yolobook,
-		frame1: ["+27%", "Retention rate"],
-		frame2: ["-9%", "Churn Rate"],
-		frame3: ["+3%", "LTV"],
-	},
-]
+import { testimonials } from "../public/content/testimonials"
 
 const Testimonials = () => {
 	const [reelIndex, setReelIndex] = useState(0)
