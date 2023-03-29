@@ -7,15 +7,14 @@ import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroSt
 import { Center } from "../components/styles/Center.styled"
 import { Button } from "../components/styles/Button.styled"
 import SubServicesGrid from "../components/SubServicesGrid"
-import bulb from "../public/img/bulb.svg"
 import Infographic from "../components/Infographic"
 import ContactFormSection from "../components/ContactFormSection"
 import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
-import ReelImage from "../components/ReelImage"
 import Modal from "../components/Modal"
+
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled"
 import {
 	subsArr,
@@ -23,6 +22,7 @@ import {
 	competitionArr,
 	faqArr,
 } from "../public/content/advertising"
+import GoogleAdSvg from "../components/svg/GoogleAdSvg"
 
 const Advertising = () => {
 	return (
@@ -119,11 +119,7 @@ const Advertising = () => {
 							</p>
 						</Stack>
 						<Center>
-							<ReelImage
-								svgHeight={300}
-								svgWidth={400}
-								content={"reel3"}
-							></ReelImage>
+							<GoogleAdSvg width={400} height={300}></GoogleAdSvg>
 						</Center>
 					</Switcher>
 				</Wrapper>

@@ -1,11 +1,11 @@
 import * as React from "react"
 import styled from "styled-components"
-import { reelImg1 } from "../public/img/svg-components/reelImg1"
-import { reelImg2 } from "../public/img/svg-components/reelImg2"
-import { reelImg3 } from "../public/img/svg-components/reelImg3"
-import { buttonImg1 } from "../public/img/svg-components/buttonImg1"
-import { buttonImg2 } from "../public/img/svg-components/buttonImg2"
-import { buttonImg3 } from "../public/img/svg-components/buttonImg3"
+// import { reelImg1 } from "../public/img/svg-components/reelImg1"
+// import { reelImg2 } from "../public/img/svg-components/reelImg2"
+// import { reelImg3 } from "../public/img/svg-components/reelImg3"
+// import { buttonImg1 } from "../public/img/svg-components/buttonImg1"
+// import { buttonImg2 } from "../public/img/svg-components/buttonImg2"
+// import { buttonImg3 } from "../public/img/svg-components/buttonImg3"
 
 const ReelImage = (props) => {
 	const reel1 = reelImg1

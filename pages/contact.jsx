@@ -12,7 +12,7 @@ import { InputWrapper } from "../components/styles/InputWrapper.styled"
 import { Button } from "../components/styles/Button.styled"
 import { Shapedivider } from "../components/styles/Shapedivider.styled"
 import { TextMedium } from "../components/styles/TextMedium.styled"
-import CheckSvg from "../components/CheckSvg"
+import CheckSvg from "../components/svg/CheckSvg"
 import { sendContactForm } from "../lib/api"
 import Loader from "../components/Loader"
 

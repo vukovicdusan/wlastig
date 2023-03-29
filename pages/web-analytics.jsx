@@ -15,7 +15,6 @@ import CompetitionSection from "../components/CompetitionSection"
 import AnimationContainer from "../components/AnimationContainer"
 import Faq from "../components/Faq"
 import Head from "next/head"
-import ReelImage from "../components/ReelImage"
 import Modal from "../components/Modal"
 import {
 	subsArr,
@@ -23,6 +22,7 @@ import {
 	competitionArr,
 	faqArr,
 } from "../public/content/web-analytics.js"
+import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg"
 
 const webAnalytics = () => {
 	return (
@@ -133,11 +133,10 @@ const webAnalytics = () => {
 							</Stack>
 						</Stack>
 						<Center>
-							<ReelImage
-								svgHeight={300}
-								svgWidth={400}
-								content={"reel1"}
-							></ReelImage>
+							<ReportAnalysis2Svg
+								width={400}
+								height={300}
+							></ReportAnalysis2Svg>
 						</Center>
 					</Switcher>
 				</Wrapper>
