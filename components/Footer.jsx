@@ -68,7 +68,7 @@ const Footer = () => {
 								<Stack
 									as="ul"
 									stackAlign={"center"}
-									stackSpace={"var(--s1)"}
+									stackSpace={"var(--s0)"}
 								>
 									<li>
 										<Link href={"/web-analytics"}>
@@ -91,8 +91,14 @@ const Footer = () => {
 								<h4>Follow Us:</h4>
 								<ul>
 									<li>
-										<a className="a-exception" href="">
+										<a
+											className="a-exception"
+											href="https://clutch.co/profile/wlastig"
+											title="Clutch"
+										>
 											<svg
+												aria-hidden="true"
+												focusable="false"
 												className="social-icon clutch"
 												height="50"
 												width="50"
@@ -111,11 +117,20 @@ const Footer = () => {
 													fill="#fff"
 												/>
 											</svg>
+											<span className="sr-only">
+												Clutch
+											</span>
 										</a>
 									</li>
 									<li>
-										<a className="a-exception" href="">
+										<a
+											className="a-exception"
+											href="https://www.linkedin.com/company/wlastig"
+											title="LinkedIn"
+										>
 											<svg
+												aria-hidden="true"
+												focusable="false"
 												className="social-icon"
 												xmlns="http://www.w3.org/2000/svg"
 												width="24"
@@ -127,11 +142,20 @@ const Footer = () => {
 													d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"
 												/>
 											</svg>
+											<span className="sr-only">
+												LinkedIn
+											</span>
 										</a>
 									</li>
 									<li>
-										<a className="a-exception" href="">
+										<a
+											className="a-exception"
+											href=""
+											title="Facebook"
+										>
 											<svg
+												aria-hidden="true"
+												focusable="false"
 												className="social-icon"
 												xmlns="http://www.w3.org/2000/svg"
 												width="24"
@@ -143,6 +167,9 @@ const Footer = () => {
 													d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"
 												/>
 											</svg>
+											<span className="sr-only">
+												Facebook
+											</span>
 										</a>
 									</li>
 								</ul>
@@ -196,6 +223,20 @@ export const FooterStyled = styled.footer`
 		font-size: var(--s-2);
 		text-align: center;
 		margin-block-start: auto;
+	}
+
+	.sr-only {
+		border: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px) !important;
+		-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		margin: -1px !important;
+		padding: 0 !important;
+		position: absolute !important;
+		width: 1px !important;
+		white-space: nowrap !important;
 	}
 `
 

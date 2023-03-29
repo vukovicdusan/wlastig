@@ -7,6 +7,9 @@ import { FullBackground } from "./styles/FullBackground.styled"
 import { Button } from "./styles/Button.styled"
 import { Stack } from "./styles/Stack.styled"
 import ReelImage from "./ReelImage"
+import AnalyticsSvg from "./svg/AnalyticsSvg"
+import AdvertisingSvg from "./svg/AdvertisingSvg"
+import ConsultingSvg from "./svg/ConsultingSvg"
 
 const Reel = () => {
 	const [reelIndex, setReelIndex] = useState(0)
@@ -26,13 +29,7 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<ReelImage
-										content={"button1"}
-										svgWidth={70}
-										svgHeight={70}
-										viewBox={"0 0 24 24"}
-										svgFill={"var(--theme-primary)"}
-									></ReelImage>
+									<AnalyticsSvg></AnalyticsSvg>
 									Analytics
 								</span>
 							</button>
@@ -43,13 +40,7 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<ReelImage
-										content={"button2"}
-										svgWidth={70}
-										svgHeight={70}
-										viewBox={"0 0 24 24"}
-										svgFill={"var(--theme-primary)"}
-									></ReelImage>
+									<AdvertisingSvg></AdvertisingSvg>
 									Advertising
 								</span>
 							</button>
@@ -60,13 +51,7 @@ const Reel = () => {
 								className="reel-button"
 							>
 								<span className="reel-link-icon">
-									<ReelImage
-										content={"button3"}
-										svgWidth={70}
-										svgHeight={70}
-										viewBox={"0 0 24 24"}
-										svgFill={"var(--theme-primary)"}
-									></ReelImage>
+									<ConsultingSvg></ConsultingSvg>
 									Consulting
 								</span>
 							</button>
@@ -94,7 +79,6 @@ const Reel = () => {
 						</Shapedivider>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								{/* <Image src={reel1} alt="analysis image"></Image> */}
 								<ReelImage
 									content={"reel1"}
 									svgWidth={350}
@@ -227,6 +211,11 @@ export const ReelStyled = styled.div`
 		padding-block: 2rem;
 	}
 
+	.reel-links div {
+		display: flex;
+		align-items: flex-end;
+	}
+
 	.reel-button {
 		display: inline-block;
 		padding: none;
@@ -240,12 +229,14 @@ export const ReelStyled = styled.div`
 		text-decoration: none !important;
 		text-transform: uppercase;
 		font-family: var(--poppinsbold);
+		opacity: 0.8;
 		transition: all 0.2s ease;
 	}
 
 	.reel-button:focus {
 		outline: none;
 		border-bottom: 2px solid var(--theme-primary);
+		opacity: 1;
 	}
 
 	.reel-link-icon {
