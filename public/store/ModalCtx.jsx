@@ -13,9 +13,8 @@ export const ModalCtxProvider = (props) => {
 	const modalOpenedHandler = () => {
 		!hasOpened ? setHasOpened(true) : ""
 		sessionStorage.setItem("modalOpened", true)
-		console.log("modalOpenedHandler fired")
 	}
-	console.log("hasOpened in ctx", hasOpened)
+
 	const ctxValue = { hasOpened, modalOpenedHandler }
 
 	return (

@@ -317,7 +317,7 @@ const ourTeam = () => {
 			</Head>
 			<ServicesHeroStyled backgroundImg={"./img/pages/hero-team.png"}>
 				<div className="hero-background">
-					<Region>
+					<Region first={true}>
 						<Wrapper>
 							<div className="hero-content ">
 								<Stack stackAlign={"end"}>
