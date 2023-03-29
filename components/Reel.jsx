@@ -6,10 +6,13 @@ import { Shapedivider } from "./styles/Shapedivider.styled"
 import { FullBackground } from "./styles/FullBackground.styled"
 import { Button } from "./styles/Button.styled"
 import { Stack } from "./styles/Stack.styled"
-import ReelImage from "./ReelImage"
 import AnalyticsSvg from "./svg/AnalyticsSvg"
 import AdvertisingSvg from "./svg/AdvertisingSvg"
 import ConsultingSvg from "./svg/ConsultingSvg"
+import GoogleAdSvg from "./svg/GoogleAdSvg"
+import ReportAnalysisSvg from "./svg/ReportAnalysisSvg"
+import ReportAnalysis2Svg from "./svg/ReportAnalysis2Svg"
+import Link from "next/link"
 
 const Reel = () => {
 	const [reelIndex, setReelIndex] = useState(0)
@@ -85,11 +88,10 @@ const Reel = () => {
 						</Shapedivider>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<ReelImage
-									content={"reel1"}
-									svgWidth={350}
-									svgHeight={250}
-								></ReelImage>
+								<ReportAnalysis2Svg
+									width={350}
+									height={250}
+								></ReportAnalysis2Svg>
 								<Stack className="reel-item--text">
 									<p>
 										A data analysis which allows deeper
@@ -99,18 +101,20 @@ const Reel = () => {
 										</span>{" "}
 										and <span>WEBSITE PERFORMANCE</span>.
 									</p>
-									<Button>Web Analytics</Button>
+									<Button as={"div"}>
+										<Link href={"/web-analytics"}>
+											Web Analytics
+										</Link>
+									</Button>
 								</Stack>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<ReelImage
-									content={"reel3"}
-									svgWidth={350}
-									svgHeight={250}
-								></ReelImage>
-
+								<GoogleAdSvg
+									width={350}
+									height={250}
+								></GoogleAdSvg>
 								<Stack className="reel-item--text">
 									<p>
 										To optimize your campaigns and{" "}
@@ -118,17 +122,20 @@ const Reel = () => {
 										, we use state-of-the-art advertising
 										methods which leverage machine learning.
 									</p>
-									<Button>Advertising</Button>
+									<Button as={"div"}>
+										<Link href={"/advertising"}>
+											Advertising
+										</Link>
+									</Button>
 								</Stack>
 							</div>
 						</div>
 						<div className="reel-item">
 							<div className="reel-item--content">
-								<ReelImage
-									content={"reel2"}
-									svgWidth={350}
-									svgHeight={250}
-								></ReelImage>
+								<ReportAnalysisSvg
+									width={350}
+									height={250}
+								></ReportAnalysisSvg>
 								<Stack className="reel-item--text">
 									<p>
 										When in trouble, get a fresh pair of
@@ -137,14 +144,18 @@ const Reel = () => {
 										problem, we&quot;ll be there to promptly
 										steer the way towards solution.
 									</p>
-									<Button>Consulting</Button>
+									<Button as={"div"}>
+										<Link href={"/consulting"}>
+											Consulting
+										</Link>
+									</Button>
 								</Stack>
 							</div>
 						</div>
 					</div>
 				</ReelStyled>
 			</Region>
-			<Shapedivider position={"bottom"}>
+			<Shapedivider position={"bottom"} height={"110px"}>
 				<svg
 					data-name="Layer 1"
 					xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +181,7 @@ export const ReelStyled = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	block-size: 800px;
+	block-size: 850px;
 	inline-size: 100%;
 	overflow: hidden;
 	scrollbar-color: #fff #000;
@@ -204,8 +215,12 @@ export const ReelStyled = styled.div`
 		font-family: var(--poppinsbold);
 	}
 
-	.reel-item--content button {
+	.reel-item--text > div {
 		align-self: flex-end;
+	}
+
+	.reel-item--text > div > a {
+		cursor: pointer;
 	}
 
 	.reel-links {
