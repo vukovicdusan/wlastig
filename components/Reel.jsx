@@ -26,7 +26,9 @@ const Reel = () => {
 						<AnimationContainer delay={"1"}>
 							<button
 								onClick={() => reelLinkHandler(0)}
-								className="reel-button"
+								className={`${
+									reelIndex === 0 ? "active" : ""
+								} reel-button`}
 							>
 								<span className="reel-link-icon">
 									<AnalyticsSvg></AnalyticsSvg>
@@ -37,7 +39,9 @@ const Reel = () => {
 						<AnimationContainer delay={"3"}>
 							<button
 								onClick={() => reelLinkHandler(1)}
-								className="reel-button"
+								className={`${
+									reelIndex === 1 ? "active" : ""
+								} reel-button`}
 							>
 								<span className="reel-link-icon">
 									<AdvertisingSvg></AdvertisingSvg>
@@ -48,7 +52,9 @@ const Reel = () => {
 						<AnimationContainer delay={"5"}>
 							<button
 								onClick={() => reelLinkHandler(2)}
-								className="reel-button"
+								className={`${
+									reelIndex === 2 ? "active" : ""
+								} reel-button`}
 							>
 								<span className="reel-link-icon">
 									<ConsultingSvg></ConsultingSvg>
@@ -233,7 +239,7 @@ export const ReelStyled = styled.div`
 		transition: all 0.2s ease;
 	}
 
-	.reel-button:focus {
+	.active {
 		outline: none;
 		border-bottom: 2px solid var(--theme-primary);
 		opacity: 1;
