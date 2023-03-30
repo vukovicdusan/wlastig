@@ -102,7 +102,7 @@ const ThankYou = () => {
 		})
 		setLoading(false)
 		// setIsRequestSent(true)
-		modalCtx.auditSentHandler()
+		modalCtx.auditSentHandler("auditSent")
 	}
 
 	return (

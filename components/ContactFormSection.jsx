@@ -8,35 +8,8 @@ import { Switcher } from "./styles/Switcher.styled"
 import { Stack } from "./styles/Stack.styled"
 import styled from "styled-components"
 import AnimationContainer from "./AnimationContainer"
-import { useRouter } from "next/router"
 
 const ContactFormSection = (props) => {
-	const [formSubmited, setFormSubmited] = useState(false)
-	const [formData, setFormData] = useState({})
-	const router = useRouter()
-	const page = router.asPath
-
-	const onFormSubmitHandler = (isSubmited, data) => {
-		setFormSubmited(isSubmited)
-		setFormData(data)
-	}
-
-	useEffect(() => {
-		formData &&
-			formSubmited &&
-			router.push(
-				{
-					pathname: "/thank-you",
-					query: {
-						page: page,
-						mail: formData.email,
-						name: formData.name,
-					},
-				},
-				"/thank-you"
-			)
-	}, [formSubmited, router, page, formData])
-
 	return (
 		<FullBackground background={"var(--primary)"}>
 			{props.shapedivider ? (
@@ -72,10 +45,7 @@ const ContactFormSection = (props) => {
 									<p className="title-l">{props.subTitle}</p>
 								</AnimationContainer>
 							</Stack>
-							<Contact
-								cta={props.cta}
-								onFormSubmitHandler={onFormSubmitHandler}
-							></Contact>
+							<Contact cta={props.cta}></Contact>
 						</Switcher>
 					</ContactFormSectionStyled>
 				</Wrapper>

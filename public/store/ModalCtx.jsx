@@ -18,9 +18,14 @@ export const ModalCtxProvider = (props) => {
 		sessionStorage.setItem("modalOpened", true)
 	}
 
-	const auditSentHandler = () => {
-		setAuditSent(true)
-		sessionStorage.setItem("auditSent", true)
+	const auditSentHandler = (status) => {
+		if (status === "auditSent") {
+			setAuditSent(true)
+			sessionStorage.setItem("auditSent", true)
+		} else if (status === "newAudit") {
+			setAuditSent(false)
+			sessionStorage.setItem("auditSent", false)
+		}
 	}
 
 	const ctxValue = {
