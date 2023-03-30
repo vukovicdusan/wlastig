@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ServicesHeroStyled = styled.div`
 	color: var(--text-light);
-
+	margin-block-start: 65px;
 	.hero-background {
 		display: flex;
 		align-items: center;

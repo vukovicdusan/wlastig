@@ -107,7 +107,7 @@ const ThankYou = () => {
 			background={"var(--primary)"}
 		>
 			<ThankYouStyled>
-				<Region>
+				<Region first={true}>
 					<Wrapper>
 						<AnimationContainer>
 							<Center>
@@ -236,7 +236,6 @@ const ThankYou = () => {
 }
 
 export const ThankYouStyled = styled.div`
-	padding-block-start: 65px;
 	h1 {
 		color: var(--text-light);
 		margin-bottom: var(--s4);

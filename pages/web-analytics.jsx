@@ -41,7 +41,7 @@ const webAnalytics = () => {
 			>
 				<Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
 					<div className="hero-background">
-						<Region first={true}>
+						<Region>
 							<Wrapper>
 								<div className="hero-content ">
 									<Stack stackAlign={"end"}>
