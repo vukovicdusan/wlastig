@@ -105,7 +105,7 @@ const Contact = () => {
 			</Head>
 			<ServicesHeroStyled backgroundImg={"./img/pages/hero-contact.png"}>
 				<div className="hero-background">
-					<Region first={true}>
+					<Region>
 						<Wrapper>
 							<div className="hero-content ">
 								<Stack stackAlign={"end"}>

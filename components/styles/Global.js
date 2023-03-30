@@ -29,6 +29,8 @@ export const GlobalStyles = createGlobalStyle`
 	--text-gray: #909090;
 	--background-dark: #000;
 	--background-light: #fff;
+	--success-color: #4bb543;
+	--error-colo: indianred;
 	--testimonial-frames: rgba(0, 0, 0, 0.05);
 	--color-shadow: rgba(23, 11, 41, 0.12);
 	--box-shadow: 0 2px 10px var(--color-shadow);

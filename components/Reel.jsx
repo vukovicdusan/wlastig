@@ -75,7 +75,7 @@ const Reel = () => {
 						<Shapedivider
 							position={"top"}
 							fill={"var(--background-light)"}
-							height={"100px"}
+							height={"80px"}
 						>
 							<svg
 								data-name="Layer 1"
@@ -283,12 +283,8 @@ export const ReelStyled = styled.div`
 			font-size: var(--s0);
 			inline-size: 90%;
 			display: flex;
-			padding-block-start: 0;
+			padding-block-start: 2rem;
 			margin-block-start: 1rem;
-		}
-
-		.reel-item .reel-item--content svg {
-			height: 300px;
 		}
 
 		.reel-links {

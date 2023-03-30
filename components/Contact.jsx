@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import { sendContactForm } from "../lib/api"
 import { InputWrapper } from "./styles/InputWrapper.styled"
@@ -8,6 +8,9 @@ import Loader from "./Loader"
 import Image from "next/image"
 import img from "../public/img/popup_pic.png"
 import { Switcher } from "./styles/Switcher.styled"
+import { StyledText } from "./styles/StyledText.styled"
+import { useRouter } from "next/router"
+import ModalCtx from "../public/store/ModalCtx"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
@@ -17,19 +20,13 @@ const Contact = (props) => {
 		error: false,
 		loading: false,
 	})
+	const router = useRouter()
+	const page = router.asPath
+	const modalCtx = useContext(ModalCtx)
 
 	useEffect(() => {
 		setHasMounted(true)
 	}, [])
-
-	useEffect(() => {
-		props.onFormSubmitHandler
-			? props.onFormSubmitHandler(
-					contactFormProccess.success,
-					contactFormData
-			  )
-			: null
-	}, [contactFormProccess.success, props])
 
 	if (!hasMounted) {
 		return null
@@ -53,6 +50,18 @@ const Contact = (props) => {
 				loading: false,
 			}))
 		}
+		modalCtx.auditSentHandler("newAudit")
+		router.push(
+			{
+				pathname: "/thank-you",
+				query: {
+					page: page,
+					mail: contactFormData.email,
+					name: contactFormData.name,
+				},
+			},
+			"/thank-you"
+		)
 	}
 
 	const inputHandler = (e) => {
@@ -74,16 +83,16 @@ const Contact = (props) => {
 					<p>Your decisions are only as good as your data.</p>
 				</div>
 				{!contactFormProccess.success && contactFormProccess.error ? (
-					<p className="error">
+					<StyledText color={"var(--success-color)"}>
 						Something went wrong. Message was not sent.
-					</p>
+					</StyledText>
 				) : !contactFormProccess.success &&
 				  !contactFormProccess.error ? (
 					""
 				) : (
-					<p className="success">
+					<StyledText color={"var(--error-color)"}>
 						Thank you for your message! We will contact you ASAP!
-					</p>
+					</StyledText>
 				)}
 				<Switcher
 					className={`${
@@ -170,14 +179,6 @@ export const ContactStyled = styled.form`
 
 	.full-width {
 		width: 100%;
-	}
-
-	.success {
-		color: #4bb543;
-	}
-
-	.error {
-		color: indianred;
 	}
 
 	.button-loader {

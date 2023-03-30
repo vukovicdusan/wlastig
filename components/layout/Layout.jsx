@@ -18,7 +18,7 @@ export const LayoutStyled = styled.div`
 	flex-direction: column;
 	height: 100vh;
 
-	& > *:nth-child(1) {
+	& > *:nth-child(2) {
 		flex-grow: 1;
 	}
 

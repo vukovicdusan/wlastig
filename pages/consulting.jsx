@@ -39,7 +39,7 @@ const Consulting = () => {
 			>
 				<Stack stackAlign={"inherit"}>
 					<div className="hero-background">
-						<Region first={true}>
+						<Region>
 							<Wrapper>
 								<div className="hero-content ">
 									<Stack stackAlign={"end"}>
