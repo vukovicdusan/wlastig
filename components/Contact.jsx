@@ -173,11 +173,11 @@ export const ContactStyled = styled.form`
 	}
 
 	.success {
-		color: #4bb543;
+		color: var(--success-color);
 	}
 
 	.error {
-		color: indianred;
+		color: var(--error-color);
 	}
 
 	.button-loader {

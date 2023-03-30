@@ -15,6 +15,8 @@ import { serverTimestamp } from "firebase/firestore"
 import { Button } from "../components/styles/Button.styled"
 import Loader from "../components/Loader"
 import ModalCtx from "../public/store/ModalCtx"
+import { StyledText } from "../components/styles/StyledText.styled"
+import { TextMedium } from "../components/styles/TextMedium.styled"
 
 const ThankYou = () => {
 	const [selected, setSelected] = useState({
@@ -24,6 +26,7 @@ const ThankYou = () => {
 	})
 	const [protect, setProtect] = useState(true)
 	const [loading, setLoading] = useState(false)
+	const [isRequestSent, setIsRequestSent] = useState(false)
 	const router = useRouter()
 	const data = router.query
 	const modalCtx = useContext(ModalCtx)
@@ -98,7 +101,8 @@ const ThankYou = () => {
 			created_at: serverTimestamp(),
 		})
 		setLoading(false)
-		router.push("/")
+		// setIsRequestSent(true)
+		modalCtx.auditSentHandler()
 	}
 
 	return (
@@ -114,120 +118,149 @@ const ThankYou = () => {
 								<h1>Thank You!</h1>
 							</Center>
 						</AnimationContainer>
-						<Switcher switcherJustify={"center"} mb={"var(--s3)"}>
-							<div
-								onClick={() => cardSelectHandler("ga")}
-								className={`audit-card--outer ${
-									selected.ga.focus ? "selected" : ""
-								} ${selected.ga.disabled ? "disabled" : ""}`}
-							>
-								{selected.ga.focus ? (
-									<span>
-										{router.query.page ===
-											"/web-analytics" ||
-										router.query.page === "/consulting" ||
-										router.query.page === "/" ? (
-											<p>FREE</p>
-										) : (
-											<CheckSvg></CheckSvg>
-										)}
-									</span>
-								) : null}
-
-								<div className="audit-card--inner">
-									<Stack
-										stackSpace={"var(--s3)"}
-										stackJustify={"space-around"}
+						{!modalCtx.auditSent ? (
+							<>
+								<Switcher
+									switcherJustify={"center"}
+									mb={"var(--s3)"}
+								>
+									<div
+										onClick={() => cardSelectHandler("ga")}
+										className={`audit-card--outer ${
+											selected.ga.focus ? "selected" : ""
+										} ${
+											selected.ga.disabled
+												? "disabled"
+												: ""
+										}`}
 									>
-										<h4>GA AUDIT</h4>
-										<p>
-											Lorem ipsum dolor sit amet
-											consectetur adipisicing elit. Quae
-											quidem, beatae mollitia minus quod
-											dolore vero natus maiores adipisci
-											repudiandae. Earum, non illo illum
-											quod eligendi suscipit provident
-											nisi dolores.
-										</p>
-										<span>300$</span>
-									</Stack>
-								</div>
-							</div>
-							<div
-								onClick={() => cardSelectHandler("gtm")}
-								className={`audit-card--outer ${
-									selected.gtm.focus ? "selected" : ""
-								}`}
-							>
-								{selected.gtm.focus ? (
-									<span>
-										<CheckSvg></CheckSvg>
-									</span>
-								) : null}
+										{selected.ga.focus ? (
+											<span>
+												{router.query.page ===
+													"/web-analytics" ||
+												router.query.page ===
+													"/consulting" ||
+												router.query.page === "/" ? (
+													<p>FREE</p>
+												) : (
+													<CheckSvg></CheckSvg>
+												)}
+											</span>
+										) : null}
 
-								<div className="audit-card--inner">
-									<Stack
-										stackSpace={"var(--s3)"}
-										stackJustify={"space-around"}
+										<div className="audit-card--inner">
+											<Stack
+												stackSpace={"var(--s3)"}
+												stackJustify={"space-around"}
+											>
+												<h4>GA AUDIT</h4>
+												<p>
+													Lorem ipsum dolor sit amet
+													consectetur adipisicing
+													elit. Quae quidem, beatae
+													mollitia minus quod dolore
+													vero natus maiores adipisci
+													repudiandae. Earum, non illo
+													illum quod eligendi suscipit
+													provident nisi dolores.
+												</p>
+												<span>300$</span>
+											</Stack>
+										</div>
+									</div>
+									<div
+										onClick={() => cardSelectHandler("gtm")}
+										className={`audit-card--outer ${
+											selected.gtm.focus ? "selected" : ""
+										}`}
 									>
-										<h4>GTM AUDIT</h4>
-										<p>
-											Lorem ipsum dolor sit amet
-											consectetur adipisicing elit. Quae
-											quidem, beatae mollitia minus quod
-											dolore vero natus maiores adipisci
-											repudiandae. Earum, non illo illum
-											quod eligendi suscipit provident
-											nisi dolores.
-										</p>
-										<span>350$</span>
-									</Stack>
-								</div>
-							</div>
-							<div
-								onClick={() => cardSelectHandler("aw")}
-								className={`audit-card--outer ${
-									selected.aw.focus ? "selected" : ""
-								} ${selected.aw.disabled ? "disabled" : ""}`}
-							>
-								{selected.aw.focus ? (
-									<span>
-										{router.query.page ===
-										"/advertising" ? (
-											<p>FREE</p>
-										) : (
-											<CheckSvg></CheckSvg>
-										)}
-									</span>
-								) : null}
+										{selected.gtm.focus ? (
+											<span>
+												<CheckSvg></CheckSvg>
+											</span>
+										) : null}
 
-								<div className="audit-card--inner">
-									<Stack
-										stackSpace={"var(--s3)"}
-										stackJustify={"space-around"}
+										<div className="audit-card--inner">
+											<Stack
+												stackSpace={"var(--s3)"}
+												stackJustify={"space-around"}
+											>
+												<h4>GTM AUDIT</h4>
+												<p>
+													Lorem ipsum dolor sit amet
+													consectetur adipisicing
+													elit. Quae quidem, beatae
+													mollitia minus quod dolore
+													vero natus maiores adipisci
+													repudiandae. Earum, non illo
+													illum quod eligendi suscipit
+													provident nisi dolores.
+												</p>
+												<span>350$</span>
+											</Stack>
+										</div>
+									</div>
+									<div
+										onClick={() => cardSelectHandler("aw")}
+										className={`audit-card--outer ${
+											selected.aw.focus ? "selected" : ""
+										} ${
+											selected.aw.disabled
+												? "disabled"
+												: ""
+										}`}
 									>
-										<h4>AW AUDIT</h4>
-										<p>
-											Lorem ipsum dolor sit amet
-											consectetur adipisicing elit. Quae
-											quidem, beatae mollitia minus quod
-											dolore vero natus maiores adipisci
-											repudiandae. Earum, non illo illum
-											quod eligendi suscipit provident
-											nisi dolores.
-										</p>
-										<span>400$</span>
-									</Stack>
-								</div>
-							</div>
-						</Switcher>
+										{selected.aw.focus ? (
+											<span>
+												{router.query.page ===
+												"/advertising" ? (
+													<p>FREE</p>
+												) : (
+													<CheckSvg></CheckSvg>
+												)}
+											</span>
+										) : null}
 
-						<div className="button-loader">
-							<Button onClick={firebaseWriteHandler}>
-								Request!
-							</Button>
-							{loading ? <Loader></Loader> : null}
-						</div>
+										<div className="audit-card--inner">
+											<Stack
+												stackSpace={"var(--s3)"}
+												stackJustify={"space-around"}
+											>
+												<h4>AW AUDIT</h4>
+												<p>
+													Lorem ipsum dolor sit amet
+													consectetur adipisicing
+													elit. Quae quidem, beatae
+													mollitia minus quod dolore
+													vero natus maiores adipisci
+													repudiandae. Earum, non illo
+													illum quod eligendi suscipit
+													provident nisi dolores.
+												</p>
+												<span>400$</span>
+											</Stack>
+										</div>
+									</div>
+								</Switcher>
+								<div className="button-loader">
+									<Button onClick={firebaseWriteHandler}>
+										Request!
+									</Button>
+									{loading ? <Loader></Loader> : null}
+								</div>
+							</>
+						) : (
+							<TextMedium as={"div"}>
+								<StyledText
+									align={"center"}
+									family={"var(--poppinsbold)"}
+									color={"var(--success-color)"}
+								>
+									Thank you for your request! We will get back
+									to you ASAP!
+								</StyledText>
+							</TextMedium>
+						)}
 					</Wrapper>
 				</Region>
 			</ThankYouStyled>
