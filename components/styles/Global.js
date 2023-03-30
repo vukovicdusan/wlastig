@@ -18,7 +18,6 @@ export const GlobalStyles = createGlobalStyle`
 	--s5: calc(var(--s4) * var(--ratio));
 
 	/** ==== VARIABLES ==== */
-
 	--primary: #083d77;
 	--theme-primary: #083d77;
 	--primary-shade: #B4C5D6;
@@ -30,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
 	--background-dark: #000;
 	--background-light: #fff;
 	--success-color: #4bb543;
-	--error-colo: indianred;
+	--error-color: indianred;
 	--testimonial-frames: rgba(0, 0, 0, 0.05);
 	--color-shadow: rgba(23, 11, 41, 0.12);
 	--box-shadow: 0 2px 10px var(--color-shadow);

@@ -15,6 +15,7 @@ import { TextMedium } from "../components/styles/TextMedium.styled"
 import CheckSvg from "../components/svg/CheckSvg"
 import { sendContactForm } from "../lib/api"
 import Loader from "../components/Loader"
+import { StyledText } from "../components/styles/StyledText.styled"
 
 const Contact = () => {
 	const [hasMounted, setHasMounted] = useState(false)
@@ -24,6 +25,7 @@ const Contact = () => {
 		error: false,
 		loading: false,
 	})
+	const [forceOpen, setForceOpen] = useState(false)
 
 	useEffect(() => {
 		setHasMounted(true)
@@ -90,6 +92,10 @@ const Contact = () => {
 			default:
 				""
 		}
+	}
+
+	const modalClosedHandler = () => {
+		setForceOpen(false)
 	}
 
 	return (
@@ -286,21 +292,26 @@ const Contact = () => {
 								</Stack>
 								{!contactFormProccess.success &&
 								contactFormProccess.error ? (
-									<p className="error">
+									<StyledText color={"var(--error-color)"}>
 										Something went wrong. Message was not
 										sent.
-									</p>
+									</StyledText>
 								) : !contactFormProccess.success &&
 								  !contactFormProccess.error ? (
 									""
 								) : (
-									<p className="success">
+									<StyledText color={"var(--success-color)"}>
 										Thank you for your message! We will
 										contact you ASAP!
-									</p>
+									</StyledText>
 								)}
 								<p>Want a quote and a game plan fast?</p>
-								<button className="text-red arrow ghost-button">
+								<button
+									onClick={() => {
+										setForceOpen(true)
+									}}
+									className="text-red arrow ghost-button"
+								>
 									Start your custom marketing plan now
 									<svg
 										clipRule="evenodd"
@@ -337,7 +348,10 @@ const Contact = () => {
 					</svg>
 				</Shapedivider>
 			</Region>
-			<Modal></Modal>
+			<Modal
+				forceOpen={forceOpen}
+				modalClosedHandler={modalClosedHandler}
+			></Modal>
 		</ContactPageStyled>
 	)
 }
