@@ -15,6 +15,7 @@ import { TextMedium } from "../components/styles/TextMedium.styled"
 import CheckSvg from "../components/svg/CheckSvg"
 import { sendContactForm } from "../lib/api"
 import Loader from "../components/Loader"
+import { StyledText } from "../components/styles/StyledText.styled"
 
 const Contact = () => {
 	const [hasMounted, setHasMounted] = useState(false)
@@ -24,6 +25,8 @@ const Contact = () => {
 		error: false,
 		loading: false,
 	})
+
+	const [forceOpen, setForceOpen] = useState(false)
 
 	useEffect(() => {
 		setHasMounted(true)
@@ -92,6 +95,10 @@ const Contact = () => {
 		}
 	}
 
+	const modalClosedHandler = () => {
+		setForceOpen(false)
+	}
+
 	return (
 		<ContactPageStyled>
 			<Head>
@@ -122,188 +129,210 @@ const Contact = () => {
 				<Wrapper>
 					<Switcher gap={"var(--s3)"} mb={"var(--s5)"}>
 						<Stack stackJustify={"center"} stackSpace={"var(--s2)"}>
-							<h2>Are We The Best Fit For You?</h2>
-							<TextMedium>
-								You&#39;ll love working with Wlastig if…
-							</TextMedium>
-							<Stack as="ul">
-								<li>
-									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
-									You&#39;re big on communication
-								</li>
-								<li>
-									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
-									You&#39;re not afraid to explore new ideas
-									with a proven partner
-								</li>
-								<li>
-									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
-									You treat marketing like an investment, not
-									a slot machine
-								</li>
-								<li>
-									<CheckSvg svgFill={"#4bb543"}></CheckSvg>
-									You&#39;ve got enough bandwidth to handle
-									much more business
-								</li>
-							</Stack>
+							<AnimationContainer>
+								<h2>Are We The Best Fit For You?</h2>
+							</AnimationContainer>
+							<AnimationContainer delay={2}>
+								<TextMedium>
+									You&#39;ll love working with Wlastig if…
+								</TextMedium>
+							</AnimationContainer>
+							<AnimationContainer direction={"translateX"}>
+								<Stack as="ul">
+									<li>
+										<CheckSvg
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										You&#39;re big on communication
+									</li>
+									<li>
+										<CheckSvg
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										You&#39;re not afraid to explore new
+										ideas with a proven partner
+									</li>
+									<li>
+										<CheckSvg
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										You treat marketing like an investment,
+										not a slot machine
+									</li>
+									<li>
+										<CheckSvg
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										You&#39;ve got enough bandwidth to
+										handle much more business
+									</li>
+								</Stack>
+							</AnimationContainer>
 						</Stack>
-						<Stack
-							className="form-container"
-							stackSpace={"var(--s2)"}
-							stackJustify={"center"}
-							stackAlign={"center"}
-						>
+						<AnimationContainer>
 							<Stack
+								className="form-container"
+								stackSpace={"var(--s2)"}
 								stackJustify={"center"}
 								stackAlign={"center"}
 							>
-								<h2>Reach Out!</h2>
-								<span>
-									<a
-										className="text-red"
-										href="mailto: info@wlastig.com"
-									>
-										info@wlastig.com
-									</a>
-								</span>
-								<span>
-									<a
-										className="text-red"
-										href="tel: +38169123456"
-									>
-										+38169123456
-									</a>
-								</span>
-							</Stack>
-							<Stack
-								as="form"
-								stackJustify={"center"}
-								stackAlign={"center"}
-								onSubmit={onSubmitHandler}
-							>
-								<Switcher elCount={2} flexBasis={"20rem"}>
+								<Stack
+									stackJustify={"center"}
+									stackAlign={"center"}
+								>
+									<h2>Reach Out!</h2>
+									<span>
+										<a
+											className="text-red"
+											href="mailto: info@wlastig.com"
+										>
+											info@wlastig.com
+										</a>
+									</span>
+									<span>
+										<a
+											className="text-red"
+											href="tel: +38169123456"
+										>
+											+38169123456
+										</a>
+									</span>
+								</Stack>
+								<Stack
+									as="form"
+									stackJustify={"center"}
+									stackAlign={"center"}
+									onSubmit={onSubmitHandler}
+								>
+									<Switcher elCount={2} flexBasis={"20rem"}>
+										<InputWrapper>
+											<input
+												type="text"
+												name="name"
+												id="name"
+												autoCapitalize="none"
+												autoCorrect="off"
+												required
+												onChange={inputHandler}
+											/>
+											<label htmlFor="name">Name</label>
+										</InputWrapper>
+										<InputWrapper>
+											<input
+												type="text"
+												name="email"
+												id="email"
+												autoCapitalize="none"
+												autoCorrect="off"
+												required
+												pattern="[^@]+@[^\.]+\..+"
+												onChange={inputHandler}
+											/>
+											<label htmlFor="email">Email</label>
+										</InputWrapper>
+									</Switcher>
+									<Switcher elCount={2} flexBasis={"20rem"}>
+										<InputWrapper>
+											<input
+												type="tel"
+												name="phone"
+												id="phone"
+												autoCapitalize="none"
+												autoCorrect="off"
+												onChange={inputHandler}
+											/>
+											<label htmlFor="website">
+												Your Phone Number
+											</label>
+										</InputWrapper>
+										<InputWrapper>
+											<input
+												type="text"
+												name="company"
+												id="company"
+												autoCapitalize="none"
+												autoCorrect="off"
+												required
+												onChange={inputHandler}
+											/>
+											<label htmlFor="company">
+												Company Name
+											</label>
+										</InputWrapper>
+									</Switcher>
 									<InputWrapper>
 										<input
 											type="text"
-											name="name"
-											id="name"
-											autoCapitalize="none"
-											autoCorrect="off"
-											required
-											onChange={inputHandler}
-										/>
-										<label htmlFor="name">Name</label>
-									</InputWrapper>
-									<InputWrapper>
-										<input
-											type="text"
-											name="email"
-											id="email"
-											autoCapitalize="none"
-											autoCorrect="off"
-											required
-											pattern="[^@]+@[^\.]+\..+"
-											onChange={inputHandler}
-										/>
-										<label htmlFor="email">Email</label>
-									</InputWrapper>
-								</Switcher>
-								<Switcher elCount={2} flexBasis={"20rem"}>
-									<InputWrapper>
-										<input
-											type="tel"
-											name="phone"
-											id="phone"
+											name="website"
+											id="website"
 											autoCapitalize="none"
 											autoCorrect="off"
 											onChange={inputHandler}
 										/>
 										<label htmlFor="website">
-											Your Phone Number
+											Company Website
 										</label>
 									</InputWrapper>
 									<InputWrapper>
-										<input
-											type="text"
-											name="company"
-											id="company"
-											autoCapitalize="none"
-											autoCorrect="off"
-											required
+										<textarea
+											id="comments"
+											name="comments"
+											rows="4"
 											onChange={inputHandler}
-										/>
-										<label htmlFor="company">
-											Company Name
+										></textarea>
+										<label htmlFor="website">
+											Any Comments?
 										</label>
 									</InputWrapper>
-								</Switcher>
-								<InputWrapper>
-									<input
-										type="text"
-										name="website"
-										id="website"
-										autoCapitalize="none"
-										autoCorrect="off"
-										onChange={inputHandler}
-									/>
-									<label htmlFor="website">
-										Company Website
-									</label>
-								</InputWrapper>
-								<InputWrapper>
-									<textarea
-										id="comments"
-										name="comments"
-										rows="4"
-										onChange={inputHandler}
-									></textarea>
-									<label htmlFor="website">
-										Any Comments?
-									</label>
-								</InputWrapper>
-								<div className="button-loader">
-									<Button>Send My Message</Button>
-									{contactFormProccess.loading ? (
-										<Loader></Loader>
-									) : null}
-								</div>
-							</Stack>
-							{!contactFormProccess.success &&
-							contactFormProccess.error ? (
-								<p className="error">
-									Something went wrong. Message was not sent.
-								</p>
-							) : !contactFormProccess.success &&
-							  !contactFormProccess.error ? (
-								""
-							) : (
-								<p className="success">
-									Thank you for your message! We will contact
-									you ASAP!
-								</p>
-							)}
-							<p>Want a quote and a game plan fast?</p>
-							<button className="text-red arrow ghost-button">
-								Start your custom marketing plan now
-								<svg
-									clipRule="evenodd"
-									fillRule="evenodd"
-									strokeLinejoin="round"
-									strokeMiterlimit="2"
-									viewBox="0 0 24 24"
-									height={24}
-									width={24}
-									xmlns="http://www.w3.org/2000/svg"
-									fill={"var(--secondary)"}
+									<div className="button-loader">
+										<Button>Send My Message</Button>
+										{contactFormProccess.loading ? (
+											<Loader></Loader>
+										) : null}
+									</div>
+								</Stack>
+								{!contactFormProccess.success &&
+								contactFormProccess.error ? (
+									<StyledText color={"var(--error-color)"}>
+										Something went wrong. Message was not
+										sent.
+									</StyledText>
+								) : !contactFormProccess.success &&
+								  !contactFormProccess.error ? (
+									""
+								) : (
+									<StyledText color={"var(--success-color)"}>
+										Thank you for your message! We will
+										contact you ASAP!
+									</StyledText>
+								)}
+								<p>Want a quote and a game plan fast?</p>
+								<button
+									onClick={() => {
+										setForceOpen(true)
+									}}
+									className="text-red arrow ghost-button"
 								>
-									<path
-										d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"
-										fillRule="nonzero"
-									/>
-								</svg>
-							</button>
-						</Stack>
+									Start your custom marketing plan now
+									<svg
+										clipRule="evenodd"
+										fillRule="evenodd"
+										strokeLinejoin="round"
+										strokeMiterlimit="2"
+										viewBox="0 0 24 24"
+										height={24}
+										width={24}
+										xmlns="http://www.w3.org/2000/svg"
+										fill={"var(--secondary)"}
+									>
+										<path
+											d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"
+											fillRule="nonzero"
+										/>
+									</svg>
+								</button>
+							</Stack>
+						</AnimationContainer>
 					</Switcher>
 				</Wrapper>
 				<Shapedivider
@@ -320,7 +349,10 @@ const Contact = () => {
 					</svg>
 				</Shapedivider>
 			</Region>
-			<Modal></Modal>
+			<Modal
+				forceOpen={forceOpen}
+				modalClosedHandler={modalClosedHandler}
+			></Modal>
 		</ContactPageStyled>
 	)
 }
@@ -328,11 +360,13 @@ const Contact = () => {
 export const ContactPageStyled = styled.div`
 	position: relative;
 
-	.form-container:nth-child(2) {
+	.form-container {
 		box-shadow: var(--box-shadow);
 		padding: var(--s1) var(--s0);
 		border-radius: 5px;
+		margin: 0.5rem;
 	}
+
 	.text-red {
 		color: var(--secondary);
 	}

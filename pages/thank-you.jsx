@@ -14,7 +14,7 @@ import { db } from "../public/firebase/firebase"
 import { serverTimestamp } from "firebase/firestore"
 import { Button } from "../components/styles/Button.styled"
 import Loader from "../components/Loader"
-import ModalCtx from "../public/store/ModalCtx"
+import ModalCtx from "../store/ModalCtx"
 import { StyledText } from "../components/styles/StyledText.styled"
 import { TextMedium } from "../components/styles/TextMedium.styled"
 

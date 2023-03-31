@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
 import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
-import ModalCtx from "../public/store/ModalCtx"
+import ModalCtx from "../store/ModalCtx"
 import Contact from "./Contact"
 
-const Modal = () => {
+const Modal = (props) => {
 	const modalCtx = useContext(ModalCtx)
 	const router = useRouter()
 
@@ -12,7 +12,12 @@ const Modal = () => {
 
 	const modalCloseHandler = () => {
 		modalOpen ? setModalOpen(false) : setModalOpen(true)
+		props.modalClosedHandler && props.modalClosedHandler()
 	}
+
+	useEffect(() => {
+		props.forceOpen ? setModalOpen(true) : setModalOpen(false)
+	}, [props.forceOpen])
 
 	useEffect(() => {
 		modalOpen

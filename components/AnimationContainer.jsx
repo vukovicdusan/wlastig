@@ -50,7 +50,8 @@ export const AnimationContainerStyled = styled.div`
 		opacity: 1;
 		transform: ${direction}(0);
 		transition: all 1s ease;
-		transition-delay: ${(props) => "0." + props.delay || "0"}s;
+		transition-delay: ${(props) =>
+			props.delay ? "0." + props.delay : "0"}s;
 	}
 `
 
