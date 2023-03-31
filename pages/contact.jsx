@@ -25,6 +25,7 @@ const Contact = () => {
 		error: false,
 		loading: false,
 	})
+
 	const [forceOpen, setForceOpen] = useState(false)
 
 	useEffect(() => {

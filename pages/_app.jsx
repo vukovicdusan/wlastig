@@ -2,7 +2,7 @@ import { GlobalStyles } from "../components/styles/Global"
 import "../components/layout/Layout"
 import Layout from "../components/layout/Layout"
 import Head from "next/head"
-import { ModalCtxProvider } from "../public/store/ModalCtx"
+import { ModalCtxProvider } from "../store/ModalCtx"
 
 function MyApp({ Component, pageProps }) {
 	return (

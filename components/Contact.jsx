@@ -10,7 +10,7 @@ import img from "../public/img/popup_pic.png"
 import { Switcher } from "./styles/Switcher.styled"
 import { StyledText } from "./styles/StyledText.styled"
 import { useRouter } from "next/router"
-import ModalCtx from "../public/store/ModalCtx"
+import ModalCtx from "../store/ModalCtx"
 
 const Contact = (props) => {
 	const [hasMounted, setHasMounted] = useState(false)
