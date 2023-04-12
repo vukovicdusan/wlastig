@@ -35,6 +35,12 @@ const webAnalytics = () => {
 					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
 				/>
 				<link rel="icon" href="/favicon.ico" />
+				<link
+					rel="preload"
+					href="./img/subservices/sprite.svg"
+					as="image"
+					type="image/svg+xml"
+				/>
 			</Head>
 			<ServicesHeroStyled
 				backgroundImg={"./img/pages/hero-analytics.png"}

@@ -1,65 +1,54 @@
-import analysis from "../img/subservices/data-analysis.svg"
-import funnel from "../img/subservices/funnel.svg"
-import rocket from "../img/subservices/rocket.svg"
-import search from "../img/subservices/search.svg"
-import marketing from "../img/subservices/marketing.svg"
-import report from "../img/subservices/report.svg"
-import testing from "../img/subservices/testing.svg"
-import chart from "../img/subservices/chart.svg"
-import direction from "../img/subservices/direction.svg"
-import customer from "../img/subservices/customer.svg"
-
 export const subsArr = [
 	{
 		title: "Tracking",
 		content:
 			"Get an advanced tracking solution for your company's success!",
-		img: analysis,
+		img: "data-analysis",
 	},
 	{
 		title: "Conversion Attribution",
 		content:
 			"Don’t go for the one-size-fits-all attribution model, get yourself a custom fit!",
-		img: funnel,
+		img: "funnel",
 	},
 	{
 		title: "Website optimization",
 		content: "Transform your website into a conversion generating machine!",
-		img: search,
+		img: "search",
 	},
 	{
 		title: "Marketing Databases",
 		content:
 			"Leverage your offline data to improve your online performance!",
-		img: marketing,
+		img: "marketing",
 	},
 	{
 		title: "Predictive analytics and ML",
 		content:
 			"Predicting and capitalizing on the future trends and customer behaviour!",
-		img: report,
+		img: "report",
 	},
 	{
 		title: "A/B testing",
 		content: "Test your hypothesis to improve your results!",
-		img: testing,
+		img: "testing",
 	},
 	{
 		title: "Reporting and Visualization",
 		content: "Uncover the story behind your data!",
-		img: chart,
+		img: "chart",
 	},
 	{
 		title: "Data Quality Testing",
 		content:
 			"Your decisions are only as good as your data. Improve your decisions by enhancing the quality of your data.",
-		img: direction,
+		img: "direction",
 	},
 	{
 		title: "Behavior Analysis",
 		content:
 			"Understand who your customers are, what they want and what impacts their decision making.",
-		img: customer,
+		img: "customer",
 	},
 ]
 

@@ -34,7 +34,7 @@ const FocusSection = () => {
 							<AnimationContainer>
 								<Center>
 									<IconBox
-										img={aim}
+										img={"money-focus"}
 										width={100}
 										height={100}
 										title={"ROI Focused"}
@@ -45,7 +45,7 @@ const FocusSection = () => {
 							<AnimationContainer delay={"2"}>
 								<Center>
 									<IconBox
-										img={bulb}
+										img={"growth"}
 										width={100}
 										height={100}
 										title={"Performance Forecasting"}
@@ -56,7 +56,7 @@ const FocusSection = () => {
 							<AnimationContainer delay={"4"}>
 								<Center>
 									<IconBox
-										img={search}
+										img={"job"}
 										width={100}
 										height={100}
 										title={"Advanced Tracking"}

@@ -7,17 +7,15 @@ import { Box } from "./styles/Box.styled"
 function IconBox(props) {
 	return (
 		<IconBoxStyled>
-			<Box
-				boxColor={props.color ? props.color : "var(--text-light)"}
-				// boxColor={"var(--text-light)"}
-			>
+			<Box boxColor={props.color ? props.color : "var(--text-light)"}>
 				<Stack stackAlign={"center"}>
-					<Image
-						src={props.img}
-						width={props.width}
-						height={props.height}
-						alt="icon"
-					></Image>
+					<svg className="icon">
+						<use
+							xlinkHref={
+								"./img/subservices/sprite.svg#" + props.img
+							}
+						></use>
+					</svg>
 					<h4>{props.title}</h4>
 					<p>{props.content}</p>
 				</Stack>
@@ -29,6 +27,10 @@ function IconBox(props) {
 export const IconBoxStyled = styled.div`
 	max-width: 15rem;
 	text-align: center;
+	.icon {
+		max-width: 70px;
+		max-height: 70px;
+	}
 `
 
 export default IconBox
