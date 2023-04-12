@@ -1,51 +1,50 @@
-import bulb from "../img/bulb.svg"
 export const subsArr = [
 	{
 		title: "Keyword research",
 		content:
 			"Finding the best keywords to bid on that are most likely to result in conversions.",
-		img: bulb,
+		img: "keyword-search",
 	},
 	{
 		title: "Lead Generation Campaigns",
 		content:
 			"Generate high-quality prospects for your services and products.",
-		img: bulb,
+		img: "lead-generation",
 	},
 	{
 		title: "Ecommerce Advertising",
 		content:
 			"Convert visitors into paying customers and achieve profitable, long-term growth.",
-		img: bulb,
+		img: "ecommerce",
 	},
 	{
 		title: "Funnel Building and Optimization",
 		content:
 			"Guide your prospects from awareness to the purchase in the most cost-effective way.",
-		img: bulb,
+		img: "funnel",
 	},
 	{
 		title: "Dynamic Remarketing",
 		content: "Attract bottom of the funnel abandoners with tailored ads.",
-		img: bulb,
+		img: "money",
 	},
 	{
 		title: "Google Ads",
 		content:
 			"Leverage Google Search, Shopping, and Display to help you shatter your revenue goals, consistently.",
-		img: bulb,
+		img: "ads",
 	},
 	{
 		title: "Youtube Ads",
 		content:
 			"Target your most valuable customers with video advertising on the world’s largest video platform.",
-		img: bulb,
+		img: "ads-red",
 	},
 	{
 		title: "Paid Social Media Advertising",
 		content:
 			"Build a social presence and attract customers on Facebook, Instagram, Linkedin, and other social media platforms.",
-		img: bulb,
+		img: "advertisement",
 	},
 ]
 
