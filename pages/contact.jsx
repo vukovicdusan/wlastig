@@ -136,7 +136,7 @@ const Contact = () => {
 							</AnimationContainer>
 							<AnimationContainer delay={2}>
 								<TextMedium>
-									You&#39;ll love working with Wlastig if…
+									You&#39;ll love working with Wlastig.
 								</TextMedium>
 							</AnimationContainer>
 							<AnimationContainer direction={"translateX"}>
@@ -185,34 +185,6 @@ const Contact = () => {
 											competitive advantage.
 										</p>
 									</li>
-
-									{/* <li>
-										<CheckSvg
-											svgFill={"#4bb543"}
-										></CheckSvg>
-										You&#39;re big on communication
-									</li>
-									<li>
-										<CheckSvg
-											svgFill={"#4bb543"}
-										></CheckSvg>
-										You&#39;re not afraid to explore new
-										ideas with a proven partner
-									</li>
-									<li>
-										<CheckSvg
-											svgFill={"#4bb543"}
-										></CheckSvg>
-										You treat marketing like an investment,
-										not a slot machine
-									</li>
-									<li>
-										<CheckSvg
-											svgFill={"#4bb543"}
-										></CheckSvg>
-										You&#39;ve got enough bandwidth to
-										handle much more business
-									</li> */}
 								</Stack>
 							</AnimationContainer>
 						</Stack>
