@@ -130,7 +130,9 @@ const Contact = () => {
 					<Switcher gap={"var(--s3)"} mb={"var(--s5)"}>
 						<Stack stackJustify={"center"} stackSpace={"var(--s2)"}>
 							<AnimationContainer>
-								<h2>Are We The Best Fit For You?</h2>
+								<h2>
+									Your data-driven success story starts here.
+								</h2>
 							</AnimationContainer>
 							<AnimationContainer delay={2}>
 								<TextMedium>
@@ -140,6 +142,51 @@ const Contact = () => {
 							<AnimationContainer direction={"translateX"}>
 								<Stack as="ul">
 									<li>
+										<CheckSvg
+											svgWidth={50}
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										<p>
+											At Wlastig, we believe that clear
+											communication and collaboration are
+											the keys to unlocking the true
+											potential of your data. We are
+											excited to connect with you and
+											learn more about your unique
+											challenges and goals.
+										</p>
+									</li>
+									<li>
+										<CheckSvg
+											svgWidth={50}
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										<p>
+											Our team of expert analysts and
+											strategists is ready to help you
+											uncover insights, optimize your
+											operations, and drive growth. To get
+											started, simply fill out the form
+											below or reach out using one of the
+											methods provided.
+										</p>
+									</li>
+									<li>
+										<CheckSvg
+											svgWidth={50}
+											svgFill={"#4bb543"}
+										></CheckSvg>
+										<p>
+											We look forward to hearing from you
+											and exploring how Wlastig can
+											empower your organization with
+											data-driven solutions. Together,
+											we&#39;ll turn your data into a
+											competitive advantage.
+										</p>
+									</li>
+
+									{/* <li>
 										<CheckSvg
 											svgFill={"#4bb543"}
 										></CheckSvg>
@@ -165,7 +212,7 @@ const Contact = () => {
 										></CheckSvg>
 										You&#39;ve got enough bandwidth to
 										handle much more business
-									</li>
+									</li> */}
 								</Stack>
 							</AnimationContainer>
 						</Stack>
@@ -399,11 +446,11 @@ export const ContactPageStyled = styled.div`
 	}
 
 	.success {
-		color: #4bb543;
+		color: var(--success-color);
 	}
 
 	.error {
-		color: indianred;
+		color: var(--error-color);
 	}
 
 	.button-loader {
