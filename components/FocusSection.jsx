@@ -1,8 +1,4 @@
 import React from "react";
-// import styles from "../styles/FocusSection.module.css"
-import bulb from "../public/img/bulb.svg";
-import search from "../public/img/search.svg";
-import aim from "../public/img/aim.svg";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import { Center } from "./styles/Center.styled";
@@ -67,7 +63,7 @@ const FocusSection = () => {
               </AnimationContainer>
             </Switcher>
             <Link className="a-exception" href={"/contact"}>
-              <Button as={"div"}>Contact Us Now</Button>
+              <Button as={"span"}>Contact Us Now</Button>
             </Link>
           </Stack>
         </Region>
