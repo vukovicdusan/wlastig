@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
 /*===================*/
@@ -90,7 +90,7 @@ a:not([class]) {
 }
 
 a {
-	color: var(--text-dark);
+	color: inherit;
 	text-decoration: none;
 	transition: all 0.3s ease;
 	position: relative;
@@ -342,4 +342,4 @@ label {
 		--testimonial-frames: rgba(250,250,250,0.5);
 	}
 }
-`
+`;
