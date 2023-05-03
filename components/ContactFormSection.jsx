@@ -11,7 +11,7 @@ import AnimationContainer from "./AnimationContainer";
 
 const ContactFormSection = (props) => {
   return (
-    <FullBackground background={"var(--primary)"}>
+    <FullBackground background={"var(--primary)"} id="contact-form-section">
       {props.shapedivider ? (
         <Shapedivider
           height={"130px"}

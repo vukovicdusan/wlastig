@@ -24,6 +24,7 @@ import {
 } from "../public/content/web-analytics.js";
 import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg";
 import CheckSvg from "../components/svg/CheckSvg";
+import ScrollLink from "../components/ScrollLink";
 
 const webAnalytics = () => {
   return (
@@ -58,7 +59,9 @@ const webAnalytics = () => {
                     </AnimationContainer>
                     <AnimationContainer>
                       <div className="desktop">
-                        <Button reverse={true}>Discover your gems!</Button>
+                        <ScrollLink href="#contact-form-section">
+                          <Button reverse={true}>Discover your gems!</Button>
+                        </ScrollLink>
                       </div>
                     </AnimationContainer>
                   </Stack>
@@ -68,7 +71,9 @@ const webAnalytics = () => {
           </div>
           <div className="mobile mr-t-4">
             <Wrapper>
-              <Button>Discover your gems!</Button>
+              <ScrollLink href="#contact-form-section">
+                <Button>Discover your gems!</Button>
+              </ScrollLink>
             </Wrapper>
           </div>
         </Stack>

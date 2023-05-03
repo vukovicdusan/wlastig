@@ -21,6 +21,7 @@ import {
   faqArr,
 } from "../public/content/consulting";
 import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
+import ScrollLink from "../components/ScrollLink";
 
 const Consulting = () => {
   return (
@@ -48,9 +49,11 @@ const Consulting = () => {
                     </AnimationContainer>
                     <AnimationContainer>
                       <div className="desktop">
-                        <Button reverse={false}>
-                          Improve your data quality for FREE!
-                        </Button>
+                        <ScrollLink href="#contact-form-section">
+                          <Button reverse={false}>
+                            Improve your data quality for FREE!
+                          </Button>
+                        </ScrollLink>
                       </div>
                     </AnimationContainer>
                   </Stack>
@@ -60,7 +63,9 @@ const Consulting = () => {
           </div>
           <div className="mobile">
             <Wrapper>
-              <Button>Improve your data quality for FREE!</Button>
+              <ScrollLink href="#contact-form-section">
+                <Button>Improve your data quality for FREE!</Button>
+              </ScrollLink>
             </Wrapper>
           </div>
         </Stack>
