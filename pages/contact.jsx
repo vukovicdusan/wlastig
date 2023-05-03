@@ -12,7 +12,7 @@ import { InputWrapper } from "../components/styles/InputWrapper.styled";
 import { Button } from "../components/styles/Button.styled";
 import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import { TextMedium } from "../components/styles/TextMedium.styled";
-import CheckSvg from "../components/svg/CheckSvg";
+// import CheckSvg from "../components/svg/CheckSvg";
 import { sendContactForm } from "../lib/api";
 import Loader from "../components/Loader";
 import { StyledText } from "../components/styles/StyledText.styled";
@@ -226,7 +226,7 @@ const Contact = () => {
                       rows="4"
                       onChange={inputHandler}
                     ></textarea>
-                    <label htmlFor="website">Any Comments?</label>
+                    <label htmlFor="comments">Any Comments?</label>
                   </InputWrapper>
                   <div className="button-loader">
                     <Button>Send My Message</Button>
