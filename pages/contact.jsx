@@ -66,18 +66,6 @@ const Contact = () => {
       case "name":
         setContactFormData({ ...contactFormData, name: e.target.value });
         break;
-      //   case "phone":
-      //     setContactFormData({
-      //       ...contactFormData,
-      //       phone: e.target.value,
-      //     });
-      //     break;
-      //   case "company":
-      //     setContactFormData({
-      //       ...contactFormData,
-      //       company: e.target.value,
-      //     });
-      //     break;
       case "website":
         setContactFormData({
           ...contactFormData,
@@ -138,7 +126,7 @@ const Contact = () => {
               <AnimationContainer direction={"translateX"}>
                 <Stack as="ul">
                   <li>
-                    <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg>
+                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       At Wlastig, we believe that clear communication and
                       collaboration are the keys to unlocking the true potential
@@ -147,7 +135,7 @@ const Contact = () => {
                     </p>
                   </li>
                   <li>
-                    <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg>
+                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       Our team of expert analysts and strategists is ready to
                       help you uncover insights, optimize your operations, and
@@ -156,7 +144,7 @@ const Contact = () => {
                     </p>
                   </li>
                   <li>
-                    <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg>
+                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       We look forward to hearing from you and exploring how
                       Wlastig can empower your organization with data-driven
