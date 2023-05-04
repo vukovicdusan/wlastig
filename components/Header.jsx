@@ -10,6 +10,8 @@ import { Stack } from "./styles/Stack.styled";
 import { DisabledLink } from "./styles/DisabledLink.styled";
 import MobileMenu from "./MobileMenu";
 import { useRouter } from "next/router";
+import { useModal } from "./hooks/useModal";
+import Modal from "./Modal";
 
 const Header = () => {
   const [dropdownHeight, setDropdownHeight] = useState("");
@@ -17,7 +19,7 @@ const Header = () => {
   const [hideHeader, setHideHeader] = useState(false);
   const dropdownRef = useRef();
   const router = useRouter();
-
+  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [router.asPath]);
@@ -139,9 +141,14 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/contact"} className="a-exception">
-                  <Button as={"span"}>Let&apos;s Talk!</Button>
-                </Link>
+                <Button
+                  onClick={() => {
+                    modelOpenHandler("contact");
+                  }}
+                  as={"span"}
+                >
+                  Let&apos;s Talk!
+                </Button>
               </li>
             </Wrap>
           </nav>
@@ -181,6 +188,10 @@ const Header = () => {
           </button>
         </Wrap>
       </Wrapper>
+      <Modal
+        forceOpen={forceOpen}
+        modalClosedHandler={modalCloseHandler}
+      ></Modal>
     </HeaderStyled>
   );
 };

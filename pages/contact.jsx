@@ -8,84 +8,14 @@ import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroSt
 import { Stack } from "../components/styles/Stack.styled";
 import { Wrapper } from "../components/styles/Wrapper.styled";
 import { Switcher } from "../components/styles/Switcher.styled";
-import { InputWrapper } from "../components/styles/InputWrapper.styled";
-import { Button } from "../components/styles/Button.styled";
 import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import { TextMedium } from "../components/styles/TextMedium.styled";
-// import CheckSvg from "../components/svg/CheckSvg";
-import { sendContactForm } from "../lib/api";
-import Loader from "../components/Loader";
+import ContactForm from "../components/ContactForm";
 import { StyledText } from "../components/styles/StyledText.styled";
+import { useModal } from "../components/hooks/useModal";
 
 const Contact = () => {
-  const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ audit: false });
-  const [contactFormProccess, setContactFormProccess] = useState({
-    success: false,
-    error: false,
-    loading: false,
-  });
-
-  const [forceOpen, setForceOpen] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted) {
-    return null;
-  }
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    setContactFormProccess((prev) => ({ ...prev, loading: true }));
-    try {
-      await sendContactForm(contactFormData);
-      setContactFormProccess((prev) => ({
-        ...prev,
-        success: true,
-        loading: false,
-      }));
-    } catch (err) {
-      console.log(err);
-      setContactFormProccess((prev) => ({
-        ...prev,
-        error: true,
-        loading: false,
-      }));
-    }
-  };
-
-  const inputHandler = (e) => {
-    switch (e.target.name) {
-      case "email":
-        setContactFormData({
-          ...contactFormData,
-          email: e.target.value,
-        });
-        break;
-      case "name":
-        setContactFormData({ ...contactFormData, name: e.target.value });
-        break;
-      case "website":
-        setContactFormData({
-          ...contactFormData,
-          website: e.target.value,
-        });
-        break;
-      case "comments":
-        setContactFormData({
-          ...contactFormData,
-          comments: e.target.value,
-        });
-        break;
-      default:
-        "";
-    }
-  };
-
-  const modalClosedHandler = () => {
-    setForceOpen(false);
-  };
+  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
 
   return (
     <ContactPageStyled>
@@ -156,103 +86,23 @@ const Contact = () => {
               </AnimationContainer>
             </Stack>
             <AnimationContainer>
-              <Stack
-                className="form-container"
-                stackSpace={"var(--s2)"}
-                stackJustify={"center"}
-                stackAlign={"center"}
-              >
-                <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <h2>Reach Out!</h2>
-                  <span>
-                    <a className="text-red" href="mailto: info@wlastig.com">
-                      info@wlastig.com
-                    </a>
-                  </span>
-                  <span>
-                    <a className="text-red" href="tel: +38169123456">
-                      +38169123456
-                    </a>
-                  </span>
-                </Stack>
-                <Stack
-                  as="form"
-                  stackJustify={"center"}
-                  stackAlign={"center"}
-                  onSubmit={onSubmitHandler}
-                >
-                  <Switcher elCount={2} flexBasis={"20rem"}>
-                    <InputWrapper>
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        autoCapitalize="none"
-                        autoCorrect="off"
-                        required
-                        onChange={inputHandler}
-                      />
-                      <label htmlFor="name">Name</label>
-                    </InputWrapper>
-                    <InputWrapper>
-                      <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        autoCapitalize="none"
-                        autoCorrect="off"
-                        required
-                        pattern="[^@]+@[^\.]+\..+"
-                        onChange={inputHandler}
-                      />
-                      <label htmlFor="email">Email</label>
-                    </InputWrapper>
-                  </Switcher>
-                  <InputWrapper>
-                    <input
-                      type="text"
-                      name="website"
-                      id="website"
-                      autoCapitalize="none"
-                      autoCorrect="off"
-                      onChange={inputHandler}
-                    />
-                    <label htmlFor="website">Company Website</label>
-                  </InputWrapper>
-                  <InputWrapper>
-                    <textarea
-                      id="comments"
-                      name="comments"
-                      rows="4"
-                      onChange={inputHandler}
-                    ></textarea>
-                    <label htmlFor="comments">Any Comments?</label>
-                  </InputWrapper>
-                  <div className="button-loader">
-                    <Button>Send My Message</Button>
-                    {contactFormProccess.loading ? <Loader></Loader> : null}
-                  </div>
-                </Stack>
-                {!contactFormProccess.success && contactFormProccess.error ? (
-                  <StyledText color={"var(--error-color)"}>
-                    Something went wrong. Message was not sent.
-                  </StyledText>
-                ) : !contactFormProccess.success &&
-                  !contactFormProccess.error ? (
-                  ""
-                ) : (
-                  <StyledText color={"var(--success-color)"}>
-                    Thank you for your message! We will contact you ASAP!
-                  </StyledText>
-                )}
-                <p>Want a quote and a game plan fast?</p>
+              <Stack className="box" stackAlign={"center"}>
+                <ContactForm></ContactForm>
+                <StyledText family={"var(--poppinsbold)"}>
+                  Want a quote and a game plan fast?
+                </StyledText>
                 <button
                   onClick={() => {
-                    setForceOpen(true);
+                    modelOpenHandler("audit");
                   }}
-                  className="text-red arrow ghost-button"
+                  className="arrow ghost-button"
                 >
-                  Get your audit now!
+                  <StyledText
+                    color={"var(--secondary)"}
+                    family={"var(--poppinsbold)"}
+                  >
+                    Get your audit now!
+                  </StyledText>
                   <svg
                     clipRule="evenodd"
                     fillRule="evenodd"
@@ -286,7 +136,7 @@ const Contact = () => {
       </Region>
       <Modal
         forceOpen={forceOpen}
-        modalClosedHandler={modalClosedHandler}
+        modalClosedHandler={modalCloseHandler}
       ></Modal>
     </ContactPageStyled>
   );
@@ -294,28 +144,13 @@ const Contact = () => {
 
 export const ContactPageStyled = styled.div`
   position: relative;
-
-  .form-container {
+  .box {
     box-shadow: var(--box-shadow);
     padding: var(--s1) var(--s0);
-    border-radius: 5px;
     margin: 0.5rem;
+    border-radius: 5px;
   }
 
-  .text-red {
-    color: var(--secondary);
-  }
-
-  .form-container p,
-  .form-container .text-red {
-    font-family: var(--poppinsbold);
-  }
-
-  ul li {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-  }
   .arrow {
     display: flex;
     justify-content: center;
@@ -331,22 +166,14 @@ export const ContactPageStyled = styled.div`
 
   .ghost-button:hover {
     text-decoration: underline;
+    text-decoration-color: var(--secondary);
+    text-decoration-thickness: 2px;
   }
 
-  .success {
-    color: var(--success-color);
-  }
-
-  .error {
-    color: var(--error-color);
-  }
-
-  .button-loader {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+  @media (max-width: 880px) {
+    .box {
+      margin: 0;
+    }
   }
 `;
 

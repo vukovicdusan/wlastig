@@ -3,13 +3,14 @@ import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import { Button } from "./styles/Button.styled";
-import { StyledText } from "./styles/StyledText.styled";
 import Loader from "./Loader";
+import { StyledText } from "./styles/StyledText.styled";
+import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 
-const CareerForm = () => {
+const ContactForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ audit: true });
+  const [contactFormData, setContactFormData] = useState({ audit: false });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
@@ -54,10 +55,16 @@ const CareerForm = () => {
       case "name":
         setContactFormData({ ...contactFormData, name: e.target.value });
         break;
-      case "cover":
+      case "website":
         setContactFormData({
           ...contactFormData,
-          cover: e.target.value,
+          website: e.target.value,
+        });
+        break;
+      case "comments":
+        setContactFormData({
+          ...contactFormData,
+          comments: e.target.value,
         });
         break;
       default:
@@ -66,10 +73,9 @@ const CareerForm = () => {
   };
 
   return (
-    <CareerFormStyled>
-      {" "}
+    <ContactFormStyled>
       <Stack
-        // className="form-container"
+        className="form-container"
         stackSpace={"var(--s2)"}
         stackJustify={"center"}
         stackAlign={"center"}
@@ -77,13 +83,23 @@ const CareerForm = () => {
         <Stack stackJustify={"center"} stackAlign={"center"}>
           <h2>Reach Out!</h2>
           <span>
-            <a className="text-red" href="mailto: info@wlastig.com">
-              info@wlastig.com
+            <a href="mailto: info@wlastig.com">
+              <StyledText
+                family={"var(--poppinsbold)"}
+                color={"var(--secondary)"}
+              >
+                info@wlastig.com
+              </StyledText>
             </a>
           </span>
           <span>
-            <a className="text-red" href="tel: +38169123456">
-              +38169123456
+            <a href="tel: +38169123456">
+              <StyledText
+                family={"var(--poppinsbold)"}
+                color={"var(--secondary)"}
+              >
+                +38169123456
+              </StyledText>
             </a>
           </span>
         </Stack>
@@ -121,20 +137,27 @@ const CareerForm = () => {
             </InputWrapper>
           </Switcher>
           <InputWrapper>
-            <input type="file" name="cv" id="cv" />
-            <label htmlFor="cv">Upload Your CV</label>
+            <input
+              type="text"
+              name="website"
+              id="website"
+              autoCapitalize="none"
+              autoCorrect="off"
+              onChange={inputHandler}
+            />
+            <label htmlFor="website">Company Website</label>
           </InputWrapper>
           <InputWrapper>
             <textarea
-              id="cover"
-              name="cover"
+              id="comments"
+              name="comments"
               rows="4"
               onChange={inputHandler}
             ></textarea>
-            <label htmlFor="cover">Cover Letter</label>
+            <label htmlFor="comments">Any Comments?</label>
           </InputWrapper>
           <div className="button-loader">
-            <Button>Submit</Button>
+            <Button>Send My Message</Button>
             {contactFormProccess.loading ? <Loader></Loader> : null}
           </div>
         </Stack>
@@ -146,34 +169,17 @@ const CareerForm = () => {
           ""
         ) : (
           <StyledText color={"var(--success-color)"}>
-            Thank you for your message!
+            Thank you for your message! We will contact you ASAP!
           </StyledText>
         )}
       </Stack>
-    </CareerFormStyled>
+    </ContactFormStyled>
   );
 };
 
-export const CareerFormStyled = styled.div`
-  position: relative;
-  background-color: var(--background-light);
-  padding: var(--s3) var(--s2);
-  border-radius: 5px;
-  margin: 0.5rem;
-
+export const ContactFormStyled = styled.div`
   .text-red {
     color: var(--secondary);
-  }
-
-  .form-container p,
-  .form-container .text-red {
-    font-family: var(--poppinsbold);
-  }
-
-  ul li {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
   }
 
   .success {
@@ -193,4 +199,4 @@ export const CareerFormStyled = styled.div`
   }
 `;
 
-export default CareerForm;
+export default ContactForm;

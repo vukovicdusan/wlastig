@@ -13,10 +13,10 @@ import AnimationContainer from "./AnimationContainer";
 import Modal from "./Modal";
 
 function Hero() {
-  const [forceOpen, setForceOpen] = useState(false);
+  const [forceOpen, setForceOpen] = useState({ state: false, type: "" });
 
   const modalClosedHandler = () => {
-    setForceOpen(false);
+    setForceOpen({ state: false, type: "" });
   };
 
   return (
@@ -45,7 +45,7 @@ function Hero() {
                 <AnimationContainer delay={"3"}>
                   <Button
                     onClick={() => {
-                      setForceOpen(true);
+                      setForceOpen({ state: true, type: "audit" });
                     }}
                   >
                     Find your money leaks!

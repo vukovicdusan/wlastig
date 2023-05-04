@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ModalCtx from "../store/ModalCtx";
 import Contact from "./Contact";
 import CareerForm from "./CareerForm";
+import ContactForm from "./ContactForm";
 
 const Modal = (props) => {
   const modalCtx = useContext(ModalCtx);
@@ -17,8 +18,8 @@ const Modal = (props) => {
   };
 
   useEffect(() => {
-    props.forceOpen ? setModalOpen(true) : setModalOpen(false);
-  }, [props.forceOpen]);
+    props.forceOpen?.state ? setModalOpen(true) : setModalOpen(false);
+  }, [props.forceOpen?.state]);
 
   useEffect(() => {
     modalOpen
@@ -49,8 +50,17 @@ const Modal = (props) => {
                 <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
               </svg>
             </span>
-            {/* <Contact popup={true}></Contact> */}
-            <CareerForm></CareerForm>
+            {/* {popup} */}
+            {props.forceOpen.type === "audit" ? (
+              <Contact popup={true}></Contact>
+            ) : (
+              ""
+            )}
+            {props.forceOpen.type === "contact" ? (
+              <ContactForm></ContactForm>
+            ) : (
+              ""
+            )}
           </dialog>
         </ModalStyled>
       ) : null}
@@ -86,10 +96,11 @@ export const ModalStyled = styled.div`
 
   dialog {
     display: block;
-    background-color: transparent;
+    background-color: var(--background-light);
     color: revert;
     border: none;
-    padding: 0;
+    border-radius: 5px;
+    padding: var(--s1) var(--s0);
     margin-block: auto;
     animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
   }

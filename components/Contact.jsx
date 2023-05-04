@@ -149,7 +149,6 @@ const Contact = (props) => {
 export const ContactStyled = styled.form`
   background-color: var(--background-light);
   border-radius: 5px;
-  box-shadow: var(--box-shadow);
   padding: var(--s2) var(--s2);
   height: max-content;
   max-width: ${(props) => (props.popup ? "max-content" : "auto")};

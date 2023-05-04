@@ -8,15 +8,19 @@ import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { Button } from "./styles/Button.styled";
 import AnimationContainer from "../components/AnimationContainer";
-import Link from "next/link";
+import { useModal } from "./hooks/useModal";
+import Modal from "./Modal";
 
 const FocusSection = () => {
+  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
+
   const roiContent =
     "Marketing efforts focused on generating money not likes and vanity metrics.";
   const performanceContent =
     "Using machine learning and predictive analytics to stay on top of your competition and anticipate future trends";
   const trackingContent =
     "Using enhanced tracking solutions to discover bottom line movers";
+
   return (
     <FullBackground background={"var(--primary)"}>
       <Wrapper>
@@ -62,12 +66,22 @@ const FocusSection = () => {
                 </Center>
               </AnimationContainer>
             </Switcher>
-            <Link className="a-exception" href={"/contact"}>
-              <Button as={"span"}>Contact Us Now</Button>
-            </Link>
+
+            <Button
+              onClick={() => {
+                modelOpenHandler("contact");
+              }}
+              as={"span"}
+            >
+              Contact Us Now
+            </Button>
           </Stack>
         </Region>
       </Wrapper>
+      <Modal
+        forceOpen={forceOpen}
+        modalClosedHandler={modalCloseHandler}
+      ></Modal>
     </FullBackground>
   );
 };
