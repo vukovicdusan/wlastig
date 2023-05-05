@@ -78,10 +78,10 @@ const FocusSection = () => {
           </Stack>
         </Region>
       </Wrapper>
-      <Modal
+      {/* <Modal
         forceOpen={forceOpen}
         modalClosedHandler={modalCloseHandler}
-      ></Modal>
+      ></Modal> */}
     </FullBackground>
   );
 };

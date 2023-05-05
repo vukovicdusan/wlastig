@@ -108,6 +108,7 @@ const ContactForm = () => {
           stackJustify={"center"}
           stackAlign={"center"}
           onSubmit={onSubmitHandler}
+          stackSpace={"var(--s2)"}
         >
           <Switcher elCount={2} flexBasis={"20rem"}>
             <InputWrapper>

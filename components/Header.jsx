@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "./styles/Wrapper.styled";
 import Image from "next/image";
@@ -10,8 +10,9 @@ import { Stack } from "./styles/Stack.styled";
 import { DisabledLink } from "./styles/DisabledLink.styled";
 import MobileMenu from "./MobileMenu";
 import { useRouter } from "next/router";
-import { useModal } from "./hooks/useModal";
-import Modal from "./Modal";
+// import { useModal } from "./hooks/useModal";
+// import Modal from "./Modal";
+import ModalCtx from "../store/ModalCtx";
 
 const Header = () => {
   const [dropdownHeight, setDropdownHeight] = useState("");
@@ -19,7 +20,9 @@ const Header = () => {
   const [hideHeader, setHideHeader] = useState(false);
   const dropdownRef = useRef();
   const router = useRouter();
-  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
+  const modalCtx = useContext(ModalCtx);
+  // const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
+
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [router.asPath]);
@@ -143,7 +146,8 @@ const Header = () => {
               <li>
                 <Button
                   onClick={() => {
-                    modelOpenHandler("contact");
+                    // modelOpenHandler("contact");
+                    modalCtx.forceOpenHandler("contact");
                   }}
                   as={"span"}
                 >
@@ -188,10 +192,10 @@ const Header = () => {
           </button>
         </Wrap>
       </Wrapper>
-      <Modal
+      {/* <Modal
         forceOpen={forceOpen}
         modalClosedHandler={modalCloseHandler}
-      ></Modal>
+      ></Modal> */}
     </HeaderStyled>
   );
 };

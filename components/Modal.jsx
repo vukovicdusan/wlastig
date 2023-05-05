@@ -3,23 +3,17 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import ModalCtx from "../store/ModalCtx";
 import Contact from "./Contact";
-import CareerForm from "./CareerForm";
 import ContactForm from "./ContactForm";
 
-const Modal = (props) => {
+const Modal = () => {
   const modalCtx = useContext(ModalCtx);
   const router = useRouter();
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const modalCloseHandler = () => {
-    modalOpen ? setModalOpen(false) : setModalOpen(true);
-    props.modalClosedHandler && props.modalClosedHandler();
-  };
-
   useEffect(() => {
-    props.forceOpen?.state ? setModalOpen(true) : setModalOpen(false);
-  }, [props.forceOpen?.state]);
+    modalCtx.forceOpen.state ? setModalOpen(true) : setModalOpen(false);
+  }, [modalCtx.forceOpen.state]);
 
   useEffect(() => {
     modalOpen
@@ -34,12 +28,18 @@ const Modal = (props) => {
     }
   }, [router]);
 
+  console.log(modalCtx.forceOpen, modalOpen);
   return (
     <>
       {modalOpen ? (
         <ModalStyled show={modalOpen}>
           <dialog>
-            <span onClick={modalCloseHandler} className="modal-close">
+            <span
+              onClick={() => {
+                modalCtx.modalCloseHandler(), setModalOpen(false);
+              }}
+              className="modal-close"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -50,16 +50,11 @@ const Modal = (props) => {
                 <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
               </svg>
             </span>
-            {/* {popup} */}
-            {props.forceOpen.type === "audit" ? (
-              <Contact popup={true}></Contact>
-            ) : (
-              ""
-            )}
-            {props.forceOpen.type === "contact" ? (
+            {modalCtx.forceOpen?.type === "contact" &&
+            modalCtx.forceOpen.state ? (
               <ContactForm></ContactForm>
             ) : (
-              ""
+              <Contact popup={true}></Contact>
             )}
           </dialog>
         </ModalStyled>
@@ -100,7 +95,7 @@ export const ModalStyled = styled.div`
     color: revert;
     border: none;
     border-radius: 5px;
-    padding: var(--s1) var(--s0);
+    padding: var(--s2) var(--s1);
     margin-block: auto;
     animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
   }
