@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import Image from "next/image";
@@ -10,15 +10,10 @@ import { Center } from "./styles/Center.styled";
 import { Button } from "./styles/Button.styled";
 import { Shapedivider } from "./styles/Shapedivider.styled";
 import AnimationContainer from "./AnimationContainer";
-import Modal from "./Modal";
+import ModalCtx from "../store/ModalCtx";
 
 function Hero() {
-  const [forceOpen, setForceOpen] = useState({ state: false, type: "" });
-
-  const modalClosedHandler = () => {
-    setForceOpen({ state: false, type: "" });
-  };
-
+  const modalCtx = useContext(ModalCtx);
   return (
     <HeroStyled>
       <Region>
@@ -45,7 +40,7 @@ function Hero() {
                 <AnimationContainer delay={"3"}>
                   <Button
                     onClick={() => {
-                      setForceOpen({ state: true, type: "audit" });
+                      modalCtx.forceOpenHandler("audit");
                     }}
                   >
                     Find your money leaks!
@@ -81,10 +76,6 @@ function Hero() {
           <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
         </svg>
       </Shapedivider>
-      {/* <Modal
-        forceOpen={forceOpen}
-        modalClosedHandler={modalClosedHandler}
-      ></Modal> */}
     </HeroStyled>
   );
 }

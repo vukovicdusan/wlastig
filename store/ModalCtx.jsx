@@ -33,8 +33,6 @@ export const ModalCtxProvider = (props) => {
   };
 
   const modalCloseHandler = () => {
-    console.log("should be closing");
-    console.log(forceOpen);
     setForceOpen({ state: false, type: "" });
   };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import { Center } from "./styles/Center.styled";
@@ -8,11 +8,10 @@ import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { Button } from "./styles/Button.styled";
 import AnimationContainer from "../components/AnimationContainer";
-import { useModal } from "./hooks/useModal";
-import Modal from "./Modal";
+import ModalCtx from "../store/ModalCtx";
 
 const FocusSection = () => {
-  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
+  const modalCtx = useContext(ModalCtx);
 
   const roiContent =
     "Marketing efforts focused on generating money not likes and vanity metrics.";
@@ -69,7 +68,7 @@ const FocusSection = () => {
 
             <Button
               onClick={() => {
-                modelOpenHandler("contact");
+                modalCtx.forceOpenHandler("contact");
               }}
               as={"span"}
             >
@@ -78,10 +77,6 @@ const FocusSection = () => {
           </Stack>
         </Region>
       </Wrapper>
-      {/* <Modal
-        forceOpen={forceOpen}
-        modalClosedHandler={modalCloseHandler}
-      ></Modal> */}
     </FullBackground>
   );
 };

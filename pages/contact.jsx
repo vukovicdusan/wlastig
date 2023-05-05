@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import AnimationContainer from "../components/AnimationContainer";
@@ -12,11 +12,10 @@ import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import { TextMedium } from "../components/styles/TextMedium.styled";
 import ContactForm from "../components/ContactForm";
 import { StyledText } from "../components/styles/StyledText.styled";
-import { useModal } from "../components/hooks/useModal";
+import ModalCtx from "../store/ModalCtx";
 
 const Contact = () => {
-  const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
-
+  const modalCtx = useContext(ModalCtx);
   return (
     <ContactPageStyled>
       <Head>
@@ -93,7 +92,7 @@ const Contact = () => {
                 </StyledText>
                 <button
                   onClick={() => {
-                    modelOpenHandler("audit");
+                    modalCtx.forceOpenHandler("audit");
                   }}
                   className="arrow ghost-button"
                 >
@@ -134,10 +133,7 @@ const Contact = () => {
           </svg>
         </Shapedivider>
       </Region>
-      <Modal
-        forceOpen={forceOpen}
-        modalClosedHandler={modalCloseHandler}
-      ></Modal>
+      <Modal></Modal>
     </ContactPageStyled>
   );
 };
