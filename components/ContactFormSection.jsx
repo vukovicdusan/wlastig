@@ -50,7 +50,7 @@ const ContactFormSection = (props) => {
                   </p>
                 </AnimationContainer>
               </Stack>
-              {router.pathname !== "/careers/[career]" ? (
+              {router.pathname === "/careers/[career]" ? (
                 <CareerForm></CareerForm>
               ) : (
                 <Audit cta={props.cta}></Audit>
