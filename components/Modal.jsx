@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import ModalCtx from "../store/ModalCtx";
-import Contact from "./Contact";
+import Audit from "./Audit";
 import ContactForm from "./ContactForm";
 
 const Modal = () => {
@@ -28,7 +28,6 @@ const Modal = () => {
     }
   }, [router]);
 
-  console.log(modalCtx.forceOpen, modalOpen);
   return (
     <>
       {modalOpen ? (
@@ -54,7 +53,7 @@ const Modal = () => {
             modalCtx.forceOpen.state ? (
               <ContactForm></ContactForm>
             ) : (
-              <Contact popup={true}></Contact>
+              <Audit popup={true}></Audit>
             )}
           </dialog>
         </ModalStyled>

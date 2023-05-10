@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const CareerForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ audit: true });
+  const [contactFormData, setContactFormData] = useState({ type: "career" });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
@@ -60,33 +60,28 @@ const CareerForm = () => {
           cover: e.target.value,
         });
         break;
+      case "cv":
+        setContactFormData({
+          ...contactFormData,
+          cv: e.target.files[0],
+        });
+        break;
       default:
         "";
     }
   };
 
+  console.log(contactFormData);
+
   return (
     <CareerFormStyled>
       {" "}
       <Stack
-        // className="form-container"
         stackSpace={"var(--s2)"}
         stackJustify={"center"}
         stackAlign={"center"}
       >
-        <Stack stackJustify={"center"} stackAlign={"center"}>
-          <h2>Reach Out!</h2>
-          <span>
-            <a className="text-red" href="mailto: info@wlastig.com">
-              info@wlastig.com
-            </a>
-          </span>
-          <span>
-            <a className="text-red" href="tel: +38169123456">
-              +38169123456
-            </a>
-          </span>
-        </Stack>
+        <h2>Apply</h2>
         <Stack
           as="form"
           stackJustify={"center"}
@@ -121,7 +116,7 @@ const CareerForm = () => {
             </InputWrapper>
           </Switcher>
           <InputWrapper>
-            <input type="file" name="cv" id="cv" />
+            <input onChange={inputHandler} type="file" name="cv" id="cv" />
             <label htmlFor="cv">Upload Your CV</label>
           </InputWrapper>
           <InputWrapper>
@@ -160,6 +155,10 @@ export const CareerFormStyled = styled.div`
   padding: var(--s3) var(--s2);
   border-radius: 5px;
   margin: 0.5rem;
+
+  h2 {
+    color: var(--primary);
+  }
 
   .text-red {
     color: var(--secondary);

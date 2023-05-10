@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 const ContactForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ audit: false });
+  const [contactFormData, setContactFormData] = useState({ type: "contact" });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,

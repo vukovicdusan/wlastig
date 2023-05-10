@@ -12,9 +12,9 @@ import { StyledText } from "./styles/StyledText.styled";
 import { useRouter } from "next/router";
 import ModalCtx from "../store/ModalCtx";
 
-const Contact = (props) => {
+const Audit = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ audit: true });
+  const [contactFormData, setContactFormData] = useState({ type: "audit" });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
@@ -189,4 +189,4 @@ export const ContactStyled = styled.form`
   }
 `;
 
-export default Contact;
+export default Audit;

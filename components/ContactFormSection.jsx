@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Contact from "./Contact";
+import Audit from "./Audit";
 import { Shapedivider } from "./styles/Shapedivider.styled";
 import { FullBackground } from "./styles/FullBackground.styled";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { Stack } from "./styles/Stack.styled";
+import CareerForm from "../components/CareerForm";
 import styled from "styled-components";
 import AnimationContainer from "./AnimationContainer";
+import { useRouter } from "next/router";
 
 const ContactFormSection = (props) => {
+  const router = useRouter();
+
   return (
     <FullBackground background={"var(--primary)"} id="contact-form-section">
       {props.shapedivider ? (
@@ -46,7 +50,11 @@ const ContactFormSection = (props) => {
                   </p>
                 </AnimationContainer>
               </Stack>
-              <Contact cta={props.cta}></Contact>
+              {router.pathname === "/careers/[career]" ? (
+                <CareerForm></CareerForm>
+              ) : (
+                <Audit cta={props.cta}></Audit>
+              )}
             </Switcher>
           </ContactFormSectionStyled>
         </Wrapper>
