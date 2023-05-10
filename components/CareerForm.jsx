@@ -6,6 +6,7 @@ import { Button } from "./styles/Button.styled";
 import { StyledText } from "./styles/StyledText.styled";
 import Loader from "./Loader";
 import styled from "styled-components";
+import { sendContactForm } from "../lib/api";
 
 const CareerForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
