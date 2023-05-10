@@ -7,6 +7,8 @@ import { StyledText } from "./styles/StyledText.styled";
 import Loader from "./Loader";
 import styled from "styled-components";
 import { sendContactForm } from "../lib/api";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { storage } from "../public/firebase/firebase";
 
 const CareerForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -24,16 +26,22 @@ const CareerForm = () => {
   if (!hasMounted) {
     return null;
   }
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
     try {
-      await sendContactForm(contactFormData);
-      setContactFormProccess((prev) => ({
-        ...prev,
-        success: true,
-        loading: false,
-      }));
+      const storageRef = ref(storage, contactFormData.cv.name);
+      uploadBytes(storageRef, contactFormData.cv).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((downloadURL) => {
+          sendContactForm({ ...contactFormData, cv: downloadURL });
+          setContactFormProccess((prev) => ({
+            ...prev,
+            success: true,
+            loading: false,
+          }));
+        });
+      });
     } catch (err) {
       console.log(err);
       setContactFormProccess((prev) => ({
@@ -71,8 +79,6 @@ const CareerForm = () => {
         "";
     }
   };
-
-  console.log(contactFormData);
 
   return (
     <CareerFormStyled>
@@ -117,7 +123,13 @@ const CareerForm = () => {
             </InputWrapper>
           </Switcher>
           <InputWrapper>
-            <input onChange={inputHandler} type="file" name="cv" id="cv" />
+            <input
+              onChange={inputHandler}
+              accept="application/pdf"
+              type="file"
+              name="cv"
+              id="cv"
+            />
             <label htmlFor="cv">Upload Your CV</label>
           </InputWrapper>
           <InputWrapper>

@@ -3,9 +3,6 @@ import { mailOptions, transporter } from "../../config/nodemailer.js";
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
-    // if (!data.email || !data.message) {
-    // 	return res.status(400).json({ message: "Bad request" })
-    // }
 
     let auditSubject = `Audit zahtev od ${data.name}`;
     let messageSubject = `Poruka od ${data.name}`;
@@ -26,6 +23,7 @@ const handler = async (req, res) => {
 		<li>Email: ${data.email}</li>
 		<li>Name: ${data.name}</li>
 		<li>Cover Letter: ${data.cover}</li>
+		<li>CV file: <a href='${data.cv}'>${data.name}&#8629;</a></li>
 		</ul>
 		`;
 
@@ -34,38 +32,28 @@ const handler = async (req, res) => {
     switch (data.type) {
       case "audit":
         subject = auditSubject;
-        break;
-      case "contact":
-        subject = messageSubject;
-        break;
-      case "career":
-        subject = careerSubject;
-        break;
-      default:
-        subject = "";
-    }
-
-    switch (data.type) {
-      case "audit":
         html = auditContent;
         break;
       case "contact":
+        subject = messageSubject;
         html = messageContent;
         break;
       case "career":
+        subject = careerSubject;
         html = careerContent;
         break;
       default:
+        subject = "";
         html = "";
     }
 
     try {
       await transporter.sendMail({
         ...mailOptions,
-        subject: subject,
-        html: html,
-        attachments: data.cv,
+        subject,
+        html,
       });
+
       return res.status(200).json({ success: true });
     } catch (err) {
       console.log(err);
