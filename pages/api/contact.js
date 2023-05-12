@@ -9,7 +9,7 @@ const handler = async (req, res) => {
     let careerSubject = `Poruka od ${data.name} sa stranice Careers.`;
 
     let auditContent = `<h1>Audit zahtev od ${data.name} - ${data.email}</h1><p>${data.name} zahteva audit.</p> 
-		<p>Ukoliko je odabrao neki od paketa sa Thank You stranice, </br>tip audita koji je odabrao će biti dostupan u bazi podataka - <a href="https://console.firebase.google.com/u/0/project/wlastig-90451/firestore/data/~2Fclients">ovde</a>.</p>`;
+		<p>Ukoliko je odabrao neki od paketa sa Thank You stranice, </br>tip audita koji je odabrao će biti dostupan u bazi podataka - <a href="https://console.firebase.google.com/u/3/project/wlastig-website/firestore/data/~2Fclients~2F2uMRw0AsoIo9Pqr3llgZ">ovde</a>.</p>`;
     let messageContent = `<h1>Poruka od ${data.name} - ${data.email}</h1>
 		<ul>
 		<li>Email: ${data.email}</li>
