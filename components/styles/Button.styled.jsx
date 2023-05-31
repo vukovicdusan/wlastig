@@ -35,7 +35,7 @@ export const Button = styled.button`
   }
 
   &:hover {
-    color: var(--primary);
+    color: var(--background-light);
   }
 
   &:hover span {

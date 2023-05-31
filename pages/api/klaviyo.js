@@ -2,7 +2,6 @@ const handler = async (req, res) => {
   const api_key = process.env.KLAVIYO_API;
   const contact_form_list_id = "WLjUJC";
   const audit_list_id = "T9h2xj";
-
   try {
     const { name, email, type } = req.body.data;
 
@@ -13,10 +12,7 @@ const handler = async (req, res) => {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        profiles: [
-          { email, name },
-          // Include additional profile properties if needed
-        ],
+        profiles: [{ email, name }],
       }),
     };
     const listId = type === "contact" ? contact_form_list_id : audit_list_id;
