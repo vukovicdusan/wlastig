@@ -11,6 +11,7 @@ import { Switcher } from "./styles/Switcher.styled";
 import { StyledText } from "./styles/StyledText.styled";
 import { useRouter } from "next/router";
 import ModalCtx from "../store/ModalCtx";
+import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 
 const Audit = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -37,6 +38,7 @@ const Audit = (props) => {
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
     try {
       await sendContactForm(contactFormData);
+      await sendToKlaviyo(contactFormData);
       setContactFormProccess((prev) => ({
         ...prev,
         success: true,

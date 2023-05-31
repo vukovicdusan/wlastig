@@ -7,7 +7,7 @@ import Loader from "./Loader";
 import { StyledText } from "./styles/StyledText.styled";
 import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
-import { sendContactToKlaviyo } from "../lib/klaviyo";
+import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 
 const ContactForm = () => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -30,7 +30,7 @@ const ContactForm = () => {
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
     try {
       await sendContactForm(contactFormData);
-      sendContactToKlaviyo(contactFormData.name, contactFormData.email);
+      await sendToKlaviyo(contactFormData);
       setContactFormProccess((prev) => ({
         ...prev,
         success: true,
@@ -45,7 +45,7 @@ const ContactForm = () => {
       }));
     }
   };
-  console.log(contactFormData);
+
   const inputHandler = (e) => {
     switch (e.target.name) {
       case "email":
