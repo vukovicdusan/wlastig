@@ -151,7 +151,10 @@ const Header = () => {
                   }}
                   as={"span"}
                 >
-                  Let&apos;s Talk!
+                  Let&apos;s Talk! <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </Button>
               </li>
             </Wrap>

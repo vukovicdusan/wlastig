@@ -140,7 +140,12 @@ const Audit = (props) => {
           ) : null}
         </Switcher>
         <div className="button-loader">
-          <Button>{props.cta || "Submit"}</Button>
+          <Button>
+            {props.cta || "Submit"} <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </Button>
           {contactFormProccess.loading ? <Loader></Loader> : null}
         </div>
       </Stack>

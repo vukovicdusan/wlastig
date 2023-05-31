@@ -60,7 +60,12 @@ const webAnalytics = () => {
                     <AnimationContainer>
                       <div className="desktop">
                         <ScrollLink href="#contact-form-section">
-                          <Button reverse={true}>Discover your gems!</Button>
+                          <Button reverse={true}>
+                            Discover your gems! <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </Button>
                         </ScrollLink>
                       </div>
                     </AnimationContainer>
@@ -72,7 +77,12 @@ const webAnalytics = () => {
           <div className="mobile mr-t-4">
             <Wrapper>
               <ScrollLink href="#contact-form-section">
-                <Button>Discover your gems!</Button>
+                <Button>
+                  Discover your gems! <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Button>
               </ScrollLink>
             </Wrapper>
           </div>

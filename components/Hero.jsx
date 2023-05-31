@@ -44,6 +44,10 @@ function Hero() {
                     }}
                   >
                     Find your money leaks!
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </Button>
                 </AnimationContainer>
               </Stack>

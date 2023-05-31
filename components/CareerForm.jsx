@@ -142,7 +142,12 @@ const CareerForm = () => {
             <label htmlFor="cover">Cover Letter</label>
           </InputWrapper>
           <div className="button-loader">
-            <Button>Submit</Button>
+            <Button>
+              Submit <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </Button>
             {contactFormProccess.loading ? <Loader></Loader> : null}
           </div>
         </Stack>

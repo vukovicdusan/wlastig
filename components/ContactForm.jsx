@@ -160,7 +160,12 @@ const ContactForm = () => {
             <label htmlFor="comments">Any Comments?</label>
           </InputWrapper>
           <div className="button-loader">
-            <Button>Send My Message</Button>
+            <Button>
+              Send My Message <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </Button>
             {contactFormProccess.loading ? <Loader></Loader> : null}
           </div>
         </Stack>

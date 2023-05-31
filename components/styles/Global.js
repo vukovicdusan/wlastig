@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
 	--theme-primary: #083d77;
 	--primary-shade: #B4C5D6;
 	--secondary: #f2545b;
+	--secondary-soft: #f68388;
 	--text-dark: #1c2334;
 	--theme-text-dark: #1c2334;
 	--text-light: #f8f8ff;

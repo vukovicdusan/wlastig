@@ -72,7 +72,10 @@ const FocusSection = () => {
               }}
               as={"span"}
             >
-              Contact Us Now
+              Contact Us Now <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </Button>
           </Stack>
         </Region>

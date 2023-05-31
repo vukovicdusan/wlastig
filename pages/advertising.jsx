@@ -58,7 +58,12 @@ const Advertising = () => {
                     <AnimationContainer>
                       <div className="desktop">
                         <ScrollLink href="#contact-form-section">
-                          <Button reverse={false}>Get a FREE Audit</Button>
+                          <Button reverse={false}>
+                            Get a FREE Audit <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </Button>
                         </ScrollLink>
                       </div>
                     </AnimationContainer>
@@ -70,7 +75,12 @@ const Advertising = () => {
           <div className="mobile">
             <Wrapper>
               <ScrollLink href="#contact-form-section">
-                <Button>Get a FREE Audit</Button>
+                <Button>
+                  Get a FREE Audit <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Button>
               </ScrollLink>
             </Wrapper>
           </div>

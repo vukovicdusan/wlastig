@@ -93,7 +93,12 @@ const Reel = () => {
                     <span>WEBSITE PERFORMANCE</span>.
                   </p>
                   <Button as={"div"}>
-                    <Link href={"/web-analytics"}>Learn More</Link>
+                    <Link href={"/web-analytics"}>
+                      Learn More <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Link>{" "}
                   </Button>
                 </Stack>
               </div>
@@ -109,7 +114,12 @@ const Reel = () => {
                     learning.
                   </p>
                   <Button as={"div"}>
-                    <Link href={"/advertising"}>Learn More</Link>
+                    <Link href={"/advertising"}>
+                      Learn More <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Link>
                   </Button>
                 </Stack>
               </div>
@@ -125,7 +135,12 @@ const Reel = () => {
                     towards solution.
                   </p>
                   <Button as={"div"}>
-                    <Link href={"/consulting"}>Learn More</Link>
+                    <Link href={"/consulting"}>
+                      Learn More <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Link>
                   </Button>
                 </Stack>
               </div>

@@ -51,7 +51,10 @@ const Consulting = () => {
                       <div className="desktop">
                         <ScrollLink href="#contact-form-section">
                           <Button reverse={false}>
-                            Improve your data quality for FREE!
+                            Improve your data quality for FREE! <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                           </Button>
                         </ScrollLink>
                       </div>
@@ -64,7 +67,12 @@ const Consulting = () => {
           <div className="mobile">
             <Wrapper>
               <ScrollLink href="#contact-form-section">
-                <Button>Improve your data quality for FREE!</Button>
+                <Button>
+                  Improve your data quality for FREE! <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Button>
               </ScrollLink>
             </Wrapper>
           </div>

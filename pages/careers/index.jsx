@@ -97,7 +97,10 @@ const Careers = ({ data }) => {
                       </Stack>
                       <Button as={"div"}>
                         <Link href={`/careers/${career.careerSlug}`}>
-                          View Vacancy
+                          View Vacancy <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
                         </Link>
                       </Button>
                     </Stack>

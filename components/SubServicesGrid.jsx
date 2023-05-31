@@ -57,7 +57,12 @@ const SubServicesGrid = (props) => {
           </Wrap>
           {subsCount < props.subsArr.length ? (
             <Center mt={"var(--s4)"}>
-              <Button onClick={seeMore}>See More</Button>
+              <Button onClick={seeMore}>
+                See More <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </Button>
             </Center>
           ) : null}
         </Wrapper>
