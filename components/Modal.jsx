@@ -12,7 +12,9 @@ const Modal = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    modalCtx.forceOpen.state ? setModalOpen(true) : setModalOpen(false);
+    if (!modalCtx.auditSent) {
+      modalCtx.forceOpen.state ? setModalOpen(true) : setModalOpen(false);
+    }
   }, [modalCtx.forceOpen.state]);
 
   useEffect(() => {
@@ -22,11 +24,15 @@ const Modal = () => {
   }, [modalOpen]);
 
   useEffect(() => {
-    if (Object.keys(router.components).length === 3 && !modalCtx.hasOpened) {
-      setModalOpen(true);
-      modalCtx.modalOpenedHandler();
+    if (Object.keys(router.components).length === 3) {
+      if (!modalCtx.hasOpened) {
+        if (!modalCtx.auditSent) {
+          setModalOpen(true);
+          modalCtx.modalOpenedHandler();
+        }
+      }
     }
-  }, [router]);
+  }, [router, modalCtx]);
 
   return (
     <>

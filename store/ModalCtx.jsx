@@ -14,7 +14,7 @@ export const ModalCtxProvider = (props) => {
   }, []);
 
   const modalOpenedHandler = () => {
-    !hasOpened ? setHasOpened(true) : "";
+    !hasOpened ? setHasOpened(true) : setHasOpened(false);
     sessionStorage.setItem("modalOpened", true);
   };
 

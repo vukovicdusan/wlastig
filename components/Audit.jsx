@@ -53,6 +53,7 @@ const Audit = (props) => {
       }));
     }
     modalCtx.auditSentHandler("newAudit");
+    modalCtx.modalOpenedHandler();
     router.push(
       {
         pathname: "/thank-you",
