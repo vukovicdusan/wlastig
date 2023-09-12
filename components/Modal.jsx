@@ -77,8 +77,8 @@ export const ModalStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 95vh;
   z-index: 10;
   overflow: auto;
   opacity: 0;
