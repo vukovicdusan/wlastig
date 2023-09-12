@@ -141,7 +141,7 @@ const Contact = () => {
 export const ContactPageStyled = styled.div`
   position: relative;
   .box {
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     padding: var(--s1) var(--s0);
     margin: 0.5rem;
     border-radius: 5px;
