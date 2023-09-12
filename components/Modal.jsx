@@ -118,7 +118,7 @@ export const ModalStyled = styled.div`
 
   .modal-close {
     position: absolute;
-    top: 5%;
+    top: 10%;
     right: 5%;
     z-index: 10;
     cursor: pointer;
