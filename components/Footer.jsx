@@ -28,7 +28,7 @@ const Footer = () => {
         <Region>
           <Wrapper>
             <Switcher elCount={5} gap={"var(--s3)"} flexBasis={"40rem"}>
-              <Stack exceptionChild={1} exceptionMr={"var(--s1)"}>
+              <Stack exceptionChild={1}>
                 <Link href={"/"} className="a-exception">
                   <Image src={logo} width={150} alt="logo"></Image>
                 </Link>
@@ -171,6 +171,10 @@ export const FooterStyled = styled.footer`
   padding-block-start: calc(var(--s5) + 3rem);
   @media (max-width: 715px) {
     padding-block-start: calc(var(--s5));
+  }
+
+  h4 {
+    padding-block-start: 0.5rem;
   }
 
   .letterIcon {

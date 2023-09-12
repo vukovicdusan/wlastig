@@ -94,7 +94,7 @@ const ContactForm = () => {
               </StyledText>
             </a>
           </span>
-          <span>
+          {/* <span>
             <a href="tel: +38169123456">
               <StyledText
                 family={"var(--poppinsbold)"}
@@ -103,7 +103,7 @@ const ContactForm = () => {
                 +38169123456
               </StyledText>
             </a>
-          </span>
+          </span> */}
         </Stack>
         <Stack
           as="form"
