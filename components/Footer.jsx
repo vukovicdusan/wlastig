@@ -76,6 +76,8 @@ const Footer = () => {
                       className="a-exception"
                       href="https://clutch.co/profile/wlastig"
                       title="Clutch"
+                      rel="noreferrer"
+                      target="_blank"
                     >
                       <svg
                         aria-hidden="true"
@@ -106,6 +108,8 @@ const Footer = () => {
                       className="a-exception"
                       href="https://www.linkedin.com/company/wlastig"
                       title="LinkedIn"
+                      rel="noreferrer"
+                      target="_blank"
                     >
                       <svg
                         aria-hidden="true"
@@ -125,7 +129,13 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="a-exception" href="" title="Facebook">
+                    <a
+                      className="a-exception"
+                      href="https://www.facebook.com/profile.php?id=100076072928612"
+                      title="Facebook"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       <svg
                         aria-hidden="true"
                         focusable="false"
