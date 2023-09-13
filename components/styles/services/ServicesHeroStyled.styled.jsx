@@ -11,7 +11,7 @@ export const ServicesHeroStyled = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: ${(props) => props.deskPos || "15%"};
-    min-height: 45vh;
+    min-height: 80vh;
   }
 
   .hero-content {

@@ -334,12 +334,13 @@ label {
 		--theme-primary: #f8f8ff;
 		--primary-shade: #B4C5D6;
 		--secondary: #f2545b;
-		--text-dark: #1c2334;
+		--text-dark: #f8f8ff;
 		--theme-text-dark: #f8f8ff;
 		--text-light: #f8f8ff;
 		--text-gray: #909090;
 		--background-dark: #49709B;
-		--background-light: #49709B;
+		--background-light: #33537;
+		/* --background-light: #49709B; */
 		--testimonial-frames: rgba(250,250,250,0.5);
 	}
 }

@@ -77,8 +77,8 @@ export const ModalStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 95vw;
-  height: 95vh;
+  width: 100vw;
+  height: 100vh;
   z-index: 10;
   overflow: auto;
   opacity: 0;
@@ -100,7 +100,7 @@ export const ModalStyled = styled.div`
     color: revert;
     border: none;
     border-radius: 5px;
-    padding: var(--s2) var(--s1);
+    /* padding: var(--s2) var(--s1); */
     margin-block: auto;
     animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
   }
@@ -118,7 +118,7 @@ export const ModalStyled = styled.div`
 
   .modal-close {
     position: absolute;
-    top: 10%;
+    top: 5%;
     right: 5%;
     z-index: 10;
     cursor: pointer;
