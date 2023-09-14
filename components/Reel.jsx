@@ -296,6 +296,11 @@ export const ReelStyled = styled.div`
       max-width: 40ch;
     }
   }
+  @media (prefers-color-scheme: dark) {
+    svg {
+      fill: inherit;
+    }
+  }
 `;
 
 export default Reel;

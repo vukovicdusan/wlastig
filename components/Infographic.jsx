@@ -344,6 +344,10 @@ export const InfographicStyled = styled.ol`
   .tirquoise {
     fill: #96e0de;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: inherit;
+  }
 `;
 
 export default Infographic;

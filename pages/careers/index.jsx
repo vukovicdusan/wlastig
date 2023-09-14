@@ -36,10 +36,10 @@ const Careers = ({ data }) => {
                 <div className="hero-content ">
                   <Stack stackAlign={"end"}>
                     <AnimationContainer>
-                      <StyledText as={"h1"} color={"var(--primary)"}>
+                      <h1>
                         Looking to launch your career among a team of seasoned
                         professionals?{" "}
-                      </StyledText>
+                      </h1>
                     </AnimationContainer>
                   </Stack>
                 </div>

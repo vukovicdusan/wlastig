@@ -330,16 +330,17 @@ label {
 	}
 
 	:root {
-		--primary: #083d77;
+		--primary: #0f0f0f;
 		--theme-primary: #f8f8ff;
-		--primary-shade: #B4C5D6;
-		--secondary: #f2545b;
-		--text-dark: #f8f8ff;
+		--primary-shade: #2A2C2F;
+		--secondary: #083d77;
+		--secondary-soft: #083262;
+		--text-dark: #ddd;
 		--theme-text-dark: #f8f8ff;
 		--text-light: #f8f8ff;
 		--text-gray: #909090;
 		--background-dark: #49709B;
-		--background-light: #33537;
+		--background-light: #1c1b1b;
 		/* --background-light: #49709B; */
 		--testimonial-frames: rgba(250,250,250,0.5);
 	}

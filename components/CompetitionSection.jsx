@@ -142,6 +142,16 @@ export const CompetitionSectionStyled = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
   }
+
+  @media (prefers-color-scheme: dark) {
+    & p {
+      color: inherit;
+    }
+
+    .vs svg:last-child {
+      fill: var(--theme-primary) !important;
+    }
+  }
 `;
 
 export default CompetitionSection;

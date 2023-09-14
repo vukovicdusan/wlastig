@@ -62,4 +62,10 @@ export const Button = styled.button`
     padding: var(--s-1);
     font-size: var(--s-1);
   }
+
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      color: inherit;
+    }
+  }
 `;
