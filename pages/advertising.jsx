@@ -23,8 +23,10 @@ import {
   faqArr,
 } from "../public/content/advertising";
 import GoogleAdSvg from "../components/svg/GoogleAdSvg";
-import Link from "next/link";
 import ScrollLink from "../components/ScrollLink";
+import Image from "next/image";
+import ilustration1 from "../public/img/pages/hero-advertising-ilustration1.png";
+import ilustration2 from "../public/img/pages/hero-advertising-ilustration2.png";
 
 const Advertising = () => {
   return (
@@ -44,33 +46,48 @@ const Advertising = () => {
       >
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
-            <Region>
-              <Wrapper>
-                <div className="hero-content ">
-                  <Stack stackAlign={"end"}>
-                    <AnimationContainer>
-                      <h1>
-                        In a fast-paced world of change, finding the right
-                        digital advertising services recipe is of the utmost
-                        importance.
-                      </h1>
-                    </AnimationContainer>
-                    <AnimationContainer>
-                      <div className="desktop">
-                        <ScrollLink href="#contact-form-section">
-                          <Button reverse={false}>
-                            Get a FREE Audit <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </Button>
-                        </ScrollLink>
-                      </div>
-                    </AnimationContainer>
-                  </Stack>
-                </div>
-              </Wrapper>
-            </Region>
+            {/* <Region>
+              <Wrapper> */}
+            <div className="hero-content advertising-hero">
+              <div>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration1}
+                  width={350}
+                  height={350}
+                  alt="ilustration"
+                ></Image>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration2}
+                  width={350}
+                  height={350}
+                  alt="ilustration"
+                ></Image>
+              </div>
+              <Stack stackAlign={"end"}>
+                <AnimationContainer>
+                  <h1>
+                    In a fast-paced world of change, finding the right digital
+                    advertising services recipe is of the utmost importance.
+                  </h1>
+                </AnimationContainer>
+                <AnimationContainer>
+                  <div className="desktop">
+                    <ScrollLink href="#contact-form-section">
+                      <Button reverse={false}>
+                        Get a FREE Audit <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </Button>
+                    </ScrollLink>
+                  </div>
+                </AnimationContainer>
+              </Stack>
+            </div>
+            {/* </Wrapper>
+            </Region> */}
           </div>
           <div className="mobile">
             <Wrapper>

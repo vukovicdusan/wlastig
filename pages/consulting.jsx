@@ -22,6 +22,8 @@ import {
 } from "../public/content/consulting";
 import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
+// import Image from "next/image";
+// import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
 
 const Consulting = () => {
   return (

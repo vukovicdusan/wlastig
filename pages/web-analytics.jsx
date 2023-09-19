@@ -56,7 +56,6 @@ const webAnalytics = () => {
                   className="hero-ilustration"
                   src={ilustration}
                   width={500}
-                  // height={500}
                   alt="ilustration"
                 ></Image>
               </div>

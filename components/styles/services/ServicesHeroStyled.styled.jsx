@@ -42,6 +42,10 @@ export const ServicesHeroStyled = styled.div`
     object-position: bottom;
   }
 
+  .advertising-hero.hero-content > *:first-child {
+    justify-content: center;
+  }
+
   .service-info {
     color: var(--text-dark);
   }
@@ -72,6 +76,11 @@ export const ServicesHeroStyled = styled.div`
       min-height: 250px;
       background-position: ${(props) => props.tabPos || "30%"};
     } */
+
+    .advertising-hero.hero-content > *:first-child img {
+      width: 280px;
+      height: 280px;
+    }
   }
 
   @media (max-width: 640px) {
@@ -81,6 +90,11 @@ export const ServicesHeroStyled = styled.div`
     .hero-content > *:last-child {
       padding: 2rem 2rem 0 2rem;
       text-align: center;
+    }
+
+    .advertising-hero.hero-content > *:first-child img {
+      width: 200px;
+      height: 200px;
     }
   }
 
