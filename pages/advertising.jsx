@@ -46,8 +46,6 @@ const Advertising = () => {
       >
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
-            {/* <Region>
-              <Wrapper> */}
             <div className="hero-content advertising-hero">
               <div>
                 <Image
@@ -86,8 +84,6 @@ const Advertising = () => {
                 </AnimationContainer>
               </Stack>
             </div>
-            {/* </Wrapper>
-            </Region> */}
           </div>
           <div className="mobile">
             <Wrapper>

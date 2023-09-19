@@ -29,6 +29,7 @@ export const ServicesHeroStyled = styled.div`
   .hero-content > *:first-child {
     display: flex;
     align-items: flex-end;
+    justify-content: center;
   }
 
   .hero-content > *:last-child {
@@ -42,8 +43,8 @@ export const ServicesHeroStyled = styled.div`
     object-position: bottom;
   }
 
-  .advertising-hero.hero-content > *:first-child {
-    justify-content: center;
+  .consulting-hero .hero-ilustration {
+    object-position: center;
   }
 
   .service-info {

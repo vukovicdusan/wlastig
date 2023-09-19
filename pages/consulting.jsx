@@ -22,8 +22,8 @@ import {
 } from "../public/content/consulting";
 import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
-// import Image from "next/image";
-// import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
+import Image from "next/image";
+import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
 
 const Consulting = () => {
   return (
@@ -40,31 +40,36 @@ const Consulting = () => {
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-consulting.png"}>
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
-            <Region>
-              <Wrapper>
-                <div className="hero-content ">
-                  <Stack stackAlign={"end"}>
-                    <AnimationContainer>
-                      <h1>
-                        Big budgets don’t guarantee success, a solid plan does.
-                      </h1>
-                    </AnimationContainer>
-                    <AnimationContainer>
-                      <div className="desktop">
-                        <ScrollLink href="#contact-form-section">
-                          <Button reverse={false}>
-                            Improve your data quality for FREE! <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </Button>
-                        </ScrollLink>
-                      </div>
-                    </AnimationContainer>
-                  </Stack>
-                </div>
-              </Wrapper>
-            </Region>
+            <div className="hero-content consulting-hero">
+              <div>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration}
+                  width={350}
+                  height={350}
+                  alt="ilustration"
+                ></Image>
+              </div>
+              <Stack stackAlign={"end"}>
+                <AnimationContainer>
+                  <h1>
+                    Big budgets don’t guarantee success, a solid plan does.
+                  </h1>
+                </AnimationContainer>
+                <AnimationContainer>
+                  <div className="desktop">
+                    <ScrollLink href="#contact-form-section">
+                      <Button reverse={false}>
+                        Improve your data quality for FREE! <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </Button>
+                    </ScrollLink>
+                  </div>
+                </AnimationContainer>
+              </Stack>
+            </div>
           </div>
           <div className="mobile">
             <Wrapper>
