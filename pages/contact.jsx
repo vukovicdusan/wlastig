@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import AnimationContainer from "../components/AnimationContainer";
@@ -13,6 +13,8 @@ import { TextMedium } from "../components/styles/TextMedium.styled";
 import ContactForm from "../components/ContactForm";
 import { StyledText } from "../components/styles/StyledText.styled";
 import ModalCtx from "../store/ModalCtx";
+import Image from "next/image";
+import ilustration from "../public/img/pages/hero-contact-ilustration.png";
 
 const Contact = () => {
   const modalCtx = useContext(ModalCtx);
@@ -29,17 +31,22 @@ const Contact = () => {
       </Head>
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-contact.png"}>
         <div className="hero-background">
-          <Region>
-            <Wrapper>
-              <div className="hero-content ">
-                <Stack stackAlign={"end"}>
-                  <AnimationContainer>
-                    <h1>Let&#39;s talk!</h1>
-                  </AnimationContainer>
-                </Stack>
-              </div>
-            </Wrapper>
-          </Region>
+          <div className="hero-content contact-hero">
+            <div>
+              <Image
+                className="hero-ilustration"
+                src={ilustration}
+                width={350}
+                height={350}
+                alt="ilustration"
+              ></Image>
+            </div>
+            <Stack stackAlign={"end"}>
+              <AnimationContainer>
+                <h1>Let&#39;s talk!</h1>
+              </AnimationContainer>
+            </Stack>
+          </div>
         </div>
       </ServicesHeroStyled>
       <Region>

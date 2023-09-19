@@ -13,6 +13,7 @@ import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import Head from "next/head";
 import Modal from "../components/Modal";
 import ContactFormSection from "../components/ContactFormSection";
+import ilustration from "../public/img/pages/hero-team-ilustration.png";
 
 const ourTeam = () => {
   return (
@@ -28,17 +29,22 @@ const ourTeam = () => {
       </Head>
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-team.png"}>
         <div className="hero-background">
-          <Region>
-            <Wrapper>
-              <div className="hero-content ">
-                <Stack stackAlign={"end"}>
-                  <AnimationContainer>
-                    <h1>Meet our team!</h1>
-                  </AnimationContainer>
-                </Stack>
-              </div>
-            </Wrapper>
-          </Region>
+          <div className="hero-content ">
+            <div>
+              <Image
+                className="hero-ilustration"
+                src={ilustration}
+                width={350}
+                height={350}
+                alt="ilustration"
+              ></Image>
+            </div>
+            <Stack stackAlign={"end"}>
+              <AnimationContainer>
+                <h1>Meet our team!</h1>
+              </AnimationContainer>
+            </Stack>
+          </div>
         </div>
       </ServicesHeroStyled>
       <OurTeamStyled>

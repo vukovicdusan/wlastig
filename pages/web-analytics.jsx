@@ -50,12 +50,13 @@ const webAnalytics = () => {
           <div className="hero-background">
             {/* <Region>
               <Wrapper> */}
-            <div className="hero-content ">
+            <div className="hero-content analytics-hero">
               <div>
                 <Image
                   className="hero-ilustration"
                   src={ilustration}
                   width={500}
+                  height={350}
                   alt="ilustration"
                 ></Image>
               </div>

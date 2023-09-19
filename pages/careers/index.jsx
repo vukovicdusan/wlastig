@@ -15,6 +15,8 @@ import Head from "next/head";
 import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled";
 import Link from "next/link";
 import { careersArr } from "../../public/content/careersArr";
+import Image from "next/image";
+import ilustration from "../../public/img/pages/hero-careers-ilustration.png";
 
 const Careers = ({ data }) => {
   return (
@@ -31,20 +33,29 @@ const Careers = ({ data }) => {
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-careers.png"}>
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
-            <Region>
-              <Wrapper>
-                <div className="hero-content ">
-                  <Stack stackAlign={"end"}>
-                    <AnimationContainer>
-                      <h1>
-                        Looking to launch your career among a team of seasoned
-                        professionals?{" "}
-                      </h1>
-                    </AnimationContainer>
-                  </Stack>
-                </div>
-              </Wrapper>
-            </Region>
+            <div className="hero-content ">
+              <div>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration}
+                  width={350}
+                  height={350}
+                  alt="ilustration"
+                ></Image>
+              </div>
+              <Stack stackAlign={"end"}>
+                <AnimationContainer>
+                  <StyledText
+                    as={"h1"}
+                    color={"var(--primary)"}
+                    family={"var(--poppinsbold)"}
+                  >
+                    Looking to launch your career among a team of seasoned
+                    professionals?{" "}
+                  </StyledText>
+                </AnimationContainer>
+              </Stack>
+            </div>
           </div>
         </Stack>
       </ServicesHeroStyled>

@@ -17,9 +17,11 @@ export const ServicesHeroStyled = styled.div`
   .hero-content {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-content.analytics-hero {
     align-items: flex-end;
-    /* max-width: 50%; */
-    /* margin-inline-start: auto; */
   }
 
   .hero-content > * {
@@ -40,11 +42,11 @@ export const ServicesHeroStyled = styled.div`
 
   .hero-ilustration {
     object-fit: contain;
-    object-position: bottom;
+    object-position: center;
   }
 
-  .consulting-hero .hero-ilustration {
-    object-position: center;
+  .analytics-hero .hero-ilustration {
+    object-position: bottom;
   }
 
   .service-info {
@@ -88,7 +90,16 @@ export const ServicesHeroStyled = styled.div`
     .hero-content {
       flex-direction: column-reverse;
     }
+    .hero-content.contact-hero {
+      flex-direction: column;
+    }
     .hero-content > *:last-child {
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .hero-content.analytics-hero > *:last-child {
       padding: 2rem 2rem 0 2rem;
       text-align: center;
     }
