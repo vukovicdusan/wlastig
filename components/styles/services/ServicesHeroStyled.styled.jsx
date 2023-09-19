@@ -4,20 +4,42 @@ export const ServicesHeroStyled = styled.div`
   color: var(--text-light);
   margin-block-start: 65px;
   .hero-background {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url(${(props) => props.backgroundImg || ""});
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: ${(props) => props.deskPos || "15%"};
-    min-height: 80vh;
+    background-position: center;
   }
 
   .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    /* max-width: 50%; */
+    /* margin-inline-start: auto; */
+  }
+
+  .hero-content > * {
+    flex-basis: 50%;
+  }
+
+  .hero-content > *:first-child {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-content > *:last-child {
+    padding: 4rem;
+    min-width: 20rem;
     text-align: end;
-    max-width: 50%;
-    margin-inline-start: auto;
+  }
+
+  .hero-ilustration {
+    object-fit: contain;
+    object-position: bottom;
   }
 
   .service-info {
@@ -46,21 +68,31 @@ export const ServicesHeroStyled = styled.div`
       margin-inline: auto;
     }
 
-    .hero-background {
+    /* .hero-background {
       min-height: 250px;
       background-position: ${(props) => props.tabPos || "30%"};
+    } */
+  }
+
+  @media (max-width: 640px) {
+    .hero-content {
+      flex-direction: column-reverse;
+    }
+    .hero-content > *:last-child {
+      padding: 2rem 2rem 0 2rem;
+      text-align: center;
     }
   }
 
   @media (max-width: 450px) {
-    .hero-background {
+    /* .hero-background {
       background-position: ${(props) => props.mobPos || "40%"};
       min-height: 150px;
-    }
+    } */
 
-    h1 {
+    /* h1 {
       font-size: var(--s0);
-    }
+    } */
   }
 
   @media (prefers-color-scheme: dark) {

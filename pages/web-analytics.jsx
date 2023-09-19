@@ -25,7 +25,8 @@ import {
 import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg";
 import CheckSvg from "../components/svg/CheckSvg";
 import ScrollLink from "../components/ScrollLink";
-
+import Image from "next/image";
+import ilustration from "../public/img/pages/hero-analytics-ilustration.png";
 const webAnalytics = () => {
   return (
     <main>
@@ -47,32 +48,41 @@ const webAnalytics = () => {
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-analytics.png"}>
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
-            <Region>
-              <Wrapper>
-                <div className="hero-content ">
-                  <Stack stackAlign={"end"}>
-                    <AnimationContainer>
-                      <h1>
-                        Every company’s data has hidden gems that could
-                        skyrocket your profits
-                      </h1>
-                    </AnimationContainer>
-                    <AnimationContainer>
-                      <div className="desktop">
-                        <ScrollLink href="#contact-form-section">
-                          <Button reverse={true}>
-                            Discover your gems! <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </Button>
-                        </ScrollLink>
-                      </div>
-                    </AnimationContainer>
-                  </Stack>
-                </div>
-              </Wrapper>
-            </Region>
+            {/* <Region>
+              <Wrapper> */}
+            <div className="hero-content ">
+              <div>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration}
+                  width={500}
+                  // height={500}
+                  alt="ilustration"
+                ></Image>
+              </div>
+              <Stack stackAlign={"end"}>
+                <AnimationContainer>
+                  <h1>
+                    Every company’s data has hidden gems that could skyrocket
+                    your profits
+                  </h1>
+                </AnimationContainer>
+                <AnimationContainer>
+                  <div className="desktop">
+                    <ScrollLink href="#contact-form-section">
+                      <Button reverse={true}>
+                        Discover your gems! <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </Button>
+                    </ScrollLink>
+                  </div>
+                </AnimationContainer>
+              </Stack>
+            </div>
+            {/* </Wrapper>
+            </Region> */}
           </div>
           <div className="mobile mr-t-4">
             <Wrapper>
