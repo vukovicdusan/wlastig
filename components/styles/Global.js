@@ -30,6 +30,8 @@ export const GlobalStyles = createGlobalStyle`
 	--background-dark: #000;
 	--background-light: #fff;
 	--success-color: #4bb543;
+	--disabled-btn-color: #d0d2e7;
+	--active-slider-btn-color: rgb(8, 61, 119);
 	--error-color: indianred;
 	--testimonial-frames: rgba(0, 0, 0, 0.05);
 	--color-shadow: rgba(23, 11, 41, 0.12);
@@ -343,6 +345,8 @@ label {
 		--background-light: #353350;
 		/* --background-light: #49709B; */
 		--testimonial-frames: rgba(250,250,250,0.5);
+		--disabled-slider-btn-color: rgba(0,0,0,.2);
+		--active-slider-btn-color: var(--text-light);
 	}
 }
 `;
