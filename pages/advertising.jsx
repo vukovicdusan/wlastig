@@ -148,7 +148,7 @@ const Advertising = () => {
         shapedivider={false}
         title={"100+ point audit of your digital advertising (PPC) performance"}
         subTitle={"Stop wasting money, find your leaks for FREE!"}
-        cta={"Get a FREE Audit"}
+        cta={"Get your FREE Audit"}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>

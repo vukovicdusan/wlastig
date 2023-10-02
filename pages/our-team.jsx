@@ -96,7 +96,7 @@ const ourTeam = () => {
           </svg>
         </Shapedivider>
       </OurTeamStyled>
-      <ContactFormSection></ContactFormSection>
+      <ContactFormSection cta={"Get Your Free Audit"}></ContactFormSection>
       <Modal></Modal>
     </>
   );

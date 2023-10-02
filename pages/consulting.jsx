@@ -140,7 +140,7 @@ const Consulting = () => {
         shapedivider={false}
         title={"150+ Point Audit For Data Quality"}
         subTitle={"(3X The Industry Average)"}
-        cta={"Improve your data quality for FREE!"}
+        cta={"Get your FREE audit!"}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>
