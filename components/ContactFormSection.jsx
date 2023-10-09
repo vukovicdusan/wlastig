@@ -45,9 +45,7 @@ const ContactFormSection = (props) => {
                   <h3 className="title-xl">
                     {props.title || "150+ Point Audit For Data Quality"}
                   </h3>
-                  <p className="title-l">
-                    {props.subTitle || "(3X The Industry Average)"}
-                  </p>
+                  <p className="title-l">{props.subTitle || ""}</p>
                 </AnimationContainer>
               </Stack>
               {router.pathname === "/careers/[career]" ? (
