@@ -77,7 +77,10 @@ const ourTeam = () => {
                       stackJustify={"center"}
                       stackAlign={"flex-start"}
                     >
-                      <h4>{member.name}</h4>
+                      <h4>
+                        {member.name}
+                        <span> ({member.position})</span>
+                      </h4>
                       {member.content}
                     </Stack>
                   </Switcher>
@@ -120,6 +123,11 @@ export const OurTeamStyled = styled.div`
 
   .member-container {
     padding-block-start: 2rem;
+  }
+
+  .member-container h4 span {
+    font-family: var(--poppinsregular);
+    font-size: var(--s0);
   }
 
   .member-content-container {
