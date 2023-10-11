@@ -40,5 +40,10 @@ export const ReadMoreStyled = styled.div`
     display: inline-block;
     margin-left: 2px;
   }
+  @media (prefers-color-scheme: dark) {
+    .read-more-btn {
+      color: var(--secondary);
+    }
+  }
 `;
 export default ReadMore;
