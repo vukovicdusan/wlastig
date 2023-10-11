@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AnimationContainer from "../components/AnimationContainer";
 import Image from "next/image";
@@ -14,6 +14,7 @@ import Head from "next/head";
 import Modal from "../components/Modal";
 import ContactFormSection from "../components/ContactFormSection";
 import ilustration from "../public/img/pages/hero-team-ilustration.png";
+import ReadMore from "../components/ReadMore";
 
 const ourTeam = () => {
   return (
@@ -81,7 +82,7 @@ const ourTeam = () => {
                         {member.name}
                         <span> ({member.position})</span>
                       </h4>
-                      {member.content}
+                      <ReadMore content={member.content}></ReadMore>
                     </Stack>
                   </Switcher>
                 </Wrapper>
