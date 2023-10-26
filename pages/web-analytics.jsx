@@ -62,10 +62,16 @@ const webAnalytics = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <AnimationContainer>
-                  <h1>
-                    &quot;Knowing yourself is the beginning of all wisdom.&quot;
-                    Aristotle
-                  </h1>
+                  <Stack stackAlign={"end"}>
+                    <h1>
+                      &quot;Knowing yourself is the beginning of all
+                      wisdom.&quot; Aristotle
+                    </h1>
+                    <h3>
+                      The same goes for businesses. Every company’s data has
+                      hidden gems.
+                    </h3>
+                  </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
                   <div className="desktop">
@@ -103,7 +109,7 @@ const webAnalytics = () => {
           <Switcher>
             <Stack stackSpace={"var(--s4)"} className="service-info">
               <Stack>
-                <AnimationContainer>
+                {/* <AnimationContainer>
                   <h2>
                     The same goes for businesses. Every company’s data has
                     hidden gems.
@@ -111,7 +117,7 @@ const webAnalytics = () => {
                   <UnderlineStyled
                     underlineMargin={"var(--s-4)"}
                   ></UnderlineStyled>
-                </AnimationContainer>
+                </AnimationContainer> */}
                 <p>
                   Web analytics is a measurement and analysis of data to get a
                   deep understanding of customer behavior, marketing, and

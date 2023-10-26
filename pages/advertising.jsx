@@ -65,10 +65,16 @@ const Advertising = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <AnimationContainer>
-                  <h1>
-                    Don&apos;t waste money on secret formulas and marketing
-                    wizards.
-                  </h1>
+                  <Stack stackAlign={"end"}>
+                    <h1>
+                      Don&apos;t waste money on secret formulas and marketing
+                      wizards.
+                    </h1>
+                    <h3>
+                      Trust in data and math. It&apos;s when you become
+                      data-driven that the real magic kicks in!
+                    </h3>
+                  </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
                   <div className="desktop">
@@ -103,13 +109,13 @@ const Advertising = () => {
         <Wrapper>
           <Switcher>
             <Stack stackSpace={"var(--s4)"} className="service-info">
-              <AnimationContainer delay={"3"}>
+              {/* <AnimationContainer delay={"3"}>
                 <h2>
                   Trust in data and math. It&apos;s when you become data-driven
                   that the real magic kicks in!
                 </h2>
                 <UnderlineStyled></UnderlineStyled>
-              </AnimationContainer>
+              </AnimationContainer> */}
 
               <p>
                 If you’re failing to capitalize on the top-quality product and

@@ -53,10 +53,15 @@ const Consulting = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <AnimationContainer>
-                  <h1>
-                    &quot;Failing to plan is planning to fail.&quot; - Benjamin
-                    Franklin
-                  </h1>
+                  <Stack stackAlign={"end"}>
+                    <h1>
+                      &quot;Failing to plan is planning to fail.&quot; -
+                      Benjamin Franklin
+                    </h1>
+                    <h3>
+                      Big budgets don&apos;t guarantee success. Solid plans do.
+                    </h3>
+                  </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
                   <div className="desktop">
@@ -92,12 +97,12 @@ const Consulting = () => {
           <Wrapper>
             <Switcher mb={"var(--s5)"}>
               <Stack stackSpace={"var(--s4)"} className="service-info">
-                <AnimationContainer delay={"3"}>
+                {/* <AnimationContainer delay={"3"}>
                   <h2>
                     Big budgets don&apos;t guarantee success. Solid plans do.
                   </h2>
                   <UnderlineStyled></UnderlineStyled>
-                </AnimationContainer>
+                </AnimationContainer> */}
                 <p>
                   With many years of experience gained across diverse
                   industries, together with you we will steer your business to

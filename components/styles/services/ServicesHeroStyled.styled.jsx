@@ -57,6 +57,10 @@ export const ServicesHeroStyled = styled.div`
     display: none;
   }
 
+  h3 {
+    font-family: var(--poppinsmedium);
+  }
+
   @media (max-width: 850px) {
     .desktop {
       display: none;
@@ -64,6 +68,10 @@ export const ServicesHeroStyled = styled.div`
 
     h1 {
       font-size: var(--s2);
+    }
+
+    .hero-content h3 {
+      font-size: var(--s1);
     }
 
     .mobile {
