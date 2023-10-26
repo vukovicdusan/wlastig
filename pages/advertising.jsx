@@ -51,30 +51,30 @@ const Advertising = () => {
                 <Image
                   className="hero-ilustration"
                   src={ilustration1}
-                  width={350}
-                  height={350}
+                  width={300}
+                  height={300}
                   alt="ilustration"
                 ></Image>
                 <Image
                   className="hero-ilustration"
                   src={ilustration2}
-                  width={350}
-                  height={350}
+                  width={300}
+                  height={300}
                   alt="ilustration"
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
                 <AnimationContainer>
                   <h1>
-                    In a fast-paced world of change, finding the right digital
-                    advertising services recipe is of the utmost importance.
+                    Don&apos;t waste money on secret formulas and marketing
+                    wizards.
                   </h1>
                 </AnimationContainer>
                 <AnimationContainer>
                   <div className="desktop">
                     <ScrollLink href="#contact-form-section">
                       <Button reverse={false}>
-                        Get a FREE Audit <span></span>
+                        Find Your Money Leaks! <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -89,7 +89,7 @@ const Advertising = () => {
             <Wrapper>
               <ScrollLink href="#contact-form-section">
                 <Button>
-                  Get a FREE Audit <span></span>
+                  Find Your Money Leaks! <span></span>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -104,7 +104,10 @@ const Advertising = () => {
           <Switcher>
             <Stack stackSpace={"var(--s4)"} className="service-info">
               <AnimationContainer delay={"3"}>
-                <h2> Let’s make a winning cocktail for your business!</h2>
+                <h2>
+                  Trust in data and math. It&apos;s when you become data-driven
+                  that the real magic kicks in!
+                </h2>
                 <UnderlineStyled></UnderlineStyled>
               </AnimationContainer>
 

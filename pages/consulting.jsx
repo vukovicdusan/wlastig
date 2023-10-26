@@ -24,6 +24,7 @@ import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
 import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
+import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 
 const Consulting = () => {
   return (
@@ -53,14 +54,15 @@ const Consulting = () => {
               <Stack stackAlign={"end"}>
                 <AnimationContainer>
                   <h1>
-                    Big budgets don’t guarantee success, a solid plan does.
+                    &quot;Failing to plan is planning to fail.&quot; - Benjamin
+                    Franklin
                   </h1>
                 </AnimationContainer>
                 <AnimationContainer>
                   <div className="desktop">
                     <ScrollLink href="#contact-form-section">
                       <Button reverse={false}>
-                        Improve your data quality for FREE! <span></span>
+                        Improve Tracking, Find Hidden Value! <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -75,7 +77,7 @@ const Consulting = () => {
             <Wrapper>
               <ScrollLink href="#contact-form-section">
                 <Button>
-                  Improve your data quality for FREE! <span></span>
+                  Improve Tracking, Find Hidden Value! <span></span>
                   <span></span>
                   <span></span>
                   <span></span>
@@ -90,6 +92,12 @@ const Consulting = () => {
           <Wrapper>
             <Switcher mb={"var(--s5)"}>
               <Stack stackSpace={"var(--s4)"} className="service-info">
+                <AnimationContainer delay={"3"}>
+                  <h2>
+                    Big budgets don&apos;t guarantee success. Solid plans do.
+                  </h2>
+                  <UnderlineStyled></UnderlineStyled>
+                </AnimationContainer>
                 <p>
                   With many years of experience gained across diverse
                   industries, together with you we will steer your business to
