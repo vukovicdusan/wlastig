@@ -149,6 +149,7 @@ const Advertising = () => {
         title={"100+ point audit of your digital advertising (PPC) performance"}
         subTitle={"Stop wasting money, find your leaks for FREE!"}
         cta={"Get your FREE Audit"}
+        auditTitle={"Find Your Money Leaks For Free!"}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>

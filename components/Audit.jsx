@@ -79,7 +79,11 @@ const Audit = (props) => {
     <ContactStyled popup={props.popup} onSubmit={onSubmitHandler}>
       <Stack stackSpace={"var(--s3)"} className="contactStack">
         <div>
-          <h3>Improve your Data Quality for FREE!</h3>
+          <h3>
+            {props.auditTitle
+              ? props.auditTitle
+              : "Improve your Data Quality for FREE!"}
+          </h3>
           {props.popup ? <h4 className="title-xl">For FREE!</h4> : null}
           <p>Your decisions are only as good as your data.</p>
         </div>

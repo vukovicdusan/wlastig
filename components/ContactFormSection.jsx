@@ -51,7 +51,7 @@ const ContactFormSection = (props) => {
               {router.pathname === "/careers/[career]" ? (
                 <CareerForm></CareerForm>
               ) : (
-                <Audit cta={props.cta}></Audit>
+                <Audit cta={props.cta} auditTitle={props.auditTitle}></Audit>
               )}
             </Switcher>
           </ContactFormSectionStyled>
