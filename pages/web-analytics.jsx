@@ -208,6 +208,7 @@ const webAnalytics = () => {
         title={"150+ Point Audit For Data Quality"}
         subTitle={"(3X The Industry Average)"}
         cta={"Get Your Free Audit"}
+        auditSubTitle={"Your decisions are only as good as your data."}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>

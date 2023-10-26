@@ -85,7 +85,7 @@ const Audit = (props) => {
               : "Improve your Data Quality for FREE!"}
           </h3>
           {props.popup ? <h4 className="title-xl">For FREE!</h4> : null}
-          <p>Your decisions are only as good as your data.</p>
+          <p>{props.auditSubTitle ? props.auditSubTitle : ""}</p>
         </div>
         {!contactFormProccess.success && contactFormProccess.error ? (
           <StyledText color={"var(--success-color)"}>

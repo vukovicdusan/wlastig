@@ -154,6 +154,7 @@ const Consulting = () => {
         title={"150+ Point Audit For Data Quality"}
         subTitle={"(3X The Industry Average)"}
         cta={"Get your FREE audit!"}
+        auditSubTitle={"Your decisions are only as good as your data."}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>
