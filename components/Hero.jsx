@@ -33,8 +33,8 @@ function Hero() {
                   delay={"2"}
                 >
                   <h4>
-                    Due to the competitiveness of the digital market, nowadays
-                    your waste is closer to 76%!
+                    Bad news. In today&apos;s digital market, your waste is
+                    closer to 76%!
                   </h4>
                 </AnimationContainer>
                 <AnimationContainer delay={"3"}>
@@ -43,7 +43,7 @@ function Hero() {
                       modalCtx.forceOpenHandler("audit");
                     }}
                   >
-                    Find your money leaks!
+                    Improve Tracking, Stop Waste!
                     <span></span>
                     <span></span>
                     <span></span>
