@@ -64,31 +64,17 @@ const Consulting = () => {
                   </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
-                  <div className="desktop">
-                    <ScrollLink href="#contact-form-section">
-                      <Button reverse={false}>
-                        Improve Tracking, Find Hidden Value! <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </Button>
-                    </ScrollLink>
-                  </div>
+                  <ScrollLink href="#contact-form-section">
+                    <Button reverse={false}>
+                      Improve Tracking, Find Hidden Value! <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Button>
+                  </ScrollLink>
                 </AnimationContainer>
               </Stack>
             </div>
-          </div>
-          <div className="mobile">
-            <Wrapper>
-              <ScrollLink href="#contact-form-section">
-                <Button>
-                  Improve Tracking, Find Hidden Value! <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Button>
-              </ScrollLink>
-            </Wrapper>
           </div>
         </Stack>
       </ServicesHeroStyled>

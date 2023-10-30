@@ -77,31 +77,17 @@ const Advertising = () => {
                   </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
-                  <div className="desktop">
-                    <ScrollLink href="#contact-form-section">
-                      <Button reverse={false}>
-                        Find Your Money Leaks! <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </Button>
-                    </ScrollLink>
-                  </div>
+                  <ScrollLink href="#contact-form-section">
+                    <Button reverse={false}>
+                      Find Your Money Leaks! <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Button>
+                  </ScrollLink>
                 </AnimationContainer>
               </Stack>
             </div>
-          </div>
-          <div className="mobile">
-            <Wrapper>
-              <ScrollLink href="#contact-form-section">
-                <Button>
-                  Find Your Money Leaks! <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Button>
-              </ScrollLink>
-            </Wrapper>
           </div>
         </Stack>
       </ServicesHeroStyled>

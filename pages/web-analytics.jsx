@@ -74,33 +74,19 @@ const webAnalytics = () => {
                   </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
-                  <div className="desktop">
-                    <ScrollLink href="#contact-form-section">
-                      <Button reverse={true}>
-                        Improve Data, Unlock Business Treasures! <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </Button>
-                    </ScrollLink>
-                  </div>
+                  <ScrollLink href="#contact-form-section">
+                    <Button reverse={true}>
+                      Improve Data, Unlock Business Treasures! <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Button>
+                  </ScrollLink>
                 </AnimationContainer>
               </Stack>
             </div>
             {/* </Wrapper>
             </Region> */}
-          </div>
-          <div className="mobile mr-t-4">
-            <Wrapper>
-              <ScrollLink href="#contact-form-section">
-                <Button>
-                  Improve Data, Unlock Business Treasures! <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Button>
-              </ScrollLink>
-            </Wrapper>
           </div>
         </Stack>
       </ServicesHeroStyled>

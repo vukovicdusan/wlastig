@@ -52,19 +52,19 @@ export const ServicesHeroStyled = styled.div`
   .service-info {
     color: var(--text-dark);
   }
-
+  /* 
   .mobile {
     display: none;
-  }
+  } */
 
   h3 {
     font-family: var(--poppinsmedium);
   }
 
   @media (max-width: 850px) {
-    .desktop {
+    /* .desktop {
       display: none;
-    }
+    } */
 
     h1 {
       font-size: var(--s2);
