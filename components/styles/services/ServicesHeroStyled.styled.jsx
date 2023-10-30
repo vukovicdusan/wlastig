@@ -35,7 +35,7 @@ export const ServicesHeroStyled = styled.div`
   }
 
   .hero-content > *:last-child {
-    padding: 4rem;
+    padding: 4rem 1rem;
     min-width: 20rem;
     text-align: end;
   }
