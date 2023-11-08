@@ -40,6 +40,8 @@ export const GlobalStyles = createGlobalStyle`
 	--poppinsbold: "poppinsextrabold", Times, serif;
 	--poppinsregular: "poppinsregular", Times, serif;
 	--poppinsmedium: "poppinsmedium", Times, serif;
+
+	--reel-analytics-dark: #242d3c;
 }
 /** ==== RESET ====*/
 /* Box sizing rules */
@@ -347,6 +349,8 @@ label {
 		--testimonial-frames: rgba(250,250,250,0.5);
 		--disabled-slider-btn-color: rgba(0,0,0,.2);
 		--active-slider-btn-color: var(--text-light);
+
+		--reel-analytics-dark: #777777;
 	}
 }
 `;
