@@ -26,8 +26,12 @@ export default function Home() {
       <Testimonials></Testimonials>
       <ContactFormSection
         shapedivider={true}
-        title={"150+ Point Audit For Data Quality"}
-        subTitle={"(3X The Industry Average)"}
+        title={
+          "Ready to stop wasting precious advertising dollars and boost your ROI?"
+        }
+        subTitle={
+          "Discover hidden opportunities and optimize your digital strategy. Don't let your marketing budget go down the drain – Get a FREE Marketing Audit!"
+        }
         cta={"Get Your FREE Audit"}
         auditTitle={"Find Your Money Leaks For Free!"}
       ></ContactFormSection>

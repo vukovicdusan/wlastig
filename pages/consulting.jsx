@@ -137,8 +137,10 @@ const Consulting = () => {
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
       <ContactFormSection
         shapedivider={false}
-        title={"150+ Point Audit For Data Quality"}
-        subTitle={"(3X The Industry Average)"}
+        title={"Explore the untapped potential of your business data!"}
+        subTitle={
+          "Start your quest for insights and optimize your digital strategy. Discover the hidden treasures hidden within your data - Get a FREE Tracking Audit!"
+        }
         cta={"Get your FREE audit!"}
         auditSubTitle={"Your decisions are only as good as your data."}
       ></ContactFormSection>

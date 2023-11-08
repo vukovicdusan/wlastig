@@ -215,12 +215,12 @@ h6 {
 	font-size: var(--s0);
 }
 .title-l {
-	font-size: var(--s2);
+	font-size: var(--s1);
 	text-shadow: var(--text-shadow);
 }
 
 .title-xl {
-	font-size: var(--s5);
+	font-size: var(--s3);
 	text-shadow: var(--text-shadow);
 }
 
