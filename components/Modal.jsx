@@ -79,7 +79,7 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  overflow: auto;
+  overflow-y: scroll;
   opacity: 0;
   animation: ${(props) => (props.show ? "fadeIn .4s forwards" : "")};
   transition: all 0.4s ease-in;
@@ -102,7 +102,7 @@ export const ModalStyled = styled.div`
     border-radius: 5px;
     margin-block: auto;
     animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
-    overflow: scroll;
+    overflow-y: auto;
   }
 
   @keyframes slideDown {
