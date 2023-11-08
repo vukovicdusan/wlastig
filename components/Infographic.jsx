@@ -11,6 +11,7 @@ import { Wrapper } from "./styles/Wrapper.styled";
 const Infographic = (props) => {
   let animationRef = useRef();
   const [show, setShow] = useState(false);
+  let processesNum = props.processArr.length + 1;
 
   useEffect(() => {
     let config = {
@@ -126,7 +127,7 @@ export const InfographicStyled = styled.ol`
   display: grid;
   column-gap: var(--column-gap);
   row-gap: var(--row-gap);
-  counter-reset: liCount;
+  counter-reset: liCount ${(props) => props.processesNum || 7};
   font-family: system-ui, sans-serif;
   color: var(--primary);
   overflow: hidden;
@@ -221,7 +222,7 @@ export const InfographicStyled = styled.ol`
       100% calc(var(--rocket-height) * 0.4);
   }
   & > li {
-    counter-increment: liCount;
+    counter-increment: liCount -1;
     grid-column: -2;
     position: relative;
   }
