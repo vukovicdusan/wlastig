@@ -100,9 +100,9 @@ export const ModalStyled = styled.div`
     color: revert;
     border: none;
     border-radius: 5px;
-    /* padding: var(--s2) var(--s1); */
     margin-block: auto;
     animation: ${(props) => (props.show ? "slideDown .8s forwards" : "")};
+    overflow: scroll;
   }
 
   @keyframes slideDown {
