@@ -105,7 +105,7 @@ const Audit = (props) => {
           elCount={"2"}
           flexBasis={"20rem"}
         >
-          <Stack stackSpace={"var(--s3)"}>
+          <Stack stackSpace={"var(--s2)"}>
             {props.popup ? (
               <div>
                 <h4>150+ Point Audit For Data Quality</h4>
@@ -197,6 +197,13 @@ export const ContactStyled = styled.form`
 
     .full-width > div {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    & img {
+      width: 150px;
+      height: 150px;
     }
   }
 `;
