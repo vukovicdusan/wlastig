@@ -80,9 +80,7 @@ const Audit = (props) => {
       <Stack stackSpace={"var(--s3)"} className="contactStack">
         <div>
           <h3>
-            {props.auditTitle
-              ? props.auditTitle
-              : "Improve your Data Quality for FREE!"}
+            {props.auditTitle ? props.auditTitle : "Improve your Data Quality"}
           </h3>
           {props.popup ? <h4 className="title-xl">For FREE!</h4> : null}
           <p>{props.auditSubTitle ? props.auditSubTitle : ""}</p>
@@ -108,8 +106,8 @@ const Audit = (props) => {
           <Stack stackSpace={"var(--s2)"}>
             {props.popup ? (
               <div>
-                <h4>150+ Point Audit For Data Quality</h4>
-                <p>(3x The Industry Average)</p>
+                <h4>Enhance Your Insights With Our GA4 Audit</h4>
+                {/* <p>(3x The Industry Average)</p> */}
               </div>
             ) : (
               ""

@@ -59,7 +59,11 @@ const Modal = () => {
             modalCtx.forceOpen.state ? (
               <ContactForm></ContactForm>
             ) : (
-              <Audit popup={true} cta={"Get Your Free Audit"}></Audit>
+              <Audit
+                popup={true}
+                cta={"Get Your Free Audit"}
+                auditTitle={""}
+              ></Audit>
             )}
           </dialog>
         </ModalStyled>
