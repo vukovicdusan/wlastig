@@ -65,7 +65,7 @@ const Header = () => {
         <Wrap>
           <div className="logo">
             <Link href={"/"} className="a-exception" passHref>
-              <Image width="100" height="50" src={logo} alt="logo" />
+              <Image width="100" height="50" src={logo} priority alt="logo" />
             </Link>
           </div>
           <nav className="desktop-nav">
