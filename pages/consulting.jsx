@@ -24,7 +24,6 @@ import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
 import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
-import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 
 const Consulting = () => {
   return (
@@ -136,6 +135,7 @@ const Consulting = () => {
 
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
       <ContactFormSection
+        auditId={"tracking_audit"}
         shapedivider={false}
         title={"Explore the untapped potential of your business data!"}
         subTitle={

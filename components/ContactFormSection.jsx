@@ -15,7 +15,7 @@ const ContactFormSection = (props) => {
   const router = useRouter();
 
   return (
-    <FullBackground background={"var(--primary)"} id="contact-form-section">
+    <FullBackground background={"var(--primary)"}>
       {props.shapedivider ? (
         <Shapedivider
           height={"130px"}
@@ -52,6 +52,7 @@ const ContactFormSection = (props) => {
                 <CareerForm></CareerForm>
               ) : (
                 <Audit
+                  auditId={props.auditId}
                   cta={props.cta}
                   auditTitle={props.auditTitle}
                   auditSubTitle={props.auditSubTitle}
