@@ -60,6 +60,7 @@ function Hero() {
                   height={400}
                   alt="dollar bill"
                   className="hero-img"
+                  priority
                 ></Image>
               </AnimationContainer>
             </Center>
