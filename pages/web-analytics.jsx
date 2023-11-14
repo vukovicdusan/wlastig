@@ -48,8 +48,6 @@ const webAnalytics = () => {
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-analytics.png"}>
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
-            {/* <Region>
-              <Wrapper> */}
             <div className="hero-content analytics-hero">
               <div>
                 <Image
@@ -58,6 +56,7 @@ const webAnalytics = () => {
                   width={500}
                   height={350}
                   alt="ilustration"
+                  priority
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
@@ -85,8 +84,6 @@ const webAnalytics = () => {
                 </AnimationContainer>
               </Stack>
             </div>
-            {/* </Wrapper>
-            </Region> */}
           </div>
         </Stack>
       </ServicesHeroStyled>
@@ -95,15 +92,6 @@ const webAnalytics = () => {
           <Switcher>
             <Stack stackSpace={"var(--s4)"} className="service-info">
               <Stack>
-                {/* <AnimationContainer>
-                  <h2>
-                    The same goes for businesses. Every company’s data has
-                    hidden gems.
-                  </h2>
-                  <UnderlineStyled
-                    underlineMargin={"var(--s-4)"}
-                  ></UnderlineStyled>
-                </AnimationContainer> */}
                 <p>
                   Web analytics is a measurement and analysis of data to get a
                   deep understanding of customer behavior, marketing, and

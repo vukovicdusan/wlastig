@@ -14,8 +14,6 @@ import AnimationContainer from "../components/AnimationContainer";
 import Faq from "../components/Faq";
 import Head from "next/head";
 import Modal from "../components/Modal";
-
-import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 import {
   subsArr,
   processArr,
@@ -54,6 +52,7 @@ const Advertising = () => {
                   width={300}
                   height={300}
                   alt="ilustration"
+                  priority
                 ></Image>
                 <Image
                   className="hero-ilustration"
@@ -61,6 +60,7 @@ const Advertising = () => {
                   width={300}
                   height={300}
                   alt="ilustration"
+                  priority
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
@@ -95,14 +95,6 @@ const Advertising = () => {
         <Wrapper>
           <Switcher>
             <Stack stackSpace={"var(--s4)"} className="service-info">
-              {/* <AnimationContainer delay={"3"}>
-                <h2>
-                  Trust in data and math. It&apos;s when you become data-driven
-                  that the real magic kicks in!
-                </h2>
-                <UnderlineStyled></UnderlineStyled>
-              </AnimationContainer> */}
-
               <p>
                 If you’re failing to capitalize on the top-quality product and
                 superb service you’re offering, chances are your digital

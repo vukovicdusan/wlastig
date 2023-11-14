@@ -48,6 +48,7 @@ const Consulting = () => {
                   width={350}
                   height={350}
                   alt="ilustration"
+                  priority
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
@@ -82,12 +83,6 @@ const Consulting = () => {
           <Wrapper>
             <Switcher mb={"var(--s5)"}>
               <Stack stackSpace={"var(--s4)"} className="service-info">
-                {/* <AnimationContainer delay={"3"}>
-                  <h2>
-                    Big budgets don&apos;t guarantee success. Solid plans do.
-                  </h2>
-                  <UnderlineStyled></UnderlineStyled>
-                </AnimationContainer> */}
                 <p>
                   With many years of experience gained across diverse
                   industries, together with you we will steer your business to

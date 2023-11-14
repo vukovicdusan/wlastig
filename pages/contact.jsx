@@ -39,6 +39,7 @@ const Contact = () => {
                 width={350}
                 height={350}
                 alt="ilustration"
+                priority
               ></Image>
             </div>
             <Stack stackAlign={"end"}>
@@ -62,7 +63,6 @@ const Contact = () => {
               <AnimationContainer direction={"translateX"}>
                 <Stack as="ul">
                   <li>
-                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       At Wlastig, we believe that clear communication and
                       collaboration are the keys to unlocking the true potential
@@ -71,7 +71,6 @@ const Contact = () => {
                     </p>
                   </li>
                   <li>
-                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       Our team of expert analysts and strategists is ready to
                       help you uncover insights, optimize your operations, and
@@ -80,7 +79,6 @@ const Contact = () => {
                     </p>
                   </li>
                   <li>
-                    {/* <CheckSvg svgWidth={50} svgFill={"#4bb543"}></CheckSvg> */}
                     <p>
                       We look forward to hearing from you and exploring how
                       Wlastig can empower your organization with data-driven
@@ -148,7 +146,6 @@ const Contact = () => {
 export const ContactPageStyled = styled.div`
   position: relative;
   .box {
-    /* box-shadow: var(--box-shadow); */
     padding: var(--s1) var(--s0);
     margin: 0.5rem;
     border-radius: 5px;
