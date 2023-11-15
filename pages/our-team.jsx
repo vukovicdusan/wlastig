@@ -101,7 +101,15 @@ const ourTeam = () => {
           </svg>
         </Shapedivider>
       </OurTeamStyled>
-      <ContactFormSection cta={"Get Your Free Audit"}></ContactFormSection>
+      <ContactFormSection
+        title={"Explore the untapped potential of your business data!"}
+        subTitle={
+          "Start your quest for insights and optimize your digital strategy. Discover the hidden treasures hidden within your data - Get a FREE Tracking Audit!"
+        }
+        cta={"Get your FREE audit!"}
+        auditSubTitle={"Your decisions are only as good as your data."}
+        auditId={"tracking_audit"}
+      ></ContactFormSection>
       <Modal></Modal>
     </>
   );
