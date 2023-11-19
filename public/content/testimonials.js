@@ -1,6 +1,6 @@
-import bex from "../img/bex.png"
-import strategyx from "../img/strategyx-logo.svg"
-import yolobook from "../img/yolobook-logo.jpg"
+import bex from "../img/bex.png";
+import strategyx from "../img/strategyx-logo.svg";
+import yolobook from "../img/yolobook-logo.jpg";
 
 export const testimonials = [
 	{
@@ -8,7 +8,7 @@ export const testimonials = [
 			"We looked for an end-to-end Web analytics agency to consolidate our collection and improve our analytical potential. And guys from Wlastig exceeded our expectations. All the project aspects were handled professionally, and the results were quite impressive. They delivered additional performance measurements that became our new business objectives alongside required KPIs.",
 		img: strategyx,
 		frame1: ["+23%", "Leads"],
-		frame2: ["-15%", "Recurring Revenue"],
+		frame2: ["+15%", "Recurring Revenue"],
 		frame3: ["+55%", "Churn Rate"],
 	},
 	{
@@ -27,4 +27,4 @@ export const testimonials = [
 		frame2: ["-9%", "Churn Rate"],
 		frame3: ["+3%", "LTV"],
 	},
-]
+];
