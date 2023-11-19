@@ -9,7 +9,7 @@ export const testimonials = [
 		img: strategyx,
 		frame1: ["+23%", "Leads"],
 		frame2: ["+15%", "Recurring Revenue"],
-		frame3: ["+55%", "Churn Rate"],
+		frame3: ["-55%", "Churn Rate"],
 	},
 	{
 		content:
