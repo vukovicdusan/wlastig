@@ -24,7 +24,7 @@ function Hero() {
 							<Stack>
 								<AnimationContainer>
 									<h1 className="hero-title">
-										&quot;50% of all advertising spent is
+										&quot;50% of all advertising spend is
 										wasted&quot;
 										<span>John Wanamaker</span>
 									</h1>
