@@ -10,6 +10,7 @@ const Modal = () => {
   const router = useRouter();
 
   const [modalOpen, setModalOpen] = useState(false);
+  console.log(modalCtx.forceOpen);
 
   useEffect(() => {
     if (!modalCtx.auditSent) {
@@ -31,6 +32,8 @@ const Modal = () => {
           modalCtx.modalOpenedHandler();
         }
       }
+    } else if (modalCtx.forceOpen.state) {
+      setModalOpen(true);
     }
   }, [router, modalCtx]);
 
