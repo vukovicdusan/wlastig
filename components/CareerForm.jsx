@@ -103,6 +103,7 @@ const CareerForm = () => {
                 id="name"
                 autoCapitalize="none"
                 autoCorrect="off"
+                autoComplete
                 required
                 onChange={inputHandler}
               />
@@ -115,6 +116,7 @@ const CareerForm = () => {
                 id="email"
                 autoCapitalize="none"
                 autoCorrect="off"
+                autoComplete
                 required
                 pattern="[^@]+@[^\.]+\..+"
                 onChange={inputHandler}

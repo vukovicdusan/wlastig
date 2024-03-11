@@ -121,6 +121,7 @@ const ContactForm = () => {
                 id="name"
                 autoCapitalize="none"
                 autoCorrect="off"
+                autoComplete
                 required
                 onChange={inputHandler}
               />
@@ -133,6 +134,7 @@ const ContactForm = () => {
                 id="email"
                 autoCapitalize="none"
                 autoCorrect="off"
+                autoComplete
                 required
                 pattern="[^@]+@[^\.]+\..+"
                 onChange={inputHandler}
@@ -147,6 +149,7 @@ const ContactForm = () => {
               id="website"
               autoCapitalize="none"
               autoCorrect="off"
+              autoComplete
               onChange={inputHandler}
             />
             <label htmlFor="website">Company Website</label>
