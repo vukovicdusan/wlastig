@@ -37,7 +37,7 @@ const Audit = (props) => {
     e.preventDefault();
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
     try {
-      await sendContactForm(contactFormData);
+      await sendContactForm({ ...contactFormData, auditType: props.auditId });
       await sendToKlaviyo(contactFormData);
       setContactFormProccess((prev) => ({
         ...prev,
