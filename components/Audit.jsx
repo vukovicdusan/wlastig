@@ -123,7 +123,7 @@ const Audit = (props) => {
                 id="name"
                 autoCapitalize="none"
                 autoCorrect="off"
-                autoComplete
+                autoComplete="email"
                 required
                 onChange={inputHandler}
               />
@@ -136,7 +136,7 @@ const Audit = (props) => {
                 id="email"
                 autoCapitalize="none"
                 autoCorrect="off"
-                autoComplete
+                autoComplete="email"
                 required
                 pattern="[^@]+@[^\.]+\..+"
                 onChange={inputHandler}
