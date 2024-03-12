@@ -1,15 +1,22 @@
 import { doc, getDoc } from "firebase/firestore";
 import React from "react";
 import { db } from "../../public/firebase/firebase";
+import { Wrapper } from "../../components/styles/Wrapper.styled";
+import { Region } from "../../components/styles/Region.styled";
+import { FullBackground } from "../../components/styles/FullBackground.styled";
 
 const SinglePost = ({ blog }) => {
   return (
-    <>
-      <div>
-        <h1>{blog.title}</h1>
-        <p>{blog.content}</p>
-      </div>
-    </>
+    <FullBackground className={""} background={"var(--primary)"}>
+      <Region>
+        <Wrapper>
+          <div>
+            <h1>{blog.title}</h1>
+            <p>{blog.content}</p>
+          </div>
+        </Wrapper>
+      </Region>
+    </FullBackground>
   );
 };
 

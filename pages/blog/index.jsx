@@ -4,6 +4,9 @@ import { collection, getDocs, query } from "firebase/firestore";
 import { Grid } from "../../components/styles/Grid.styled";
 import Head from "next/head";
 import Link from "next/link";
+import { FullBackground } from "../../components/styles/FullBackground.styled";
+import { Region } from "../../components/styles/Region.styled";
+import { Wrapper } from "../../components/styles/Wrapper.styled";
 
 const index = ({ blogList }) => {
   return (
@@ -17,16 +20,22 @@ const index = ({ blogList }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Grid>
-        {blogList.map((blog) => (
-          <>
-            <Link href={`/blog/${blog.slug}`} passHref>
-              <h2>{blog.title}</h2>
-              <p>{blog.content}</p>
-            </Link>
-          </>
-        ))}
-      </Grid>
+      <FullBackground className={""} background={"var(--primary)"}>
+        <Region>
+          <Wrapper>
+            <Grid>
+              {blogList.map((blog) => (
+                <>
+                  <Link href={`/blog/${blog.slug}`} passHref>
+                    <h2>{blog.title}</h2>
+                    <p>{blog.content}</p>
+                  </Link>
+                </>
+              ))}
+            </Grid>
+          </Wrapper>
+        </Region>
+      </FullBackground>
     </>
   );
 };
