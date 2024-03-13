@@ -7,9 +7,13 @@ import { InputWrapper } from "../components/styles/InputWrapper.styled";
 import { Stack } from "../components/styles/Stack.styled";
 import { Button } from "../components/styles/Button.styled";
 import { auth } from "../public/firebase/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [inputData, setInputData] = useState({ email: "", password: "" });
+  const [error, setError] = useState();
+  const router = useRouter();
 
   const inputHandler = (e) => {
     e.target.name === "email"
@@ -30,16 +34,19 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log("error: ", errorCode);
+        setError({ code: errorCode, message: errorMessage });
       });
   };
 
+  console.log(error);
   return (
     <FullBackground className={""} background={"var(--background-light)"}>
       <Region>
         <Wrapper>
           <LoginStyled>
             <form onSubmit={(e) => submitHandler(e)}>
-              <Stack>
+              <Stack stackAlign={"center"}>
                 <h1>Login</h1>
                 <InputWrapper>
                   <input
@@ -65,6 +72,7 @@ const Login = () => {
                   <span></span>
                   <span></span>
                 </Button>
+                {error ? <p className="error-message">{error.message}</p> : ""}
               </Stack>
             </form>
           </LoginStyled>
@@ -83,5 +91,9 @@ export const LoginStyled = styled.div`
   margin-top: 5rem;
   & form {
     margin-inline: auto;
+  }
+
+  .error-message {
+    color: var(--error-color);
   }
 `;
