@@ -20,8 +20,6 @@ const Login = () => {
         });
   };
 
-  console.log(inputData);
-
   const submitHandler = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, inputData.email, inputData.password)
