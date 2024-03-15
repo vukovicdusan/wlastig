@@ -19,7 +19,16 @@ import { db, storage } from "../public/firebase/firebase";
 import { useRouter } from "next/router";
 
 const date = new Date();
-const writeDate = date.toLocaleDateString("sr-RS");
+
+const formatDateForBlog = (date) => {
+  let writeDate = date.toLocaleDateString("sr-RS").split(". ");
+  let yearArr = writeDate[writeDate.length - 1].split("");
+  yearArr.pop();
+  let year = yearArr.join("");
+  writeDate.pop();
+  writeDate.push(year);
+  return writeDate.join("/");
+};
 
 const WriteBlog = () => {
   const [value, setValue] = useState("");
@@ -70,7 +79,7 @@ const WriteBlog = () => {
             // setDoc(doc(db, "data", "one")
             await setDoc(doc(db, "blog", postSlug), {
               //   author: author,
-              date: writeDate,
+              date: formatDateForBlog(date),
               created_at: serverTimestamp(),
               image: downloadURL,
               content: value,
