@@ -31,6 +31,10 @@ export const BlogSidebarStyled = styled.div`
   justify-content: center;
   gap: 2rem;
 
+  & > * {
+    color: #ddd;
+  }
+
   .sidebar {
     /* flex-grow: 1; */
     display: flex;
@@ -52,11 +56,9 @@ export const BlogSidebarStyled = styled.div`
     gap: 1rem;
   }
 
+  & label,
   & input {
-    background-color: var(--primary);
-  }
-
-  & label {
     background-color: var(--primary) !important;
+    color: var(--text-light);
   }
 `;

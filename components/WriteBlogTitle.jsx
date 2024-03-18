@@ -14,7 +14,7 @@ const WriteBlogTitle = () => {
     "Don't wait for inspiration. Step away from the keyboard.",
     "Your words have the power to inspire!",
     "This blog is my sanctuary!",
-    "This is war!",
+    "This is literal war!",
   ];
 
   const [heading, setHeading] = useState(headingArr[0]);

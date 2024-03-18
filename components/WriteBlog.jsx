@@ -99,10 +99,10 @@ const WriteBlog = () => {
     try {
       Resizer.imageFileResizer(
         e.target.files[0],
-        600,
-        600,
+        800,
+        800,
         "JPEG",
-        80,
+        72,
         0,
         (uri) => {
           setBlogImage(uri);
@@ -198,5 +198,18 @@ export const WriteBlogStyled = styled.div`
   & button {
     max-width: 50%;
     margin-inline: auto;
+  }
+
+  /* QUILL */
+  .quill {
+    background: var(--text-light);
+  }
+
+  .ql-editor p {
+    color: #1c2334 !important;
+  }
+
+  .ql-editor {
+    min-height: 20rem !important;
   }
 `;

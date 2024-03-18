@@ -328,15 +328,7 @@ label {
 	color: var(--text-light);
 }
 
-/* QUILL */
-.quill {
- background:var(--text-light);
-}
 
-.ql-editor p {
-	color: #1c2334 !important;
-	min-height: 20rem !important;
-}
 
 @media (prefers-color-scheme: dark) {
 	html {
