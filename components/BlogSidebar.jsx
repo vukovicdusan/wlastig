@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../public/img/logo/Wlastig_logo_sajt_color.png";
 import Image from "next/image";
 import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 
 const BlogSidebar = (props) => {
-  const inputHandler = () => {};
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const inputHandler = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  props.searchTermsHandler(searchTerm);
+
   return (
     <BlogSidebarStyled>
       {props.children}
       <div className="sidebar">
         <form>
           <InputWrapper>
-            <input onChange={inputHandler} name="search" type="text" />
+            <input
+              onChange={(e) => inputHandler(e)}
+              name="search"
+              type="text"
+            />
             <label htmlFor="search">Search</label>
           </InputWrapper>
         </form>

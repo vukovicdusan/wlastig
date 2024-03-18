@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { db } from "../../public/firebase/firebase";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Head from "next/head";
@@ -13,7 +13,20 @@ import { Stack } from "../../components/styles/Stack.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper";
 
-const index = ({ blogList }) => {
+const PostsPage = ({ blogList }) => {
+  let [filteredPosts, setFilteredPosts] = useState();
+
+  // let list = !searchList ? blogList : searchList;
+
+  const searchTermsHandler = (searchTerm) => {
+    const filtered = blogList.filter((blog) =>
+      blog.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredPosts(filtered);
+  };
+
+  // console.log(filteredPosts);
+
   return (
     <>
       <Head>
@@ -35,7 +48,7 @@ const index = ({ blogList }) => {
                   underlineMargin={"var(--s-4)"}
                 ></UnderlineStyled>
               </div>
-              <BlogSidebar>
+              <BlogSidebar searchTermsHandler={searchTermsHandler}>
                 <Stack>
                   {blogList.map((blog, index) => (
                     <Link
@@ -103,7 +116,7 @@ export const getServerSideProps = async () => {
   }
 };
 
-export default index;
+export default PostsPage;
 
 export const BlogPostsStyled = styled.div`
   .wrapper {
