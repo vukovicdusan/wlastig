@@ -32,7 +32,7 @@ export const BlogImageWrapper = styled.div`
 
   & span {
     text-align: center;
-    font-size: var(--s3);
+    font-size: var(--s3) !important;
     font-weight: bold;
     text-transform: capitalize;
   }
