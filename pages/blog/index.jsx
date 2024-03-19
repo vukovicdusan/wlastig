@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { db } from "../../public/firebase/firebase";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Head from "next/head";
@@ -12,20 +12,23 @@ import BlogSidebar from "../../components/BlogSidebar";
 import { Stack } from "../../components/styles/Stack.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper";
+import { useState } from "react";
 
 const PostsPage = ({ blogList }) => {
-  let [filteredPosts, setFilteredPosts] = useState();
+  const [searchedTerm, setSearchedTerm] = useState("");
 
-  // let list = !searchList ? blogList : searchList;
-
-  const searchTermsHandler = (searchTerm) => {
-    const filtered = blogList.filter((blog) =>
-      blog.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const postsHandler = () => {
+    const filteredPosts = blogList.filter((blog) =>
+      blog.title.toLowerCase().includes(searchedTerm.toLowerCase())
     );
-    setFilteredPosts(filtered);
+
+    if (searchedTerm) return filteredPosts;
+    return blogList;
   };
 
-  // console.log(filteredPosts);
+  const searchTermsHandler = (searchTerm) => {
+    setSearchedTerm(searchTerm);
+  };
 
   return (
     <>
@@ -50,7 +53,7 @@ const PostsPage = ({ blogList }) => {
               </div>
               <BlogSidebar searchTermsHandler={searchTermsHandler}>
                 <Stack>
-                  {blogList.map((blog, index) => (
+                  {postsHandler().map((blog, index) => (
                     <Link
                       className="wrapper"
                       key={index}

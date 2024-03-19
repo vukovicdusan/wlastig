@@ -124,7 +124,11 @@ const WriteBlog = () => {
     <WriteBlogStyled>
       <WriteBlogTitle></WriteBlogTitle>
       <form>
-        <InputWrapper>
+        <InputWrapper
+          labelTextColor={"var(--text-light)"}
+          labelBgColor={"var(--primary)"}
+          inputTextColor={"var(--text-light)"}
+        >
           <input
             name="title"
             id="title"
@@ -135,7 +139,11 @@ const WriteBlog = () => {
           />
           <label htmlFor="title">Post Title</label>
         </InputWrapper>
-        <InputWrapper>
+        <InputWrapper
+          labelTextColor={"var(--text-light)"}
+          labelBgColor={"var(--primary)"}
+          inputTextColor={"var(--text-light)"}
+        >
           <input
             name="file"
             id="file"

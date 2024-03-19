@@ -6,7 +6,7 @@ const WriteBlogTitle = () => {
     "Open your heart...",
     "You can do it! Maybe!",
     "Be creative my dear!",
-    "Embrace the blank page like you do your naked body.",
+    "Embrace the blank page like you embrace your naked body.",
     "Every beautiful word you write is a step closer to you taking a break.",
     "Let your stomach guide your pen!",
     "Your voice matters!",

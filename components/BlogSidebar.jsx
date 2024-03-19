@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../public/img/logo/Wlastig_logo_sajt_color.png";
 import Image from "next/image";
 import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 
 const BlogSidebar = (props) => {
-  const [searchTerm, setSearchTerm] = useState("");
-
   const inputHandler = (e) => {
-    setSearchTerm(e.target.value);
+    const term = e.target.value;
+    props.searchTermsHandler(term);
   };
-
-  props.searchTermsHandler(searchTerm);
 
   return (
     <BlogSidebarStyled>
