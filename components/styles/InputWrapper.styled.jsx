@@ -6,7 +6,8 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   inline-size: 100%;
 
-  & input {
+  & input,
+  & select {
     max-inline-size: 100%;
     background-color: transparent !important;
     color: ${(props) => props.inputTextColor || "var(--text-dark)"};
@@ -24,6 +25,7 @@ export const InputWrapper = styled.div`
   }
 
   & input:focus + label,
+  & select:focus + label,
   textarea:focus + label {
     font-size: 0.8rem;
     top: -6px;

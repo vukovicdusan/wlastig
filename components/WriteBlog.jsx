@@ -11,7 +11,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import Resizer from "react-image-file-resizer";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./styles/Button.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import WriteBlogTitle from "./WriteBlogTitle";
@@ -30,12 +30,14 @@ const formatDateForBlog = (date) => {
   return writeDate.join("/");
 };
 
-const WriteBlog = () => {
+const WriteBlog = (props) => {
   const [value, setValue] = useState("");
   const [postTitle, setPostTitleValue] = useState("");
   const [blogImage, setBlogImage] = useState("");
   const [progress, setProgress] = useState(null);
   const [postSlug, setPostSlug] = useState("");
+  const [postStatus, setPostStatus] = useState();
+  const [editPostValues, setEditPostValues] = useState({});
   const router = useRouter();
 
   const quillModules = {
@@ -51,47 +53,64 @@ const WriteBlog = () => {
     ],
   };
 
-  const contentInputHandler = (e) => {
+  const contentInputHandler = async (e) => {
     e.preventDefault();
-    try {
-      const imgName = date.getTime() + "blog";
-      const storageRef = ref(storage, imgName);
-      const uploadTask = uploadBytesResumable(storageRef, blogImage);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    if (!editPostValues.image) {
+      try {
+        const imgName = date.getTime() + "blog";
+        const storageRef = ref(storage, imgName);
+        const uploadTask = uploadBytesResumable(storageRef, blogImage);
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "paused":
-              break;
-            case "running":
-              break;
+            setProgress(progress);
+            switch (snapshot.state) {
+              case "paused":
+                break;
+              case "running":
+                break;
+            }
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                // setDoc(doc(db, "data", "one")
+                await setDoc(doc(db, "blog", postSlug), {
+                  //   author: author,
+                  date: formatDateForBlog(date),
+                  created_at: serverTimestamp(),
+                  image: downloadURL,
+                  content: value,
+                  title: postTitle,
+                  slug: postSlug,
+                  status: postStatus,
+                });
+                router.reload();
+              }
+            );
           }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            // setDoc(doc(db, "data", "one")
-            await setDoc(doc(db, "blog", postSlug), {
-              //   author: author,
-              date: formatDateForBlog(date),
-              created_at: serverTimestamp(),
-              image: downloadURL,
-              content: value,
-              title: postTitle,
-              slug: postSlug,
-            });
-            router.reload();
-          });
-        }
-      );
-    } catch (err) {
-      console.log(err);
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      await setDoc(doc(db, "blog", postSlug), {
+        //   author: author,
+        date: formatDateForBlog(date),
+        created_at: serverTimestamp(),
+        image: editPostValues.image,
+        content: value,
+        title: postTitle,
+        slug: postSlug,
+        status: postStatus,
+      });
+      router.reload();
     }
   };
 
@@ -120,9 +139,33 @@ const WriteBlog = () => {
     setPostSlug(slug);
   };
 
+  useEffect(() => {
+    if (props.postForEdit) {
+      props.postForEdit.map((post) => {
+        setEditPostValues({
+          title: post.title,
+          content: post.content,
+          image: post.image,
+        });
+        setValue(post.content);
+        setPostSlug(post.slug);
+        setPostTitleValue(post.title);
+        setPostStatus(post.status);
+      });
+    }
+  }, [props.postForEdit]);
+  console.log(postStatus);
   return (
     <WriteBlogStyled>
       <WriteBlogTitle></WriteBlogTitle>
+      {props.postForEdit && (
+        <span className="editing-label">
+          <svg onClick={() => editPostHandler(post.id)} className="icon">
+            <use xlinkHref={"./img/subservices/sprite.svg#pencil-edit"}></use>
+          </svg>
+          You Are Editing This Post
+        </span>
+      )}
       <form>
         <InputWrapper
           labelTextColor={"var(--text-light)"}
@@ -136,6 +179,7 @@ const WriteBlog = () => {
             type="text"
             required
             autoCorrect="off"
+            defaultValue={editPostValues ? editPostValues.title : ""}
           />
           <label htmlFor="title">Post Title</label>
         </InputWrapper>
@@ -153,6 +197,23 @@ const WriteBlog = () => {
             autoCorrect="off"
           />
           <label htmlFor="file">Add Cover Image</label>
+        </InputWrapper>
+        <InputWrapper
+          labelTextColor={"var(--text-light)"}
+          labelBgColor={"var(--primary)"}
+          inputTextColor={"var(--text-light)"}
+        >
+          <select
+            defaultValue={editPostValues ? editPostValues.status : ""}
+            name="status"
+            id="status"
+            onChange={(e) => setPostStatus(e.target.value)}
+            required
+          >
+            <option value="published">Publish</option>
+            <option value="draft">Draft</option>
+          </select>
+          <label htmlFor="status">Post Status</label>
         </InputWrapper>
         {progress && (
           <div className="[ d-flex-c ] progress-bar--container">
@@ -178,7 +239,7 @@ const WriteBlog = () => {
         onChange={setValue}
       />
       <Button onClick={contentInputHandler}>
-        Upload Post <span></span>
+        {props.postForEdit ? "Edit Post" : "Upload Post"} <span></span>
         <span></span>
         <span></span>
         <span></span>{" "}
@@ -197,6 +258,20 @@ export const WriteBlogStyled = styled.div`
   max-width: 60ch;
   margin-inline: auto;
 
+  .editing-label {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: var(--s-2);
+    color: var(--secondary);
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--secondary);
+  }
+
   & form {
     display: flex;
     flex-direction: column;
@@ -206,6 +281,10 @@ export const WriteBlogStyled = styled.div`
   & button {
     max-width: 50%;
     margin-inline: auto;
+  }
+
+  & option {
+    background-color: var(--background-dark);
   }
 
   /* QUILL */

@@ -3,9 +3,6 @@ import styled from "styled-components";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 
 const Clients = (props) => {
-  props.clientsList.map((client) => {
-    console.log(client);
-  });
   return (
     <ClientsTableStyled>
       <h2>Clients</h2>

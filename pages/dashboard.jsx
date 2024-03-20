@@ -14,11 +14,13 @@ import Clients from "../components/Clients";
 import WriteBlog from "../components/WriteBlog";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { FullBackground } from "../components/styles/FullBackground.styled";
+import DashboardPosts from "../components/DashboardPosts";
 
-const Dashboard = ({ clientsList }) => {
+const Dashboard = ({ clientsList, blogList }) => {
   const [user] = useUser();
   const router = useRouter();
   const [navSelector, setNavSelector] = useState("clients");
+  const [postForEdit, setPostForEdit] = useState();
 
   const signOutHandler = () => {
     signOut(auth)
@@ -31,6 +33,27 @@ const Dashboard = ({ clientsList }) => {
   const dashboardNavHandler = (e) => {
     setNavSelector(e.target.textContent);
   };
+
+  const editPostsRouterHandler = (postId) => {
+    let post = blogList.filter((blog) => blog.id === postId);
+    setNavSelector("new blog post");
+    setPostForEdit(post);
+  };
+
+  let dashboardContent;
+
+  if (navSelector.toLowerCase() === "clients") {
+    dashboardContent = <Clients clientsList={clientsList}></Clients>;
+  } else if (navSelector.toLowerCase() === "new blog post") {
+    dashboardContent = <WriteBlog postForEdit={postForEdit}></WriteBlog>;
+  } else if (navSelector.toLowerCase() === "posts") {
+    dashboardContent = (
+      <DashboardPosts
+        blogList={blogList}
+        editPostsRouterHandler={editPostsRouterHandler}
+      ></DashboardPosts>
+    );
+  }
 
   if (!user) {
     return <AuthGuard></AuthGuard>;
@@ -45,7 +68,9 @@ const Dashboard = ({ clientsList }) => {
                   <ul>
                     <li
                       className={`${
-                        navSelector.toLowerCase() === "clients" ? "" : "active"
+                        navSelector.toLowerCase() === "new blog post"
+                          ? "active"
+                          : ""
                       }`}
                     >
                       <DisabledLink
@@ -54,6 +79,19 @@ const Dashboard = ({ clientsList }) => {
                         color={"var(--text-light)"}
                       >
                         New Blog Post
+                      </DisabledLink>
+                    </li>
+                    <li
+                      className={`${
+                        navSelector.toLowerCase() === "posts" ? "active" : ""
+                      }`}
+                    >
+                      <DisabledLink
+                        onClick={(e) => dashboardNavHandler(e)}
+                        value="users"
+                        color={"var(--text-light)"}
+                      >
+                        Posts
                       </DisabledLink>
                     </li>
                     <li
@@ -78,13 +116,7 @@ const Dashboard = ({ clientsList }) => {
                   <span></span>{" "}
                 </Button>
               </div>
-              <div className="dahsboard-body">
-                {navSelector.toLowerCase() === "clients" ? (
-                  <Clients clientsList={clientsList}></Clients>
-                ) : (
-                  <WriteBlog></WriteBlog>
-                )}
-              </div>
+              <div className="dahsboard-body">{dashboardContent}</div>
             </Wrapper>
             <Shapedivider position={"bottom"} rotation={"0"} height={"80px"}>
               <svg
@@ -107,10 +139,16 @@ export default Dashboard;
 
 export const getServerSideProps = async () => {
   let clientsData = [];
+  let blogData = [];
 
   try {
     const clientsQuery = query(
       collection(db, "clients"),
+      orderBy("created_at", "desc")
+    );
+
+    const blogQuery = query(
+      collection(db, "blog"),
       orderBy("created_at", "desc")
     );
 
@@ -119,9 +157,15 @@ export const getServerSideProps = async () => {
       clientsData.push({ id: doc.id, ...doc.data(), created_at: "" });
     });
 
+    const blogQuerySnapshot = await getDocs(blogQuery);
+    blogQuerySnapshot.forEach((doc) => {
+      blogData.push({ id: doc.id, ...doc.data(), created_at: "" });
+    });
+
     return {
       props: {
         clientsList: clientsData,
+        blogList: blogData,
       },
     };
   } catch (err) {
