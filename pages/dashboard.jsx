@@ -190,6 +190,8 @@ export const DashboardStyled = styled.div`
     padding-block: 0.5rem;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--secondary);
+    margin-bottom: var(--s2);
   }
 
   .dashboard-header li a {

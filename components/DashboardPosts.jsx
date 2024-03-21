@@ -1,11 +1,13 @@
 import React from "react";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 import styled from "styled-components";
+import QuickPublishDraft from "./QuickPublishDraft";
 
 const DashboardPosts = (props) => {
   const editPostHandler = (postId) => {
     props.editPostsRouterHandler(postId);
   };
+
   return (
     <PostsTableStyled>
       <h2>Clients</h2>
@@ -24,7 +26,12 @@ const DashboardPosts = (props) => {
           {props.blogList.map((post) => (
             <tr key={post.id}>
               <th scope="row">{post.title}</th>
-              <td>{post.status}</td>
+              <td>
+                <QuickPublishDraft
+                  postStatusProp={post.status}
+                  postIdProp={post.id}
+                ></QuickPublishDraft>
+              </td>
               <td>{post.date}</td>
               <td>
                 <svg onClick={() => editPostHandler(post.id)} className="icon">

@@ -36,9 +36,11 @@ const WriteBlog = (props) => {
   const [blogImage, setBlogImage] = useState("");
   const [progress, setProgress] = useState(null);
   const [postSlug, setPostSlug] = useState("");
-  const [postStatus, setPostStatus] = useState();
+  const [postStatus, setPostStatus] = useState("draft");
   const [editPostValues, setEditPostValues] = useState({});
   const router = useRouter();
+
+  console.log(postStatus);
 
   const quillModules = {
     toolbar: [
@@ -146,6 +148,7 @@ const WriteBlog = (props) => {
           title: post.title,
           content: post.content,
           image: post.image,
+          status: post.status,
         });
         setValue(post.content);
         setPostSlug(post.slug);
@@ -204,14 +207,13 @@ const WriteBlog = (props) => {
           inputTextColor={"var(--text-light)"}
         >
           <select
-            defaultValue={editPostValues ? editPostValues.status : ""}
+            value={postStatus}
             name="status"
             id="status"
             onChange={(e) => setPostStatus(e.target.value)}
-            required
           >
-            <option value="published">Publish</option>
             <option value="draft">Draft</option>
+            <option value="published">Publish</option>
           </select>
           <label htmlFor="status">Post Status</label>
         </InputWrapper>

@@ -1,6 +1,6 @@
 import React from "react";
 import { db } from "../../public/firebase/firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import Head from "next/head";
 import Link from "next/link";
 import { FullBackground } from "../../components/styles/FullBackground.styled";
@@ -18,6 +18,8 @@ const PostsPage = ({ blogList }) => {
   const [searchedTerm, setSearchedTerm] = useState("");
 
   const postsHandler = () => {
+    blogList.sort((a, b) => b.created_at.localeCompare(a.created_at));
+
     const filteredPosts = blogList.filter((blog) =>
       blog.title.toLowerCase().includes(searchedTerm.toLowerCase())
     );
@@ -100,12 +102,14 @@ export const getServerSideProps = async () => {
   try {
     const blogQuery = query(
       collection(db, "blog"),
-      orderBy("created_at", "desc")
+      // orderBy("created_at", "desc"),
+      where("status", "==", "published")
     );
 
     const blogQuerySnapshot = await getDocs(blogQuery);
     blogQuerySnapshot.forEach((doc) => {
-      blogData.push({ id: doc.id, ...doc.data(), created_at: "" });
+      const createdAt = doc.data().created_at.toDate().toISOString();
+      blogData.push({ id: doc.id, ...doc.data(), created_at: createdAt });
     });
 
     return {
