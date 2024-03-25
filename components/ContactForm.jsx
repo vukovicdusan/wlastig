@@ -9,7 +9,7 @@ import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
   const [contactFormData, setContactFormData] = useState({ type: "contact" });
   const [contactFormProccess, setContactFormProccess] = useState({
@@ -75,7 +75,7 @@ const ContactForm = () => {
   };
 
   return (
-    <ContactFormStyled>
+    <ContactFormStyled alignButton={props.alignButton}>
       <Stack
         className="form-container"
         stackSpace={"var(--s2)"}
@@ -83,7 +83,7 @@ const ContactForm = () => {
         stackAlign={"center"}
       >
         <Stack stackJustify={"center"} stackAlign={"center"}>
-          <h2>Reach Out!</h2>
+          {/* <h2>Reach Out!</h2>
           <span>
             <a href="mailto: info@wlastig.com">
               <StyledText
@@ -93,7 +93,7 @@ const ContactForm = () => {
                 info@wlastig.com
               </StyledText>
             </a>
-          </span>
+          </span> */}
           {/* <span>
             <a href="tel: +38169123456">
               <StyledText
@@ -205,7 +205,7 @@ export const ContactFormStyled = styled.div`
   .button-loader {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: ${(props) => props.alignButton || "center"};
     align-items: center;
     gap: 3rem;
   }
