@@ -165,7 +165,7 @@ const ContactForm = (props) => {
               rows="4"
               onChange={inputHandler}
             ></textarea>
-            <label htmlFor="comments">Any Comments? (Optional)</label>
+            <label htmlFor="comments">Message (Optional)</label>
           </InputWrapper>
           <div className="button-loader">
             <Button>
