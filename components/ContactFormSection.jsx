@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Audit from "./Audit";
+// import Audit from "./Audit";
 import { Shapedivider } from "./styles/Shapedivider.styled";
 import { FullBackground } from "./styles/FullBackground.styled";
 import { Wrapper } from "./styles/Wrapper.styled";
@@ -11,6 +11,7 @@ import styled from "styled-components";
 import AnimationContainer from "./AnimationContainer";
 import { useRouter } from "next/router";
 import ContactForm from "./ContactForm";
+import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 
 const ContactFormSection = (props) => {
   const router = useRouter();
@@ -22,8 +23,6 @@ const ContactFormSection = (props) => {
         </p>
       ))
     : "";
-
-  console.log(props.formType);
 
   return (
     <FullBackground background={"var(--primary)"}>
@@ -46,6 +45,13 @@ const ContactFormSection = (props) => {
       <Region id="contact-form-section">
         <Wrapper>
           <ContactFormSectionStyled>
+            <AnimationContainer>
+              <Stack stackJustify={"center"} stackAlign={"center"}>
+                <h3 className="title-xl">{props.title || ""}</h3>
+                <UnderlineStyled></UnderlineStyled>
+                {/* {subTitleContent} */}
+              </Stack>
+            </AnimationContainer>
             <Switcher
               reverse={"row-reverse"}
               switcherJustify={"center"}
@@ -53,9 +59,7 @@ const ContactFormSection = (props) => {
             >
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <h3 className="title-xl">
-                    {props.title || "150+ Point Audit For Data Quality"}
-                  </h3>
+                  {/* <h3 className="title-xl">{props.title || ""}</h3> */}
                   {subTitleContent}
                 </Stack>
               </AnimationContainer>
@@ -91,6 +95,11 @@ export const ContactFormSectionStyled = styled.div`
     margin-left: 5px;
   }
 
+  & .title-xl {
+    text-transform: capitalize;
+    /* margin-bottom: var(--s1); */
+  }
+
   & .title-xl,
   & .title-s {
     text-align: center;
@@ -99,6 +108,10 @@ export const ContactFormSectionStyled = styled.div`
 
   & .title-s {
     text-align: justify;
+  }
+
+  & .title-s:first-child {
+    font-family: var(--poppinsbold), "Times New Roman", Times, serif;
   }
 
   .contact-form-wrapper {
