@@ -10,7 +10,6 @@ const Modal = () => {
   const router = useRouter();
 
   const [modalOpen, setModalOpen] = useState(false);
-  console.log(modalCtx.forceOpen);
 
   useEffect(() => {
     if (!modalCtx.auditSent) {
@@ -24,18 +23,19 @@ const Modal = () => {
       : (document.body.style.overflow = "auto");
   }, [modalOpen]);
 
-  useEffect(() => {
-    if (Object.keys(router.components).length === 3) {
-      if (!modalCtx.hasOpened) {
-        if (!modalCtx.auditSent) {
-          setModalOpen(true);
-          modalCtx.modalOpenedHandler();
-        }
-      }
-    } else if (modalCtx.forceOpen.state) {
-      setModalOpen(true);
-    }
-  }, [router, modalCtx]);
+  /* AUTOMATIC MODAL ON SECOND VISITED PAGE */
+  // useEffect(() => {
+  //   if (Object.keys(router.components).length === 3) {
+  //     if (!modalCtx.hasOpened) {
+  //       if (!modalCtx.auditSent) {
+  //         setModalOpen(true);
+  //         modalCtx.modalOpenedHandler();
+  //       }
+  //     }
+  //   } else if (modalCtx.forceOpen.state) {
+  //     setModalOpen(true);
+  //   }
+  // }, [router, modalCtx]);
 
   return (
     <>
@@ -60,7 +60,10 @@ const Modal = () => {
             </span>
             {modalCtx.forceOpen?.type === "contact" &&
             modalCtx.forceOpen.state ? (
-              <ContactForm></ContactForm>
+              <>
+                <h2>Reach Out!</h2>
+                <ContactForm formType={"contact"}></ContactForm>
+              </>
             ) : (
               <Audit
                 auditId={"popup_audit"}

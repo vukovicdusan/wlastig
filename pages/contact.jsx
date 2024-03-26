@@ -91,8 +91,19 @@ const Contact = () => {
             </Stack>
             <AnimationContainer>
               <Stack className="box" stackAlign={"center"}>
-                <ContactForm></ContactForm>
-                <StyledText family={"var(--poppinsbold)"}>
+                <h2>Reach Out!</h2>
+                <span>
+                  <a href="mailto: info@wlastig.com">
+                    <StyledText
+                      family={"var(--poppinsbold)"}
+                      color={"var(--secondary)"}
+                    >
+                      info@wlastig.com
+                    </StyledText>
+                  </a>
+                </span>
+                <ContactForm formType={"contact"}></ContactForm>
+                {/* <StyledText family={"var(--poppinsbold)"}>
                   Want a quote and a game plan fast?
                 </StyledText>
                 <button
@@ -123,7 +134,7 @@ const Contact = () => {
                       fillRule="nonzero"
                     />
                   </svg>
-                </button>
+                </button> */}
               </Stack>
             </AnimationContainer>
           </Switcher>

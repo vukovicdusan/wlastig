@@ -8,10 +8,13 @@ import { StyledText } from "./styles/StyledText.styled";
 import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
+import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ type: "contact" });
+  const [contactFormData, setContactFormData] = useState({
+    type: props.formType || "contact",
+  });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
@@ -31,6 +34,7 @@ const ContactForm = () => {
     try {
       await sendContactForm(contactFormData);
       await sendToKlaviyo(contactFormData);
+      await firebaseWriteHandler(contactFormData);
       setContactFormProccess((prev) => ({
         ...prev,
         success: true,
@@ -75,7 +79,7 @@ const ContactForm = () => {
   };
 
   return (
-    <ContactFormStyled>
+    <ContactFormStyled alignButton={props.alignButton}>
       <Stack
         className="form-container"
         stackSpace={"var(--s2)"}
@@ -83,7 +87,7 @@ const ContactForm = () => {
         stackAlign={"center"}
       >
         <Stack stackJustify={"center"} stackAlign={"center"}>
-          <h2>Reach Out!</h2>
+          {/* <h2>Reach Out!</h2>
           <span>
             <a href="mailto: info@wlastig.com">
               <StyledText
@@ -93,7 +97,7 @@ const ContactForm = () => {
                 info@wlastig.com
               </StyledText>
             </a>
-          </span>
+          </span> */}
           {/* <span>
             <a href="tel: +38169123456">
               <StyledText
@@ -111,7 +115,7 @@ const ContactForm = () => {
           stackAlign={"center"}
           onSubmit={onSubmitHandler}
           stackSpace={"var(--s2)"}
-          id="contact_form"
+          id={contactFormData.type}
         >
           <Switcher elCount={2} flexBasis={"20rem"}>
             <InputWrapper>
@@ -161,7 +165,7 @@ const ContactForm = () => {
               rows="4"
               onChange={inputHandler}
             ></textarea>
-            <label htmlFor="comments">Any Comments?</label>
+            <label htmlFor="comments">Message (Optional)</label>
           </InputWrapper>
           <div className="button-loader">
             <Button>
@@ -205,7 +209,7 @@ export const ContactFormStyled = styled.div`
   .button-loader {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: ${(props) => props.alignButton || "center"};
     align-items: center;
     gap: 3rem;
   }

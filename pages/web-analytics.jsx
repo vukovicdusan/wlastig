@@ -178,14 +178,17 @@ const webAnalytics = () => {
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
 
       <ContactFormSection
-        auditId={"tracking_audit"}
+        formType={"freeConsultation"}
         shapedivider={false}
-        title={"Explore the untapped potential of your business data!"}
-        subTitle={
-          "Start your quest for insights and optimize your digital strategy. Discover the hidden treasures hidden within your data - Get a FREE Tracking Audit!"
-        }
-        cta={"Get Your Free Audit"}
-        auditSubTitle={"Your decisions are only as good as your data."}
+        title={"Schedule a free consultation"}
+        subTitle={[
+          "Are you seeing a lot of (not sets) in your reports? Purchase revenue isn’t correct? Are you struggling with reading GA4 reports? Your GA4 data is not accurate enough?",
+          "If your answer to any of these questions is yes or maybe - we are here to hear you out and help you improve your tracking so you can rely on data and be confident in making data-driven decisions!",
+          "We are offering a free 30-minute consultation with one of our experts to delve deeper into your specific challenges, answer any further questions you may have, and explore how Wlastig can help you achieve your goals.",
+        ]}
+        // cta={"Get Your FREE Audit"}
+        // auditTitle={"Find Your Money Leaks For Free!"}
+        // auditId={"marketing_audit"}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>

@@ -91,7 +91,7 @@ const ourTeam = () => {
             ))}
           </Region>
         </FullBackground>
-        <Shapedivider position={"bottom"} rotation={"180"} height={"110px"}>
+        {/* <Shapedivider position={"bottom"} rotation={"180"} height={"110px"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
@@ -99,16 +99,20 @@ const ourTeam = () => {
           >
             <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z"></path>
           </svg>
-        </Shapedivider>
+        </Shapedivider> */}
       </OurTeamStyled>
       <ContactFormSection
-        title={"Explore the untapped potential of your business data!"}
-        subTitle={
-          "Start your quest for insights and optimize your digital strategy. Discover the hidden treasures hidden within your data - Get a FREE Tracking Audit!"
-        }
-        cta={"Get your FREE audit!"}
-        auditSubTitle={"Your decisions are only as good as your data."}
-        auditId={"tracking_audit"}
+        shapedivider={false}
+        title={"Schedule a free consultation"}
+        subTitle={[
+          "Are you seeing a lot of (not sets) in your reports? Purchase revenue isn’t correct? Are you struggling with reading GA4 reports? Your GA4 data is not accurate enough?",
+          "If your answer to any of these questions is yes or maybe - we are here to hear you out and help you improve your tracking so you can rely on data and be confident in making data-driven decisions!",
+          "We are offering a free 30-minute consultation with one of our experts to delve deeper into your specific challenges, answer any further questions you may have, and explore how Wlastig can help you achieve your goals.",
+        ]}
+        formType={"freeConsultation"}
+        // cta={"Get Your FREE Audit"}
+        // auditTitle={"Find Your Money Leaks For Free!"}
+        // auditId={"marketing_audit"}
       ></ContactFormSection>
       <Modal></Modal>
     </>
@@ -117,6 +121,9 @@ const ourTeam = () => {
 
 export const OurTeamStyled = styled.div`
   position: relative;
+  & section {
+    padding-bottom: 0;
+  }
   img {
     object-fit: contain;
     margin-inline: auto;
