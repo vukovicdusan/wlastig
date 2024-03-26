@@ -1,7 +1,7 @@
 const handler = async (req, res) => {
   const api_key = process.env.KLAVIYO_API;
   const contact_form_list_id = "WLjUJC";
-  const audit_list_id = "T9h2xj";
+  const free_consultation = "XZQiee";
   try {
     const { name, email, type } = req.body.data;
 
@@ -15,7 +15,8 @@ const handler = async (req, res) => {
         profiles: [{ email, name }],
       }),
     };
-    const listId = type === "contact" ? contact_form_list_id : audit_list_id;
+    const listId =
+      type === "contact" ? contact_form_list_id : free_consultation;
     const response = await fetch(
       "https://a.klaviyo.com/api/v2/list/" +
         listId +

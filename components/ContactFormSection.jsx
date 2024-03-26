@@ -15,11 +15,15 @@ import ContactForm from "./ContactForm";
 const ContactFormSection = (props) => {
   const router = useRouter();
 
-  const subTitleContent = props.subTitle.map((content, index) => (
-    <p key={index} className="title-l">
-      {content}
-    </p>
-  ));
+  const subTitleContent = props.subTitle
+    ? props.subTitle.map((content, index) => (
+        <p key={index} className="title-s">
+          {content}
+        </p>
+      ))
+    : "";
+
+  console.log(props.formType);
 
   return (
     <FullBackground background={"var(--primary)"}>
@@ -47,20 +51,22 @@ const ContactFormSection = (props) => {
               switcherJustify={"center"}
               gap={"var(--s5)"}
             >
-              <Stack stackJustify={"center"} stackAlign={"center"}>
-                <AnimationContainer>
+              <AnimationContainer>
+                <Stack stackJustify={"center"} stackAlign={"center"}>
                   <h3 className="title-xl">
                     {props.title || "150+ Point Audit For Data Quality"}
                   </h3>
                   {subTitleContent}
-                </AnimationContainer>
-              </Stack>
+                </Stack>
+              </AnimationContainer>
               {router.pathname === "/careers/[career]" ? (
                 <CareerForm></CareerForm>
               ) : (
                 <div className="contact-form-wrapper">
-                  <h4>Schedule a free consultation</h4>
-                  <ContactForm alignButton={"flex-start"}></ContactForm>
+                  <ContactForm
+                    formType={props.formType}
+                    alignButton={"center"}
+                  ></ContactForm>
                 </div>
                 // <Audit
                 // 	auditId={props.auditId}
@@ -86,9 +92,13 @@ export const ContactFormSectionStyled = styled.div`
   }
 
   & .title-xl,
-  & .title-l {
+  & .title-s {
     text-align: center;
     color: var(--text-light);
+  }
+
+  & .title-s {
+    text-align: justify;
   }
 
   .contact-form-wrapper {

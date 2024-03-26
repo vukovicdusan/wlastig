@@ -102,8 +102,8 @@ const Contact = () => {
                     </StyledText>
                   </a>
                 </span>
-                <ContactForm></ContactForm>
-                <StyledText family={"var(--poppinsbold)"}>
+                <ContactForm formType={"contact"}></ContactForm>
+                {/* <StyledText family={"var(--poppinsbold)"}>
                   Want a quote and a game plan fast?
                 </StyledText>
                 <button
@@ -134,7 +134,7 @@ const Contact = () => {
                       fillRule="nonzero"
                     />
                   </svg>
-                </button>
+                </button> */}
               </Stack>
             </AnimationContainer>
           </Switcher>

@@ -8,10 +8,13 @@ import { StyledText } from "./styles/StyledText.styled";
 import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
+import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [contactFormData, setContactFormData] = useState({ type: "contact" });
+  const [contactFormData, setContactFormData] = useState({
+    type: props.formType || "contact",
+  });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
@@ -31,6 +34,7 @@ const ContactForm = (props) => {
     try {
       await sendContactForm(contactFormData);
       await sendToKlaviyo(contactFormData);
+      await firebaseWriteHandler(contactFormData);
       setContactFormProccess((prev) => ({
         ...prev,
         success: true,
@@ -111,7 +115,7 @@ const ContactForm = (props) => {
           stackAlign={"center"}
           onSubmit={onSubmitHandler}
           stackSpace={"var(--s2)"}
-          id="contact_form"
+          id={contactFormData.type}
         >
           <Switcher elCount={2} flexBasis={"20rem"}>
             <InputWrapper>
@@ -161,7 +165,7 @@ const ContactForm = (props) => {
               rows="4"
               onChange={inputHandler}
             ></textarea>
-            <label htmlFor="comments">Any Comments?</label>
+            <label htmlFor="comments">Any Comments? (Optional)</label>
           </InputWrapper>
           <div className="button-loader">
             <Button>

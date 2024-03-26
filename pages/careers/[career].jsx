@@ -159,6 +159,7 @@ const Career = ({ data }) => {
           title={"Join Our Team!"}
           subTitle={""}
           cta={"Submit"}
+          formType={"career"}
         ></ContactFormSection>
         <Modal></Modal>
       </SingleCareer>
