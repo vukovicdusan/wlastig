@@ -1,4 +1,11 @@
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import React from "react";
 import { db } from "../../public/firebase/firebase";
 import { Wrapper } from "../../components/styles/Wrapper.styled";
@@ -9,8 +16,9 @@ import styled from "styled-components";
 import Head from "next/head";
 import BlogSidebar from "../../components/BlogSidebar";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper";
+import { createdAtSerializator } from "../../helpers/createdAtSerializator";
 
-const SinglePost = ({ blog }) => {
+const SinglePost = ({ blog, blogList }) => {
   return (
     <>
       <Head>
@@ -26,7 +34,7 @@ const SinglePost = ({ blog }) => {
         <Region>
           <Wrapper>
             <SinglePostStyled>
-              <BlogSidebar>
+              <BlogSidebar list={blogList}>
                 <div>
                   <BlogImageWrapper>
                     <div>
@@ -59,19 +67,38 @@ const SinglePost = ({ blog }) => {
 export const getServerSideProps = async ({ params }) => {
   /*BLOG POST SLUG AND BLOG POST ID IN FIRESTORE DOCUMENT MUST BE SAME*/
   const { blog: blogSlug } = params;
-  let blogData = {};
+  let singlePostData = {};
+  let blogData = [];
 
   try {
     const blogRef = doc(db, "blog", blogSlug);
     const docSnap = await getDoc(blogRef);
 
     if (docSnap.exists()) {
-      blogData = { id: docSnap.id, ...docSnap.data(), created_at: "" };
+      singlePostData = {
+        id: docSnap.id,
+        ...docSnap.data(),
+        created_at: "",
+      };
     }
+
+    const blogQuery = query(
+      collection(db, "blog"),
+      where("status", "==", "published")
+    );
+
+    const blogQuerySnapshot = await getDocs(blogQuery);
+    blogQuerySnapshot.forEach((doc) => {
+      blogData.push({
+        title: doc.data().title,
+        slug: doc.data().slug,
+      });
+    });
 
     return {
       props: {
-        blog: blogData,
+        blog: singlePostData,
+        blogList: blogData,
       },
     };
   } catch (err) {

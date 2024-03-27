@@ -671,4 +671,7 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron-down">
     <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
   </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" id="remove-folder">
+    <path d="M7 2c1.695 1.942 2.371 3 4 3h13v17h-24v-20h7zm2.414 8l2.586 2.586 2.586-2.586 1.414 1.414-2.586 2.586 2.586 2.586-1.414 1.414-2.586-2.586-2.586 2.586-1.414-1.414 2.586-2.586-2.586-2.586 1.414-1.414z"></path>
+  </symbol>
 </svg>

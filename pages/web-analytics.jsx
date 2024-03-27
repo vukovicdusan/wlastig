@@ -178,7 +178,7 @@ const webAnalytics = () => {
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
 
       <ContactFormSection
-        formType={"freeConsultation"}
+        formType={"free consultation"}
         shapedivider={false}
         title={"Schedule a free consultation"}
         subTitle={[

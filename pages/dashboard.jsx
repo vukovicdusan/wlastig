@@ -15,6 +15,7 @@ import WriteBlog from "../components/WriteBlog";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { FullBackground } from "../components/styles/FullBackground.styled";
 import DashboardPosts from "../components/DashboardPosts";
+import { createdAtSerializator } from "../helpers/createdAtSerializator";
 
 const Dashboard = ({ clientsList, blogList }) => {
   const [user] = useUser();
@@ -68,17 +69,15 @@ const Dashboard = ({ clientsList, blogList }) => {
                   <ul>
                     <li
                       className={`${
-                        navSelector.toLowerCase() === "new blog post"
-                          ? "active"
-                          : ""
+                        navSelector.toLowerCase() === "clients" ? "active" : ""
                       }`}
                     >
                       <DisabledLink
                         onClick={(e) => dashboardNavHandler(e)}
-                        value="write"
+                        value="users"
                         color={"var(--text-light)"}
                       >
-                        New Blog Post
+                        Clients
                       </DisabledLink>
                     </li>
                     <li
@@ -96,15 +95,17 @@ const Dashboard = ({ clientsList, blogList }) => {
                     </li>
                     <li
                       className={`${
-                        navSelector.toLowerCase() === "clients" ? "active" : ""
+                        navSelector.toLowerCase() === "new blog post"
+                          ? "active"
+                          : ""
                       }`}
                     >
                       <DisabledLink
                         onClick={(e) => dashboardNavHandler(e)}
-                        value="users"
+                        value="write"
                         color={"var(--text-light)"}
                       >
-                        Clients
+                        New Blog Post
                       </DisabledLink>
                     </li>
                   </ul>
@@ -154,12 +155,19 @@ export const getServerSideProps = async () => {
 
     const clientsQuerySnapshot = await getDocs(clientsQuery);
     clientsQuerySnapshot.forEach((doc) => {
-      clientsData.push({ id: doc.id, ...doc.data(), created_at: "" });
+      clientsData.push({
+        id: doc.id,
+        ...doc.data(),
+        created_at: createdAtSerializator(doc.data().created_at),
+      });
     });
-
     const blogQuerySnapshot = await getDocs(blogQuery);
     blogQuerySnapshot.forEach((doc) => {
-      blogData.push({ id: doc.id, ...doc.data(), created_at: "" });
+      blogData.push({
+        id: doc.id,
+        ...doc.data(),
+        created_at: createdAtSerializator(doc.data().created_at),
+      });
     });
 
     return {

@@ -13,24 +13,24 @@ import { Stack } from "../../components/styles/Stack.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper";
 import { useState } from "react";
+import { createdAtSerializator } from "../../helpers/createdAtSerializator";
+import { useEffect } from "react";
 
 const PostsPage = ({ blogList }) => {
-  const [searchedTerm, setSearchedTerm] = useState("");
-
   const postsHandler = () => {
     blogList.sort((a, b) => b.created_at.localeCompare(a.created_at));
-
-    const filteredPosts = blogList.filter((blog) =>
-      blog.title.toLowerCase().includes(searchedTerm.toLowerCase())
-    );
-
-    if (searchedTerm) return filteredPosts;
     return blogList;
   };
 
-  const searchTermsHandler = (searchTerm) => {
-    setSearchedTerm(searchTerm);
-  };
+  useEffect(() => {
+    const postsToSave = blogList.map((post) => ({
+      id: post.id,
+      title: post.title,
+      slug: post.slug,
+    }));
+
+    localStorage.setItem("posts", JSON.stringify(postsToSave));
+  }, [blogList]);
 
   return (
     <>
@@ -53,7 +53,10 @@ const PostsPage = ({ blogList }) => {
                   underlineMargin={"var(--s-4)"}
                 ></UnderlineStyled>
               </div>
-              <BlogSidebar searchTermsHandler={searchTermsHandler}>
+              <BlogSidebar
+                list={blogList}
+                // searchTermsHandler={searchTermsHandler}
+              >
                 <Stack>
                   {postsHandler().map((blog, index) => (
                     <Link
@@ -102,14 +105,16 @@ export const getServerSideProps = async () => {
   try {
     const blogQuery = query(
       collection(db, "blog"),
-      // orderBy("created_at", "desc"),
       where("status", "==", "published")
     );
 
     const blogQuerySnapshot = await getDocs(blogQuery);
     blogQuerySnapshot.forEach((doc) => {
-      const createdAt = doc.data().created_at.toDate().toISOString();
-      blogData.push({ id: doc.id, ...doc.data(), created_at: createdAt });
+      blogData.push({
+        id: doc.id,
+        ...doc.data(),
+        created_at: createdAtSerializator(doc.data().created_at),
+      });
     });
 
     return {

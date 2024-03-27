@@ -137,7 +137,7 @@ const Consulting = () => {
           "If your answer to any of these questions is yes or maybe - we are here to hear you out and help you improve your tracking so you can rely on data and be confident in making data-driven decisions!",
           "We are offering a free 30-minute consultation with one of our experts to delve deeper into your specific challenges, answer any further questions you may have, and explore how Wlastig can help you achieve your goals.",
         ]}
-        formType={"freeConsultation"}
+        formType={"free consultation"}
       ></ContactFormSection>
       <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
       <Modal></Modal>

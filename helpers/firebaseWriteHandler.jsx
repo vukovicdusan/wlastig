@@ -5,8 +5,8 @@ export const firebaseWriteHandler = async (data) => {
   await setDoc(doc(db, "clients", data.email + " - " + data.type), {
     name: data.name,
     email: data.email,
-    website: data.website,
-    comments: data.comments,
+    website: data.website || "",
+    message: data.comments || "",
     type: data.type,
     created_at: serverTimestamp(),
   });

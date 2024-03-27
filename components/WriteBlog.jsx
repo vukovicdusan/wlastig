@@ -17,18 +17,9 @@ import { InputWrapper } from "./styles/InputWrapper.styled";
 import WriteBlogTitle from "./WriteBlogTitle";
 import { db, storage } from "../public/firebase/firebase";
 import { useRouter } from "next/router";
+import { formatDate } from "../helpers/formatDate";
 
 const date = new Date();
-
-const formatDateForBlog = (date) => {
-  let writeDate = date.toLocaleDateString("sr-RS").split(". ");
-  let yearArr = writeDate[writeDate.length - 1].split("");
-  yearArr.pop();
-  let year = yearArr.join("");
-  writeDate.pop();
-  writeDate.push(year);
-  return writeDate.join("/");
-};
 
 const WriteBlog = (props) => {
   const [value, setValue] = useState("");
@@ -39,8 +30,6 @@ const WriteBlog = (props) => {
   const [postStatus, setPostStatus] = useState("draft");
   const [editPostValues, setEditPostValues] = useState({});
   const router = useRouter();
-
-  console.log(postStatus);
 
   const quillModules = {
     toolbar: [
@@ -85,7 +74,7 @@ const WriteBlog = (props) => {
                 // setDoc(doc(db, "data", "one")
                 await setDoc(doc(db, "blog", postSlug), {
                   //   author: author,
-                  date: formatDateForBlog(date),
+                  date: formatDate(date),
                   created_at: serverTimestamp(),
                   image: downloadURL,
                   content: value,
@@ -104,7 +93,7 @@ const WriteBlog = (props) => {
     } else {
       await setDoc(doc(db, "blog", postSlug), {
         //   author: author,
-        date: formatDateForBlog(date),
+        date: formatDate(date),
         created_at: serverTimestamp(),
         image: editPostValues.image,
         content: value,

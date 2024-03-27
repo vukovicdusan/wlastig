@@ -2,8 +2,16 @@ import React from "react";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 import styled from "styled-components";
 import QuickPublishDraft from "./QuickPublishDraft";
+import RemoveFirebaseButton from "./RemoveFirebaseButton";
+import { useState } from "react";
 
 const DashboardPosts = (props) => {
+  const [list, setList] = useState(props.blogList);
+
+  const returnListHandler = (list) => {
+    setList(list);
+  };
+
   const editPostHandler = (postId) => {
     props.editPostsRouterHandler(postId);
   };
@@ -20,10 +28,11 @@ const DashboardPosts = (props) => {
             <th scope="col">Status</th>
             <th scope="col">Date</th>
             <th scope="col">Edit</th>
+            <th scope="col">Remove</th>
           </tr>
         </thead>
         <tbody>
-          {props.blogList.map((post) => (
+          {list.map((post) => (
             <tr key={post.id}>
               <th scope="row">{post.title}</th>
               <td>
@@ -40,6 +49,14 @@ const DashboardPosts = (props) => {
                   ></use>
                 </svg>
               </td>
+              <td>
+                <RemoveFirebaseButton
+                  returnListHandler={returnListHandler}
+                  list={props.blogList}
+                  document={"blog"}
+                  id={post.id}
+                ></RemoveFirebaseButton>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -54,16 +71,16 @@ export default DashboardPosts;
 export const PostsTableStyled = styled.div`
   overflow-x: scroll;
 
-  .icon {
-    width: 40px;
-    height: 40px;
+  & .icon {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    fill: #d5d6db;
+    fill: var(--background-dark);
     transition: fill 0.2s ease;
   }
 
-  .icon:hover {
-    fill: var(--secondary);
+  & .icon:hover {
+    fill: var(--text-gray);
   }
 
   table {

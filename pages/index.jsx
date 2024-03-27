@@ -25,7 +25,7 @@ export default function Home() {
       <FocusSection></FocusSection>
       <Testimonials></Testimonials>
       <ContactFormSection
-        formType={"freeConsultation"}
+        formType={"free consultation"}
         shapedivider={true}
         title={"Schedule a free consultation"}
         subTitle={[

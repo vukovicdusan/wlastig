@@ -55,6 +55,7 @@ const Login = () => {
                     name="email"
                     type="text"
                     required
+                    pattern="[^@]+@[^\.]+\..+"
                   />
                   <label htmlFor="email">Email</label>
                 </InputWrapper>

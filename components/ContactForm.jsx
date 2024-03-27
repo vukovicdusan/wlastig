@@ -86,29 +86,7 @@ const ContactForm = (props) => {
         stackJustify={"center"}
         stackAlign={"center"}
       >
-        <Stack stackJustify={"center"} stackAlign={"center"}>
-          {/* <h2>Reach Out!</h2>
-          <span>
-            <a href="mailto: info@wlastig.com">
-              <StyledText
-                family={"var(--poppinsbold)"}
-                color={"var(--secondary)"}
-              >
-                info@wlastig.com
-              </StyledText>
-            </a>
-          </span> */}
-          {/* <span>
-            <a href="tel: +38169123456">
-              <StyledText
-                family={"var(--poppinsbold)"}
-                color={"var(--secondary)"}
-              >
-                +38169123456
-              </StyledText>
-            </a>
-          </span> */}
-        </Stack>
+        <Stack stackJustify={"center"} stackAlign={"center"}></Stack>
         <Stack
           as="form"
           stackJustify={"center"}
@@ -125,7 +103,7 @@ const ContactForm = (props) => {
                 id="name"
                 autoCapitalize="none"
                 autoCorrect="off"
-                autoComplete="email"
+                autoComplete="name"
                 required
                 onChange={inputHandler}
               />
@@ -140,7 +118,7 @@ const ContactForm = (props) => {
                 autoCorrect="off"
                 autoComplete="email"
                 required
-                pattern="[^@]+@[^\.]+\..+"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                 onChange={inputHandler}
               />
               <label htmlFor="email">Email</label>

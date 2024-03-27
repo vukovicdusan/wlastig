@@ -3,11 +3,27 @@ import logo from "../public/img/logo/Wlastig_logo_sajt_color.png";
 import Image from "next/image";
 import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
+import { useState } from "react";
+import Link from "next/link";
+import { useEffect } from "react";
 
 const BlogSidebar = (props) => {
+  const [list, setList] = useState("");
+  const [filteredList, setFilteredList] = useState("");
+
+  useEffect(() => {
+    const posts = JSON.parse(localStorage.getItem("posts"));
+    setList(posts);
+  }, []);
+
   const inputHandler = (e) => {
     const term = e.target.value;
-    props.searchTermsHandler(term);
+
+    const searchedList = list.filter((post) =>
+      post.title.toLowerCase().includes(term.toLowerCase())
+    );
+
+    setFilteredList(term !== "" ? searchedList : "");
   };
 
   return (
@@ -23,6 +39,23 @@ const BlogSidebar = (props) => {
             />
             <label htmlFor="search">Search</label>
           </InputWrapper>
+          {filteredList !== "" ? (
+            <ul className="search-list">
+              {filteredList.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    onClick={() => setFilteredList("")}
+                    href={`/blog/${item.slug}`}
+                    passHref
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ""
+          )}
         </form>
         <Image alt="logo" width={150} src={logo}></Image>
       </div>
@@ -38,6 +71,23 @@ export const BlogSidebarStyled = styled.div`
   margin-inline: auto;
   justify-content: center;
   gap: 2rem;
+
+  & form {
+    position: relative;
+  }
+
+  .search-list {
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    height: min-content;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    padding: 0.5rem;
+  }
+
+  .search-list li {
+  }
 
   & > * {
     color: #ddd;
