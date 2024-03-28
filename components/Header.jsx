@@ -10,8 +10,6 @@ import { Stack } from "./styles/Stack.styled";
 import { DisabledLink } from "./styles/DisabledLink.styled";
 import MobileMenu from "./MobileMenu";
 import { useRouter } from "next/router";
-// import { useModal } from "./hooks/useModal";
-// import Modal from "./Modal";
 import ModalCtx from "../store/ModalCtx";
 
 const Header = () => {
@@ -21,7 +19,6 @@ const Header = () => {
   const dropdownRef = useRef();
   const router = useRouter();
   const modalCtx = useContext(ModalCtx);
-  // const [modalCloseHandler, modelOpenHandler, forceOpen] = useModal();
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -141,6 +138,11 @@ const Header = () => {
               <li>
                 <Link href={"/contact"} passHref>
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href={"/blog"} passHref>
+                  Blog
                 </Link>
               </li>
               <li>
