@@ -16,7 +16,6 @@ import styled from "styled-components";
 import Head from "next/head";
 import BlogSidebar from "../../components/BlogSidebar";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper";
-import { createdAtSerializator } from "../../helpers/createdAtSerializator";
 
 const SinglePost = ({ blog, blogList }) => {
   return (
@@ -52,6 +51,13 @@ const SinglePost = ({ blog, blogList }) => {
                   <div>
                     <span>{blog.date}</span>
                     <h1>{blog.title}</h1>
+                    {blog.status === "draft" ? (
+                      <span className="draft-warninig">
+                        This is just a draft
+                      </span>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div dangerouslySetInnerHTML={{ __html: blog.content }} />
                 </div>
@@ -111,6 +117,12 @@ export default SinglePost;
 
 export const SinglePostStyled = styled.div`
   margin-top: 2rem;
+
+  .draft-warninig {
+    color: var(--secondary);
+    font-size: var(--s-1);
+    text-transform: uppercase;
+  }
 
   .ql-align-center > * {
     margin-inline: auto;

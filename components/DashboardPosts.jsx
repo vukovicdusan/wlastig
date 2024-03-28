@@ -4,6 +4,7 @@ import styled from "styled-components";
 import QuickPublishDraft from "./QuickPublishDraft";
 import RemoveFirebaseButton from "./RemoveFirebaseButton";
 import { useState } from "react";
+import Link from "next/link";
 
 const DashboardPosts = (props) => {
   const [list, setList] = useState(props.blogList);
@@ -34,7 +35,11 @@ const DashboardPosts = (props) => {
         <tbody>
           {list.map((post) => (
             <tr key={post.id}>
-              <th scope="row">{post.title}</th>
+              <th scope="row">
+                <Link target="_blank" href={`/blog/${post.slug}`} passHref>
+                  {post.title}
+                </Link>
+              </th>
               <td>
                 <QuickPublishDraft
                   postStatusProp={post.status}
@@ -71,6 +76,14 @@ export default DashboardPosts;
 export const PostsTableStyled = styled.div`
   overflow-x: scroll;
 
+  & a::after {
+    content: none;
+  }
+
+  & a:hover {
+    color: var(--secondary);
+  }
+
   & .icon {
     width: 30px;
     height: 30px;
@@ -80,7 +93,7 @@ export const PostsTableStyled = styled.div`
   }
 
   & .icon:hover {
-    fill: var(--text-gray);
+    fill: var(--success-color);
   }
 
   table {
@@ -110,6 +123,10 @@ export const PostsTableStyled = styled.div`
     text-align: center;
   }
 
+  tbody th {
+    text-align: left;
+  }
+
   td:last-of-type {
     text-align: center;
   }
@@ -119,7 +136,7 @@ export const PostsTableStyled = styled.div`
   }
 
   tfoot th {
-    text-align: center;
+    text-align: left;
   }
 
   tfoot td {

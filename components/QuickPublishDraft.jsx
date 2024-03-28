@@ -114,4 +114,16 @@ export const QuickPublishDraftStyled = styled.form`
   & label {
     cursor: pointer;
   }
+
+  @media (max-width: 500px) {
+    .button-wrapper {
+      width: 20px;
+      height: 20px;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;

@@ -1,10 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -73,9 +67,7 @@ const WriteBlog = (props) => {
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then(
               async (downloadURL) => {
-                // setDoc(doc(db, "data", "one")
                 await setDoc(doc(db, "blog", postSlug), {
-                  //   author: author,
                   date: formatDate(date),
                   created_at: serverTimestamp(),
                   image: downloadURL,
@@ -94,7 +86,6 @@ const WriteBlog = (props) => {
       }
     } else {
       await setDoc(doc(db, "blog", postSlug), {
-        //   author: author,
         date: formatDate(date),
         created_at: serverTimestamp(),
         image: editPostValues.image,
