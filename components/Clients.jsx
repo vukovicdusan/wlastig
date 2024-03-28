@@ -56,15 +56,9 @@ export default Clients;
 export const ClientsTableStyled = styled.div`
   overflow-x: scroll;
 
-  button {
-    border: none;
-    background-color: transparent;
-  }
-
   table {
     border-collapse: collapse;
     border: 1px solid rgb(140 140 140);
-    /* font-size: 0.8rem; */
     letter-spacing: 1px;
     background-color: var(--background-light);
     width: 100%;

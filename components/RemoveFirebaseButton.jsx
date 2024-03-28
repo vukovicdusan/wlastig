@@ -76,8 +76,13 @@ export const StyledRemoveButton = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--background-light);
-    padding: 2rem;
-    gap: 0.5rem;
+    padding: 3rem;
+    gap: 1rem;
+    border-radius: 5px;
+  }
+
+  .confirmation-dialog button {
+    padding: 0.3rem 0.8rem;
   }
 
   .confirmation-dialog div > *:nth-child(2):hover {
