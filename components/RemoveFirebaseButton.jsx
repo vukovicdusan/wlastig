@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { removeDocumentHandler } from "../helpers/RemoveDocumentHandler";
+import { removeDocumentHandler } from "../helpers/removeDocumentHandler";
 
 const RemoveFirebaseButton = (props) => {
   const onRemoveItemHandler = () => {
     removeDocumentHandler(props.document, props.id);
-    const list = props.list.filter((item) => item.id === props.id);
+    const list = props.list.filter((item) => item.id !== props.id);
     props.returnListHandler(list);
   };
 
