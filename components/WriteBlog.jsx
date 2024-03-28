@@ -33,14 +33,16 @@ const WriteBlog = (props) => {
 
   const quillModules = {
     toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike"],
-      ["blockquote"],
-      [{ color: [] }],
-      [{ list: "ordered" }],
-      [{ list: "bullet" }],
+      [
+        { header: [1, 2, 3, 4, 5, 6, false] },
+        { size: ["small", false, "large", "huge"] },
+      ],
+      [{ color: [] }, "bold", "italic", "underline", "strike"],
+      ["blockquote", "code-block"],
+      [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image", "video"],
       [{ align: [] }],
+      [{ script: "sub" }, { script: "super" }],
     ],
   };
 

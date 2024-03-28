@@ -36,4 +36,16 @@ export const BlogImageWrapper = styled.div`
     font-weight: bold;
     text-transform: capitalize;
   }
+
+  @media (max-width: 600px) {
+    & span {
+      font-size: var(--s1) !important;
+    }
+  }
+
+  @media (max-width: 450px) {
+    & span {
+      font-size: var(--s0) !important;
+    }
+  }
 `;

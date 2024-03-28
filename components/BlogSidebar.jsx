@@ -78,15 +78,32 @@ export const BlogSidebarStyled = styled.div`
 
   .search-list {
     position: absolute;
-    bottom: -40px;
+    top: 100%;
     width: 100%;
     height: min-content;
     background-color: var(--background-light);
     color: var(--text-dark);
-    padding: 0.5rem;
   }
 
   .search-list li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .search-list li a {
+    font-size: var(--s-1);
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .search-list li:hover {
+    background-color: var(--testimonial-frames);
+  }
+
+  .search-list li a::after {
+    content: none;
+    font-size: var(--s-1);
   }
 
   & > * {
