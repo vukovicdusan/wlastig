@@ -27,6 +27,11 @@ const Contact = () => {
           content="Wanna hear a great story?
 					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
         />
+        <link
+          rel="canonical"
+          href="https://wlastig.com/contact"
+          key="canonical"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled backgroundImg={"./img/pages/hero-contact.png"}>
