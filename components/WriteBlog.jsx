@@ -1,43 +1,139 @@
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import Resizer from "react-image-file-resizer";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./styles/Button.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import WriteBlogTitle from "./WriteBlogTitle";
 import { db, storage } from "../public/firebase/firebase";
 import { useRouter } from "next/router";
 import { formatDate } from "../helpers/formatDate";
+// import ReactQuillComponent from "./ReactQuillComponent";
 
 const date = new Date();
+
+const ReactQuill = dynamic(
+  async () => {
+    const { default: RQ } = await import("react-quill");
+
+    // eslint-disable-next-line react/display-name
+    return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+  },
+  {
+    ssr: false,
+  }
+);
 
 const WriteBlog = (props) => {
   const [value, setValue] = useState("");
   const [postTitle, setPostTitleValue] = useState("");
   const [blogImage, setBlogImage] = useState("");
+  const [quillImage, setQuillImage] = useState();
   const [progress, setProgress] = useState(null);
   const [postSlug, setPostSlug] = useState("");
   const [postStatus, setPostStatus] = useState("draft");
   const [editPostValues, setEditPostValues] = useState({});
   const router = useRouter();
+  let quillRef = useRef(null);
 
-  const quillModules = {
-    toolbar: [
-      [
-        { header: [1, 2, 3, 4, 5, 6, false] },
-        { size: ["small", false, "large", "huge"] },
-      ],
-      [{ color: [] }, "bold", "italic", "underline", "strike"],
-      ["blockquote", "code-block"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image", "video"],
-      [{ align: [] }],
-      [{ script: "sub" }, { script: "super" }],
-    ],
+  // const quillValueHandler = (quillValue) => {
+  //   setValue(quillValue);
+  // };
+
+  // const quillModules = {
+  //   toolbar: [
+  //     [
+  //       { header: [1, 2, 3, 4, 5, 6, false] },
+  //       { size: ["small", false, "large", "huge"] },
+  //     ],
+  //     [{ color: [] }, "bold", "italic", "underline", "strike"],
+  //     ["blockquote", "code-block"],
+  //     [{ list: "ordered" }, { list: "bullet" }],
+  //     ["link", "image", "video"],
+  //     [{ align: [] }],
+  //     [{ script: "sub" }, { script: "super" }],
+  //   ],
+  // };
+
+  // const quillModules = {
+  //   toolbar: {
+  //     container: [
+  //       [
+  //         { header: [1, 2, 3, 4, 5, 6, false] },
+  //         { size: ["small", false, "large", "huge"] },
+  //       ],
+  //       [{ color: [] }, "bold", "italic", "underline", "strike"],
+  //       ["blockquote", "code-block"],
+  //       [{ list: "ordered" }, { list: "bullet" }],
+  //       ["link", "image", "video"],
+  //       [{ align: [] }],
+  //       [{ script: "sub" }, { script: "super" }],
+  //     ],
+  //     handlers: {
+  //       image: () => handleQuillImageUpload(),
+  //     },
+  //   },
+  // };
+  const quillModules = useMemo(
+    () => ({
+      toolbar: {
+        container: [
+          [
+            { header: [1, 2, 3, 4, 5, 6, false] },
+            { size: ["small", false, "large", "huge"] },
+          ],
+          [{ color: [] }, "bold", "italic", "underline", "strike"],
+          ["blockquote", "code-block"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["link", "image", "video"],
+          [{ align: [] }],
+          [{ script: "sub" }, { script: "super" }],
+        ],
+        handlers: {
+          image: () => handleQuillImageUpload(),
+        },
+      },
+    }),
+    [handleQuillImageUpload]
+  );
+
+  const handleQuillImageUpload = () => {
+    console.log("handleQuillImageUpload has been activated");
+    const input = document.createElement("input");
+
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+
+    input.onchange = async () => {
+      console.log("handleQuillImageUpload onChange has been activated");
+      const file = input.files[0];
+      // const formData = new FormData();
+
+      // formData.append('image', file);
+      quillImageInputHandler(file);
+      // Save current cursor state
+      const range = quillRef.current.editor.getSelection(true);
+
+      // Insert temporary loading placeholder image
+      // quillRef.current.editor.insertEmbed(range.index, 'image', `${window.location.origin}/images/loaders/placeholder.gif`);
+
+      // Move cursor to right side of image (easier to continue typing)
+      quillRef.current.editor.setSelection(range.index + 1);
+
+      // const res = 'https://res.cloudinary.com/db6kegyyc/image/upload/v1670236604/o8xdwlwarz1ejhxvpchw.png';
+
+      // Remove placeholder image
+      // quillRef.current.editor.deleteText(range.index, 1);
+
+      // Insert uploaded image
+      // this.quill.insertEmbed(range.index, 'image', res.body.image);
+      quillRef.current.editor.insertEmbed(range.index, "image", quillImage);
+    };
   };
 
   const contentInputHandler = async (e) => {
@@ -117,6 +213,64 @@ const WriteBlog = (props) => {
     }
   };
 
+  const quillImageInputHandler = (file) => {
+    console.log("quillImageInputHandler");
+    try {
+      Resizer.imageFileResizer(
+        file,
+        300,
+        300,
+        "JPEG",
+        72,
+        0,
+        (uri) => {
+          // setQuillImage(uri);
+          const imgName = date.getTime() + "quill";
+          const storageRef = ref(storage, imgName);
+          const uploadTask = uploadBytesResumable(storageRef, uri);
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+              setProgress(progress);
+              switch (snapshot.state) {
+                case "paused":
+                  break;
+                case "running":
+                  break;
+              }
+            },
+            (error) => {
+              console.log(error);
+            },
+            () => {
+              getDownloadURL(uploadTask.snapshot.ref).then(
+                async (downloadURL) => {
+                  setQuillImage(downloadURL);
+                  // await setDoc(doc(db, "blog", postSlug), {
+                  //   date: formatDate(date),
+                  //   created_at: serverTimestamp(),
+                  //   image: downloadURL,
+                  //   content: value,
+                  //   title: postTitle,
+                  //   slug: postSlug,
+                  //   status: postStatus,
+                  // });
+                  // router.reload();
+                }
+              );
+            }
+          );
+        },
+        "file"
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const titleAndSlugHandler = (e) => {
     setPostTitleValue(e.target.value);
     let slug = e.target.value.toLowerCase().split(" ").join("-");
@@ -139,7 +293,19 @@ const WriteBlog = (props) => {
       });
     }
   }, [props.postForEdit]);
-  console.log(postStatus);
+
+  useEffect(() => {
+    const init = (quill) => {};
+    const check = () => {
+      if (quillRef.current) {
+        init(quillRef.current);
+        return;
+      }
+      setTimeout(check, 200);
+    };
+    check();
+  }, [quillRef]);
+
   return (
     <WriteBlogStyled>
       <WriteBlogTitle></WriteBlogTitle>
@@ -215,7 +381,13 @@ const WriteBlog = (props) => {
           </div>
         )}
       </form>
+      {/* <ReactQuillComponent
+        forwardedRef={quillRef}
+        quillValueHandler={quillValueHandler}
+        setValue={value}
+      ></ReactQuillComponent> */}
       <ReactQuill
+        forwardedRef={quillRef}
         modules={quillModules}
         placeholder={"Start your creative endeavor here..."}
         theme="snow"
