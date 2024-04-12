@@ -139,6 +139,7 @@ export const BlogPostsStyled = styled.div`
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--secondary);
+    overflow: hidden;
   }
 
   .wrapper::after {
@@ -171,9 +172,8 @@ export const BlogPostsStyled = styled.div`
     font-weight: normal;
   }
 
-  .wrapper:hover > div > div {
-    backdrop-filter: blur(0px);
-    background-color: rgba(0, 0, 0, 0.3);
+  .wrapper:hover > div img {
+    transform: translateY(-50%) scale(1.1) rotate(1deg);
   }
 
   span {

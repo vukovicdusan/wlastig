@@ -52,7 +52,7 @@ const SinglePost = ({ blog, blogList }) => {
                     <span>{blog.date}</span>
                     <h1>{blog.title}</h1>
                     {blog.status === "draft" ? (
-                      <span className="draft-warninig">
+                      <span className="draft-warning">
                         This is just a draft
                       </span>
                     ) : (
@@ -118,7 +118,7 @@ export default SinglePost;
 export const SinglePostStyled = styled.div`
   margin-top: 2rem;
 
-  .draft-warninig {
+  .draft-warning {
     color: var(--secondary);
     font-size: var(--s-1);
     text-transform: uppercase;

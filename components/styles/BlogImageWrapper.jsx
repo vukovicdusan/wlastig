@@ -10,11 +10,13 @@ export const BlogImageWrapper = styled.div`
     top: 50%;
     transform: translateY(-50%);
     z-index: 0;
+    transition: all 0.4s ease;
   }
 
   & {
     position: relative;
     aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
   & > div {
@@ -27,7 +29,8 @@ export const BlogImageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
-    transition: backdrop-filter 0.2s ease, background-color 0.4s ease;
+    /* transition: backdrop-filter 0.4s ease; */
+    padding: var(--s1);
   }
 
   & span {
