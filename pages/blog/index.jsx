@@ -172,7 +172,7 @@ export const BlogPostsStyled = styled.div`
     font-weight: normal;
   }
 
-  .wrapper:hover > div img {
+  .wrapper:hover > div > img {
     transform: translateY(-50%) scale(1.1) rotate(1deg);
   }
 
@@ -187,7 +187,12 @@ export const BlogPostsStyled = styled.div`
     overflow: hidden;
   }
 
-  .extract > * {
+  .extract p {
+  }
+
+  .extract > *,
+  .extract > * + * {
+    background-color: transparent !important;
     font-size: var(--s0) !important;
   }
 `;
