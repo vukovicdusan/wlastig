@@ -1,11 +1,10 @@
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import Resizer from "react-image-file-resizer";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./styles/Button.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import WriteBlogTitle from "./WriteBlogTitle";
@@ -14,6 +13,18 @@ import { useRouter } from "next/router";
 import { formatDate } from "../helpers/formatDate";
 
 const date = new Date();
+
+const ReactQuill = dynamic(
+  async () => {
+    const { default: RQ } = await import("react-quill");
+
+    // eslint-disable-next-line react/display-name
+    return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+  },
+  {
+    ssr: false,
+  }
+);
 
 const WriteBlog = (props) => {
   const [value, setValue] = useState("");
@@ -24,21 +35,43 @@ const WriteBlog = (props) => {
   const [postStatus, setPostStatus] = useState("draft");
   const [editPostValues, setEditPostValues] = useState({});
   const router = useRouter();
+  let quillRef = useRef(null);
 
-  const quillModules = {
-    toolbar: [
-      [
-        { header: [1, 2, 3, 4, 5, 6, false] },
-        { size: ["small", false, "large", "huge"] },
-      ],
-      [{ color: [] }, "bold", "italic", "underline", "strike"],
-      ["blockquote", "code-block"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image", "video"],
-      [{ align: [] }],
-      [{ script: "sub" }, { script: "super" }],
-    ],
-  };
+  const quillModules = useMemo(
+    () => ({
+      toolbar: {
+        container: [
+          [
+            { header: [1, 2, 3, 4, 5, 6, false] },
+            { size: ["small", false, "large", "huge"] },
+          ],
+          [{ color: [] }, "bold", "italic", "underline", "strike"],
+          ["blockquote", "code-block"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["link", "image", "video"],
+          [{ align: [] }],
+          [{ script: "sub" }, { script: "super" }],
+        ],
+        handlers: {
+          image: () => handleQuillImageUpload(),
+        },
+      },
+    }),
+    [handleQuillImageUpload]
+  );
+
+  const handleQuillImageUpload = useCallback(() => {
+    const input = document.createElement("input");
+
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      await quillImageInputHandler(file);
+    };
+  }, [quillImageInputHandler]);
 
   const contentInputHandler = async (e) => {
     e.preventDefault();
@@ -117,6 +150,60 @@ const WriteBlog = (props) => {
     }
   };
 
+  const quillImageInputHandler = useCallback((file) => {
+    try {
+      Resizer.imageFileResizer(
+        file,
+        350,
+        350,
+        "JPEG",
+        72,
+        0,
+        (uri) => {
+          const imgName = date.getTime() + "quill";
+          const storageRef = ref(storage, imgName);
+          const uploadTask = uploadBytesResumable(storageRef, uri);
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+              setProgress(progress);
+              switch (snapshot.state) {
+                case "paused":
+                  break;
+                case "running":
+                  break;
+              }
+            },
+            (error) => {
+              console.log(error);
+            },
+            () => {
+              getDownloadURL(uploadTask.snapshot.ref).then(
+                async (downloadURL) => {
+                  const range = quillRef.current.editor.getSelection(true);
+                  if (range) {
+                    quillRef.current.editor.insertEmbed(
+                      range.index,
+                      "image",
+                      downloadURL
+                    );
+                    quillRef.current.editor.setSelection(range.index + 1);
+                  }
+                }
+              );
+            }
+          );
+        },
+        "file"
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
   const titleAndSlugHandler = (e) => {
     setPostTitleValue(e.target.value);
     let slug = e.target.value.toLowerCase().split(" ").join("-");
@@ -139,7 +226,19 @@ const WriteBlog = (props) => {
       });
     }
   }, [props.postForEdit]);
-  console.log(postStatus);
+
+  useEffect(() => {
+    const init = (quill) => {};
+    const check = () => {
+      if (quillRef.current) {
+        init(quillRef.current);
+        return;
+      }
+      setTimeout(check, 200);
+    };
+    check();
+  }, [quillRef]);
+
   return (
     <WriteBlogStyled>
       <WriteBlogTitle></WriteBlogTitle>
@@ -215,7 +314,13 @@ const WriteBlog = (props) => {
           </div>
         )}
       </form>
+      {/* <ReactQuillComponent
+        forwardedRef={quillRef}
+        quillValueHandler={quillValueHandler}
+        setValue={value}
+      ></ReactQuillComponent> */}
       <ReactQuill
+        forwardedRef={quillRef}
         modules={quillModules}
         placeholder={"Start your creative endeavor here..."}
         theme="snow"
