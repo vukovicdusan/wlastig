@@ -49,7 +49,7 @@ const WriteBlog = (props) => {
           ["blockquote", "code-block"],
           [{ list: "ordered" }, { list: "bullet" }],
           ["link", "image", "video"],
-          [{ align: [] }],
+          [{ align: [] }, { indent: "-1" }, { indent: "+1" }],
           [{ script: "sub" }, { script: "super" }],
         ],
         handlers: {
@@ -191,6 +191,11 @@ const WriteBlog = (props) => {
                       range.index,
                       "image",
                       downloadURL
+                    );
+                    quillRef.current.editor.insertText(
+                      range.index + 1,
+                      "\n",
+                      "user"
                     );
                     quillRef.current.editor.setSelection(range.index + 1);
                   }
