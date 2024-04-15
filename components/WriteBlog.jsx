@@ -131,6 +131,7 @@ const WriteBlog = (props) => {
     }
   };
 
+  /* COVER IMAGE HANDLING */
   const imageInputHandler = (e) => {
     try {
       Resizer.imageFileResizer(
@@ -150,6 +151,7 @@ const WriteBlog = (props) => {
     }
   };
 
+  /* FROM EDITOR UPLOAD IMAGE HANDLING */
   const quillImageInputHandler = useCallback((file) => {
     try {
       Resizer.imageFileResizer(
@@ -299,7 +301,7 @@ const WriteBlog = (props) => {
           <label htmlFor="status">Post Status</label>
         </InputWrapper>
         {progress && (
-          <div className="[ d-flex-c ] progress-bar--container">
+          <div>
             <span
               className="progress-bar"
               style={{
@@ -310,15 +312,20 @@ const WriteBlog = (props) => {
                   (progress > 65 && "green"),
               }}
             ></span>
-            <p>{Math.floor(progress)}%</p>
+            <p
+              style={{
+                color:
+                  (progress < 30 && "red") ||
+                  (progress < 65 && "yellow") ||
+                  (progress > 65 && "green"),
+              }}
+            >
+              {Math.floor(progress)}%
+            </p>
           </div>
         )}
       </form>
-      {/* <ReactQuillComponent
-        forwardedRef={quillRef}
-        quillValueHandler={quillValueHandler}
-        setValue={value}
-      ></ReactQuillComponent> */}
+
       <ReactQuill
         forwardedRef={quillRef}
         modules={quillModules}
@@ -374,6 +381,17 @@ export const WriteBlogStyled = styled.div`
 
   & option {
     background-color: var(--background-dark);
+  }
+
+  .progress-bar {
+    height: 2px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  .progress-bar,
+  .progress-bar + p {
+    transition: all 0.4s ease;
   }
 
   /* QUILL */
