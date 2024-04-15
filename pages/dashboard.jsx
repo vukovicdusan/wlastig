@@ -117,7 +117,7 @@ const Dashboard = ({ clientsList, blogList }) => {
                   <span></span>{" "}
                 </Button>
               </div>
-              <div className="dahsboard-body">{dashboardContent}</div>
+              <div className="dashboard-body">{dashboardContent}</div>
             </Wrapper>
             <Shapedivider position={"bottom"} rotation={"0"} height={"80px"}>
               <svg
@@ -213,6 +213,18 @@ export const DashboardStyled = styled.div`
   & ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: var(--s1);
+  }
+  .dashboard-body {
+    margin-bottom: var(--s3);
+  }
+  @media (max-width: 850px) {
+    .dashboard-header {
+      margin-top: var(--s0);
+    }
+
+    & ul {
+      gap: var(--s0);
+    }
   }
 `;
