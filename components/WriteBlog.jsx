@@ -1,18 +1,16 @@
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import dynamic from "next/dynamic";
-// const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import Resizer from "react-image-file-resizer";
 import styled from "styled-components";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./styles/Button.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import WriteBlogTitle from "./WriteBlogTitle";
 import { db, storage } from "../public/firebase/firebase";
 import { useRouter } from "next/router";
 import { formatDate } from "../helpers/formatDate";
-// import ReactQuillComponent from "./ReactQuillComponent";
 
 const date = new Date();
 
@@ -32,7 +30,6 @@ const WriteBlog = (props) => {
   const [value, setValue] = useState("");
   const [postTitle, setPostTitleValue] = useState("");
   const [blogImage, setBlogImage] = useState("");
-  const [quillImage, setQuillImage] = useState();
   const [progress, setProgress] = useState(null);
   const [postSlug, setPostSlug] = useState("");
   const [postStatus, setPostStatus] = useState("draft");
@@ -40,44 +37,6 @@ const WriteBlog = (props) => {
   const router = useRouter();
   let quillRef = useRef(null);
 
-  // const quillValueHandler = (quillValue) => {
-  //   setValue(quillValue);
-  // };
-
-  // const quillModules = {
-  //   toolbar: [
-  //     [
-  //       { header: [1, 2, 3, 4, 5, 6, false] },
-  //       { size: ["small", false, "large", "huge"] },
-  //     ],
-  //     [{ color: [] }, "bold", "italic", "underline", "strike"],
-  //     ["blockquote", "code-block"],
-  //     [{ list: "ordered" }, { list: "bullet" }],
-  //     ["link", "image", "video"],
-  //     [{ align: [] }],
-  //     [{ script: "sub" }, { script: "super" }],
-  //   ],
-  // };
-
-  // const quillModules = {
-  //   toolbar: {
-  //     container: [
-  //       [
-  //         { header: [1, 2, 3, 4, 5, 6, false] },
-  //         { size: ["small", false, "large", "huge"] },
-  //       ],
-  //       [{ color: [] }, "bold", "italic", "underline", "strike"],
-  //       ["blockquote", "code-block"],
-  //       [{ list: "ordered" }, { list: "bullet" }],
-  //       ["link", "image", "video"],
-  //       [{ align: [] }],
-  //       [{ script: "sub" }, { script: "super" }],
-  //     ],
-  //     handlers: {
-  //       image: () => handleQuillImageUpload(),
-  //     },
-  //   },
-  // };
   const quillModules = useMemo(
     () => ({
       toolbar: {
@@ -101,8 +60,7 @@ const WriteBlog = (props) => {
     [handleQuillImageUpload]
   );
 
-  const handleQuillImageUpload = () => {
-    console.log("handleQuillImageUpload has been activated");
+  const handleQuillImageUpload = useCallback(() => {
     const input = document.createElement("input");
 
     input.setAttribute("type", "file");
@@ -110,31 +68,10 @@ const WriteBlog = (props) => {
     input.click();
 
     input.onchange = async () => {
-      console.log("handleQuillImageUpload onChange has been activated");
       const file = input.files[0];
-      // const formData = new FormData();
-
-      // formData.append('image', file);
-      quillImageInputHandler(file);
-      // Save current cursor state
-      const range = quillRef.current.editor.getSelection(true);
-
-      // Insert temporary loading placeholder image
-      // quillRef.current.editor.insertEmbed(range.index, 'image', `${window.location.origin}/images/loaders/placeholder.gif`);
-
-      // Move cursor to right side of image (easier to continue typing)
-      quillRef.current.editor.setSelection(range.index + 1);
-
-      // const res = 'https://res.cloudinary.com/db6kegyyc/image/upload/v1670236604/o8xdwlwarz1ejhxvpchw.png';
-
-      // Remove placeholder image
-      // quillRef.current.editor.deleteText(range.index, 1);
-
-      // Insert uploaded image
-      // this.quill.insertEmbed(range.index, 'image', res.body.image);
-      quillRef.current.editor.insertEmbed(range.index, "image", quillImage);
+      await quillImageInputHandler(file);
     };
-  };
+  }, [quillImageInputHandler]);
 
   const contentInputHandler = async (e) => {
     e.preventDefault();
@@ -213,18 +150,16 @@ const WriteBlog = (props) => {
     }
   };
 
-  const quillImageInputHandler = (file) => {
-    console.log("quillImageInputHandler");
+  const quillImageInputHandler = useCallback((file) => {
     try {
       Resizer.imageFileResizer(
         file,
-        300,
-        300,
+        350,
+        350,
         "JPEG",
         72,
         0,
         (uri) => {
-          // setQuillImage(uri);
           const imgName = date.getTime() + "quill";
           const storageRef = ref(storage, imgName);
           const uploadTask = uploadBytesResumable(storageRef, uri);
@@ -248,17 +183,15 @@ const WriteBlog = (props) => {
             () => {
               getDownloadURL(uploadTask.snapshot.ref).then(
                 async (downloadURL) => {
-                  setQuillImage(downloadURL);
-                  // await setDoc(doc(db, "blog", postSlug), {
-                  //   date: formatDate(date),
-                  //   created_at: serverTimestamp(),
-                  //   image: downloadURL,
-                  //   content: value,
-                  //   title: postTitle,
-                  //   slug: postSlug,
-                  //   status: postStatus,
-                  // });
-                  // router.reload();
+                  const range = quillRef.current.editor.getSelection(true);
+                  if (range) {
+                    quillRef.current.editor.insertEmbed(
+                      range.index,
+                      "image",
+                      downloadURL
+                    );
+                    quillRef.current.editor.setSelection(range.index + 1);
+                  }
                 }
               );
             }
@@ -269,7 +202,7 @@ const WriteBlog = (props) => {
     } catch (err) {
       console.log(err);
     }
-  };
+  });
 
   const titleAndSlugHandler = (e) => {
     setPostTitleValue(e.target.value);

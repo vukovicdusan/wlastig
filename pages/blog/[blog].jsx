@@ -40,6 +40,7 @@ const SinglePost = ({ blog, blogList }) => {
                       <span>{blog.title}</span>
                     </div>
                     <Image
+                      className="cover"
                       width={800}
                       height={350}
                       src={blog.image}
@@ -117,6 +118,15 @@ export default SinglePost;
 
 export const SinglePostStyled = styled.div`
   margin-top: 2rem;
+
+  .cover {
+    margin: 0 !important;
+  }
+
+  & img {
+    margin-inline: auto;
+    margin-block: var(--s0);
+  }
 
   .draft-warning {
     color: var(--secondary);
