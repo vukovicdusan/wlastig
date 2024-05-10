@@ -160,7 +160,16 @@ const Footer = () => {
         </Region>
         <div className="footers-footer">
           {" "}
-          <p>Copyright © {year} Wlastig | Website by Dušan Vuković </p>
+          <p>
+            Copyright © {year} Wlastig | Website by{" "}
+            <a
+              href="https://www.dusanvukovic.com/"
+              rel="noopener"
+              target="__blank"
+            >
+              Dušan Vuković
+            </a>{" "}
+          </p>
         </div>
       </FooterStyled>
     </FullBackground>
@@ -212,6 +221,10 @@ export const FooterStyled = styled.footer`
     font-size: var(--s-2);
     text-align: center;
     margin-block-start: auto;
+  }
+
+  .footers-footer a {
+    text-decoration: underline;
   }
 
   .sr-only {
