@@ -29,7 +29,6 @@ const ReactQuillComponent = (props) => {
   };
 
   const handleImageUpload = () => {};
-  console.log(props.forwardedRef);
   return (
     <ReactQuill
       ref={props.forwardedRef}

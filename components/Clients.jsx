@@ -4,12 +4,17 @@ import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 import { formatDate } from "../helpers/formatDate";
 import RemoveFirebaseButton from "./RemoveFirebaseButton";
 import { useState } from "react";
+import AccordionItem from "./AccordionItem";
 
 const Clients = (props) => {
   const [list, setList] = useState(props.clientsList);
 
   const returnListHandler = (list) => {
     setList(list);
+  };
+
+  let titleExtractor = (message) => {
+    return message.split(" ").slice(0, 4).join(" ") + "...";
   };
 
   return (
@@ -23,6 +28,7 @@ const Clients = (props) => {
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Type</th>
+            <th scope="col">Message</th>
             <th scope="col">Contacted Wlastig On</th>
             <th scope="col">Remove</th>
           </tr>
@@ -33,6 +39,19 @@ const Clients = (props) => {
               <th scope="row">{client.name}</th>
               <td>{client.mail || client.email}</td>
               <td>{client.type}</td>
+              <td className="client-message">
+                <AccordionItem
+                  accTitle={titleExtractor(
+                    (client.comments && client.comments) ||
+                      (client.message && client.message)
+                  )}
+                  accBody={
+                    (client.comments && client.comments) ||
+                    (client.message && client.message)
+                  }
+                  color={"var(--text-dark)"}
+                ></AccordionItem>
+              </td>
               <td>{formatDate(new Date(client.created_at))}</td>
               <td>
                 <RemoveFirebaseButton
@@ -96,5 +115,23 @@ export const ClientsTableStyled = styled.div`
 
   tfoot td {
     font-weight: bold;
+  }
+
+  .client-message h4 {
+    font-size: var(--s0);
+    font-family: var(--poppinsregular);
+    font-style: none;
+    text-transform: none;
+    line-height: 2;
+  }
+
+  .accordion-body {
+    margin: 0;
+  }
+
+  @media (max-width: 450px) {
+    .client-message h4 {
+      font-size: var(--s0-1);
+    }
   }
 `;
