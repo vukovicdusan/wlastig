@@ -153,7 +153,7 @@ const ContactForm = (props) => {
               id="website"
               autoCapitalize="none"
               autoCorrect="off"
-              autoComplete="email"
+              required
               onChange={inputHandler}
             />
             <label htmlFor="website">Company Website</label>
