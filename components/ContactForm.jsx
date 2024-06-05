@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
@@ -9,6 +9,8 @@ import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
+import CalendlyPopup from "./CalendlyPopup";
+import { InlineWidget } from "react-calendly";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -20,10 +22,23 @@ const ContactForm = (props) => {
     error: false,
     loading: false,
   });
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (
+      contactFormProccess.success &&
+      !contactFormProccess.error &&
+      props.formType === "freeConsultation"
+    ) {
+      scrollRef.current.scrollIntoView(false, {
+        behavior: "smooth",
+      });
+    }
+  }, [contactFormProccess.success, contactFormProccess.error, props.formType]);
 
   if (!hasMounted) {
     return null;
@@ -77,6 +92,18 @@ const ContactForm = (props) => {
         "";
     }
   };
+
+  let messageSentResponse =
+    props.formType === "freeConsultation" ? (
+      <InlineWidget
+        style={{ width: "100%" }}
+        url="https://calendly.com/wlastig/free-consultation"
+      />
+    ) : (
+      <StyledText color={"var(--success-color)"}>
+        Thank you for your message! We will contact you ASAP!
+      </StyledText>
+    );
 
   return (
     <ContactFormStyled alignButton={props.alignButton}>
@@ -181,12 +208,14 @@ const ContactForm = (props) => {
           <StyledText color={"var(--error-color)"}>
             Something went wrong. Message was not sent.
           </StyledText>
-        ) : !contactFormProccess.success && !contactFormProccess.error ? (
+        ) : !contactFormProccess.success &&
+          !contactFormProccess.error &&
+          props.formType ? (
           ""
         ) : (
-          <StyledText color={"var(--success-color)"}>
-            Thank you for your message! We will contact you ASAP!
-          </StyledText>
+          <div className="calendly-container" ref={scrollRef}>
+            {messageSentResponse}
+          </div>
         )}
       </Stack>
     </ContactFormStyled>
@@ -212,6 +241,10 @@ export const ContactFormStyled = styled.div`
     justify-content: ${(props) => props.alignButton || "center"};
     align-items: center;
     gap: 3rem;
+  }
+
+  .calendly-container {
+    width: 100%;
   }
 `;
 
