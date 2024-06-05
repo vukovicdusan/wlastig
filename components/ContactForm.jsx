@@ -28,17 +28,17 @@ const ContactForm = (props) => {
     setHasMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (
-      contactFormProccess.success &&
-      !contactFormProccess.error &&
-      props.formType === "freeConsultation"
-    ) {
-      scrollRef.current.scrollIntoView(false, {
-        behavior: "smooth",
-      });
-    }
-  }, [contactFormProccess.success, contactFormProccess.error, props.formType]);
+  // useEffect(() => {
+  //   if (
+  //     contactFormProccess.success &&
+  //     !contactFormProccess.error &&
+  //     props.formType === "freeConsultation"
+  //   ) {
+  //     scrollRef.current.scrollIntoView(false, {
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [contactFormProccess.success, contactFormProccess.error, props.formType]);
 
   if (!hasMounted) {
     return null;
@@ -95,10 +95,15 @@ const ContactForm = (props) => {
 
   let messageSentResponse =
     props.formType === "freeConsultation" ? (
-      <InlineWidget
-        style={{ width: "100%" }}
-        url="https://calendly.com/wlastig/free-consultation"
-      />
+      // <div className="calendly-container" ref={scrollRef}>
+      //   <InlineWidget
+      //     style={{ width: "100%" }}
+      //     url="https://calendly.com/wlastig/free-consultation"
+      //   />
+      // </div>
+      <StyledText color={"var(--success-color)"}>
+        Thank you for your message! We will contact you ASAP!
+      </StyledText>
     ) : (
       <StyledText color={"var(--success-color)"}>
         Thank you for your message! We will contact you ASAP!
@@ -213,9 +218,7 @@ const ContactForm = (props) => {
           props.formType ? (
           ""
         ) : (
-          <div className="calendly-container" ref={scrollRef}>
-            {messageSentResponse}
-          </div>
+          { messageSentResponse }
         )}
       </Stack>
     </ContactFormStyled>
