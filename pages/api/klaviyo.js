@@ -26,25 +26,25 @@ const handler = async (req, res) => {
     //   options
     // );
 
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     accept: "application/json",
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     profiles: [{ email, name }],
-    //   }),
-    // };
-    // const listId =
-    //   type === "contact" ? contact_form_list_id : free_consultation;
-    // const response = await fetch(
-    //   "https://a.klaviyo.com/api/v2/list/" +
-    //     listId +
-    //     "/subscribe?api_key=" +
-    //     api_key,
-    //   options
-    // );
+    const options = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        profiles: [{ email, name }],
+      }),
+    };
+    const listId =
+      type === "contact" ? contact_form_list_id : free_consultation;
+    const response = await fetch(
+      "https://a.klaviyo.com/api/v2/list/" +
+        listId +
+        "/subscribe?api_key=" +
+        api_key,
+      options
+    );
 
     if (response.ok) {
       const data = await response.json();
