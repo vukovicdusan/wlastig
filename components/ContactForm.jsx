@@ -27,18 +27,6 @@ const ContactForm = (props) => {
     setHasMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (
-      contactFormProccess.success &&
-      !contactFormProccess.error &&
-      props.formType === "freeConsultation"
-    ) {
-      scrollRef.current.scrollIntoView(false, {
-        behavior: "smooth",
-      });
-    }
-  }, [contactFormProccess.success, contactFormProccess.error, props.formType]);
-
   if (!hasMounted) {
     return null;
   }
@@ -91,20 +79,6 @@ const ContactForm = (props) => {
         "";
     }
   };
-
-  let messageSentResponse =
-    props.formType === "freeConsultation" ? (
-      <div className="calendly-container" ref={scrollRef}>
-        <InlineWidget
-          style={{ width: "100%" }}
-          url="https://calendly.com/wlastig/free-consultation"
-        />
-      </div>
-    ) : (
-      <StyledText color={"var(--success-color)"}>
-        Thank you for your message! We will contact you ASAP!
-      </StyledText>
-    );
 
   return (
     <ContactFormStyled alignButton={props.alignButton}>
