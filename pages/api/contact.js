@@ -42,6 +42,10 @@ const handler = async (req, res) => {
         subject = careerSubject;
         html = careerContent;
         break;
+      case "freeConsultation":
+        subject = messageSubject;
+        html = messageContent;
+        break;
       default:
         subject = "";
         html = "";

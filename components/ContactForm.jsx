@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
@@ -9,6 +9,7 @@ import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
+import { InlineWidget } from "react-calendly";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -20,10 +21,23 @@ const ContactForm = (props) => {
     error: false,
     loading: false,
   });
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (
+      contactFormProccess.success &&
+      !contactFormProccess.error &&
+      props.formType === "freeConsultation"
+    ) {
+      scrollRef.current.scrollIntoView(false, {
+        behavior: "smooth",
+      });
+    }
+  }, [contactFormProccess.success, contactFormProccess.error, props.formType]);
 
   if (!hasMounted) {
     return null;
@@ -78,16 +92,31 @@ const ContactForm = (props) => {
     }
   };
 
+  let messageSentResponse =
+    props.formType === "freeConsultation" ? (
+      <div className="calendly-container" ref={scrollRef}>
+        <InlineWidget
+          style={{ width: "100%" }}
+          url="https://calendly.com/wlastig/free-consultation"
+        />
+      </div>
+    ) : (
+      <StyledText color={"var(--success-color)"}>
+        Thank you for your message! We will contact you ASAP!
+      </StyledText>
+    );
+
   return (
     <ContactFormStyled alignButton={props.alignButton}>
-      <Stack
-        className="form-container"
-        stackSpace={"var(--s2)"}
-        stackJustify={"center"}
-        stackAlign={"center"}
-      >
-        <Stack stackJustify={"center"} stackAlign={"center"}>
-          {/* <h2>Reach Out!</h2>
+      <div>
+        <Stack
+          className="form-container"
+          stackSpace={"var(--s2)"}
+          stackJustify={"center"}
+          stackAlign={"center"}
+        >
+          <Stack stackJustify={"center"} stackAlign={"center"}>
+            {/* <h2>Reach Out!</h2>
           <span>
             <a href="mailto: info@wlastig.com">
               <StyledText
@@ -98,7 +127,7 @@ const ContactForm = (props) => {
               </StyledText>
             </a>
           </span> */}
-          {/* <span>
+            {/* <span>
             <a href="tel: +38169123456">
               <StyledText
                 family={"var(--poppinsbold)"}
@@ -108,87 +137,90 @@ const ContactForm = (props) => {
               </StyledText>
             </a>
           </span> */}
-        </Stack>
-        <Stack
-          as="form"
-          stackJustify={"center"}
-          stackAlign={"center"}
-          onSubmit={onSubmitHandler}
-          stackSpace={"var(--s2)"}
-          id={contactFormData.type}
-        >
-          <Switcher elCount={2} flexBasis={"20rem"}>
+          </Stack>
+          <Stack
+            as="form"
+            stackJustify={"center"}
+            stackAlign={"center"}
+            onSubmit={onSubmitHandler}
+            stackSpace={"var(--s2)"}
+            id={contactFormData.type}
+          >
+            <Switcher elCount={2} flexBasis={"20rem"}>
+              <InputWrapper>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  autoComplete="email"
+                  required
+                  onChange={inputHandler}
+                />
+                <label htmlFor="name">Name</label>
+              </InputWrapper>
+              <InputWrapper>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  autoComplete="email"
+                  required
+                  pattern="[^@]+@[^\.]+\..+"
+                  onChange={inputHandler}
+                />
+                <label htmlFor="email">Email</label>
+              </InputWrapper>
+            </Switcher>
             <InputWrapper>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="website"
+                id="website"
                 autoCapitalize="none"
                 autoCorrect="off"
-                autoComplete="email"
                 required
                 onChange={inputHandler}
               />
-              <label htmlFor="name">Name</label>
+              <label htmlFor="website">Company Website</label>
             </InputWrapper>
             <InputWrapper>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                autoCapitalize="none"
-                autoCorrect="off"
-                autoComplete="email"
-                required
-                pattern="[^@]+@[^\.]+\..+"
+              <textarea
+                id="comments"
+                name="comments"
+                rows="4"
                 onChange={inputHandler}
-              />
-              <label htmlFor="email">Email</label>
+              ></textarea>
+              <label htmlFor="comments">Message (Optional)</label>
             </InputWrapper>
-          </Switcher>
-          <InputWrapper>
-            <input
-              type="text"
-              name="website"
-              id="website"
-              autoCapitalize="none"
-              autoCorrect="off"
-              required
-              onChange={inputHandler}
-            />
-            <label htmlFor="website">Company Website</label>
-          </InputWrapper>
-          <InputWrapper>
-            <textarea
-              id="comments"
-              name="comments"
-              rows="4"
-              onChange={inputHandler}
-            ></textarea>
-            <label htmlFor="comments">Message (Optional)</label>
-          </InputWrapper>
-          <div className="button-loader">
-            <Button>
-              Send My Message <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </Button>
-            {contactFormProccess.loading ? <Loader></Loader> : null}
-          </div>
+            <div className="button-loader">
+              <Button>
+                Send My Message <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </Button>
+              {contactFormProccess.loading ? <Loader></Loader> : null}
+            </div>
+          </Stack>
+          {!contactFormProccess.success && contactFormProccess.error ? (
+            <StyledText color={"var(--error-color)"}>
+              Something went wrong. Message was not sent.
+            </StyledText>
+          ) : !contactFormProccess.success &&
+            !contactFormProccess.error &&
+            props.formType ? (
+            ""
+          ) : (
+            <StyledText color={"var(--success-color)"}>
+              Thank you for your message! We will contact you ASAP!
+            </StyledText>
+          )}
         </Stack>
-        {!contactFormProccess.success && contactFormProccess.error ? (
-          <StyledText color={"var(--error-color)"}>
-            Something went wrong. Message was not sent.
-          </StyledText>
-        ) : !contactFormProccess.success && !contactFormProccess.error ? (
-          ""
-        ) : (
-          <StyledText color={"var(--success-color)"}>
-            Thank you for your message! We will contact you ASAP!
-          </StyledText>
-        )}
-      </Stack>
+      </div>
     </ContactFormStyled>
   );
 };
@@ -212,6 +244,10 @@ export const ContactFormStyled = styled.div`
     justify-content: ${(props) => props.alignButton || "center"};
     align-items: center;
     gap: 3rem;
+  }
+
+  .calendly-container {
+    width: 100%;
   }
 `;
 
