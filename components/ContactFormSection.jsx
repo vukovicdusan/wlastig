@@ -120,6 +120,12 @@ export const ContactFormSectionStyled = styled.div`
     padding: var(--s2) var(--s2);
     height: max-content;
     max-width: ${(props) => (props.popup ? "max-content" : "auto")};
+    transition: all 0.4s ease;
+  }
+  @media (max-width: 430px) {
+    .contact-form-wrapper {
+      padding: var(--s-2);
+    }
   }
 `;
 
