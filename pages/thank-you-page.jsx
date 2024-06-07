@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import { Region } from "../components/styles/Region.styled";
@@ -8,9 +8,27 @@ import AnimationContainer from "../components/AnimationContainer";
 import { Center } from "../components/styles/Center.styled";
 import { StyledH1, StyledText } from "../components/styles/StyledText.styled";
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
-import { Stack } from "../components/styles/Stack.styled";
+import { useRouter } from "next/router";
 
-const thankYouPage = () => {
+const ThankYouPage = () => {
+  let router = useRouter();
+  const [fromPage, setFromPage] = useState("");
+  useEffect(() => {
+    // router.query.page === "/contact"
+    //   ? setFromPage("contact")
+    //   : setFromPage("freeConsultations");
+    setFromPage(router.query.page);
+    console.log(router.query.page);
+  }, []);
+  console.log(fromPage);
+  let title =
+    fromPage === "contact"
+      ? "Thanks for reaching out, we’ll answer your question shortly."
+      : "Thank You for Requesting a Free Consultation!";
+  let message =
+    fromPage === "contact"
+      ? "We appreciate your interest in our services we would like to offer you a free 30 minutes consultation to discuss your business needs in more detail. Please schedule your free consultation using the Calendly form below."
+      : " We appreciate your interest in our services. Please schedule your free consultation using the Calendly form below.";
   return (
     <FullBackground background={"white"}>
       <Region first={true}>
@@ -22,7 +40,7 @@ const thankYouPage = () => {
                 color="var(--primary)"
                 family={"var(--poppinsbold)"}
               >
-                Thank You for Requesting a Free Consultation!
+                {title}
               </StyledH1>
               <UnderlineStyled />
               <StyledText
@@ -31,8 +49,7 @@ const thankYouPage = () => {
                 color={"var(--primary)"}
                 maxWidth={"45ch"}
               >
-                We appreciate your interest in our services. Please schedule
-                your free consultation using the Calendly form below.
+                {message}
               </StyledText>
             </Center>
           </AnimationContainer>
@@ -61,4 +78,4 @@ const thankYouPage = () => {
   );
 };
 
-export default thankYouPage;
+export default ThankYouPage;
