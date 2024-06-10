@@ -9,17 +9,12 @@ import { Center } from "../components/styles/Center.styled";
 import { StyledH1, StyledText } from "../components/styles/StyledText.styled";
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 
 const ThankYouPage = () => {
   let router = useRouter();
   const [fromPage, setFromPage] = useState("");
   useEffect(() => {
-    // router.query.page === "/contact"
-    //   ? setFromPage("contact")
-    //   : setFromPage("freeConsultations");
     setFromPage(router.query.formType);
-    console.log(router.query.formType);
   }, []);
 
   let title =
@@ -28,45 +23,43 @@ const ThankYouPage = () => {
       : "Thank You for Requesting a Free Consultation!";
   let message =
     fromPage === "contact"
-      ? "We appreciate your interest in our services we would like to offer you a free 30 minutes consultation to discuss your business needs in more detail. Please schedule your free consultation using the Calendly form below."
-      : " We appreciate your interest in our services. Please schedule your free consultation using the Calendly form below.";
+      ? "We appreciate your interest in Wlastig. We want to offer you a free consultation to discuss your business needs. Schedule using the Calendly form below."
+      : "We appreciate your interest in our services. Please schedule your free consultation using the Calendly form below.";
   return (
     <FullBackground background={"white"}>
       <Region first={true}>
         <Wrapper>
-          <ThankYouPageStyled>
-            <AnimationContainer>
-              <Center>
-                <StyledH1
-                  align={"center"}
-                  color="var(--primary)"
-                  family={"var(--poppinsbold)"}
-                >
-                  {title}
-                </StyledH1>
-                <UnderlineStyled />
-                <StyledText
-                  align={"center"}
-                  fontSize={"var(--s2)"}
-                  color={"var(--primary)"}
-                  maxWidth={"45ch"}
-                >
-                  {message}
-                </StyledText>
-              </Center>
-            </AnimationContainer>
-            <AnimationContainer delay={"5"}>
-              <InlineWidget
-                styles={{
-                  height: "670px",
-                  minWidth: "300px",
-                  marginInline: "auto",
-                  marginBlock: "var(--s2)",
-                }}
-                url="https://calendly.com/wlastig/free-consultation"
-              />
-            </AnimationContainer>
-          </ThankYouPageStyled>
+          <AnimationContainer>
+            <Center>
+              <StyledH1
+                align={"center"}
+                color="var(--primary)"
+                family={"var(--poppinsbold)"}
+              >
+                {title}
+              </StyledH1>
+              <UnderlineStyled />
+              <StyledText
+                align={"center"}
+                fontSize={"var(--s2)"}
+                color={"var(--primary)"}
+                maxWidth={"45ch"}
+              >
+                {message}
+              </StyledText>
+            </Center>
+          </AnimationContainer>
+          <AnimationContainer delay={"5"}>
+            <InlineWidget
+              styles={{
+                height: "670px",
+                minWidth: "300px",
+                marginInline: "auto",
+                marginBlock: "var(--s2)",
+              }}
+              url="https://calendly.com/wlastig/free-consultation"
+            />
+          </AnimationContainer>
         </Wrapper>
         <Shapedivider position={"bottom"} rotation={"0"} height={"80px"}>
           <svg
@@ -83,5 +76,3 @@ const ThankYouPage = () => {
 };
 
 export default ThankYouPage;
-
-export const ThankYouPageStyled = styled.div``;
