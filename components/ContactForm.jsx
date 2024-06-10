@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
@@ -9,7 +9,7 @@ import { sendContactForm } from "../lib/api";
 import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
-import { InlineWidget } from "react-calendly";
+import { useRouter } from "next/router";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -21,7 +21,7 @@ const ContactForm = (props) => {
     error: false,
     loading: false,
   });
-  const scrollRef = useRef(null);
+  let router = useRouter();
 
   useEffect(() => {
     setHasMounted(true);
@@ -42,6 +42,15 @@ const ContactForm = (props) => {
         success: true,
         loading: false,
       }));
+      router.push(
+        {
+          pathname: "/thank-you-page",
+          query: {
+            formType: contactFormData.type,
+          },
+        },
+        "/thank-you-page"
+      );
     } catch (err) {
       console.log(err);
       setContactFormProccess((prev) => ({
@@ -200,6 +209,7 @@ const ContactForm = (props) => {
 };
 
 export const ContactFormStyled = styled.div`
+  transition: all 0.4s ease;
   .text-red {
     color: var(--secondary);
   }
@@ -218,6 +228,12 @@ export const ContactFormStyled = styled.div`
     justify-content: ${(props) => props.alignButton || "center"};
     align-items: center;
     gap: 3rem;
+    position: relative;
+  }
+
+  .button-loader > span {
+    position: absolute;
+    right: 30px;
   }
 
   .calendly-container {
