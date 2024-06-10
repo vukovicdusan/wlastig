@@ -42,7 +42,15 @@ const ContactForm = (props) => {
         success: true,
         loading: false,
       }));
-      router.push("/thank-you-page");
+      router.push(
+        {
+          pathname: "/thank-you-page",
+          query: {
+            formType: contactFormData.type,
+          },
+        },
+        "/thank-you-page"
+      );
     } catch (err) {
       console.log(err);
       setContactFormProccess((prev) => ({
