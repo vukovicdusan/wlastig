@@ -161,7 +161,7 @@ const Footer = () => {
         <div className="footers-footer">
           {" "}
           <p>
-            Copyright © {year} Wlastig | Website by{" "}
+            Copyright © {year} Wlastig | Website made by{" "}
             <a
               href="https://www.dusanvukovic.com/"
               rel="noopener"
