@@ -239,6 +239,10 @@ export const ContactFormStyled = styled.div`
   .calendly-container {
     width: 100%;
   }
+  & button:focus {
+    outline: 1px dotted var(--secondary);
+    outline-offset: 0.25rem;
+  }
 `;
 
 export default ContactForm;
