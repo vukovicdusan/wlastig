@@ -10,16 +10,25 @@ import styled from "styled-components";
 import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
 import { useRouter } from "next/router";
+import { inputChecker } from "../helpers/inputChecker";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
   const [contactFormData, setContactFormData] = useState({
     type: props.formType || "contact",
+    name: "",
+    email: "",
+    website: "",
   });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,
     loading: false,
+  });
+  const [contactFormError, setContactFormError] = useState({
+    email: { error: true, message: "", show: false },
+    name: { error: true, message: "", show: false },
+    website: { error: true, message: "", show: false },
   });
   let router = useRouter();
 
@@ -32,62 +41,80 @@ const ContactForm = (props) => {
   }
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    setContactFormProccess((prev) => ({ ...prev, loading: true }));
-    try {
-      await sendContactForm(contactFormData);
-      await sendToKlaviyo(contactFormData);
-      await firebaseWriteHandler(contactFormData);
-      setContactFormProccess((prev) => ({
-        ...prev,
-        success: true,
-        loading: false,
-      }));
-      router.push(
-        {
-          pathname: "/thank-you-page",
-          query: {
-            formType: contactFormData.type,
+    if (!anyError) {
+      setContactFormProccess((prev) => ({ ...prev, loading: true }));
+      try {
+        await Promise.all([
+          sendContactForm(contactFormData),
+          sendToKlaviyo(contactFormData),
+          firebaseWriteHandler(contactFormData),
+        ]);
+        setContactFormProccess((prev) => ({
+          ...prev,
+          success: true,
+          loading: false,
+        }));
+        router.push(
+          {
+            pathname: "/thank-you-page",
+            query: {
+              formType: contactFormData.type,
+            },
           },
-        },
-        "/thank-you-page"
-      );
-    } catch (err) {
-      console.log(err);
-      setContactFormProccess((prev) => ({
-        ...prev,
-        error: true,
-        loading: false,
-      }));
+          "/thank-you-page"
+        );
+      } catch (err) {
+        console.log(err);
+        setContactFormProccess((prev) => ({
+          ...prev,
+          error: true,
+          loading: false,
+        }));
+      }
+    } else {
+      for (let key in contactFormData) {
+        if (key !== "type")
+          setContactFormError((prev) => ({
+            ...prev,
+            [key]: {
+              error: inputChecker(key, contactFormData[key]).error,
+              message: inputChecker(key, contactFormData[key]).message || "",
+              show: true,
+            },
+          }));
+      }
     }
   };
 
   const inputHandler = (e) => {
-    switch (e.target.name) {
-      case "email":
-        setContactFormData({
-          ...contactFormData,
-          email: e.target.value,
-        });
-        break;
-      case "name":
-        setContactFormData({ ...contactFormData, name: e.target.value });
-        break;
-      case "website":
-        setContactFormData({
-          ...contactFormData,
-          website: e.target.value,
-        });
-        break;
-      case "comments":
-        setContactFormData({
-          ...contactFormData,
-          comments: e.target.value,
-        });
-        break;
-      default:
-        "";
-    }
+    setContactFormData({
+      ...contactFormData,
+      [e.target.name]: e.target.value,
+    });
+    setContactFormError((prev) => ({
+      ...prev,
+      [e.target.name]: {
+        ...contactFormError[e.target.name],
+        error: inputChecker(e.target.name, e.target.value).error,
+        message: inputChecker(e.target.name, e.target.value).message || "",
+      },
+    }));
   };
+
+  const onBlurChecker = (e) => {
+    setContactFormError((prev) => ({
+      ...prev,
+      [e.target.name]: {
+        ...contactFormError[e.target.name],
+        show: true,
+      },
+    }));
+  };
+
+  let anyError =
+    contactFormError.email.error ||
+    contactFormError.name.error ||
+    contactFormError.website.error;
 
   return (
     <ContactFormStyled alignButton={props.alignButton}>
@@ -98,35 +125,13 @@ const ContactForm = (props) => {
           stackJustify={"center"}
           stackAlign={"center"}
         >
-          <Stack stackJustify={"center"} stackAlign={"center"}>
-            {/* <h2>Reach Out!</h2>
-          <span>
-            <a href="mailto: info@wlastig.com">
-              <StyledText
-                family={"var(--poppinsbold)"}
-                color={"var(--secondary)"}
-              >
-                info@wlastig.com
-              </StyledText>
-            </a>
-          </span> */}
-            {/* <span>
-            <a href="tel: +38169123456">
-              <StyledText
-                family={"var(--poppinsbold)"}
-                color={"var(--secondary)"}
-              >
-                +38169123456
-              </StyledText>
-            </a>
-          </span> */}
-          </Stack>
+          <Stack stackJustify={"center"} stackAlign={"center"}></Stack>
           <Stack
             as="form"
             stackJustify={"center"}
             stackAlign={"center"}
             onSubmit={onSubmitHandler}
-            stackSpace={"var(--s2)"}
+            stackSpace={"var(--s3)"}
             id={contactFormData.type}
           >
             <Switcher elCount={2} flexBasis={"20rem"}>
@@ -138,10 +143,23 @@ const ContactForm = (props) => {
                   autoCapitalize="none"
                   autoCorrect="off"
                   autoComplete="email"
-                  required
+                  // required
                   onChange={inputHandler}
+                  onBlur={onBlurChecker}
                 />
                 <label htmlFor="name">Name</label>
+                <span>
+                  {contactFormError.name.show ? (
+                    <StyledText
+                      fontSize={"var(--s-1)"}
+                      color={"var(--error-color)"}
+                    >
+                      {contactFormError.name.message}
+                    </StyledText>
+                  ) : (
+                    ""
+                  )}
+                </span>
               </InputWrapper>
               <InputWrapper>
                 <input
@@ -151,11 +169,24 @@ const ContactForm = (props) => {
                   autoCapitalize="none"
                   autoCorrect="off"
                   autoComplete="email"
-                  required
-                  pattern="[^@]+@[^\.]+\..+"
+                  // required
+                  // pattern="[^@]+@[^\.]+\..+"
                   onChange={inputHandler}
+                  onBlur={onBlurChecker}
                 />
                 <label htmlFor="email">Email</label>
+                <span>
+                  {contactFormError.email.show ? (
+                    <StyledText
+                      fontSize={"var(--s-1)"}
+                      color={"var(--error-color)"}
+                    >
+                      {contactFormError.email.message}
+                    </StyledText>
+                  ) : (
+                    ""
+                  )}
+                </span>
               </InputWrapper>
             </Switcher>
             <InputWrapper>
@@ -165,10 +196,23 @@ const ContactForm = (props) => {
                 id="website"
                 autoCapitalize="none"
                 autoCorrect="off"
-                required
+                // required
                 onChange={inputHandler}
+                onBlur={onBlurChecker}
               />
               <label htmlFor="website">Company Website</label>
+              <span>
+                {contactFormError.website.show ? (
+                  <StyledText
+                    fontSize={"var(--s-1)"}
+                    color={"var(--error-color)"}
+                  >
+                    {contactFormError.website.message}
+                  </StyledText>
+                ) : (
+                  ""
+                )}
+              </span>
             </InputWrapper>
             <InputWrapper>
               <textarea
@@ -229,6 +273,7 @@ export const ContactFormStyled = styled.div`
     align-items: center;
     gap: 3rem;
     position: relative;
+    padding-block: var(--s-4);
   }
 
   .button-loader > span {

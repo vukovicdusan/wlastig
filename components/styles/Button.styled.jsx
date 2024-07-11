@@ -21,6 +21,11 @@ export const Button = styled.button`
   margin-block-start: ${(props) => props.mt || null};
   margin-block-end: ${(props) => props.mb || null};
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   span {
     position: absolute;
     width: 25%;
