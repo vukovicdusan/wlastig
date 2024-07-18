@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Stack } from "./styles/Stack.styled";
 import { Switcher } from "./styles/Switcher.styled";
 import { InputWrapper } from "./styles/InputWrapper.styled";
@@ -11,6 +11,7 @@ import { sendToKlaviyo } from "../lib/sendToKlaviyo";
 import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
 import { useRouter } from "next/router";
 import { inputChecker } from "../helpers/inputChecker";
+import ModalCtx from "../store/ModalCtx";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -31,7 +32,7 @@ const ContactForm = (props) => {
     website: { error: true, message: "", show: false },
   });
   let router = useRouter();
-
+  const modalCtx = useContext(ModalCtx);
   useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -54,6 +55,7 @@ const ContactForm = (props) => {
           success: true,
           loading: false,
         }));
+        modalCtx.modalCloseHandler();
         router.push(
           {
             pathname: "/thank-you-page",

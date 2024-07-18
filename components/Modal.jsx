@@ -12,11 +12,10 @@ const Modal = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    if (!modalCtx.auditSent) {
-      modalCtx.forceOpen.state ? setModalOpen(true) : setModalOpen(false);
-    }
+    // if (!modalCtx.auditSent) {
+    modalCtx.forceOpen.state ? setModalOpen(true) : setModalOpen(false);
+    // }
   }, [modalCtx.forceOpen.state]);
-
   useEffect(() => {
     modalOpen
       ? (document.body.style.overflow = "hidden")
