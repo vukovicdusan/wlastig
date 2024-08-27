@@ -68,7 +68,7 @@ const Footer = () => {
                   </li>
                 </Stack>
               </Stack>
-              {/* <Stack stackAlign={"center"}>
+              <Stack stackAlign={"center"}>
                 <h4>Follow Us:</h4>
                 <ul>
                   <li>
@@ -154,7 +154,7 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </Stack> */}
+              </Stack>
             </Switcher>
           </Wrapper>
         </Region>
