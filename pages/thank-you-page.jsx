@@ -52,7 +52,7 @@ const ThankYouPage = () => {
           <AnimationContainer delay={"5"}>
             <InlineWidget
               styles={{
-                height: "670px",
+                height: "700px",
                 minWidth: "300px",
                 marginInline: "auto",
                 marginBlock: "var(--s2)",
