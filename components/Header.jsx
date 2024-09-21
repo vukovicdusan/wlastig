@@ -31,24 +31,25 @@ const Header = () => {
     setDropdownHeight(dropdownRef.current.scrollHeight);
   }, []);
 
-  useEffect(() => {
-    let direction = 0;
-    let prevDirection = 0;
-    let prevScroll = window.scrollY;
-    let currentScroll;
-    window.addEventListener("scroll", () => {
-      currentScroll = window.scrollY;
-      currentScroll > prevScroll ? (direction = 2) : (direction = 1);
-      direction !== prevDirection && toggleHeader(direction, currentScroll);
-      prevScroll = currentScroll;
-    });
-  });
+  /** HIDE AND SHOW HEADER ON SCROLL */
+  // useEffect(() => {
+  //   let direction = 0;
+  //   let prevDirection = 0;
+  //   let prevScroll = window.scrollY;
+  //   let currentScroll;
+  //   window.addEventListener("scroll", () => {
+  //     currentScroll = window.scrollY;
+  //     currentScroll > prevScroll ? (direction = 2) : (direction = 1);
+  //     direction !== prevDirection && toggleHeader(direction, currentScroll);
+  //     prevScroll = currentScroll;
+  //   });
+  // });
 
-  const toggleHeader = (direction, currentScroll) => {
-    direction === 2 && currentScroll > 70
-      ? setHideHeader(true)
-      : setHideHeader(false);
-  };
+  // const toggleHeader = (direction, currentScroll) => {
+  //   direction === 2 && currentScroll > 70
+  //     ? setHideHeader(true)
+  //     : setHideHeader(false);
+  // };
 
   const menuOpenHandler = () => {
     mobileMenuOpen ? setMobileMenuOpen(false) : setMobileMenuOpen(true);
