@@ -21,7 +21,6 @@ const ContactForm = (props) => {
     email: "",
     website: "",
   });
-  console.log(contactFormData);
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
     error: false,

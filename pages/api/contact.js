@@ -1,3 +1,5 @@
+import { mailOptions, transporter } from "../../config/nodemailer";
+
 const handler = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
@@ -65,3 +67,5 @@ const handler = async (req, res) => {
     return res.status(400).json({ message: err.message });
   }
 };
+
+export default handler;
