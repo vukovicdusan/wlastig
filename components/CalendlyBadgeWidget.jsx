@@ -12,7 +12,7 @@ const CalendlyBadgeWidget = () => {
       if (window.Calendly) {
         window.Calendly.initBadgeWidget({
           url: "https://calendly.com/wlastig/free-consultation",
-          text: "Schedule Free Consultation",
+          text: "Schedule Free </br> Consultation!",
           color: "#f2545b",
           textColor: "#ffffff",
           branding: undefined,
