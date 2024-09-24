@@ -71,7 +71,7 @@ const Consulting = () => {
                 <AnimationContainer>
                   <ScrollLink href="#contact-form-section">
                     <Button reverse={false}>
-                      Improve Tracking, Find Hidden Value! <span></span>
+                      Schedule Free Consultation! <span></span>
                       <span></span>
                       <span></span>
                       <span></span>
