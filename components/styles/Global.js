@@ -332,6 +332,12 @@ label {
 	color-scheme:light;
 }
 
+@media only screen and (max-width: 780px) {
+    .calendly-inline-widget {
+        min-height: 1050px;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;

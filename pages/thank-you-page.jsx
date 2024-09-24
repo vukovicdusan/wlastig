@@ -56,6 +56,7 @@ const ThankYouPage = () => {
                 minWidth: "300px",
                 marginInline: "auto",
                 marginBlock: "var(--s2)",
+                colorScheme: "light",
               }}
               url="https://calendly.com/wlastig/free-consultation"
             />
