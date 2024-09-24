@@ -70,6 +70,7 @@ const ContactFormSection = (props) => {
                   <ContactForm
                     formType={props.formType}
                     alignButton={"center"}
+                    btnName={"Schedule Free Consultation!"}
                   ></ContactForm>
                 </div>
                 // <Audit

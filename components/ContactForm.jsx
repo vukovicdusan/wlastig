@@ -227,7 +227,8 @@ const ContactForm = (props) => {
             </InputWrapper>
             <div className="button-loader">
               <Button>
-                Send My Message <span></span>
+                {props.btnName || "Contact Us!"}
+                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
