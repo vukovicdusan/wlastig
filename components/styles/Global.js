@@ -328,6 +328,10 @@ label {
 	color: var(--text-light);
 }
 
+.calendly-popup-content {
+	color-scheme:light;
+}
+
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
