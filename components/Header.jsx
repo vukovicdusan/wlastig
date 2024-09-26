@@ -150,7 +150,8 @@ const Header = () => {
                     // modelOpenHandler("contact");
                     modalCtx.forceOpenHandler("contact");
                   }}
-                  as={"span"}
+                  // as={"span"}
+                  id="lets_talk"
                 >
                   Let&apos;s Talk! <span></span>
                   <span></span>

@@ -79,7 +79,7 @@ const webAnalytics = () => {
                 </AnimationContainer>
                 <AnimationContainer>
                   <ScrollLink href="#contact-form-section">
-                    <Button reverse={true}>
+                    <Button id="hero_cta" reverse={true}>
                       Schedule Free Consultation! <span></span>
                       <span></span>
                       <span></span>

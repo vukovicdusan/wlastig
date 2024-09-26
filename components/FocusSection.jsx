@@ -71,6 +71,7 @@ const FocusSection = () => {
                 modalCtx.forceOpenHandler("contact");
               }}
               as={"span"}
+              id="contact_us_now"
             >
               Contact Us Now <span></span>
               <span></span>
