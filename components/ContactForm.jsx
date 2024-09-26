@@ -245,9 +245,10 @@ const ContactForm = (props) => {
             props.formType ? (
             ""
           ) : (
-            <StyledText color={"var(--success-color)"}>
-              Thank you for your message! We will contact you ASAP!
-            </StyledText>
+            ""
+            // <StyledText color={"var(--success-color)"}>
+            //   Thank you for your message! We will contact you ASAP!
+            // </StyledText>
           )}
         </Stack>
       </div>
