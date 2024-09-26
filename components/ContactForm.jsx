@@ -144,7 +144,7 @@ const ContactForm = (props) => {
                   id="name"
                   autoCapitalize="none"
                   autoCorrect="off"
-                  autoComplete="email"
+                  autoComplete="on"
                   // required
                   onChange={inputHandler}
                   onBlur={onBlurChecker}
