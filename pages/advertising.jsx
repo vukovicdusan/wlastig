@@ -82,8 +82,8 @@ const Advertising = () => {
                   </Stack>
                 </AnimationContainer>
                 <AnimationContainer>
-                  <ScrollLink href="#contact-form-section">
-                    <Button id="hero_cta" reverse={false}>
+                  <ScrollLink id="hero_cta" href="#contact-form-section">
+                    <Button reverse={false}>
                       Schedule Free Consultation! <span></span>
                       <span></span>
                       <span></span>

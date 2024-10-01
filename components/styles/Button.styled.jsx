@@ -37,6 +37,7 @@ export const Button = styled.button`
     transition: 0.5s;
     transition-delay: calc((var(--n) - 1) * 0.1s);
     z-index: -1;
+    pointer-events: none;
   }
 
   &:hover {

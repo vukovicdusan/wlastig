@@ -12,7 +12,12 @@ const ScrollLink = ({ children, ...props }) => {
     });
   };
   return (
-    <Link className="a-exception" {...props} onClick={handleScroll}>
+    <Link
+      id={props.id}
+      className="a-exception"
+      {...props}
+      onClick={handleScroll}
+    >
       {children}
     </Link>
   );

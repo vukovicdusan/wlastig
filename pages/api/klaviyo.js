@@ -66,16 +66,12 @@ const handler = async (req, res) => {
       } else {
         const errorData = await addToListResponse.json();
         console.error("Error addToList Response Data: ", errorData);
-        throw new Error(
-          `Error adding profile to Klaviyo list: ${errorData.detail}`
-        );
+        throw new Error(`Error adding profile to Klaviyo list: ${errorData}`);
       }
     } else {
       const errorData = await response.json();
       console.error("Error Response Data:", errorData);
-      throw new Error(
-        `Error adding profile to Klaviyo list: ${errorData.detail}`
-      );
+      throw new Error(`Error adding profile to Klaviyo list: ${errorData}`);
     }
   } catch (error) {
     console.error("Catch Block Error:", error);
