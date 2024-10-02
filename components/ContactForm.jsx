@@ -228,6 +228,7 @@ const ContactForm = (props) => {
                 name="comments"
                 rows="4"
                 onChange={inputHandler}
+                placeholder="Type your message..."
               ></textarea>
               <label htmlFor="comments">Message</label>
             </InputWrapper>
