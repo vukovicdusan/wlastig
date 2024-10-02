@@ -305,7 +305,8 @@ export const ContactFormStyled = styled.div`
     color: var(--secondary);
   }
 
-  & input::placeholder {
+  & input::placeholder,
+  & textarea::placeholder {
     color: var(--text-gray);
   }
 `;
