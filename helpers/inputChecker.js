@@ -12,11 +12,11 @@ export const inputChecker = (field, content) => {
         ? { error: false, message: "" }
         : { error: true, message: "Please provide your name." };
     }
-    case "website": {
-      return content.match(websiteRegex)
-        ? { error: false, message: "" }
-        : { error: true, message: "Please provide the URL of your website." };
-    }
+    // case "website": {
+    //   return content.match(websiteRegex)
+    //     ? { error: false, message: "" }
+    //     : { error: true, message: "Please provide the URL of your website." };
+    // }
     default:
       return { error: false, message: "" };
   }

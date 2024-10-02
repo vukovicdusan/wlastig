@@ -29,7 +29,7 @@ const ContactForm = (props) => {
   const [contactFormError, setContactFormError] = useState({
     email: { error: true, message: "", show: false },
     name: { error: true, message: "", show: false },
-    website: { error: true, message: "", show: false },
+    // website: { error: true, message: "", show: false },
   });
   let router = useRouter();
   const modalCtx = useContext(ModalCtx);
@@ -113,10 +113,9 @@ const ContactForm = (props) => {
     }));
   };
 
-  let anyError =
-    contactFormError.email.error ||
-    contactFormError.name.error ||
-    contactFormError.website.error;
+  let anyError = contactFormError.email.error || contactFormError.name.error;
+  // ||
+  // contactFormError.website.error;
 
   return (
     <ContactFormStyled alignButton={props.alignButton}>
@@ -148,8 +147,11 @@ const ContactForm = (props) => {
                   // required
                   onChange={inputHandler}
                   onBlur={onBlurChecker}
+                  placeholder="John Doe"
                 />
-                <label htmlFor="name">Name</label>
+                <label class="required-label" htmlFor="name">
+                  Name
+                </label>
                 <span>
                   {contactFormError.name.show ? (
                     <StyledText
@@ -175,8 +177,11 @@ const ContactForm = (props) => {
                   // pattern="[^@]+@[^\.]+\..+"
                   onChange={inputHandler}
                   onBlur={onBlurChecker}
+                  placeholder="example@example.com"
                 />
-                <label htmlFor="email">Email</label>
+                <label class="required-label" htmlFor="email">
+                  Email
+                </label>
                 <span>
                   {contactFormError.email.show ? (
                     <StyledText
@@ -201,9 +206,10 @@ const ContactForm = (props) => {
                 // required
                 onChange={inputHandler}
                 onBlur={onBlurChecker}
+                placeholder="example.com"
               />
               <label htmlFor="website">Company Website</label>
-              <span>
+              {/* <span>
                 {contactFormError.website.show ? (
                   <StyledText
                     fontSize={"var(--s-1)"}
@@ -214,7 +220,7 @@ const ContactForm = (props) => {
                 ) : (
                   ""
                 )}
-              </span>
+              </span> */}
             </InputWrapper>
             <InputWrapper>
               <textarea
@@ -223,7 +229,7 @@ const ContactForm = (props) => {
                 rows="4"
                 onChange={inputHandler}
               ></textarea>
-              <label htmlFor="comments">Message (Optional)</label>
+              <label htmlFor="comments">Message</label>
             </InputWrapper>
             <div className="button-loader">
               <Button id={props.btnId || "form_submit_contact"}>
@@ -291,6 +297,15 @@ export const ContactFormStyled = styled.div`
   & button:focus {
     outline: 1px dotted var(--secondary);
     outline-offset: 0.25rem;
+  }
+
+  .required-label::after {
+    content: " *";
+    color: var(--secondary);
+  }
+
+  & input::placeholder {
+    color: var(--text-gray);
   }
 `;
 
