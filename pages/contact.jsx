@@ -29,7 +29,7 @@ const Contact = () => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/contact"
+          href="https://www.wlastig.com/contact"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />

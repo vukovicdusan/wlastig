@@ -37,7 +37,7 @@ const Consulting = () => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/consulting"
+          href="https://www.wlastig.com/consulting"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />

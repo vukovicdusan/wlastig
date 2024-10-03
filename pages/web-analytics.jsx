@@ -39,7 +39,7 @@ const webAnalytics = () => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/web-analytics"
+          href="https://www.wlastig.com/web-analytics"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />

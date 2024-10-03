@@ -30,7 +30,7 @@ const Careers = ({ data }) => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/careers"
+          href="https://www.wlastig.com/careers"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />

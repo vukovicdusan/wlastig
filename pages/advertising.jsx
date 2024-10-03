@@ -38,7 +38,7 @@ const Advertising = () => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/advertising"
+          href="https://www.wlastig.com/advertising"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />

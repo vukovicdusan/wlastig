@@ -28,7 +28,7 @@ const ourTeam = () => {
         />
         <link
           rel="canonical"
-          href="https://wlastig.com/our-team"
+          href="https://www.wlastig.com/our-team"
           key="canonical"
         />
         <link rel="icon" href="/favicon.ico" />
