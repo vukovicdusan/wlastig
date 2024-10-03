@@ -147,7 +147,7 @@ const ContactForm = (props) => {
                   // required
                   onChange={inputHandler}
                   onBlur={onBlurChecker}
-                  placeholder="John Doe"
+                  placeholder="John"
                 />
                 <label class="required-label" htmlFor="name">
                   Name
@@ -177,7 +177,7 @@ const ContactForm = (props) => {
                   // pattern="[^@]+@[^\.]+\..+"
                   onChange={inputHandler}
                   onBlur={onBlurChecker}
-                  placeholder="example@example.com"
+                  placeholder="example@company.com"
                 />
                 <label class="required-label" htmlFor="email">
                   Email
@@ -206,7 +206,7 @@ const ContactForm = (props) => {
                 // required
                 onChange={inputHandler}
                 onBlur={onBlurChecker}
-                placeholder="example.com"
+                placeholder="company.com"
               />
               <label htmlFor="website">Company Website</label>
               {/* <span>
