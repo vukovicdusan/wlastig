@@ -41,10 +41,11 @@ function Hero() {
                 <AnimationContainer delay={"3"}>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
                     <Button
-                    //!Save the popup functionality for later
-                    // onClick={() => {
-                    //   modalCtx.forceOpenHandler("audit");
-                    // }}
+                      //!Save the popup functionality for later
+                      // onClick={() => {
+                      //   modalCtx.forceOpenHandler("audit");
+                      // }}
+                      as={"span"}
                     >
                       Schedule Free Consultation!
                       <span></span>

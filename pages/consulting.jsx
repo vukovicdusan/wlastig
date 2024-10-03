@@ -70,7 +70,7 @@ const Consulting = () => {
                 </AnimationContainer>
                 <AnimationContainer>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
-                    <Button reverse={false}>
+                    <Button reverse={false} as={"span"}>
                       Schedule Free Consultation! <span></span>
                       <span></span>
                       <span></span>
