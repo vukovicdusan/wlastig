@@ -65,19 +65,20 @@ const FocusSection = () => {
                 </Center>
               </AnimationContainer>
             </Switcher>
-
-            <Button
-              onClick={() => {
-                modalCtx.forceOpenHandler("contact");
-              }}
-              as={"span"}
-              id="contact_us_now"
-            >
-              Contact Us Now <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </Button>
+            <AnimationContainer wobble={true} delay={"9"}>
+              <Button
+                onClick={() => {
+                  modalCtx.forceOpenHandler("contact");
+                }}
+                as={"span"}
+                id="contact_us_now"
+              >
+                Contact Us Now <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </Button>
+            </AnimationContainer>
           </Stack>
         </Region>
       </Wrapper>

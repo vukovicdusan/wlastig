@@ -65,19 +65,18 @@ const webAnalytics = () => {
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
-                <AnimationContainer>
-                  <Stack stackAlign={"end"}>
-                    <h1>
-                      &quot;Knowing yourself is the beginning of all
-                      wisdom.&quot; Aristotle
-                    </h1>
-                    <h3>
-                      The same goes for businesses. Every company’s data has
-                      hidden gems.
-                    </h3>
-                  </Stack>
-                </AnimationContainer>
-                <AnimationContainer>
+                <Stack stackAlign={"end"}>
+                  <h1>
+                    &quot;Knowing yourself is the beginning of all wisdom.&quot;
+                    Aristotle
+                  </h1>
+                  <h3>
+                    The same goes for businesses. Every company’s data has
+                    hidden gems.
+                  </h3>
+                </Stack>
+
+                <AnimationContainer wobble={true} delay={"9"}>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
                     <Button reverse={true} as={"span"}>
                       Schedule Free Consultation! <span></span>

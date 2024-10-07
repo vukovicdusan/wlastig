@@ -22,23 +22,17 @@ function Hero() {
           <Switcher gap={"s4"}>
             <Center>
               <Stack>
-                <AnimationContainer>
-                  <h1 className="hero-title">
-                    &quot;50% of all advertising spend is wasted&quot;
-                    <span>John Wanamaker</span>
-                  </h1>
-                </AnimationContainer>
-                <AnimationContainer
-                  direction={"translateX"}
-                  distance={"-500px"}
-                  delay={"2"}
-                >
-                  <h4>
-                    Bad news. In today&apos;s digital market, your waste is
-                    closer to 76%!
-                  </h4>
-                </AnimationContainer>
-                <AnimationContainer delay={"3"}>
+                <h1 className="hero-title">
+                  &quot;50% of all advertising spend is wasted&quot;
+                  <span>John Wanamaker</span>
+                </h1>
+
+                <h4>
+                  Bad news. In today&apos;s digital market, your waste is closer
+                  to 76%!
+                </h4>
+
+                <AnimationContainer delay={"3"} wobble={true}>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
                     <Button
                       //!Save the popup functionality for later
@@ -58,16 +52,14 @@ function Hero() {
               </Stack>
             </Center>
             <Center>
-              <AnimationContainer direction={"translateX"}>
-                <Image
-                  src={dollar}
-                  width={500}
-                  height={400}
-                  alt="dollar bill"
-                  className="hero-img"
-                  priority
-                ></Image>
-              </AnimationContainer>
+              <Image
+                src={dollar}
+                width={500}
+                height={400}
+                alt="dollar bill"
+                className="hero-img"
+                priority
+              ></Image>
             </Center>
           </Switcher>
         </Wrapper>

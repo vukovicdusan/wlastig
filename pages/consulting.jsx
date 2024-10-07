@@ -57,18 +57,16 @@ const Consulting = () => {
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
-                <AnimationContainer>
-                  <Stack stackAlign={"end"}>
-                    <h1>
-                      &quot;Failing to plan is planning to fail.&quot; -
-                      Benjamin Franklin
-                    </h1>
-                    <h3>
-                      Big budgets don&apos;t guarantee success. Solid plans do.
-                    </h3>
-                  </Stack>
-                </AnimationContainer>
-                <AnimationContainer>
+                <Stack stackAlign={"end"}>
+                  <h1>
+                    &quot;Failing to plan is planning to fail.&quot; - Benjamin
+                    Franklin
+                  </h1>
+                  <h3>
+                    Big budgets don&apos;t guarantee success. Solid plans do.
+                  </h3>
+                </Stack>
+                <AnimationContainer wobble={true} delay={"9"}>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
                     <Button reverse={false} as={"span"}>
                       Schedule Free Consultation! <span></span>

@@ -48,9 +48,7 @@ const Contact = () => {
               ></Image>
             </div>
             <Stack stackAlign={"end"}>
-              <AnimationContainer>
-                <h1>Let&#39;s talk!</h1>
-              </AnimationContainer>
+              <h1>Let&#39;s talk!</h1>
             </Stack>
           </div>
         </div>

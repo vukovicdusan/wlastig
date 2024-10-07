@@ -47,9 +47,7 @@ const ourTeam = () => {
               ></Image>
             </div>
             <Stack stackAlign={"end"}>
-              <AnimationContainer>
-                <h1>Meet our team!</h1>
-              </AnimationContainer>
+              <h1>Meet our team!</h1>
             </Stack>
           </div>
         </div>

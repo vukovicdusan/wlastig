@@ -49,16 +49,14 @@ const Careers = ({ data }) => {
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
-                <AnimationContainer>
-                  <StyledText
-                    as={"h1"}
-                    color={"var(--primary)"}
-                    family={"var(--poppinsbold)"}
-                  >
-                    Looking to launch your career among a team of seasoned
-                    professionals?{" "}
-                  </StyledText>
-                </AnimationContainer>
+                <StyledText
+                  as={"h1"}
+                  color={"var(--primary)"}
+                  family={"var(--poppinsbold)"}
+                >
+                  Looking to launch your career among a team of seasoned
+                  professionals?{" "}
+                </StyledText>
               </Stack>
             </div>
           </div>

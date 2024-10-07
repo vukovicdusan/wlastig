@@ -69,19 +69,17 @@ const Advertising = () => {
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
-                <AnimationContainer>
-                  <Stack stackAlign={"end"}>
-                    <h1>
-                      Don&apos;t waste money on secret formulas and marketing
-                      wizards.
-                    </h1>
-                    <h3>
-                      Trust in data and math. It&apos;s when you become
-                      data-driven that the real magic kicks in!
-                    </h3>
-                  </Stack>
-                </AnimationContainer>
-                <AnimationContainer>
+                <Stack stackAlign={"end"}>
+                  <h1>
+                    Don&apos;t waste money on secret formulas and marketing
+                    wizards.
+                  </h1>
+                  <h3>
+                    Trust in data and math. It&apos;s when you become
+                    data-driven that the real magic kicks in!
+                  </h3>
+                </Stack>
+                <AnimationContainer wobble={true} delay={"9"}>
                   <ScrollLink id="hero_cta" href="#contact-form-section">
                     <Button reverse={false} as={"span"}>
                       Schedule Free Consultation! <span></span>
