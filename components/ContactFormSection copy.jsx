@@ -57,6 +57,12 @@ const ContactFormSection = (props) => {
               switcherJustify={"center"}
               gap={"var(--s5)"}
             >
+              <AnimationContainer>
+                <Stack stackJustify={"center"} stackAlign={"center"}>
+                  {/* <h3 className="title-xl">{props.title || ""}</h3> */}
+                  {subTitleContent}
+                </Stack>
+              </AnimationContainer>
               {router.pathname === "/careers/[career]" ? (
                 <CareerForm></CareerForm>
               ) : (
@@ -115,7 +121,7 @@ export const ContactFormSectionStyled = styled.div`
     border-radius: 5px;
     padding: var(--s2) var(--s2);
     height: max-content;
-    max-width: fit-content;
+    max-width: ${(props) => (props.popup ? "max-content" : "auto")};
     transition: all 0.4s ease;
   }
   @media (max-width: 430px) {
