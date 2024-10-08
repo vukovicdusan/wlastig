@@ -12,6 +12,7 @@ import { firebaseWriteHandler } from "../helpers/firebaseWriteHandler";
 import { useRouter } from "next/router";
 import { inputChecker } from "../helpers/inputChecker";
 import ModalCtx from "../store/ModalCtx";
+import AnimationContainer from "./AnimationContainer";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -149,7 +150,7 @@ const ContactForm = (props) => {
                   onBlur={onBlurChecker}
                   placeholder="John"
                 />
-                <label class="required-label" htmlFor="name">
+                <label className="required-label" htmlFor="name">
                   Name
                 </label>
                 <span>
@@ -179,7 +180,7 @@ const ContactForm = (props) => {
                   onBlur={onBlurChecker}
                   placeholder="example@company.com"
                 />
-                <label class="required-label" htmlFor="email">
+                <label className="required-label" htmlFor="email">
                   Email
                 </label>
                 <span>
@@ -233,13 +234,15 @@ const ContactForm = (props) => {
               <label htmlFor="comments">Message</label>
             </InputWrapper>
             <div className="button-loader">
-              <Button id={props.btnId || "form_submit_contact"}>
-                {props.btnName || "Contact Us!"}
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </Button>
+              <AnimationContainer wobble={true}>
+                <Button id={props.btnId || "form_submit_contact"}>
+                  {props.btnName || "Contact Us!"}
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Button>
+              </AnimationContainer>
               {contactFormProccess.loading ? <Loader></Loader> : null}
             </div>
           </Stack>

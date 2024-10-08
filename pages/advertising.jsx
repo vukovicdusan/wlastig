@@ -96,35 +96,51 @@ const Advertising = () => {
       </ServicesHeroStyled>
       <Region>
         <Wrapper>
-          <Switcher>
-            <Stack stackSpace={"var(--s4)"} className="service-info">
-              <p>
-                If you’re failing to capitalize on the top-quality product and
-                superb service you’re offering, chances are your digital
-                advertising is misplaced.
-              </p>
-              <p>
-                More often than not, effective marketing is all about choosing
-                the right advertising channels. To score big with your marketing
-                efforts, you need to become aware of the diverse benefits
-                pertinent to each and every one of those - and choose the right
-                ones. Sure, digital advertising brings masses of data, and you
-                might be struggling to process all the information. We know -
-                making sense of data is difficult. Don’t shy away from doing so.
-                First, you’re not alone. Secondly, the benefits are numerous.
-              </p>
-              <p>
-                By analyzing available information on demographics, interests
-                and behavior, you can learn much more about your audience than
-                you have ever dreamed of. Once you know more about your
-                audience, you can decide on a cost-effective digital advertising
-                mix. This is where we step in.
-              </p>
-            </Stack>
+          <Stack stackSpace={"var(--s4) !important"}>
+            <Switcher>
+              <Stack stackSpace={"var(--s4)"} className="service-info">
+                <p>
+                  If you’re failing to capitalize on the top-quality product and
+                  superb service you’re offering, chances are your digital
+                  advertising is misplaced.
+                </p>
+                <p>
+                  More often than not, effective marketing is all about choosing
+                  the right advertising channels. To score big with your
+                  marketing efforts, you need to become aware of the diverse
+                  benefits pertinent to each and every one of those - and choose
+                  the right ones. Sure, digital advertising brings masses of
+                  data, and you might be struggling to process all the
+                  information. We know - making sense of data is difficult.
+                  Don’t shy away from doing so. First, you’re not alone.
+                  Secondly, the benefits are numerous.
+                </p>
+                <p>
+                  By analyzing available information on demographics, interests
+                  and behavior, you can learn much more about your audience than
+                  you have ever dreamed of. Once you know more about your
+                  audience, you can decide on a cost-effective digital
+                  advertising mix. This is where we step in.
+                </p>
+              </Stack>
+              <Center>
+                <GoogleAdSvg width={400} height={300}></GoogleAdSvg>
+              </Center>
+            </Switcher>
             <Center>
-              <GoogleAdSvg width={400} height={300}></GoogleAdSvg>
+              <AnimationContainer delay={"3"} wobble={true}>
+                <ScrollLink id="cta_services" href="#contact-form-section">
+                  <Button as={"span"}>
+                    Schedule Free Consultation!
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Button>
+                </ScrollLink>
+              </AnimationContainer>
             </Center>
-          </Switcher>
+          </Stack>
         </Wrapper>
       </Region>
 

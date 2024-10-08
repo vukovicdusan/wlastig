@@ -60,6 +60,7 @@ export const AnimationContainerStyled = styled.div`
 
   .wobble {
     animation: wobbleAnimation 1s ease;
+    animation-delay: 0.5s;
     transition-delay: ${(props) => (props.delay ? "0." + props.delay : "0")}s;
   }
 

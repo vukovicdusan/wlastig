@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import AnimationContainer from "./AnimationContainer";
 import { Center } from "./styles/Center.styled";
 import { FullBackground } from "./styles/FullBackground.styled";
@@ -7,9 +7,13 @@ import styled from "styled-components";
 import { Shapedivider } from "./styles/Shapedivider.styled";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 import { Wrapper } from "./styles/Wrapper.styled";
+import { Button } from "./styles/Button.styled";
+import { Stack } from "./styles/Stack.styled";
+import ModalCtx from "../store/ModalCtx";
 
 const Infographic = (props) => {
   let animationRef = useRef();
+  const modalCtx = useContext(ModalCtx);
   const [show, setShow] = useState(false);
   let processesNum = props.processArr.length + 1;
 
@@ -52,12 +56,34 @@ const Infographic = (props) => {
       </Shapedivider>
       <Region>
         <Wrapper>
-          <AnimationContainer>
+          <Stack
+            stackSpace={"var(--s5) !important"}
+            stackAlign={"center"}
+            mt={"var(--s5)"}
+          >
+            <AnimationContainer>
+              <Center>
+                <h2>Our Roadmap to Success</h2>
+                <UnderlineStyled></UnderlineStyled>
+              </Center>
+            </AnimationContainer>
             <Center>
-              <h2>Our Roadmap to Success</h2>
-              <UnderlineStyled></UnderlineStyled>
+              <AnimationContainer wobble={true} delay={"9"}>
+                <Button
+                  onClick={() => {
+                    modalCtx.forceOpenHandler("contact");
+                  }}
+                  as={"span"}
+                  id="contact_us_now"
+                >
+                  Contact Us Now <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Button>
+              </AnimationContainer>
             </Center>
-          </AnimationContainer>
+          </Stack>
           <InfographicStyled ref={animationRef}>
             <div
               className={
@@ -77,6 +103,7 @@ const Infographic = (props) => {
               </li>
             ))}
           </InfographicStyled>
+          {/* </Stack> */}
         </Wrapper>
       </Region>
       <Shapedivider position={"bottom"} rotation={"180"}>

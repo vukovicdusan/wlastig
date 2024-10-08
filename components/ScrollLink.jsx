@@ -4,12 +4,19 @@ import React from "react";
 const ScrollLink = ({ children, ...props }) => {
   const handleScroll = (e) => {
     e.preventDefault();
-    const targetId = e.currentTarget.href.replace(/.*\#/, "");
+
+    const targetId = e.currentTarget.href.replace(/.*#/, ""); // Extract the target id from the href
     const elem = document.getElementById(targetId);
-    window.scrollTo({
-      top: elem?.getBoundingClientRect().top,
-      behavior: "smooth",
-    });
+
+    if (elem) {
+      // Get the element's position relative to the document
+      const offsetTop = elem.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
   return (
     <Link

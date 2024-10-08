@@ -93,85 +93,103 @@ const webAnalytics = () => {
       </ServicesHeroStyled>
       <Region>
         <Wrapper>
-          <Switcher>
-            <Stack stackSpace={"var(--s4)"} className="service-info">
-              <Stack>
-                <p>
-                  Web analytics is a measurement and analysis of data to get a
-                  deep understanding of customer behavior, marketing, and
-                  website performance. What you don&#39;t measure you can&#39;t
-                  optimize!
-                </p>
-              </Stack>
-              <Stack>
-                <AnimationContainer>
-                  <h2>Why do you need Web Analytics?</h2>
-                  <UnderlineStyled
-                    underlineMargin={"var(--s-4)"}
-                  ></UnderlineStyled>
-                </AnimationContainer>
-                <Stack as="ul">
-                  <li>
-                    <CheckSvg
-                      svgWidth={50}
-                      svgHeight={15}
-                      svgFill={"#4bb543"}
-                    ></CheckSvg>
-                    You can’t optimize what you can’t measure!
-                  </li>
-                  <li>
-                    <CheckSvg
-                      svgWidth={50}
-                      svgHeight={15}
-                      svgFill={"#4bb543"}
-                    ></CheckSvg>
-                    Improve your marketing performance.
-                  </li>
-                  <li>
-                    <CheckSvg
-                      svgWidth={50}
-                      svgHeight={15}
-                      svgFill={"#4bb543"}
-                    ></CheckSvg>
-                    Gain deeper insights into your customer behavior.
-                  </li>
-                  <li>
-                    <CheckSvg
-                      svgWidth={50}
-                      svgHeight={15}
-                      svgFill={"#4bb543"}
-                    ></CheckSvg>
-                    Discover where hidden opportunities.
-                  </li>
-                  <li>
-                    <CheckSvg
-                      svgWidth={50}
-                      svgHeight={15}
-                      svgFill={"#4bb543"}
-                    ></CheckSvg>
-                    Make sound data-driven decisions.
-                  </li>
+          <Stack stackSpace={"var(--s4) !important"}>
+            <Switcher>
+              <Stack stackSpace={"var(--s4)"} className="service-info">
+                <Stack>
+                  <p>
+                    Web analytics is a measurement and analysis of data to get a
+                    deep understanding of customer behavior, marketing, and
+                    website performance. What you don&#39;t measure you
+                    can&#39;t optimize!
+                  </p>
+                </Stack>
+                <Stack>
+                  <AnimationContainer>
+                    <h2>Why do you need Web Analytics?</h2>
+                    <UnderlineStyled
+                      underlineMargin={"var(--s-4)"}
+                    ></UnderlineStyled>
+                  </AnimationContainer>
+                  <Stack as="ul">
+                    <li>
+                      <CheckSvg
+                        svgWidth={50}
+                        svgHeight={15}
+                        svgFill={"#4bb543"}
+                      ></CheckSvg>
+                      You can’t optimize what you can’t measure!
+                    </li>
+                    <li>
+                      <CheckSvg
+                        svgWidth={50}
+                        svgHeight={15}
+                        svgFill={"#4bb543"}
+                      ></CheckSvg>
+                      Improve your marketing performance.
+                    </li>
+                    <li>
+                      <CheckSvg
+                        svgWidth={50}
+                        svgHeight={15}
+                        svgFill={"#4bb543"}
+                      ></CheckSvg>
+                      Gain deeper insights into your customer behavior.
+                    </li>
+                    <li>
+                      <CheckSvg
+                        svgWidth={50}
+                        svgHeight={15}
+                        svgFill={"#4bb543"}
+                      ></CheckSvg>
+                      Discover where hidden opportunities.
+                    </li>
+                    <li>
+                      <CheckSvg
+                        svgWidth={50}
+                        svgHeight={15}
+                        svgFill={"#4bb543"}
+                      ></CheckSvg>
+                      Make sound data-driven decisions.
+                    </li>
+                  </Stack>
+                </Stack>
+                <Stack>
+                  <AnimationContainer>
+                    <h2>Do we make the right fit?</h2>
+                    <UnderlineStyled
+                      underlineMargin={"var(--s-4)"}
+                    ></UnderlineStyled>
+                  </AnimationContainer>
+                  <p>
+                    There are no big or small accounts. Just right and wrong
+                    strategies. Whether you’re just starting out or in need of
+                    advanced web analysis, we are here for you! Let’s transform
+                    your data into profits!
+                  </p>
                 </Stack>
               </Stack>
-              <Stack>
-                <AnimationContainer>
-                  <h2>Do we make the right fit?</h2>
-                  <UnderlineStyled
-                    underlineMargin={"var(--s-4)"}
-                  ></UnderlineStyled>
-                </AnimationContainer>
-                <p>
-                  There are no big or small accounts. Just right and wrong
-                  strategies. Whether you’re just starting out or in need of
-                  advanced web analysis, we are here for you! Let’s transform
-                  your data into profits!
-                </p>
-              </Stack>
-            </Stack>
+              <Center>
+                <ReportAnalysis2Svg
+                  width={400}
+                  height={300}
+                ></ReportAnalysis2Svg>
+              </Center>
+            </Switcher>
             <Center>
-              <ReportAnalysis2Svg width={400} height={300}></ReportAnalysis2Svg>
+              <AnimationContainer delay={"3"} wobble={true}>
+                <ScrollLink id="cta_services" href="#contact-form-section">
+                  <Button as={"span"}>
+                    Schedule Free Consultation!
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Button>
+                </ScrollLink>
+              </AnimationContainer>
             </Center>
-          </Switcher>
+          </Stack>
         </Wrapper>
       </Region>
 
