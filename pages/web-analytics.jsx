@@ -212,7 +212,7 @@ const webAnalytics = () => {
         // auditTitle={"Find Your Money Leaks For Free!"}
         // auditId={"marketing_audit"}
       ></ContactFormSection>
-      <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+      {/* <?Faq color={"var(--text-light)"} faqArr={faqArr}></Faq> */}
       <Modal></Modal>
     </main>
   );

@@ -142,7 +142,7 @@ const Consulting = () => {
         ]}
         formType={"freeConsultation"}
       ></ContactFormSection>
-      <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq>
+      {/* <Faq color={"var(--text-light)"} faqArr={faqArr}></Faq> */}
       <Modal></Modal>
     </>
   );
