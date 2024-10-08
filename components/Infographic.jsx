@@ -61,12 +61,6 @@ const Infographic = (props) => {
             stackAlign={"center"}
             mt={"var(--s5)"}
           >
-            <AnimationContainer>
-              <Center>
-                <h2>Our Roadmap to Success</h2>
-                <UnderlineStyled></UnderlineStyled>
-              </Center>
-            </AnimationContainer>
             <Center>
               <AnimationContainer wobble={true} delay={"9"}>
                 <Button
@@ -83,6 +77,12 @@ const Infographic = (props) => {
                 </Button>
               </AnimationContainer>
             </Center>
+            <AnimationContainer>
+              <Center>
+                <h2>Our Roadmap to Success</h2>
+                <UnderlineStyled></UnderlineStyled>
+              </Center>
+            </AnimationContainer>
           </Stack>
           <InfographicStyled ref={animationRef}>
             <div
