@@ -6,7 +6,10 @@ import { Stack } from "../../components/styles/Stack.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import { Wrapper } from "../../components/styles/Wrapper.styled";
 import { Button } from "../../components/styles/Button.styled";
-import { StyledText } from "../../components/styles/StyledText.styled";
+import {
+  StyledH1,
+  StyledText,
+} from "../../components/styles/StyledText.styled";
 import { FullBackground } from "../../components/styles/FullBackground.styled";
 import { Shapedivider } from "../../components/styles/Shapedivider.styled";
 import AnimationContainer from "../../components/AnimationContainer";
@@ -49,14 +52,10 @@ const Careers = ({ data }) => {
                 ></Image>
               </div>
               <Stack stackAlign={"end"}>
-                <StyledText
-                  as={"h1"}
-                  color={"var(--primary)"}
-                  family={"var(--poppinsbold)"}
-                >
+                <StyledH1 color={"var(--primary)"}>
                   Looking to launch your career among a team of seasoned
                   professionals?{" "}
-                </StyledText>
+                </StyledH1>
               </Stack>
             </div>
           </div>
