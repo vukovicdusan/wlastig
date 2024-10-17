@@ -13,6 +13,8 @@ import Head from "next/head";
 import AnimationContainer from "../components/AnimationContainer";
 import IconBox from "../components/IconBox";
 import { Grid } from "../components/styles/Grid.styled";
+import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
+import Testimonials from "../components/Testimonials";
 import ContactFormSection from "../components/ContactFormSection";
 
 const landing = () => {
@@ -85,20 +87,21 @@ const landing = () => {
         </FullBackground>
         <Region>
           <Wrapper>
-            <StyledText
-              as={"h3"}
-              align="center"
-              maxWidth={"100%"}
-              mb={"var(--s4)"}
-            >
-              GA4 Tracking Services Tailored to Your Business
-            </StyledText>
+            <AnimationContainer>
+              <StyledText as={"h2"} align="center" maxWidth={"100%"}>
+                GA4 Tracking Services Tailored to Your Business
+              </StyledText>
+              <Center>
+                <UnderlineStyled></UnderlineStyled>
+              </Center>
+            </AnimationContainer>
             <Switcher
               switcherJustify={"center"}
               flexBasis={"40rem"}
               elCount={"2"}
               gap={"var(--s4)"}
               mb={"var(--s4)"}
+              mt={"var(--s4)"}
             >
               <AnimationContainer>
                 <Center>
@@ -197,58 +200,73 @@ const landing = () => {
                 stackAlign={"center"}
                 mt={"var(--s2)"}
               >
-                <StyledText
-                  as={"h3"}
-                  color={"var(--text-light)"}
-                  align="center"
-                  maxWidth={"100%"}
-                >
-                  Why Choose Wlastig for GA4 Tracking?
-                </StyledText>
+                <AnimationContainer>
+                  <StyledText
+                    as={"h2"}
+                    color={"var(--text-light)"}
+                    align="center"
+                    maxWidth={"100%"}
+                  >
+                    Why Choose Wlastig for GA4 Tracking?
+                  </StyledText>
+                  <Center>
+                    <UnderlineStyled></UnderlineStyled>
+                  </Center>
+                </AnimationContainer>
                 {/* <Center> */}
                 <Grid gridColumn={"300px"} gridGap={"var(--s2)"}>
-                  <Stack>
-                    <StyledText as={"h4"} color={"var(--secondary)"}>
-                      Expertise in GA4 Migration
-                    </StyledText>
-                    <StyledText color={"var(--text-light)"}>
-                      Successfully migrated dozens of clients to GA4 without
-                      losing historical data insights.
-                    </StyledText>
-                  </Stack>
-                  <Stack>
-                    <StyledText as={"h4"} color={"var(--secondary)"}>
-                      Seamless GTM Integration:
-                    </StyledText>
-                    <StyledText color={"var(--text-light)"}>
-                      Our expertise in Google Tag Manager ensures flawless data
-                      layer and tracking code implementations.
-                    </StyledText>
-                  </Stack>
-                  <Stack>
-                    <StyledText as={"h4"} color={"var(--secondary)"}>
-                      Proven GA4 Customization
-                    </StyledText>
-                    <StyledText color={"var(--text-light)"}>
-                      From event tracking to ecommerce, we tailor GA4 setups to
-                      your unique needs.
-                    </StyledText>
-                  </Stack>
-                  <Stack>
-                    <StyledText as={"h4"} color={"var(--secondary)"}>
-                      Real-Time Reporting and Insights:
-                    </StyledText>
-                    <StyledText color={"var(--text-light)"}>
-                      Gain deeper insights into user behavior with dashboards
-                      built for actionable data.
-                    </StyledText>
-                  </Stack>
+                  <AnimationContainer>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Expertise in GA4 Migration
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        Successfully migrated dozens of clients to GA4 without
+                        losing historical data insights.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"2"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Seamless GTM Integration:
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        Our expertise in Google Tag Manager ensures flawless
+                        data layer and tracking code implementations.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"4"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Proven GA4 Customization
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        From event tracking to ecommerce, we tailor GA4 setups
+                        to your unique needs.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"6"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Real-Time Reporting and Insights:
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        Gain deeper insights into user behavior with dashboards
+                        built for actionable data.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
                 </Grid>
                 {/* </Center> */}
               </Stack>
             </Wrapper>
           </Region>
-          <Shapedivider position={"bottom"} rotation={"360"}>
+        </FullBackground>
+        <FullBackground>
+          <Shapedivider position={"top"} rotation={"0"}>
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -266,8 +284,130 @@ const landing = () => {
               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
             </svg>
           </Shapedivider>
+          <Region pt={"7rem"}>
+            <Wrapper>
+              <AnimationContainer>
+                <Stack stackJustify={"center"} stackAlign={"center"}>
+                  <h3 className="title-xl">Schedule a free consultation</h3>
+                  <UnderlineStyled></UnderlineStyled>
+                </Stack>
+              </AnimationContainer>
+              <div className="contact-form-wrapper">
+                <ContactForm></ContactForm>
+              </div>
+            </Wrapper>
+          </Region>
         </FullBackground>
-        <ContactFormSection></ContactFormSection>
+        <FullBackground background={"var(--primary)"}>
+          <Shapedivider
+            height={"130px"}
+            rotation={"0"}
+            fill={"var(--background-light)"}
+          >
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+            >
+              <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
+            </svg>
+          </Shapedivider>
+          <Region pt={"12rem"} pb={"5rem"}>
+            <Wrapper>
+              <Center>
+                <AnimationContainer>
+                  <StyledText as={"h2"} color={"var(--text-light)"}>
+                    Our GA4 Setup Process
+                  </StyledText>
+                  <Center>
+                    <UnderlineStyled></UnderlineStyled>
+                  </Center>
+                </AnimationContainer>
+                <Stack
+                  as={"ul"}
+                  stackJustify={"center"}
+                  stackAlign={"flex-start"}
+                  mt={"var(--s2)"}
+                  stackSpace={"var(--s3)"}
+                >
+                  <li>
+                    <AnimationContainer>
+                      <StyledText color="var(--text-light)">
+                        <StyledText
+                          as={"span"}
+                          color={"var(--secondary)"}
+                          fontSize={"var(--s1)"}
+                          family={"var(--poppinsbold)"}
+                        >
+                          1. Discovery & Audit:&nbsp;
+                        </StyledText>
+                        We assess your current tracking and identify key
+                        business goals.
+                      </StyledText>
+                    </AnimationContainer>
+                  </li>
+                  <li>
+                    <AnimationContainer delay={"2"}>
+                      <StyledText color="var(--text-light)">
+                        <StyledText
+                          as={"span"}
+                          color={"var(--secondary)"}
+                          fontSize={"var(--s1)"}
+                          family={"var(--poppinsbold)"}
+                        >
+                          2. Custom GA4 Setup:&nbsp;
+                        </StyledText>
+                        We build a tailored event and conversion tracking
+                        structure.
+                      </StyledText>
+                    </AnimationContainer>
+                  </li>
+                  <li>
+                    <AnimationContainer delay={"4"}>
+                      <StyledText color="var(--text-light)">
+                        <StyledText
+                          as={"span"}
+                          color={"var(--secondary)"}
+                          fontSize={"var(--s1)"}
+                          family={"var(--poppinsbold)"}
+                        >
+                          3. Testing & Validation:&nbsp;
+                        </StyledText>
+                        We ensure your setup works flawlessly across devices.
+                      </StyledText>
+                    </AnimationContainer>
+                  </li>
+                  <li>
+                    <AnimationContainer delay={"6"}>
+                      <StyledText color="var(--text-light)">
+                        <StyledText
+                          as={"span"}
+                          color={"var(--secondary)"}
+                          fontSize={"var(--s1)"}
+                          family={"var(--poppinsbold)"}
+                        >
+                          4. Training & Support:&nbsp;
+                        </StyledText>
+                        We offer hands-on training to help you interpret your
+                        GA4 data.
+                      </StyledText>
+                    </AnimationContainer>
+                  </li>
+                </Stack>
+              </Center>
+            </Wrapper>
+          </Region>
+        </FullBackground>
+
+        <Testimonials sidebarLayout={false}></Testimonials>
+        <ContactFormSection
+          formType={"freeConsultation"}
+          shapedivider={true}
+          title={"Schedule a free consultation"}
+        >
+          {" "}
+        </ContactFormSection>
       </LandingStyled>
     </main>
   );
@@ -278,6 +418,7 @@ export const LandingStyled = styled.div`
     color: var(--secondary);
   }
   .contact-form-wrapper {
+    display: inline;
     background-color: var(--background-light);
     border-radius: 5px;
     padding: var(--s2) var(--s2);

@@ -24,7 +24,7 @@ export default function Home() {
       <Hero></Hero>
       <Reel></Reel>
       <FocusSection></FocusSection>
-      <Testimonials></Testimonials>
+      <Testimonials sidebarLayout={true}></Testimonials>
       <ContactFormSection
         formType={"freeConsultation"}
         shapedivider={true}
