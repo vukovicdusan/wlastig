@@ -296,6 +296,7 @@ export const TestimonialsStyled = styled.div`
       props.sidebarLayout ? "" : "var(--primary)"};
     padding: var(--s3) var(--s2);
     border-radius: 5px;
+    min-height: 500px;
   }
 
   .card blockquote p {
@@ -386,6 +387,12 @@ export const TestimonialsStyled = styled.div`
     }
   }
 
+  @media (max-width: 1013px) {
+    .card blockquote {
+      min-height: 700px;
+    }
+  }
+
   @media (max-width: 900px) {
     .reelButtons {
       width: ${(props) => (props.sidebarLayout ? "100%" : "4rem")};
@@ -393,6 +400,12 @@ export const TestimonialsStyled = styled.div`
     .cards-wrapper {
       justify-content: ${(props) =>
         props.sidebarLayout ? "center" : "center"};
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card blockquote {
+      min-height: 400px;
     }
   }
 
@@ -415,6 +428,10 @@ export const TestimonialsStyled = styled.div`
 
     & blockquote {
       border-inline-start: none;
+    }
+
+    .card blockquote {
+      min-height: 300px;
     }
   }
 `;
