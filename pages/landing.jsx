@@ -54,12 +54,9 @@ const landing = () => {
                   <StyledText
                     family="var(--poppinsbold)"
                     fontSize="var(--s2)"
-                    color="var(--primary)"
+                    color="var(--secondary)"
                   >
-                    <StyledText as={"span"} color={"var(--secondary)"}>
-                      SIGN UP
-                    </StyledText>{" "}
-                    FOR<br></br> FREE CONSULTATION
+                    SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
                     btnName={"Sign up now!"}
@@ -107,7 +104,7 @@ const landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--text-dark)"}
+                    color={"var(--theme-text-dark)"}
                     boxBorderColor={"transparent"}
                     img={"chart"}
                     width={100}
@@ -123,7 +120,7 @@ const landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--text-dark)"}
+                    color={"var(--theme-text-dark)"}
                     boxBorderColor={"transparent"}
                     img={"data-analysis"}
                     width={100}
@@ -146,7 +143,7 @@ const landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--text-dark)"}
+                    color={"var(--theme-text-dark)"}
                     boxBorderColor={"transparent"}
                     img={"ecommerce"}
                     width={100}
@@ -162,7 +159,7 @@ const landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--text-dark)"}
+                    color={"var(--theme-text-dark)"}
                     boxBorderColor={"transparent"}
                     img={"search"}
                     width={100}
