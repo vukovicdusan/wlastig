@@ -1,18 +1,29 @@
 import React from "react";
 import { Center } from "./styles/Center.styled";
-import logo from "../public/img/logo/Wlastig_logo_sajt_color.png";
+import logoColor from "../public/img/logo/Wlastig_logo_sajt_color-cut.png";
+import logoWhite from "../public/img/logo/logo-white.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const LandingHeader = () => {
   return (
     <Center>
-      <Link href={"/"} className="a-exception" passHref>
+      <Link href={"/"} className="a-exception pt-s-1 pb-s-1" passHref>
         <Image
+          className="hide-in-dark"
           style={{ objectFit: "contain" }}
           width="300"
-          height="100"
-          src={logo}
+          height="80"
+          src={logoColor}
+          priority
+          alt="logo"
+        />
+        <Image
+          className="show-in-dark"
+          style={{ objectFit: "contain" }}
+          width="300"
+          height="80"
+          src={logoWhite}
           priority
           alt="logo"
         />

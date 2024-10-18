@@ -332,11 +332,24 @@ label {
 	color-scheme:light;
 }
 
+.pt-s-1 {
+	padding-top: var(--s-1);
+}
+.pb-s-1 {
+	padding-bottom: var(--s-1);
+}
+
 @media only screen and (max-width: 780px) {
     .calendly-inline-widget {
         min-height: 1050px;
     }
 }
+.show-in-dark {
+		display: none;
+	}
+	.hide-in-dark {
+		display: block;
+	}
 
 @media (prefers-color-scheme: dark) {
 	html {
@@ -361,6 +374,13 @@ label {
 		--active-slider-btn-color: var(--text-light);
 
 		--reel-analytics-dark: #777777;
+	}
+
+	.show-in-dark {
+		display: block;
+	}
+	.hide-in-dark {
+		display: none;
 	}
 }
 `;
