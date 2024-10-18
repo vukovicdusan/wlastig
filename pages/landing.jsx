@@ -16,6 +16,8 @@ import { Grid } from "../components/styles/Grid.styled";
 import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 import Testimonials from "../components/Testimonials";
 import ContactFormSection from "../components/ContactFormSection";
+import Infographic from "../components/Infographic";
+import { processArr } from "../public/content/landing";
 
 const landing = () => {
   return (
@@ -28,19 +30,13 @@ const landing = () => {
         A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
         />
         <meta name="robots" content="noindex, nofollow" />
-        {/* <link
-          rel="canonical"
-          href="https://www.wlastig.com/landing"
-          key="canonical"
-        /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LandingStyled>
         <FullBackground background={"var(--primary)"}>
-          <Region pt={"130px"} pb={"130px"}>
+          <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
               <Switcher gap={"var(--s4)"}>
-                {/* <Center></Center> */}
                 <Stack stackJustify={"center"}>
                   <StyledH1 color="var(--text-light)" className="hero-title">
                     Unlock the Full Potential of <span>Google Analytics 4</span>
@@ -210,7 +206,6 @@ const landing = () => {
                     <UnderlineStyled></UnderlineStyled>
                   </Center>
                 </AnimationContainer>
-                {/* <Center> */}
                 <Grid gridColumn={"300px"} gridGap={"var(--s2)"}>
                   <AnimationContainer>
                     <Stack>
@@ -257,7 +252,6 @@ const landing = () => {
                     </Stack>
                   </AnimationContainer>
                 </Grid>
-                {/* </Center> */}
               </Stack>
             </Wrapper>
           </Region>
@@ -281,11 +275,13 @@ const landing = () => {
               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
             </svg>
           </Shapedivider>
-          <Region pt={"7rem"}>
+          <Region pt={"12rem"} pb={"12rem"}>
             <Wrapper>
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <h3 className="title-xl">Schedule a free consultation</h3>
+                  <h3 className="title-xl text-center">
+                    Schedule a free consultation
+                  </h3>
                   <UnderlineStyled></UnderlineStyled>
                 </Stack>
               </AnimationContainer>
@@ -294,109 +290,23 @@ const landing = () => {
               </div>
             </Wrapper>
           </Region>
-        </FullBackground>
-        <FullBackground background={"var(--primary)"}>
-          <Shapedivider
-            height={"130px"}
-            rotation={"0"}
-            fill={"var(--background-light)"}
-          >
+          <Shapedivider position={"bottom"} rotation={"0"}>
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1200 120"
               preserveAspectRatio="none"
             >
-              <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"></path>
+              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
             </svg>
           </Shapedivider>
-          <Region pt={"12rem"} pb={"5rem"}>
-            <Wrapper>
-              <Center>
-                <AnimationContainer>
-                  <StyledText as={"h2"} color={"var(--text-light)"}>
-                    Our GA4 Setup Process
-                  </StyledText>
-                  <Center>
-                    <UnderlineStyled></UnderlineStyled>
-                  </Center>
-                </AnimationContainer>
-                <Stack
-                  as={"ul"}
-                  stackJustify={"center"}
-                  stackAlign={"flex-start"}
-                  mt={"var(--s2)"}
-                  stackSpace={"var(--s3)"}
-                >
-                  <li>
-                    <AnimationContainer>
-                      <StyledText color="var(--text-light)">
-                        <StyledText
-                          as={"span"}
-                          color={"var(--secondary)"}
-                          fontSize={"var(--s1)"}
-                          family={"var(--poppinsbold)"}
-                        >
-                          1. Discovery & Audit:&nbsp;
-                        </StyledText>
-                        We assess your current tracking and identify key
-                        business goals.
-                      </StyledText>
-                    </AnimationContainer>
-                  </li>
-                  <li>
-                    <AnimationContainer delay={"2"}>
-                      <StyledText color="var(--text-light)">
-                        <StyledText
-                          as={"span"}
-                          color={"var(--secondary)"}
-                          fontSize={"var(--s1)"}
-                          family={"var(--poppinsbold)"}
-                        >
-                          2. Custom GA4 Setup:&nbsp;
-                        </StyledText>
-                        We build a tailored event and conversion tracking
-                        structure.
-                      </StyledText>
-                    </AnimationContainer>
-                  </li>
-                  <li>
-                    <AnimationContainer delay={"4"}>
-                      <StyledText color="var(--text-light)">
-                        <StyledText
-                          as={"span"}
-                          color={"var(--secondary)"}
-                          fontSize={"var(--s1)"}
-                          family={"var(--poppinsbold)"}
-                        >
-                          3. Testing & Validation:&nbsp;
-                        </StyledText>
-                        We ensure your setup works flawlessly across devices.
-                      </StyledText>
-                    </AnimationContainer>
-                  </li>
-                  <li>
-                    <AnimationContainer delay={"6"}>
-                      <StyledText color="var(--text-light)">
-                        <StyledText
-                          as={"span"}
-                          color={"var(--secondary)"}
-                          fontSize={"var(--s1)"}
-                          family={"var(--poppinsbold)"}
-                        >
-                          4. Training & Support:&nbsp;
-                        </StyledText>
-                        We offer hands-on training to help you interpret your
-                        GA4 data.
-                      </StyledText>
-                    </AnimationContainer>
-                  </li>
-                </Stack>
-              </Center>
-            </Wrapper>
-          </Region>
         </FullBackground>
-
+        {/* <ContactFormSection
+          formType={"freeConsultation"}
+          title={"Schedule a free consultation"}
+        ></ContactFormSection> */}
+        <Infographic ctaButton={false} processArr={processArr}></Infographic>
+        <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
           formType={"freeConsultation"}
@@ -422,6 +332,10 @@ export const LandingStyled = styled.div`
     height: max-content;
     max-width: fit-content;
     transition: all 0.4s ease;
+  }
+  .spacer {
+    background-color: var(--primary);
+    padding-block: 5rem;
   }
   @media (max-width: 430px) {
     .contact-form-wrapper {

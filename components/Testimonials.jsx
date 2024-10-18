@@ -11,10 +11,8 @@ import { Shapedivider } from "./styles/Shapedivider.styled";
 import { Stack } from "./styles/Stack.styled";
 import styled from "styled-components";
 import AnimationContainer from "./AnimationContainer";
-import {
-  testimonials,
-  testimonialsLanding,
-} from "../public/content/testimonials";
+import { testimonials } from "../public/content/testimonials";
+import { testimonialsLanding } from "../public/content/landing";
 
 const Testimonials = (props) => {
   const [reelIndex, setReelIndex] = useState(0);

@@ -195,7 +195,7 @@ const webAnalytics = () => {
 
       <SubServicesGrid subsArr={subsArr}></SubServicesGrid>
 
-      <Infographic processArr={processArr}></Infographic>
+      <Infographic ctaButton={true} processArr={processArr}></Infographic>
 
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
 

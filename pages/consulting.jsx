@@ -129,7 +129,7 @@ const Consulting = () => {
         </Shapedivider>
       </FullBackground>
 
-      <Infographic processArr={processArr}></Infographic>
+      <Infographic ctaButton={true} processArr={processArr}></Infographic>
 
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
       <ContactFormSection

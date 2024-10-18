@@ -61,22 +61,24 @@ const Infographic = (props) => {
             stackAlign={"center"}
             mt={"var(--s5)"}
           >
-            <Center>
-              <AnimationContainer wobble={true} delay={"9"}>
-                <Button
-                  onClick={() => {
-                    modalCtx.forceOpenHandler("contact");
-                  }}
-                  as={"span"}
-                  id="contact_us_now"
-                >
-                  Contact Us Now <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Button>
-              </AnimationContainer>
-            </Center>
+            {props.ctaButton ? (
+              <Center>
+                <AnimationContainer wobble={true} delay={"9"}>
+                  <Button
+                    onClick={() => {
+                      modalCtx.forceOpenHandler("contact");
+                    }}
+                    as={"span"}
+                    id="contact_us_now"
+                  >
+                    Contact Us Now <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Button>
+                </AnimationContainer>
+              </Center>
+            ) : null}
             <AnimationContainer>
               <Center>
                 <h2>Our Roadmap to Success</h2>
@@ -84,7 +86,7 @@ const Infographic = (props) => {
               </Center>
             </AnimationContainer>
           </Stack>
-          <InfographicStyled ref={animationRef}>
+          <InfographicStyled processesNum={processesNum} ref={animationRef}>
             <div
               className={
                 show ? "enter-up-show rocket" : "enter-up-hidden rocket"
