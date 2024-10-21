@@ -244,7 +244,7 @@ const landing = () => {
                     </p>
                   </Center>
                 </AnimationContainer>
-                <Grid gridColumn={"400px"} gridGap={"var(--s2)"}>
+                <Grid gridColumn={"400px"} gridGap={"var(--s5)"}>
                   <AnimationContainer>
                     <Stack>
                       <StyledText as={"h4"} color={"var(--secondary)"}>
