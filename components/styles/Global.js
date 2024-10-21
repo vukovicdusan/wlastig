@@ -230,6 +230,10 @@ h6 {
 max-width: 60ch;
 }
 
+.max-w-prose-plus {
+max-width: 80ch;
+}
+
 @media (max-width: 450px) {
 	h1 {
 		font-size: var(--s2);
