@@ -326,7 +326,7 @@ export const InfographicStyled = styled.ol`
   }
 
   & li:nth-child(8)::after {
-    background-color: #96e0de;
+    background-color: #e52b50;
   }
 
   & li:nth-child(2)::after {
