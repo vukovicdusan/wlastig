@@ -56,18 +56,30 @@ export const testimonialsLanding = [
 export const processArr = [
   {
     title:
-      " Discovery & Audit: We assess your current tracking and identify key business goals.",
+      "Comprehensive Tracking Audit: We begin with a thorough audit of your current tracking setup, ensuring we understand your business and its data needs.",
   },
   {
     title:
-      "Custom GA4 Setup: We build a tailored event and conversion tracking structure.",
+      "Detailed Tracking Documentation: We provide clear, actionable tracking documentation, including a developer briefing to ensure seamless Data Layer implementation.",
   },
   {
     title:
-      "Testing & Validation: We ensure your setup works flawlessly across devices.",
+      "Implementation Testing & Feedback: After developers integrate the necessary changes, we rigorously test the implementation and provide detailed feedback for improvements.",
   },
   {
     title:
-      "Training & Support: We offer hands-on training to help you interpret your GA4 data.",
+      "Advanced Google Tag Manager Setup: We configure and optimize your tracking within Google Tag Manager, including the implementation of Server-Side Tracking for enhanced data tracking accuracy.",
+  },
+  {
+    title:
+      "Quality Assurance (QA): Our team conducts thorough QA to ensure every tracking element functions correctly, guaranteeing data accuracy.",
+  },
+  {
+    title:
+      "Custom Dashboards & Reporting: We deliver insightful, custom-built dashboards and reports that empower you to make informed, data-driven decisions.",
+  },
+  {
+    title:
+      "Ongoing Tracking Optimization & Maintenance: We provide continuous support to maintain and enhance your tracking setup as your business evolves.",
   },
 ];

@@ -19,7 +19,7 @@ const Infographic = (props) => {
 
   useEffect(() => {
     let config = {
-      threshold: 0.5,
+      threshold: props.treshold || 0.5,
     };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -86,7 +86,11 @@ const Infographic = (props) => {
               </Center>
             </AnimationContainer>
           </Stack>
-          <InfographicStyled processesNum={processesNum} ref={animationRef}>
+          <InfographicStyled
+            fireHeight={props.fireHeight}
+            processesNum={processesNum}
+            ref={animationRef}
+          >
             <div
               className={
                 show ? "enter-up-show rocket" : "enter-up-hidden rocket"
@@ -223,7 +227,7 @@ export const InfographicStyled = styled.ol`
     content: "";
     position: absolute;
     width: 50%;
-    height: 200vh;
+    height: ${(props) => props.fireHeight || "200vh"};
     top: calc(100% - var(--rocket-height) * 0.21);
     left: 25%;
     z-index: -1;
@@ -319,6 +323,10 @@ export const InfographicStyled = styled.ol`
       -0.125rem 0.125rem 0.25rem rgb(0 0 0 / 0.5),
       calc(var(--number-line-length) * var(--dot_pos_multiplier, 1)) 0 0
         var(--dot-size) currentcolor;
+  }
+
+  & li:nth-child(8)::after {
+    background-color: #96e0de;
   }
 
   & li:nth-child(2)::after {

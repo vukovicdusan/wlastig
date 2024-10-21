@@ -305,7 +305,12 @@ const landing = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic ctaButton={false} processArr={processArr}></Infographic>
+        <Infographic
+          ctaButton={false}
+          processArr={processArr}
+          treshold={0.3}
+          fireHeight={"218vh"}
+        ></Infographic>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
