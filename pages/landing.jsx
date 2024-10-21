@@ -126,9 +126,11 @@ const landing = () => {
                     img={"chart"}
                     width={100}
                     height={100}
-                    title={"Expertise You Can Trust"}
+                    title={
+                      "Custom GA4 tracking setup tailored to your business goals:"
+                    }
                     content={
-                      "Our team consists of seasoned web analytics professionals with years of experience in implementing GA4. From e-commerce tracking to custom event setups, we know how to configure GA4 to capture the data that matters most to your business."
+                      "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
                     }
                   ></IconBox>
                 </Center>
@@ -142,48 +144,11 @@ const landing = () => {
                     img={"data-analysis"}
                     width={100}
                     height={100}
-                    title={"Tailored Tracking Solutions"}
-                    content={
-                      "Every business is unique, and so are its analytics needs. We don’t believe in a one-size-fits-all approach. Wlastig delivers customized GA4 setups that align with your specific KPIs and business goals, ensuring you get actionable insights from day one."
+                    title={
+                      "Server-Side Tracking implementation for enhanced data accuracy and more conversions:"
                     }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-            </Switcher>
-            <Switcher
-              switcherJustify={"center"}
-              flexBasis={"40rem"}
-              elCount={"2"}
-              gap={"var(--s4)"}
-            >
-              <AnimationContainer delay={"3"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"advertisement"}
-                    width={100}
-                    height={100}
-                    title={"Expert Guidance for Precision Tracking"}
                     content={
-                      "Choosing Wlastig as your GA4 implementation partner ensures a meticulous and strategic setup tailored to your business goals. Our deep expertise guarantees that every event and conversion is accurately tracked, providing you with the insights needed for data-driven decisions. With Wlastig, you’re not just getting an implementation; you’re gaining a trusted partner committed to delivering measurable impact and long-term success."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-              <AnimationContainer delay={"6"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"search"}
-                    width={100}
-                    height={100}
-                    title={"Comprehensive Data Accuracy"}
-                    content={
-                      "With us, your data will always be clean, precise, and reliable. We meticulously set up your GA4 tracking to avoid common pitfalls like duplicate events, misfiring tags, or inaccurate reports. This means you’ll always have confidence in the numbers you see."
+                      "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to better understanding of user journeys, translating into more conversions and higher ROI."
                     }
                   ></IconBox>
                 </Center>
@@ -204,9 +169,9 @@ const landing = () => {
                     img={"ecommerce"}
                     width={100}
                     height={100}
-                    title={"Enhanced Ecommerce and Conversion Tracking"}
+                    title={"More conversions, better campaign results:"}
                     content={
-                      "Our expertise extends beyond standard implementations. Whether you need detailed ecommerce tracking or sophisticated conversion attribution models, we ensure your GA4 property is optimized to capture every valuable interaction and conversion."
+                      "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spend, maximizing your return on investment."
                     }
                   ></IconBox>
                 </Center>
@@ -217,51 +182,14 @@ const landing = () => {
                     flexDirection={"row"}
                     color={"var(--theme-text-dark)"}
                     boxBorderColor={"transparent"}
-                    img={"advertisement"}
+                    img={"search"}
                     width={100}
                     height={100}
-                    title={"Full-Service Support & Training"}
-                    content={
-                      "We’re more than just a setup service. Wlastig offers ongoing support and training to ensure your team understands the full potential of GA4. Need help with advanced reporting, funnel analysis, or data interpretation? We’ve got you covered."
+                    title={
+                      "In-depth reporting and actionable insights to elevate your marketing strategies:"
                     }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-            </Switcher>
-            <Switcher
-              switcherJustify={"center"}
-              flexBasis={"40rem"}
-              elCount={"2"}
-              gap={"var(--s4)"}
-            >
-              <AnimationContainer delay={"3"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"lead-generation"}
-                    width={100}
-                    height={100}
-                    title={"Cutting-Edge GA4 & Server-Side Tracking Solutions"}
                     content={
-                      "As digital privacy regulations evolve, so does our approach to analytics. We offer Server-Side Tracking via Google Tag Manager, providing enhanced data control and accuracy, ensuring compliance with privacy laws while delivering powerful insights."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-              <AnimationContainer delay={"6"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"money"}
-                    width={100}
-                    height={100}
-                    title={"Proven Results, Real Impact"}
-                    content={
-                      "Our clients see real, measurable improvements in their analytics data and decision-making processes. With our GA4 expertise, you’ll be able to identify growth opportunities, optimize campaigns, and drive higher ROI with confidence."
+                      "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
                     }
                   ></IconBox>
                 </Center>
@@ -308,56 +236,128 @@ const landing = () => {
                 <AnimationContainer>
                   <Center>
                     <p className="max-w-prose-plus">
-                      At Wlastig, we specialize in advanced Google Analytics 4
-                      (GA4) tracking solutions designed to give you the deepest
-                      insights into your website performance and user behavior.
-                      Here’s why Wlastig is your ideal partner for GA4
-                      implementation:
+                      At <strong>Wlastig</strong>, we specialize in advanced{" "}
+                      <strong>Google Analytics 4 (GA4)</strong> tracking
+                      solutions designed to give you the deepest insights into
+                      your website performance and user behavior. Here’s why
+                      Wlastig is your ideal partner for GA4 implementation:
                     </p>
                   </Center>
                 </AnimationContainer>
-                <Grid gridColumn={"300px"} gridGap={"var(--s2)"}>
+                <Grid gridColumn={"400px"} gridGap={"var(--s2)"}>
                   <AnimationContainer>
                     <Stack>
                       <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Expertise in GA4 Migration
+                        Expertise You Can Trust
                       </StyledText>
                       <StyledText color={"var(--text-light)"}>
-                        Successfully migrated dozens of clients to GA4 without
-                        losing historical data insights.
+                        Our team consists of seasoned web analytics
+                        professionals with years of experience in implementing
+                        GA4. From e-commerce tracking to custom event setups, we
+                        know how to configure GA4 to capture the data that
+                        matters most to your business.
                       </StyledText>
                     </Stack>
                   </AnimationContainer>
                   <AnimationContainer delay={"2"}>
                     <Stack>
                       <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Seamless GTM Integration:
+                        Tailored Tracking Solutions
                       </StyledText>
                       <StyledText color={"var(--text-light)"}>
-                        Our expertise in Google Tag Manager ensures flawless
-                        data layer and tracking code implementations.
+                        Every business is unique, and so are its analytics
+                        needs. We don’t believe in a one-size-fits-all approach.
+                        Wlastig delivers customized GA4 setups that align with
+                        your specific KPIs and business goals, ensuring you get
+                        actionable insights from day one.
                       </StyledText>
                     </Stack>
                   </AnimationContainer>
                   <AnimationContainer delay={"4"}>
                     <Stack>
                       <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Proven GA4 Customization
+                        Expert Guidance for Precision Tracking
                       </StyledText>
                       <StyledText color={"var(--text-light)"}>
-                        From event tracking to ecommerce, we tailor GA4 setups
-                        to your unique needs.
+                        Choosing Wlastig as your GA4 implementation partner
+                        ensures a meticulous and strategic setup tailored to
+                        your business goals. Our deep expertise guarantees that
+                        every event and conversion is accurately tracked,
+                        providing you with the insights needed for data-driven
+                        decisions. With Wlastig, you’re not just getting an
+                        implementation; you’re gaining a trusted partner
+                        committed to delivering measurable impact and long-term
+                        success.
                       </StyledText>
                     </Stack>
                   </AnimationContainer>
                   <AnimationContainer delay={"6"}>
                     <Stack>
                       <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Real-Time Reporting and Insights:
+                        Comprehensive Data Accuracy
                       </StyledText>
                       <StyledText color={"var(--text-light)"}>
-                        Gain deeper insights into user behavior with dashboards
-                        built for actionable data.
+                        With us, your data will always be clean, precise, and
+                        reliable. We meticulously set up your GA4 tracking to
+                        avoid common pitfalls like duplicate events, misfiring
+                        tags, or inaccurate reports. This means you’ll always
+                        have confidence in the numbers you see.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"6"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Enhanced Ecommerce and Conversion Tracking
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        Our expertise extends beyond standard implementations.
+                        Whether you need detailed ecommerce tracking or
+                        sophisticated conversion attribution models, we ensure
+                        your GA4 property is optimized to capture every valuable
+                        interaction and conversion.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"6"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Full-Service Support & Training
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        We’re more than just a setup service. Wlastig offers
+                        ongoing support and training to ensure your team
+                        understands the full potential of GA4. Need help with
+                        advanced reporting, funnel analysis, or data
+                        interpretation? We’ve got you covered.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"6"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Cutting-Edge GA4 & Server-Side Tracking Solutions
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        As digital privacy regulations evolve, so does our
+                        approach to analytics. We offer Server-Side Tracking via
+                        Google Tag Manager, providing enhanced data control and
+                        accuracy, ensuring compliance with privacy laws while
+                        delivering powerful insights.
+                      </StyledText>
+                    </Stack>
+                  </AnimationContainer>
+                  <AnimationContainer delay={"6"}>
+                    <Stack>
+                      <StyledText as={"h4"} color={"var(--secondary)"}>
+                        Proven Results, Real Impact
+                      </StyledText>
+                      <StyledText color={"var(--text-light)"}>
+                        Our clients see real, measurable improvements in their
+                        analytics data and decision-making processes. With our
+                        GA4 expertise, you’ll be able to identify growth
+                        opportunities, optimize campaigns, and drive higher ROI
+                        with confidence.
                       </StyledText>
                     </Stack>
                   </AnimationContainer>
