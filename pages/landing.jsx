@@ -88,6 +88,27 @@ const landing = () => {
                 <UnderlineStyled></UnderlineStyled>
               </Center>
             </AnimationContainer>
+            <AnimationContainer>
+              <Stack>
+                <p>
+                  Unlock the full potential of your website data with customized
+                  Google Analytics 4 (GA4) tracking solutions designed to meet
+                  the unique needs of your business. At Wlastig, we specialize
+                  in implementing advanced GA4 tracking and Server-Side Tracking
+                  via Google Tag Manager (GTM), ensuring you capture the right
+                  insights that drive growth.
+                </p>{" "}
+                <p>
+                  {" "}
+                  Whether you’re looking to understand user behavior, optimize
+                  your conversions, or streamline marketing performance, our
+                  team ensures seamless data collection across platforms. With
+                  precision tracking and real-time analytics, you’ll have the
+                  data-driven tools needed to make informed decisions and
+                  outperform the competition.
+                </p>
+              </Stack>
+            </AnimationContainer>
             <Switcher
               switcherJustify={"center"}
               flexBasis={"40rem"}
@@ -105,9 +126,11 @@ const landing = () => {
                     img={"chart"}
                     width={100}
                     height={100}
-                    title={"Custom GA4 Setup"}
+                    title={
+                      "Custom GA4 tracking setup tailored to your business goals:"
+                    }
                     content={
-                      "Lorem ipsum dolor sit amet, consectetur adipscing elit. Donec, massa felis, pellentesque ac ante aget, fringilla tincidunt lectus."
+                      "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
                     }
                   ></IconBox>
                 </Center>
@@ -121,9 +144,11 @@ const landing = () => {
                     img={"data-analysis"}
                     width={100}
                     height={100}
-                    title={"Event Tracking"}
+                    title={
+                      "Server-Side Tracking implementation for enhanced data accuracy and more conversions:"
+                    }
                     content={
-                      "Lorem ipsum dolor sit amet, consectetur adipscing elit. Donec, massa felis, pellentesque ac ante aget, fringilla tincidunt lectus."
+                      "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to better understanding of user journeys, translating into more conversions and higher ROI."
                     }
                   ></IconBox>
                 </Center>
@@ -144,9 +169,9 @@ const landing = () => {
                     img={"ecommerce"}
                     width={100}
                     height={100}
-                    title={"Ecommerce & Lead Tracking"}
+                    title={"More conversions, better campaign results:"}
                     content={
-                      "Lorem ipsum dolor sit amet, consectetur adipscing elit. Donec, massa felis, pellentesque ac ante aget, fringilla tincidunt lectus."
+                      "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spend, maximizing your return on investment."
                     }
                   ></IconBox>
                 </Center>
@@ -160,9 +185,11 @@ const landing = () => {
                     img={"search"}
                     width={100}
                     height={100}
-                    title={"Data Layer Documentation"}
+                    title={
+                      "In-depth reporting and actionable insights to elevate your marketing strategies:"
+                    }
                     content={
-                      "Lorem ipsum dolor sit amet, consectetur adipscing elit. Donec, massa felis, pellentesque ac ante aget, fringilla tincidunt lectus."
+                      "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
                     }
                   ></IconBox>
                 </Center>

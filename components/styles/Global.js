@@ -226,6 +226,10 @@ h6 {
 	text-shadow: var(--text-shadow);
 }
 
+.max-w-prose {
+max-width: 60ch;
+}
+
 @media (max-width: 450px) {
 	h1 {
 		font-size: var(--s2);
@@ -337,6 +341,10 @@ label {
 }
 .pb-s-1 {
 	padding-bottom: var(--s-1);
+}
+
+.mb-s-1 {
+margin-bottom: var(--s-1);
 }
 
 @media only screen and (max-width: 780px) {
