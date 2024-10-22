@@ -9,7 +9,13 @@ export const StyledText = styled.p`
   max-width: ${(props) => props.maxWidth || ""};
   margin-top: ${(props) => props.mt || ""};
   margin-bottom: ${(props) => props.mb || ""};
+
+  @media (max-width: 450px) {
+    font-size: ${(props) =>
+      props.fontSize ? `calc(${props.fontSize} - 35%)` : ""};
+  }
 `;
+
 export const StyledH1 = styled.h1`
   font-size: ${(props) => props.fontSize || ""};
   color: ${(props) => props.color || ""};
