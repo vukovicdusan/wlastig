@@ -44,7 +44,7 @@ const Landing = () => {
         <FullBackground background={"var(--primary)"}>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
-              <Switcher gap={"var(--s4)"}>
+              <Switcher className="center-mobile" gap={"var(--s4)"}>
                 <Stack stackJustify={"center"}>
                   <StyledH1 color="var(--text-light)" className="hero-title">
                     Unlock the Full Potential of <span>Google Analytics 4</span>
@@ -374,6 +374,15 @@ export const LandingStyled = styled.div`
   .spacer {
     background-color: var(--primary);
     padding-block: 5rem;
+  }
+  @media (max-width: 825px) {
+    h1,
+    h1 + p {
+      text-align: center;
+    }
+    .center-mobile {
+      justify-content: center;
+    }
   }
   @media (max-width: 430px) {
     .contact-form-wrapper {
