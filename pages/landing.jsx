@@ -17,9 +17,17 @@ import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 import Testimonials from "../components/Testimonials";
 import ContactFormSection from "../components/ContactFormSection";
 import Infographic from "../components/Infographic";
-import { processArr } from "../public/content/landing";
+import { processArr, whyChooseWlastig } from "../public/content/landing";
+import { Button } from "../components/styles/Button.styled";
 
-const landing = () => {
+const Landing = () => {
+  const [serviceCount, setserviceCount] = React.useState(4);
+
+  const seeMore = () => {
+    whyChooseWlastig.length > serviceCount
+      ? setserviceCount((prevState) => prevState + 4)
+      : setserviceCount(whyChooseWlastig.length);
+  };
   return (
     <main>
       <Head>
@@ -235,133 +243,44 @@ const landing = () => {
                 </AnimationContainer>
                 <AnimationContainer>
                   <Center>
-                    <p className="max-w-prose-plus">
+                    <StyledText
+                      color="var(--text-light)"
+                      className="max-w-prose-plus"
+                    >
                       At <strong>Wlastig</strong>, we specialize in advanced{" "}
                       <strong>Google Analytics 4 (GA4)</strong> tracking
                       solutions designed to give you the deepest insights into
                       your website performance and user behavior. Here’s why
                       Wlastig is your ideal partner for GA4 implementation:
-                    </p>
+                    </StyledText>
                   </Center>
                 </AnimationContainer>
                 <Grid gridColumn={"400px"} gridGap={"var(--s5)"}>
-                  <AnimationContainer>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Expertise You Can Trust
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        Our team consists of seasoned web analytics
-                        professionals with years of experience in implementing
-                        GA4. From e-commerce tracking to custom event setups, we
-                        know how to configure GA4 to capture the data that
-                        matters most to your business.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"2"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Tailored Tracking Solutions
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        Every business is unique, and so are its analytics
-                        needs. We don’t believe in a one-size-fits-all approach.
-                        Wlastig delivers customized GA4 setups that align with
-                        your specific KPIs and business goals, ensuring you get
-                        actionable insights from day one.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"4"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Expert Guidance for Precision Tracking
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        Choosing Wlastig as your GA4 implementation partner
-                        ensures a meticulous and strategic setup tailored to
-                        your business goals. Our deep expertise guarantees that
-                        every event and conversion is accurately tracked,
-                        providing you with the insights needed for data-driven
-                        decisions. With Wlastig, you’re not just getting an
-                        implementation; you’re gaining a trusted partner
-                        committed to delivering measurable impact and long-term
-                        success.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"6"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Comprehensive Data Accuracy
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        With us, your data will always be clean, precise, and
-                        reliable. We meticulously set up your GA4 tracking to
-                        avoid common pitfalls like duplicate events, misfiring
-                        tags, or inaccurate reports. This means you’ll always
-                        have confidence in the numbers you see.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"6"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Enhanced Ecommerce and Conversion Tracking
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        Our expertise extends beyond standard implementations.
-                        Whether you need detailed ecommerce tracking or
-                        sophisticated conversion attribution models, we ensure
-                        your GA4 property is optimized to capture every valuable
-                        interaction and conversion.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"6"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Full-Service Support & Training
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        We’re more than just a setup service. Wlastig offers
-                        ongoing support and training to ensure your team
-                        understands the full potential of GA4. Need help with
-                        advanced reporting, funnel analysis, or data
-                        interpretation? We’ve got you covered.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"6"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Cutting-Edge GA4 & Server-Side Tracking Solutions
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        As digital privacy regulations evolve, so does our
-                        approach to analytics. We offer Server-Side Tracking via
-                        Google Tag Manager, providing enhanced data control and
-                        accuracy, ensuring compliance with privacy laws while
-                        delivering powerful insights.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
-                  <AnimationContainer delay={"6"}>
-                    <Stack>
-                      <StyledText as={"h4"} color={"var(--secondary)"}>
-                        Proven Results, Real Impact
-                      </StyledText>
-                      <StyledText color={"var(--text-light)"}>
-                        Our clients see real, measurable improvements in their
-                        analytics data and decision-making processes. With our
-                        GA4 expertise, you’ll be able to identify growth
-                        opportunities, optimize campaigns, and drive higher ROI
-                        with confidence.
-                      </StyledText>
-                    </Stack>
-                  </AnimationContainer>
+                  {whyChooseWlastig
+                    .slice(0, serviceCount)
+                    .map((item, index) => (
+                      // <div >
+                      <Stack key={index}>
+                        <StyledText as={"h4"} color={"var(--secondary)"}>
+                          {item.title}
+                        </StyledText>
+                        <StyledText color={"var(--text-light)"}>
+                          {item.body}
+                        </StyledText>
+                      </Stack>
+                      // </div>
+                    ))}
                 </Grid>
+                {serviceCount < whyChooseWlastig.length ? (
+                  <Center mt={"var(--s4)"}>
+                    <Button id="see_more_services" onClick={seeMore}>
+                      See More <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </Button>
+                  </Center>
+                ) : null}
               </Stack>
             </Wrapper>
           </Region>
@@ -459,4 +378,4 @@ export const LandingStyled = styled.div`
   }
 `;
 
-export default landing;
+export default Landing;
