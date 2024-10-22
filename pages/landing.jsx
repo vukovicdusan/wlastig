@@ -49,7 +49,11 @@ const Landing = () => {
                   <StyledH1 color="var(--text-light)" className="hero-title">
                     Unlock the Full Potential of <span>Google Analytics 4</span>
                   </StyledH1>
-                  <StyledText color={"var(--text-light)"} maxWidth={"40ch"}>
+                  <StyledText
+                    fontSize={"var(--s2)"}
+                    color={"var(--text-light)"}
+                    maxWidth={"40ch"}
+                  >
                     Advanced GA4 Tracking Solutions to Elevate Your Data
                     Insights and Drive Growth.
                   </StyledText>

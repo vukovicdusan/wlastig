@@ -11,6 +11,7 @@ export const StyledText = styled.p`
   margin-bottom: ${(props) => props.mb || ""};
 `;
 export const StyledH1 = styled.h1`
+  font-size: ${(props) => props.fontSize || ""};
   color: ${(props) => props.color || ""};
   text-transform: ${(props) => props.transform || ""};
   text-align: ${(props) => props.align || ""};
