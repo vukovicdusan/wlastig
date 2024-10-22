@@ -106,6 +106,7 @@ const Infographic = (props) => {
                 key={index}
               >
                 <div className="title">{process.title}</div>
+                <p>{process.body ? process.body : ""}</p>
               </li>
             ))}
           </InfographicStyled>
@@ -153,6 +154,10 @@ export const InfographicStyled = styled.ol`
   @media (max-width: 30rem) {
     --row-gap: 1rem;
     --column-gap: 1rem;
+  }
+
+  .title {
+    font-family: var(--poppinsbold);
   }
 
   padding-bottom: 10rem;
@@ -385,6 +390,12 @@ export const InfographicStyled = styled.ol`
 
   @media (prefers-color-scheme: dark) {
     color: inherit;
+  }
+
+  @media (max-width: 625px) {
+    .title + p {
+      display: none;
+    }
   }
 `;
 
