@@ -254,7 +254,7 @@ max-width: 80ch;
 		font-size: var(--s0);
 	}
 	body {
-		font-size: var(--s-1);
+		font-size: 15px;
 	}
 	.title-l {
 		font-size: var(--s1);
