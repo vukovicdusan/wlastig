@@ -5,6 +5,8 @@ export const GlobalStyles = createGlobalStyle`
 /** ==== MODULAR SCALE ==== */
 :root {
 	--ratio: 1.3;
+	--s-7: calc(var(--s-6) / var(--ratio));
+	--s-6: calc(var(--s-5) / var(--ratio));
 	--s-5: calc(var(--s-4) / var(--ratio));
 	--s-4: calc(var(--s-3) / var(--ratio));
 	--s-3: calc(var(--s-2) / var(--ratio));
@@ -16,6 +18,8 @@ export const GlobalStyles = createGlobalStyle`
 	--s3: calc(var(--s2) * var(--ratio));
 	--s4: calc(var(--s3) * var(--ratio));
 	--s5: calc(var(--s4) * var(--ratio));
+	--s6: calc(var(--s5) * var(--ratio));
+	--s7: calc(var(--s6) * var(--ratio));
 
 	/** ==== VARIABLES ==== */
 	--primary: #083d77;

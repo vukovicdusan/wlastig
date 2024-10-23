@@ -59,7 +59,7 @@ const Infographic = (props) => {
           <Stack
             stackSpace={"var(--s5) !important"}
             stackAlign={"center"}
-            mt={"var(--s5)"}
+            mt={"var(--s7)"}
           >
             {props.ctaButton ? (
               <Center>
