@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import logo from "../public/img/logo/Wlastig_logo_sajt_color-cut.png";
+import logoColor from "../public/img/logo/Wlastig_logo_sajt_color-cut.png";
+import logoWhite from "../public/img/logo/logo-white.png";
 import Link from "next/link";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
@@ -30,7 +32,22 @@ const Footer = () => {
             <Switcher elCount={5} gap={"var(--s3)"} flexBasis={"40rem"}>
               <Stack exceptionChild={1}>
                 <Link href={"/"} className="a-exception">
-                  <Image src={logo} width={150} alt="logo"></Image>
+                  <Image
+                    className="hide-in-dark"
+                    style={{ objectFit: "contain" }}
+                    width="150"
+                    src={logoColor}
+                    priority
+                    alt="logo"
+                  />
+                  <Image
+                    className="show-in-dark"
+                    style={{ objectFit: "contain" }}
+                    width="150"
+                    src={logoWhite}
+                    priority
+                    alt="logo"
+                  />
                 </Link>
                 <p>Wanna hear a great story?</p>
                 <p>
