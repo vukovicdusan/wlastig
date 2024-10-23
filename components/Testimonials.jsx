@@ -13,12 +13,13 @@ import styled from "styled-components";
 import AnimationContainer from "./AnimationContainer";
 import { testimonials } from "../public/content/testimonials";
 import { testimonialsLanding } from "../public/content/landing";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Testimonials = (props) => {
   const [reelIndex, setReelIndex] = useState(0);
   const [leftButtonDisabled, setLeftButtonDisabled] = useState(true);
   const [rightButtonDisabled, setRightButtonDisabled] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const isSmallScreen = useScreenSize();
 
   let sidebarLayout = props.sidebarLayout;
   let slidesToDisplay = sidebarLayout ? 1 : isSmallScreen ? 1 : 3;
@@ -30,19 +31,6 @@ const Testimonials = (props) => {
     reelIndex < slidesNum
       ? setRightButtonDisabled(false)
       : setRightButtonDisabled(true);
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsSmallScreen(mediaQuery.matches);
-
-    const handleMediaChange = (event) => {
-      setIsSmallScreen(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaChange);
-
-    // Clean up the listener on unmount
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    };
   }, [reelIndex, slidesNum]);
 
   const reelLinkHandler = (direction) => {

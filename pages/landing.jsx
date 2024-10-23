@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Region } from "../components/styles/Region.styled";
 import { Wrapper } from "../components/styles/Wrapper.styled";
 import { Switcher } from "../components/styles/Switcher.styled";
@@ -19,15 +19,22 @@ import ContactFormSection from "../components/ContactFormSection";
 import Infographic from "../components/Infographic";
 import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Landing = () => {
+  const isSmallScreen = useScreenSize();
   const [serviceCount, setserviceCount] = React.useState(4);
+
+  useEffect(() => {
+    isSmallScreen ? setserviceCount(4) : setserviceCount(8);
+  }, [isSmallScreen]);
 
   const seeMore = () => {
     whyChooseWlastig.length > serviceCount
       ? setserviceCount((prevState) => prevState + 4)
       : setserviceCount(whyChooseWlastig.length);
   };
+
   return (
     <main>
       <Head>
@@ -275,7 +282,7 @@ const Landing = () => {
                       // </div>
                     ))}
                 </Grid>
-                {serviceCount < whyChooseWlastig.length ? (
+                {serviceCount < whyChooseWlastig.length && isSmallScreen ? (
                   <Center mt={"var(--s4)"}>
                     <Button id="see_more_services" onClick={seeMore}>
                       See More <span></span>
