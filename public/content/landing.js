@@ -55,32 +55,32 @@ export const testimonialsLanding = [
 
 export const processArr = [
   {
-    title: "Comprehensive Tracking Audit",
-    body: "We begin with a thorough audit of your current tracking setup, ensuring we understand your business and its data needs.",
-  },
-  {
-    title: "Detailed Tracking Documentation",
-    body: "We provide clear, actionable tracking documentation, including a developer briefing to ensure seamless Data Layer implementation.",
-  },
-  {
-    title: "Implementation Testing & Feedback",
-    body: "After developers integrate the necessary changes, we rigorously test the implementation and provide detailed feedback for improvements.",
-  },
-  {
-    title: "Advanced Google Tag Manager Setup",
-    body: "We configure and optimize your tracking within Google Tag Manager, including the implementation of Server-Side Tracking for enhanced data tracking accuracy.",
-  },
-  {
-    title: "Quality Assurance (QA)",
-    body: "Our team conducts thorough QA to ensure every tracking element functions correctly, guaranteeing data accuracy.",
+    title: "Ongoing Tracking Optimization & Maintenance",
+    body: "We provide continuous support to maintain and enhance your tracking setup as your business evolves.",
   },
   {
     title: "Custom Dashboards & Reporting",
     body: "We deliver insightful, custom-built dashboards and reports that empower you to make informed, data-driven decisions.",
   },
   {
-    title: "Ongoing Tracking Optimization & Maintenance",
-    body: "We provide continuous support to maintain and enhance your tracking setup as your business evolves.",
+    title: "Quality Assurance (QA)",
+    body: "Our team conducts thorough QA to ensure every tracking element functions correctly, guaranteeing data accuracy.",
+  },
+  {
+    title: "Advanced Google Tag Manager Setup",
+    body: "We configure and optimize your tracking within Google Tag Manager, including the implementation of Server-Side Tracking for enhanced data tracking accuracy.",
+  },
+  {
+    title: "Implementation Testing & Feedback",
+    body: "After developers integrate the necessary changes, we rigorously test the implementation and provide detailed feedback for improvements.",
+  },
+  {
+    title: "Detailed Tracking Documentation",
+    body: "We provide clear, actionable tracking documentation, including a developer briefing to ensure seamless Data Layer implementation.",
+  },
+  {
+    title: "Comprehensive Tracking Audit",
+    body: "We begin with a thorough audit of your current tracking setup, ensuring we understand your business and its data needs.",
   },
 ];
 
