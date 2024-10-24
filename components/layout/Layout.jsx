@@ -10,7 +10,11 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   // Define pages where the header should not be displayed
-  const hideHeaderOnPaths = ["/landing"]; // Example paths
+  const hideHeaderOnPaths = [
+    "/google-analytics4-ga4-agency",
+    "/google-analytics4-ga4-black-friday",
+    "/google-analytics4-ga4-consultant",
+  ];
 
   const shouldHideHeader = hideHeaderOnPaths.includes(router.pathname);
   return (
