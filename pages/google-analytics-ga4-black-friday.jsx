@@ -331,7 +331,7 @@ const Landing = () => {
                 fontSize={"var(--s2)"}
                 family={"var(--poppinsbold)"}
                 mb={"var(--s4)"}
-                mt={"var(--s4)"}
+                mt={"var(--s6)"}
                 align={"center"}
                 className="max-w-prose-sm"
               >
