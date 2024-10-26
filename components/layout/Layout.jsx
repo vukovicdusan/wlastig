@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const hideHeaderOnPaths = [
     "/google-analytics4-ga4-agency",
     "/google-analytics4-ga4-black-friday",
-    "/google-analytics4-ga4-consultant",
+    "/google-analytics-ga4-consultant",
   ];
 
   const shouldHideHeader = hideHeaderOnPaths.includes(router.pathname);

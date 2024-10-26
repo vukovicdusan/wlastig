@@ -21,7 +21,7 @@ import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
 
-const Landing2 = () => {
+const Landing = () => {
   const isSmallScreen = useScreenSize();
   const [serviceCount, setserviceCount] = React.useState(4);
 
@@ -393,4 +393,4 @@ export const LandingStyled = styled.div`
   }
 `;
 
-export default Landing2;
+export default Landing;
