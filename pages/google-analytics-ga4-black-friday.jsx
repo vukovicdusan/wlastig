@@ -20,6 +20,10 @@ import Infographic from "../components/Infographic";
 import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
+import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg";
+import CheckSvg from "../components/svg/CheckSvg";
+import ScrollLink from "../components/ScrollLink";
+import GoogleAdSvg from "../components/svg/GoogleAdSvg";
 
 const Landing = () => {
   const isSmallScreen = useScreenSize();
@@ -54,15 +58,17 @@ const Landing = () => {
               <Switcher className="center-mobile" gap={"var(--s4)"}>
                 <Stack stackJustify={"center"}>
                   <StyledH1 color="var(--text-light)" className="hero-title">
-                    Unlock the Full Potential of <span>Google Analytics 4</span>
+                    Is Your Conversion Tracking Ready for{" "}
+                    <span>Black Friday</span>?
                   </StyledH1>
                   <StyledText
                     fontSize={"var(--s2)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
                   >
-                    Advanced GA4 Tracking Solutions to Elevate Your Data
-                    Insights and Drive Growth.
+                    Black Friday is just around the corner. Maximize your
+                    campaign success by optimizing your website’s conversion
+                    tracking
                   </StyledText>
                 </Stack>
                 <div className="contact-form-wrapper">
@@ -79,6 +85,107 @@ const Landing = () => {
                   ></ContactForm>
                 </div>
               </Switcher>
+              <Region>
+                <Wrapper>
+                  <Stack stackSpace={"var(--s4) !important"}>
+                    <Switcher mt={"var(--s4)"} reverse={true}>
+                      <Stack stackSpace={"var(--s4)"} className="service-info">
+                        {/* <Stack></Stack> */}
+                        <Stack>
+                          <Center>
+                            <AnimationContainer>
+                              <h2 className="text-center">
+                                Wlastig x Black Friday
+                              </h2>
+                              <UnderlineStyled
+                                underlineMargin={"var(--s-4)"}
+                                underlinePosition={"center"}
+                              ></UnderlineStyled>
+                            </AnimationContainer>
+                          </Center>
+                          <p>
+                            Black Friday is one of the biggest, if not the
+                            biggest, sales events of the year. To capitalize on
+                            this opportunity, you need more than just great
+                            offers—you need precise data. Effective{" "}
+                            <strong>conversion tracking</strong> is critical to
+                            ensuring every lead and transaction is captured,
+                            helping you understand the performance of your
+                            campaign and optimize them in real-time. Without
+                            accurate tracking, you risk missing valuable
+                            insights and sales opportunities.
+                          </p>
+                          <Stack as="ul">
+                            <li>
+                              <CheckSvg
+                                svgWidth={50}
+                                svgHeight={15}
+                                svgFill={"#4bb543"}
+                              ></CheckSvg>
+                              GA4 Tracking
+                            </li>
+                            <li>
+                              <CheckSvg
+                                svgWidth={50}
+                                svgHeight={15}
+                                svgFill={"#4bb543"}
+                              ></CheckSvg>
+                              Advertising Platforms Tracking
+                            </li>
+                            <li>
+                              <CheckSvg
+                                svgWidth={50}
+                                svgHeight={15}
+                                svgFill={"#4bb543"}
+                              ></CheckSvg>
+                              Server-Side Tracking via GTM
+                            </li>
+                            <li>
+                              <CheckSvg
+                                svgWidth={50}
+                                svgHeight={15}
+                                svgFill={"#4bb543"}
+                              ></CheckSvg>
+                              Conversion Tracking & Custom Reports
+                            </li>
+                          </Stack>
+                        </Stack>
+                      </Stack>
+                      <Center>
+                        <GoogleAdSvg width={400} height={300}></GoogleAdSvg>
+                      </Center>
+                    </Switcher>
+
+                    <Center>
+                      <StyledText
+                        fontSize={"var(--s2)"}
+                        family={"var(--poppinsbold)"}
+                        mb={"var(--s4)"}
+                        mt={"var(--s4)"}
+                        align={"center"}
+                        className="max-w-prose-sm"
+                      >
+                        Don’t Leave Sales on the Table—Ensure Your Web Tracking
+                        is Black Friday Ready!
+                      </StyledText>
+                      <AnimationContainer delay={"3"} wobble={true}>
+                        <ScrollLink
+                          id="cta_services"
+                          href="#contact-form-section"
+                        >
+                          <Button as={"span"}>
+                            Schedule Free Consultation!
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </Button>
+                        </ScrollLink>
+                      </AnimationContainer>
+                    </Center>
+                  </Stack>
+                </Wrapper>
+              </Region>
             </Wrapper>
           </Region>
 
@@ -381,6 +488,9 @@ export const LandingStyled = styled.div`
   .spacer {
     background-color: var(--primary);
     padding-block: 5rem;
+  }
+  .styled-list {
+    list-style: disc;
   }
   @media (max-width: 825px) {
     h1,

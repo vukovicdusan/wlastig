@@ -230,6 +230,10 @@ h6 {
 	text-shadow: var(--text-shadow);
 }
 
+.max-w-prose-sm {
+	max-width: 40ch;
+}
+
 .max-w-prose {
 max-width: 60ch;
 }
