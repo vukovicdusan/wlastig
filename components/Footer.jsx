@@ -12,11 +12,14 @@ import { Stack } from "./styles/Stack.styled";
 import { FullBackground } from "./styles/FullBackground.styled";
 import { Shapedivider } from "./styles/Shapedivider.styled";
 
-const Footer = () => {
+const Footer = (props) => {
   let year = new Date().getFullYear();
   return (
     <FullBackground>
-      <Shapedivider rotation={"0"}>
+      <Shapedivider
+        fill={props.isBlackFriday ? "var(--bg-bf)" : ""}
+        rotation={"0"}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

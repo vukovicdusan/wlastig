@@ -319,8 +319,7 @@ export const ContactFormStyled = styled.div`
   & input,
   & textarea {
     background: ${(props) => (props.bfBg ? props.bfBg : "")};
-    /* border-color: ${(props) =>
-      props.bf ? "var(--secondary)" : "inherit"}; */
+    border-color: ${(props) => (props.borderColor ? props.borderColor : "")};
   }
 
   & label {

@@ -20,7 +20,6 @@ import Infographic from "../components/Infographic";
 import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
-import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg";
 import CheckSvg from "../components/svg/CheckSvg";
 import ScrollLink from "../components/ScrollLink";
 import GoogleAdSvg from "../components/svg/GoogleAdSvg";
@@ -52,7 +51,7 @@ const Landing = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LandingStyled>
-        <FullBackground background={"var(--bg-bf)"}>
+        <FullBackground background={"var(--bf-black)"}>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
               <Switcher className="center-mobile" gap={"var(--s4)"}>
@@ -71,7 +70,7 @@ const Landing = () => {
                     tracking
                   </StyledText>
                 </Stack>
-                <div className="contact-form-wrapper">
+                <div className="contact-form-wrapper black-friday-border">
                   <StyledText
                     family="var(--poppinsbold)"
                     fontSize="var(--s2)"
@@ -534,7 +533,11 @@ const Landing = () => {
           formType={"freeConsultation"}
           shapedivider={true}
           title={"Schedule a free consultation"}
-          bg={"var(--bg-bf)"}
+          bg={"var(--bf-black)"}
+          bf={true}
+          bfInputBg={"var(--bf-gray)"}
+          bfBg={"var(--bf-black)"}
+          textBf={"var(--secondary)"}
         >
           {" "}
         </ContactFormSection>
@@ -557,6 +560,10 @@ export const LandingStyled = styled.div`
     height: max-content;
     max-width: fit-content;
     transition: all 0.4s ease;
+  }
+
+  .black-friday-border {
+    border: 1px solid var(--secondary);
   }
 
   .contact-form-wrapper-gray {

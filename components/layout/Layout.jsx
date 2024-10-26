@@ -22,7 +22,11 @@ const Layout = ({ children }) => {
   return (
     <LayoutStyled isBlackFriday={isBlackFriday}>
       <CalendlyBadgeWidget></CalendlyBadgeWidget>
-      {!shouldHideHeader ? <Header></Header> : <LandingHeader></LandingHeader>}
+      {!shouldHideHeader ? (
+        <Header></Header>
+      ) : (
+        <LandingHeader isBlackFriday={isBlackFriday}></LandingHeader>
+      )}
       {children}
       <Footer isBlackFriday={isBlackFriday}></Footer>
     </LayoutStyled>
@@ -30,7 +34,6 @@ const Layout = ({ children }) => {
 };
 
 export const LayoutStyled = styled.div`
-  background: ${(props) => (props.isBlackFriday ? "var(--bg-bf)" : "")};
   display: flex;
   flex-direction: column;
   height: 100vh;

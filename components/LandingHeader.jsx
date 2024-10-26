@@ -5,9 +5,11 @@ import logoWhite from "../public/img/logo/logo-white.png";
 import Image from "next/image";
 import Link from "next/link";
 
-const LandingHeader = () => {
+const LandingHeader = (props) => {
   return (
-    <header>
+    <header
+      style={{ background: props.isBlackFriday ? "var(--bf-black)" : "" }}
+    >
       <Center>
         <Link href={"/"} className="a-exception pt-s-1 pb-s-1" passHref>
           <Image
