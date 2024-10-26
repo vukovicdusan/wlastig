@@ -45,6 +45,10 @@ export const GlobalStyles = createGlobalStyle`
 	--poppinsregular: "poppinsregular", Times, serif;
 	--poppinsmedium: "poppinsmedium", Times, serif;
 
+	--bf-black: #100C08;
+	--bf-gray: #262626;
+	--bg-bf: linear-gradient(34deg, rgba(16,12,8,1) 0%, rgba(38,38,38,1) 100%);
+
 	--reel-analytics-dark: #242d3c;
 }
 /** ==== RESET ====*/

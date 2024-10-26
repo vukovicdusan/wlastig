@@ -25,7 +25,7 @@ const ContactFormSection = (props) => {
     : "";
 
   return (
-    <FullBackground background={"var(--primary)"}>
+    <FullBackground background={props.bg || "var(--primary)"}>
       {props.shapedivider ? (
         <Shapedivider
           height={"130px"}

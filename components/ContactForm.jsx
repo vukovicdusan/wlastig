@@ -117,9 +117,15 @@ const ContactForm = (props) => {
   let anyError = contactFormError.email.error || contactFormError.name.error;
   // ||
   // contactFormError.website.error;
-
+  console.log(props.bfInputBg);
   return (
-    <ContactFormStyled alignButton={props.alignButton}>
+    <ContactFormStyled
+      bfBg={props.bfBg}
+      textBf={props.textBf}
+      bfInputBg={props.bfInputBg}
+      bf={props.bf || false}
+      alignButton={props.alignButton}
+    >
       <div>
         <Stack
           className="form-container"
@@ -308,9 +314,23 @@ export const ContactFormStyled = styled.div`
     color: var(--secondary);
   }
 
+  background: ${(props) => props.bfBg || ""};
+
+  & input,
+  & textarea {
+    background: ${(props) => (props.bfBg ? props.bfBg : "")};
+    /* border-color: ${(props) =>
+      props.bf ? "var(--secondary)" : "inherit"}; */
+  }
+
+  & label {
+    color: ${(props) => (props.textBf ? props.textBf : "")};
+    background: ${(props) => (props.bfBg ? props.bfBg : "")};
+  }
+
   & input::placeholder,
   & textarea::placeholder {
-    color: var(--text-gray);
+    color: ${(props) => (props.textBf ? props.textBf : "var(--text-gray)")};
   }
 `;
 

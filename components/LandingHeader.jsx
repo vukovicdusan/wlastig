@@ -7,28 +7,30 @@ import Link from "next/link";
 
 const LandingHeader = () => {
   return (
-    <Center>
-      <Link href={"/"} className="a-exception pt-s-1 pb-s-1" passHref>
-        <Image
-          className="hide-in-dark"
-          style={{ objectFit: "contain" }}
-          width="300"
-          height="80"
-          src={logoColor}
-          priority
-          alt="logo"
-        />
-        <Image
-          className="show-in-dark"
-          style={{ objectFit: "contain" }}
-          width="300"
-          height="80"
-          src={logoWhite}
-          priority
-          alt="logo"
-        />
-      </Link>
-    </Center>
+    <header>
+      <Center>
+        <Link href={"/"} className="a-exception pt-s-1 pb-s-1" passHref>
+          <Image
+            className="hide-in-dark"
+            style={{ objectFit: "contain" }}
+            width="300"
+            height="80"
+            src={logoColor}
+            priority
+            alt="logo"
+          />
+          <Image
+            className="show-in-dark"
+            style={{ objectFit: "contain" }}
+            width="300"
+            height="80"
+            src={logoWhite}
+            priority
+            alt="logo"
+          />
+        </Link>
+      </Center>
+    </header>
   );
 };
 

@@ -10,6 +10,7 @@ import { Wrapper } from "./styles/Wrapper.styled";
 import { Button } from "./styles/Button.styled";
 import { Stack } from "./styles/Stack.styled";
 import ModalCtx from "../store/ModalCtx";
+import { StyledText } from "./styles/StyledText.styled";
 
 const Infographic = (props) => {
   let animationRef = useRef();
@@ -36,7 +37,11 @@ const Infographic = (props) => {
 
   return (
     <FullBackground>
-      <Shapedivider position={"top"} rotation={"0"}>
+      <Shapedivider
+        fill={props.shapeDividerFill || ""}
+        position={"top"}
+        rotation={"0"}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +86,9 @@ const Infographic = (props) => {
             ) : null}
             <AnimationContainer>
               <Center>
-                <h2>Our Roadmap to Success</h2>
+                <StyledText as={"h2"} color={props.titleColor || ""}>
+                  Our Roadmap to Success
+                </StyledText>
                 <UnderlineStyled></UnderlineStyled>
               </Center>
             </AnimationContainer>
@@ -90,6 +97,7 @@ const Infographic = (props) => {
             fireHeight={props.fireHeight}
             processesNum={processesNum}
             ref={animationRef}
+            textColor={props.textColor || ""}
           >
             <div
               className={
@@ -113,7 +121,11 @@ const Infographic = (props) => {
           {/* </Stack> */}
         </Wrapper>
       </Region>
-      <Shapedivider position={"bottom"} rotation={"180"}>
+      <Shapedivider
+        fill={props.shapeDividerFill || ""}
+        position={"bottom"}
+        rotation={"180"}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +180,7 @@ export const InfographicStyled = styled.ol`
   row-gap: var(--row-gap);
   counter-reset: liCount ${(props) => props.processesNum || 7};
   font-family: system-ui, sans-serif;
-  color: var(--primary);
+  color: ${(props) => (props.textColor ? props.textColor : "var(--primary)")};
   overflow: hidden;
   width: min(45rem, 100%);
   margin-inline: auto;

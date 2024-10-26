@@ -72,7 +72,11 @@ const Testimonials = (props) => {
 
   return (
     <FullBackground>
-      <Shapedivider position={"top"} rotation={"0"}>
+      <Shapedivider
+        fill={props.shapeDividerFill}
+        position={"top"}
+        rotation={"0"}
+      >
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +89,10 @@ const Testimonials = (props) => {
       <Region pb={"0"}>
         <Wrapper>
           <AnimationContainer delay={"4"}>
-            <TestimonialsStyled sidebarLayout={sidebarLayout}>
+            <TestimonialsStyled
+              bgCard={props.bgCard || ""}
+              sidebarLayout={sidebarLayout}
+            >
               <div className="reelButtons">
                 <button
                   onClick={() => reelLinkHandler("left")}
@@ -290,8 +297,7 @@ export const TestimonialsStyled = styled.div`
   .card blockquote {
     border-inline-start: revert;
     padding-inline-start: revert;
-    background-color: ${(props) =>
-      props.sidebarLayout ? "" : "var(--primary)"};
+    background: ${(props) => (props.bgCard ? props.bgCard : "var(--primary)")};
     padding: var(--s3) var(--s2);
     border-radius: 5px;
     min-height: 500px;

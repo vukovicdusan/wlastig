@@ -52,7 +52,7 @@ const Landing = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LandingStyled>
-        <FullBackground background={"var(--primary)"}>
+        <FullBackground background={"var(--bg-bf)"}>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
               <Switcher className="center-mobile" gap={"var(--s4)"}>
@@ -80,8 +80,12 @@ const Landing = () => {
                     SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
+                    bf={true}
                     btnName={"Sign up now!"}
                     btnId={"landing_page"}
+                    bfInputBg={"var(--bf-gray)"}
+                    bfBg={"var(--bf-black)"}
+                    textBf={"var(--secondary)"}
                   ></ContactForm>
                 </div>
               </Switcher>
@@ -195,7 +199,7 @@ const Landing = () => {
           </Region>
 
           <Shapedivider
-            fill={"var(--background-light)"}
+            fill={"var(--bf-gray)"}
             position={"bottom"}
             height={"100px"}
           >
@@ -212,7 +216,12 @@ const Landing = () => {
         <Region>
           <Wrapper>
             <AnimationContainer>
-              <StyledText as={"h2"} align="center" maxWidth={"100%"}>
+              <StyledText
+                color="var(--text-light)"
+                as={"h2"}
+                align="center"
+                maxWidth={"100%"}
+              >
                 GA4 Tracking Services Tailored to Your Business
               </StyledText>
               <Center>
@@ -221,15 +230,21 @@ const Landing = () => {
             </AnimationContainer>
             <AnimationContainer>
               <Stack stackAlign="center">
-                <p className="max-w-prose-plus">
+                <StyledText
+                  color="var(--text-light)"
+                  className="max-w-prose-plus"
+                >
                   Unlock the full potential of your website data with customized
                   Google Analytics 4 (GA4) tracking solutions designed to meet
                   the unique needs of your business. At Wlastig, we specialize
                   in implementing advanced GA4 tracking and Server-Side Tracking
                   via Google Tag Manager (GTM), ensuring you capture the right
                   insights that drive growth.
-                </p>{" "}
-                <p className="max-w-prose-plus">
+                </StyledText>{" "}
+                <StyledText
+                  color="var(--text-light)"
+                  className="max-w-prose-plus"
+                >
                   {" "}
                   Whether you’re looking to understand user behavior, optimize
                   your conversions, or streamline marketing performance, our
@@ -237,7 +252,7 @@ const Landing = () => {
                   precision tracking and real-time analytics, you’ll have the
                   data-driven tools needed to make informed decisions and
                   outperform the competition.
-                </p>
+                </StyledText>
               </Stack>
             </AnimationContainer>
             <Switcher
@@ -252,7 +267,7 @@ const Landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
+                    color={"var(--text-light)"}
                     boxBorderColor={"transparent"}
                     img={"chart"}
                     width={100}
@@ -270,7 +285,7 @@ const Landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
+                    color={"var(--text-light)"}
                     boxBorderColor={"transparent"}
                     img={"data-analysis"}
                     width={100}
@@ -295,7 +310,7 @@ const Landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
+                    color={"var(--text-light)"}
                     boxBorderColor={"transparent"}
                     img={"ecommerce"}
                     width={100}
@@ -311,7 +326,7 @@ const Landing = () => {
                 <Center>
                   <IconBox
                     flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
+                    color={"var(--text-light)"}
                     boxBorderColor={"transparent"}
                     img={"search"}
                     width={100}
@@ -328,6 +343,7 @@ const Landing = () => {
             </Switcher>
             <Center>
               <StyledText
+                color={"var(--text-light)"}
                 fontSize={"var(--s2)"}
                 family={"var(--poppinsbold)"}
                 mb={"var(--s4)"}
@@ -352,10 +368,10 @@ const Landing = () => {
             </Center>
           </Wrapper>
         </Region>
-        <FullBackground background={"var(--primary)"}>
+        <FullBackground background={"var(--bf-black)"}>
           <Shapedivider
             position={"top"}
-            fill={"var(--background-light)"}
+            fill={"var(--bf-gray)"}
             height={"100px"}
           >
             <svg
@@ -433,7 +449,11 @@ const Landing = () => {
           </Region>
         </FullBackground>
         <FullBackground>
-          <Shapedivider position={"top"} rotation={"0"}>
+          <Shapedivider
+            fill={"var(--bf-black)"}
+            position={"top"}
+            rotation={"0"}
+          >
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -455,18 +475,31 @@ const Landing = () => {
             <Wrapper>
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <h3 className="title-xl text-center">
+                  <StyledText
+                    color={"var(--text-light)"}
+                    as={"h3"}
+                    className="title-xl text-center"
+                  >
                     Schedule a free consultation
-                  </h3>
+                  </StyledText>
                   <UnderlineStyled></UnderlineStyled>
                 </Stack>
               </AnimationContainer>
-              <div className="contact-form-wrapper">
-                <ContactForm></ContactForm>
+              <div className="contact-form-wrapper-gray">
+                <ContactForm
+                  bf={true}
+                  bfBg={"var(--bf-gray)"}
+                  bfInputBg={"var(--bf-gray)"}
+                  textBf={"var(--secondary)"}
+                ></ContactForm>
               </div>
             </Wrapper>
           </Region>
-          <Shapedivider position={"bottom"} rotation={"0"}>
+          <Shapedivider
+            fill={"var(--bg-bf)"}
+            position={"bottom"}
+            rotation={"0"}
+          >
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -482,17 +515,26 @@ const Landing = () => {
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
         <Infographic
+          titleColor={"var(--text-light)"}
+          textColor={"var(--text-light)"}
+          shapeDividerFill={"var(--bg-bf)"}
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
         ></Infographic>
-        <div className="spacer"></div>
-        <Testimonials sidebarLayout={false}></Testimonials>
+        {/* <div className="spacer"></div> */}
+        <Testimonials
+          bgCard={"var(--bg-bf)"}
+          shapeDividerFill={"var(--bg-bf)"}
+          sidebarLayout={false}
+        ></Testimonials>
         <ContactFormSection
+          shapedividerColor={"var(--bf-gray)"}
           formType={"freeConsultation"}
           shapedivider={true}
           title={"Schedule a free consultation"}
+          bg={"var(--bg-bf)"}
         >
           {" "}
         </ContactFormSection>
@@ -502,20 +544,26 @@ const Landing = () => {
 };
 
 export const LandingStyled = styled.div`
+  background-color: var(--bf-gray);
   .hero-title span {
     color: var(--secondary);
   }
-  .contact-form-wrapper {
+  .contact-form-wrapper,
+  .contact-form-wrapper-gray {
     display: inline;
-    background-color: var(--background-light);
+    background-color: var(--bf-black);
     border-radius: 5px;
     padding: var(--s2) var(--s2);
     height: max-content;
     max-width: fit-content;
     transition: all 0.4s ease;
   }
+
+  .contact-form-wrapper-gray {
+    background-color: var(--bf-gray);
+  }
   .spacer {
-    background-color: var(--primary);
+    background: var(--bf-black);
     padding-block: 5rem;
   }
   .styled-list {

@@ -16,18 +16,21 @@ const Layout = ({ children }) => {
     "/google-analytics-ga4-consultant",
   ];
 
+  const isBlackFriday =
+    router.pathname === "/google-analytics-ga4-black-friday";
   const shouldHideHeader = hideHeaderOnPaths.includes(router.pathname);
   return (
-    <LayoutStyled>
+    <LayoutStyled isBlackFriday={isBlackFriday}>
       <CalendlyBadgeWidget></CalendlyBadgeWidget>
       {!shouldHideHeader ? <Header></Header> : <LandingHeader></LandingHeader>}
       {children}
-      <Footer></Footer>
+      <Footer isBlackFriday={isBlackFriday}></Footer>
     </LayoutStyled>
   );
 };
 
 export const LayoutStyled = styled.div`
+  background: ${(props) => (props.isBlackFriday ? "var(--bg-bf)" : "")};
   display: flex;
   flex-direction: column;
   height: 100vh;
