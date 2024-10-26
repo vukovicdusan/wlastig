@@ -94,16 +94,20 @@ const Landing = () => {
                         <Stack>
                           <Center>
                             <AnimationContainer>
-                              <h2 className="text-center">
+                              <StyledText
+                                color="var(--text-light)"
+                                as={"h2"}
+                                className="text-center"
+                              >
                                 Wlastig x Black Friday
-                              </h2>
+                              </StyledText>
                               <UnderlineStyled
                                 underlineMargin={"var(--s-4)"}
                                 underlinePosition={"center"}
                               ></UnderlineStyled>
                             </AnimationContainer>
                           </Center>
-                          <p>
+                          <StyledText color="var(--text-light)">
                             Black Friday is one of the biggest, if not the
                             biggest, sales events of the year. To capitalize on
                             this opportunity, you need more than just great
@@ -114,40 +118,40 @@ const Landing = () => {
                             campaign and optimize them in real-time. Without
                             accurate tracking, you risk missing valuable
                             insights and sales opportunities.
-                          </p>
+                          </StyledText>
                           <Stack as="ul">
-                            <li>
+                            <StyledText color="var(--text-light)" as={"li"}>
                               <CheckSvg
                                 svgWidth={50}
                                 svgHeight={15}
                                 svgFill={"#4bb543"}
                               ></CheckSvg>
                               GA4 Tracking
-                            </li>
-                            <li>
+                            </StyledText>
+                            <StyledText color="var(--text-light)" as={"li"}>
                               <CheckSvg
                                 svgWidth={50}
                                 svgHeight={15}
                                 svgFill={"#4bb543"}
                               ></CheckSvg>
                               Advertising Platforms Tracking
-                            </li>
-                            <li>
+                            </StyledText>
+                            <StyledText color="var(--text-light)" as={"li"}>
                               <CheckSvg
                                 svgWidth={50}
                                 svgHeight={15}
                                 svgFill={"#4bb543"}
                               ></CheckSvg>
                               Server-Side Tracking via GTM
-                            </li>
-                            <li>
+                            </StyledText>
+                            <StyledText color="var(--text-light)" as={"li"}>
                               <CheckSvg
                                 svgWidth={50}
                                 svgHeight={15}
                                 svgFill={"#4bb543"}
                               ></CheckSvg>
                               Conversion Tracking & Custom Reports
-                            </li>
+                            </StyledText>
                           </Stack>
                         </Stack>
                       </Stack>
@@ -164,6 +168,7 @@ const Landing = () => {
                         mt={"var(--s4)"}
                         align={"center"}
                         className="max-w-prose-sm"
+                        color="var(--text-light)"
                       >
                         Don’t Leave Sales on the Table—Ensure Your Web Tracking
                         is Black Friday Ready!
