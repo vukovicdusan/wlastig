@@ -76,7 +76,7 @@ export const processArr = [
   },
   {
     title: "Detailed Tracking Documentation",
-    body: "We provide clear, actionable tracking documentation, including a developer briefing to ensure seamless Data Layer implementation.",
+    body: "We provide clear, actionable tracking documentation, including a developer briefing to ensure efficient Data Layer implementation.",
   },
   {
     title: "Comprehensive Tracking Audit",
@@ -90,31 +90,31 @@ export const whyChooseWlastig = [
     body: "Our team consists of seasoned web analytics professionals with years of experience in implementing GA4. From e-commerce tracking to custom event setups, we know how to configure GA4 to capture the data that matters most to your business.",
   },
   {
-    title: "Tailored Tracking Solutions",
-    body: "Every business is unique, and so are its analytics needs. We don’t believe in a one-size-fits-all approach. Wlastig delivers customized GA4 setups that align with your specific KPIs and business goals, ensuring you get actionable insights from day one.",
+    title: "Proven Results, Real Impact",
+    body: "Our clients see real, measurable improvements in their analytics data and decision-making processes. With our GA4 expertise, you’ll be able to identify growth opportunities, optimize campaigns, and drive higher ROI with confidence.",
   },
   {
-    title: "Expert Guidance for Precision Tracking",
-    body: "Choosing Wlastig as your GA4 implementation partner ensures a meticulous and strategic setup tailored to your business goals. Our deep expertise guarantees that every event and conversion is accurately tracked, providing you with the insights needed for data-driven decisions. With Wlastig, you’re not just getting an implementation; you’re gaining a trusted partner committed to delivering measurable impact and long-term success.",
-  },
-  {
-    title: "Comprehensive Data Accuracy",
+    title: "Top-Notch Data Accuracy",
     body: "With us, your data will always be clean, precise, and reliable. We meticulously set up your GA4 tracking to avoid common pitfalls like duplicate events, misfiring tags, or inaccurate reports. This means you’ll always have confidence in the numbers you see.",
-  },
-  {
-    title: "Enhanced Ecommerce and Conversion Tracking",
-    body: "Our expertise extends beyond standard implementations. Whether you need detailed ecommerce tracking or sophisticated conversion attribution models, we ensure your GA4 property is optimized to capture every valuable interaction and conversion.",
-  },
-  {
-    title: "Full-Service Support & Training",
-    body: "We’re more than just a setup service. Wlastig offers ongoing support and training to ensure your team understands the full potential of GA4. Need help with advanced reporting, funnel analysis, or data interpretation? We’ve got you covered.",
   },
   {
     title: "Cutting-Edge GA4 & Server-Side Tracking Solutions",
     body: "As digital privacy regulations evolve, so does our approach to analytics. We offer Server-Side Tracking via Google Tag Manager, providing enhanced data control and accuracy, ensuring compliance with privacy laws while delivering powerful insights.",
   },
   {
-    title: "Proven Results, Real Impact",
-    body: "Our clients see real, measurable improvements in their analytics data and decision-making processes. With our GA4 expertise, you’ll be able to identify growth opportunities, optimize campaigns, and drive higher ROI with confidence.",
+    title: "Enhanced Ecommerce and Conversion Tracking",
+    body: "Our expertise extends beyond standard implementations. Whether you need detailed ecommerce tracking or sophisticated conversion attribution models, we ensure your GA4 property is optimized to capture every valuable interaction and conversion.",
+  },
+  {
+    title: "Tailored Tracking Solutions",
+    body: "Every business is unique, and so are its analytics needs. We don’t believe in a one-size-fits-all approach. Wlastig delivers customized GA4 setups that align with your specific KPIs and business goals, ensuring you get actionable insights from day one.",
+  },
+  {
+    title: "Full-Service Support & Training",
+    body: "We’re more than just a setup service. Wlastig offers ongoing support and training to ensure your team understands the full potential of GA4. Need help with advanced reporting, funnel analysis, or data interpretation? We’ve got you covered.",
+  },
+  {
+    title: "Expert Guidance for Precision Tracking",
+    body: "Choosing Wlastig as your GA4 implementation partner ensures a meticulous and strategic setup tailored to your business goals. Our deep expertise guarantees that every event and conversion is accurately tracked, providing you with the insights needed for data-driven decisions. With Wlastig, you’re not just getting an implementation; you’re gaining a trusted partner committed to delivering measurable impact and long-term success.",
   },
 ];
