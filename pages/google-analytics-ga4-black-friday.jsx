@@ -175,7 +175,7 @@ const Landing = () => {
                       </StyledText>
                       <AnimationContainer delay={"3"} wobble={true}>
                         <ScrollLink
-                          id="cta_services"
+                          id="bf_landing_cta"
                           href="#contact-form-section"
                         >
                           <Button as={"span"}>
@@ -326,6 +326,30 @@ const Landing = () => {
                 </Center>
               </AnimationContainer>
             </Switcher>
+            <Center>
+              <StyledText
+                fontSize={"var(--s2)"}
+                family={"var(--poppinsbold)"}
+                mb={"var(--s4)"}
+                mt={"var(--s4)"}
+                align={"center"}
+                className="max-w-prose-sm"
+              >
+                Get expert help to fine-tune your tracking today and crush your
+                Black Friday goals!
+              </StyledText>
+              <AnimationContainer delay={"3"} wobble={true}>
+                <ScrollLink id="bf_landing_cta" href="#contact-form-section">
+                  <Button as={"span"}>
+                    Schedule Free Consultation!
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Button>
+                </ScrollLink>
+              </AnimationContainer>
+            </Center>
           </Wrapper>
         </Region>
         <FullBackground background={"var(--primary)"}>
