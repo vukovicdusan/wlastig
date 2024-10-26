@@ -17,7 +17,7 @@ const Footer = (props) => {
   return (
     <FullBackground>
       <Shapedivider
-        fill={props.isBlackFriday ? "var(--bg-bf)" : ""}
+        fill={props.isBlackFriday ? "var(--bf-black)" : ""}
         rotation={"0"}
       >
         <svg
