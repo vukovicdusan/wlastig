@@ -52,16 +52,30 @@ const Landing = () => {
       </Head>
       <BFLandingStyled>
         <FullBackground background={"var(--bf-black)"}>
+          <svg className="icon">
+            <use xlinkHref={"./img/bf-sprite.svg#rocket"}></use>
+          </svg>
+          <svg className="icon">
+            <use xlinkHref={"./img/bf-sprite.svg#present"}></use>
+          </svg>
+          <svg className="icon">
+            <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
+          </svg>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
               <Switcher className="center-mobile" gap={"var(--s4)"}>
                 <Stack stackJustify={"center"}>
-                  <StyledH1 color="var(--text-light)" className="hero-title">
+                  <StyledH1
+                    smFontSize={"40px"}
+                    fontSize={"55px"}
+                    color="var(--text-light)"
+                    className="hero-title"
+                  >
                     Is Your Conversion Tracking Ready for{" "}
                     <span>Black Friday</span>?
                   </StyledH1>
                   <StyledText
-                    fontSize={"var(--s2)"}
+                    fontSize={"var(--s1)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
                   >
@@ -578,6 +592,40 @@ export const BFLandingStyled = styled.div`
   ul li {
     padding-left: 35px;
     text-indent: -50px;
+  }
+
+  .icon {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    opacity: 0.2;
+    z-index: 0;
+    animation: slowSpin 180s linear infinite;
+  }
+  .icon:nth-child(2) {
+    top: 0;
+    left: 10%;
+  }
+  .icon:nth-child(3) {
+    top: -5%;
+    left: 70%;
+  }
+
+  @-moz-keyframes slowSpin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes slowSpin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes slowSpin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
   @media (max-width: 825px) {
     h1,

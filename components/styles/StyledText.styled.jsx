@@ -22,4 +22,8 @@ export const StyledH1 = styled.h1`
   text-transform: ${(props) => props.transform || ""};
   text-align: ${(props) => props.align || ""};
   font-family: ${(props) => props.family || ""};
+
+  @media (max-width: 500px) {
+    font-size: ${(props) => props.smFontSize || ""};
+  }
 `;
