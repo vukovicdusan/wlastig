@@ -309,7 +309,7 @@ export const TestimonialsStyled = styled.div`
 
   .card .testimonialImg {
     border-radius: 100px;
-    background: var(--background-light);
+    background: white;
     margin-top: -4rem;
     z-index: 1;
     border: 1px solid var(--primary);
