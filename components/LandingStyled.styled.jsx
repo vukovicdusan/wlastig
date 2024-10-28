@@ -17,6 +17,7 @@ export const LandingStyled = styled.div`
     background-color: var(--primary);
     padding-block: 5rem;
   }
+
   @media (max-width: 825px) {
     h1,
     h1 + p {

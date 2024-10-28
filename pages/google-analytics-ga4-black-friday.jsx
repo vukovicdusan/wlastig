@@ -88,113 +88,114 @@ const Landing = () => {
                   ></ContactForm>
                 </div>
               </Switcher>
-              <Region>
-                <Wrapper>
-                  <Stack stackSpace={"var(--s4) !important"}>
-                    <Switcher mt={"var(--s4)"} reverse={true}>
-                      <Stack stackSpace={"var(--s4)"} className="service-info">
-                        {/* <Stack></Stack> */}
-                        <Stack>
-                          <Center>
-                            <AnimationContainer>
-                              <StyledText
-                                color="var(--text-light)"
-                                as={"h2"}
-                                className="text-center"
-                              >
-                                Wlastig x Black Friday
-                              </StyledText>
-                              <UnderlineStyled
-                                underlineMargin={"var(--s-4)"}
-                                underlinePosition={"center"}
-                              ></UnderlineStyled>
-                            </AnimationContainer>
-                          </Center>
-                          <StyledText color="var(--text-light)">
-                            Black Friday is one of the biggest, if not the
-                            biggest, sales events of the year. To capitalize on
-                            this opportunity, you need more than just great
-                            offers—you need precise data. Effective{" "}
-                            <strong>conversion tracking</strong> is critical to
-                            ensuring every lead and transaction is captured,
-                            helping you understand the performance of your
-                            campaign and optimize them in real-time. Without
-                            accurate tracking, you risk missing valuable
-                            insights and sales opportunities.
+            </Wrapper>
+            <Region>
+              <Wrapper>
+                <Stack stackSpace={"var(--s4) !important"}>
+                  <Switcher mt={"var(--s4)"} reverse={true}>
+                    <Stack stackSpace={"var(--s4)"} className="service-info">
+                      {/* <Stack></Stack> */}
+                      <Stack>
+                        <Center>
+                          <AnimationContainer>
+                            <StyledText
+                              color="var(--text-light)"
+                              as={"h2"}
+                              className="text-center"
+                            >
+                              Wlastig x Black Friday
+                            </StyledText>
+                            <UnderlineStyled
+                              underlineMargin={"var(--s-4)"}
+                              underlinePosition={"center"}
+                            ></UnderlineStyled>
+                          </AnimationContainer>
+                        </Center>
+                        <StyledText color="var(--text-light)">
+                          Black Friday is one of the biggest, if not the
+                          biggest, sales events of the year. To capitalize on
+                          this opportunity, you need more than just great
+                          offers—you need precise data. Effective{" "}
+                          <strong>conversion tracking</strong> is critical to
+                          ensuring every lead and transaction is captured,
+                          helping you understand the performance of your
+                          campaign and optimize them in real-time. Without
+                          accurate tracking, you risk missing valuable insights
+                          and sales opportunities.
+                        </StyledText>
+                        <Stack as="ul">
+                          <StyledText color="var(--text-light)" as={"li"}>
+                            <CheckSvg
+                              svgWidth={50}
+                              svgHeight={15}
+                              svgFill={"#4bb543"}
+                            ></CheckSvg>
+                            GA4 Tracking
                           </StyledText>
-                          <Stack as="ul">
-                            <StyledText color="var(--text-light)" as={"li"}>
-                              <CheckSvg
-                                svgWidth={50}
-                                svgHeight={15}
-                                svgFill={"#4bb543"}
-                              ></CheckSvg>
-                              GA4 Tracking
-                            </StyledText>
-                            <StyledText color="var(--text-light)" as={"li"}>
-                              <CheckSvg
-                                svgWidth={50}
-                                svgHeight={15}
-                                svgFill={"#4bb543"}
-                              ></CheckSvg>
-                              Advertising Platforms Tracking
-                            </StyledText>
-                            <StyledText color="var(--text-light)" as={"li"}>
-                              <CheckSvg
-                                svgWidth={50}
-                                svgHeight={15}
-                                svgFill={"#4bb543"}
-                              ></CheckSvg>
-                              Server-Side Tracking via GTM
-                            </StyledText>
-                            <StyledText color="var(--text-light)" as={"li"}>
-                              <CheckSvg
-                                svgWidth={50}
-                                svgHeight={15}
-                                svgFill={"#4bb543"}
-                              ></CheckSvg>
-                              Conversion Tracking & Custom Reports
-                            </StyledText>
-                          </Stack>
+                          <StyledText color="var(--text-light)" as={"li"}>
+                            <CheckSvg
+                              svgWidth={50}
+                              svgHeight={15}
+                              svgFill={"#4bb543"}
+                            ></CheckSvg>
+                            Advertising Platforms Tracking
+                          </StyledText>
+                          <StyledText color="var(--text-light)" as={"li"}>
+                            <CheckSvg
+                              svgWidth={50}
+                              svgHeight={15}
+                              svgFill={"#4bb543"}
+                            ></CheckSvg>
+                            Server-Side Tracking via GTM
+                          </StyledText>
+                          <StyledText color="var(--text-light)" as={"li"}>
+                            <CheckSvg
+                              svgWidth={50}
+                              svgHeight={15}
+                              svgFill={"#4bb543"}
+                            ></CheckSvg>
+                            Conversion Tracking & Custom Reports
+                          </StyledText>
                         </Stack>
                       </Stack>
-                      <Center>
-                        <GoogleAdSvg width={400} height={300}></GoogleAdSvg>
-                      </Center>
-                    </Switcher>
-
+                    </Stack>
                     <Center>
-                      <StyledText
-                        fontSize={"var(--s2)"}
-                        family={"var(--poppinsbold)"}
-                        mb={"var(--s4)"}
-                        mt={"var(--s4)"}
-                        align={"center"}
-                        className="max-w-prose-sm"
-                        color="var(--text-light)"
-                      >
-                        Don’t Leave Sales on the Table—Ensure Your Web Tracking
-                        is Black Friday Ready!
-                      </StyledText>
-                      <AnimationContainer delay={"3"} wobble={true}>
-                        <ScrollLink
-                          id="bf_landing_cta"
-                          href="#contact-form-section"
-                        >
-                          <Button as={"span"}>
-                            Schedule Free Consultation!
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </Button>
-                        </ScrollLink>
-                      </AnimationContainer>
+                      <GoogleAdSvg width={400} height={300}></GoogleAdSvg>
                     </Center>
-                  </Stack>
-                </Wrapper>
-              </Region>
-            </Wrapper>
+                  </Switcher>
+
+                  <Center>
+                    <StyledText
+                      fontSize={"var(--s2)"}
+                      family={"var(--poppinsbold)"}
+                      mb={"var(--s4)"}
+                      mt={"var(--s4)"}
+                      align={"center"}
+                      className="max-w-prose-sm"
+                      color="var(--text-light)"
+                    >
+                      Don’t Leave Sales on the Table—Ensure Your Web Tracking is
+                      Black Friday Ready!
+                    </StyledText>
+                    <AnimationContainer delay={"3"} wobble={true}>
+                      <ScrollLink
+                        id="bf_landing_cta"
+                        href="#contact-form-section"
+                      >
+                        <Button as={"span"}>
+                          Schedule Free Consultation!
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </Button>
+                      </ScrollLink>
+                    </AnimationContainer>
+                  </Center>
+                </Stack>
+              </Wrapper>
+            </Region>
+            {/* </Wrapper> */}
           </Region>
 
           <Shapedivider
@@ -575,6 +576,11 @@ export const BFLandingStyled = styled.div`
   }
   .styled-list {
     list-style: disc;
+  }
+
+  ul li {
+    padding-left: 35px;
+    text-indent: -50px;
   }
   @media (max-width: 825px) {
     h1,
