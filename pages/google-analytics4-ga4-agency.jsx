@@ -7,7 +7,6 @@ import { Stack } from "../components/styles/Stack.styled";
 import ContactForm from "../components/ContactForm";
 import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import { FullBackground } from "../components/styles/FullBackground.styled";
-import styled from "styled-components";
 import { StyledH1, StyledText } from "../components/styles/StyledText.styled";
 import Head from "next/head";
 import AnimationContainer from "../components/AnimationContainer";
@@ -20,7 +19,7 @@ import Infographic from "../components/Infographic";
 import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
-import { LandingStyled } from "./google-analytics-ga4-black-friday";
+import { LandingStyled } from "../components/LandingStyled.styled";
 
 const Landing2 = () => {
   const isSmallScreen = useScreenSize();

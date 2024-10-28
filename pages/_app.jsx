@@ -5,8 +5,10 @@ import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   useEffect(() => {
     // Initialize dataLayer if not already present
     window.dataLayer = window.dataLayer || [];
@@ -36,6 +38,12 @@ function MyApp({ Component, pageProps }) {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
     };
   }, []);
+
+  const isBlackFriday =
+    router.pathname === "/google-analytics-ga4-black-friday";
+  let backgroundColor = isBlackFriday
+    ? "var(--bf-black)"
+    : "var(--background-light";
   return (
     <>
       <Head>
@@ -70,7 +78,7 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      <GlobalStyles></GlobalStyles>
+      <GlobalStyles backgroundColor={backgroundColor}></GlobalStyles>
       <ModalCtxProvider>
         <Layout>
           <Component {...pageProps} />

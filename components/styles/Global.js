@@ -76,6 +76,7 @@ dd {
 	margin: 0;
 }
 
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul,
 ol {
@@ -95,7 +96,7 @@ body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
 	color: var(--text-dark);
-	background: var(--background-light);
+	background: ${({ backgroundColor }) => backgroundColor};
 }
 
 /* A elements that don't have a class get default styles */

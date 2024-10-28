@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export const LandingStyled = styled.div`
   .hero-title span {
     color: var(--secondary);
