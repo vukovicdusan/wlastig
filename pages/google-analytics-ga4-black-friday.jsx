@@ -94,7 +94,6 @@ const Landing = () => {
                 <Stack stackSpace={"var(--s4) !important"}>
                   <Switcher mt={"var(--s4)"} reverse={true}>
                     <Stack stackSpace={"var(--s4)"} className="service-info">
-                      {/* <Stack></Stack> */}
                       <Stack>
                         <Center>
                           <AnimationContainer>
@@ -166,16 +165,16 @@ const Landing = () => {
 
                   <Center>
                     <StyledText
+                      color={"var(--text-light)"}
                       fontSize={"var(--s2)"}
                       family={"var(--poppinsbold)"}
                       mb={"var(--s4)"}
-                      mt={"var(--s4)"}
+                      mt={"var(--s6)"}
                       align={"center"}
                       className="max-w-prose-sm"
-                      color="var(--text-light)"
                     >
-                      Don’t Leave Sales on the Table—Ensure Your Web Tracking is
-                      Black Friday Ready!
+                      Get expert help to fine - tune your tracking today and
+                      crush your Black Friday goals!
                     </StyledText>
                     <AnimationContainer delay={"3"} wobble={true}>
                       <ScrollLink
@@ -195,7 +194,6 @@ const Landing = () => {
                 </Stack>
               </Wrapper>
             </Region>
-            {/* </Wrapper> */}
           </Region>
 
           <Shapedivider
@@ -263,42 +261,41 @@ const Landing = () => {
               mb={"var(--s4)"}
               mt={"var(--s4)"}
             >
-              <AnimationContainer>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--text-light)"}
-                    boxBorderColor={"transparent"}
-                    img={"chart"}
-                    width={100}
-                    height={100}
-                    title={
-                      "Custom GA4 tracking setup tailored to your business goals:"
-                    }
-                    content={
-                      "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-              <AnimationContainer delay={"2"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--text-light)"}
-                    boxBorderColor={"transparent"}
-                    img={"data-analysis"}
-                    width={100}
-                    height={100}
-                    title={
-                      "Server-Side Tracking implementation for enhanced data accuracy and more conversions:"
-                    }
-                    content={
-                      "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to better understanding of user journeys, translating into more conversions and higher ROI."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
+              <Center>
+                <IconBox
+                  smJustify={"center"}
+                  flexDirection={"row"}
+                  color={"var(--text-light)"}
+                  boxBorderColor={"transparent"}
+                  img={"chart"}
+                  width={100}
+                  height={100}
+                  title={
+                    "Custom GA4 tracking setup tailored to your business goals:"
+                  }
+                  content={
+                    "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
+                  }
+                ></IconBox>
+              </Center>
+
+              <Center>
+                <IconBox
+                  smJustify={"center"}
+                  flexDirection={"row"}
+                  color={"var(--text-light)"}
+                  boxBorderColor={"transparent"}
+                  img={"data-analysis"}
+                  width={100}
+                  height={100}
+                  title={
+                    "Server-Side Tracking implementation for enhanced data accuracy and more conversions:"
+                  }
+                  content={
+                    "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to better understanding of user journeys, translating into more conversions and higher ROI."
+                  }
+                ></IconBox>
+              </Center>
             </Switcher>
             <Switcher
               switcherJustify={"center"}
@@ -306,53 +303,53 @@ const Landing = () => {
               elCount={"2"}
               gap={"var(--s4)"}
             >
-              <AnimationContainer delay={"3"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--text-light)"}
-                    boxBorderColor={"transparent"}
-                    img={"ecommerce"}
-                    width={100}
-                    height={100}
-                    title={"More conversions, better campaign results:"}
-                    content={
-                      "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spend, maximizing your return on investment."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
-              <AnimationContainer delay={"6"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--text-light)"}
-                    boxBorderColor={"transparent"}
-                    img={"search"}
-                    width={100}
-                    height={100}
-                    title={
-                      "In-depth reporting and actionable insights to elevate your marketing strategies:"
-                    }
-                    content={
-                      "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
-                    }
-                  ></IconBox>
-                </Center>
-              </AnimationContainer>
+              <Center>
+                <IconBox
+                  smJustify={"center"}
+                  flexDirection={"row"}
+                  color={"var(--text-light)"}
+                  boxBorderColor={"transparent"}
+                  img={"ecommerce"}
+                  width={100}
+                  height={100}
+                  title={"More conversions, better campaign results:"}
+                  content={
+                    "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spend, maximizing your return on investment."
+                  }
+                ></IconBox>
+              </Center>
+
+              <Center>
+                <IconBox
+                  smJustify={"center"}
+                  flexDirection={"row"}
+                  color={"var(--text-light)"}
+                  boxBorderColor={"transparent"}
+                  img={"search"}
+                  width={100}
+                  height={100}
+                  title={
+                    "In-depth reporting and actionable insights to elevate your marketing strategies:"
+                  }
+                  content={
+                    "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
+                  }
+                ></IconBox>
+              </Center>
             </Switcher>
+
             <Center>
               <StyledText
-                color={"var(--text-light)"}
                 fontSize={"var(--s2)"}
                 family={"var(--poppinsbold)"}
                 mb={"var(--s4)"}
-                mt={"var(--s6)"}
+                mt={"var(--s4)"}
                 align={"center"}
                 className="max-w-prose-sm"
+                color="var(--text-light)"
               >
-                Get expert help to fine-tune your tracking today and crush your
-                Black Friday goals!
+                Don’t Leave Sales on the Table — Ensure Your Web Tracking is
+                Black Friday Ready!
               </StyledText>
               <AnimationContainer delay={"3"} wobble={true}>
                 <ScrollLink id="bf_landing_cta" href="#contact-form-section">
@@ -594,6 +591,9 @@ export const BFLandingStyled = styled.div`
   @media (max-width: 430px) {
     .contact-form-wrapper {
       padding: var(--s-2);
+    }
+    .sm-justify-center {
+      justify-content: center;
     }
   }
 `;

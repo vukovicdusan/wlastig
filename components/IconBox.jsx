@@ -6,6 +6,7 @@ import { Switcher } from "./styles/Switcher.styled";
 
 function IconBox(props) {
   let horizontal = props.flexDirection === "row";
+
   return (
     <IconBoxStyled horizontal={horizontal}>
       <Box
@@ -13,7 +14,12 @@ function IconBox(props) {
         boxBorderColor={props.boxBorderColor}
       >
         {horizontal ? (
-          <Switcher flexBasis={"20rem"} elCount={"2"} gap={"var(--s2)"}>
+          <Switcher
+            smJustify={props.smJustify}
+            flexBasis={"20rem"}
+            elCount={"2"}
+            gap={"var(--s2)"}
+          >
             <svg className="icon">
               <use
                 xlinkHref={"./img/subservices/sprite.svg#" + props.img}

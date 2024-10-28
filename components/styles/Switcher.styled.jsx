@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Switcher = styled.div`
   margin-block-start: ${(props) => props.mt || null};
   margin-block-end: ${(props) => props.mb || null};
@@ -18,5 +17,9 @@ export const Switcher = styled.div`
   & > :nth-last-child(n + ${(props) => props.elCount + 1 || 3}),
   & > :nth-last-child(n + ${(props) => props.elCount + 1 || 3}) ~ * {
     flex-basis: 100%;
+  }
+
+  @media (max-width: 420px) {
+    justify-content: ${(props) => props.smJustify || ""};
   }
 `;
