@@ -15,7 +15,7 @@ import { Shapedivider } from "./styles/Shapedivider.styled";
 const Footer = (props) => {
   let year = new Date().getFullYear();
   return (
-    <FullBackground>
+    <FullBackground background={props.isBlackFriday ? "var(--bf-gray)" : ""}>
       <Shapedivider
         fill={props.isBlackFriday ? "var(--bf-black)" : ""}
         rotation={"0"}
@@ -29,7 +29,7 @@ const Footer = (props) => {
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
         </svg>
       </Shapedivider>
-      <FooterStyled>
+      <FooterStyled isBlackFriday={props.isBlackFriday}>
         <Region>
           <Wrapper>
             <Switcher elCount={5} gap={"var(--s3)"} flexBasis={"40rem"}>
@@ -257,6 +257,7 @@ const Footer = (props) => {
 
 export const FooterStyled = styled.footer`
   padding-block-start: calc(var(--s5) + 3rem);
+  color: ${(props) => (props.isBlackFriday ? "var(--text-light)" : "")};
   @media (max-width: 715px) {
     padding-block-start: calc(var(--s5));
   }
