@@ -342,6 +342,10 @@ label {
 	white-space: nowrap;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
+
 .text-center {
 	text-align: center;
 }

@@ -560,6 +560,7 @@ const Landing = () => {
 
 export const BFLandingStyled = styled.div`
   background-color: var(--bf-gray);
+  overflow: hidden;
   .hero-title span {
     color: var(--secondary);
   }
@@ -596,7 +597,7 @@ export const BFLandingStyled = styled.div`
 
   .bf-icon {
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: 30%;
     opacity: 0.2;
     z-index: 0;
