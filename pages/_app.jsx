@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
     router.pathname === "/google-analytics-ga4-black-friday";
   let backgroundColor = isBlackFriday
     ? "var(--bf-black)"
-    : "var(--background-light";
+    : "var(--background-light)";
   return (
     <>
       <Head>

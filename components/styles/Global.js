@@ -96,7 +96,7 @@ body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
 	color: var(--text-dark);
-	background: ${({ backgroundColor }) => backgroundColor};
+	background: ${({ backgroundColor }) => backgroundColor || ""};
 }
 
 /* A elements that don't have a class get default styles */
