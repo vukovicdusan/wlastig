@@ -52,13 +52,13 @@ const Landing = () => {
       </Head>
       <BFLandingStyled>
         <FullBackground background={"var(--bf-black)"}>
-          <svg className="icon">
+          <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#rocket"}></use>
           </svg>
-          <svg className="icon">
+          <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#present"}></use>
           </svg>
-          <svg className="icon">
+          <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
           </svg>
           <Region pt={"65px"} pb={"130px"}>
@@ -594,7 +594,7 @@ export const BFLandingStyled = styled.div`
     text-indent: -50px;
   }
 
-  .icon {
+  .bf-icon {
     position: absolute;
     top: 20%;
     left: 30%;
@@ -602,11 +602,11 @@ export const BFLandingStyled = styled.div`
     z-index: 0;
     animation: slowSpin 180s linear infinite;
   }
-  .icon:nth-child(2) {
+  .bf-icon:nth-child(2) {
     top: 0;
     left: 10%;
   }
-  .icon:nth-child(3) {
+  .bf-icon:nth-child(3) {
     top: -5%;
     left: 70%;
   }
