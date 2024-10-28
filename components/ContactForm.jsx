@@ -115,9 +115,7 @@ const ContactForm = (props) => {
   };
 
   let anyError = contactFormError.email.error || contactFormError.name.error;
-  // ||
-  // contactFormError.website.error;
-  console.log(props.bfInputBg);
+
   return (
     <ContactFormStyled
       bfBg={props.bfBg}

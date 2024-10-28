@@ -50,7 +50,7 @@ const Landing = () => {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <LandingStyled>
+      <BFLandingStyled>
         <FullBackground background={"var(--bf-black)"}>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
@@ -541,12 +541,12 @@ const Landing = () => {
         >
           {" "}
         </ContactFormSection>
-      </LandingStyled>
+      </BFLandingStyled>
     </main>
   );
 };
 
-export const LandingStyled = styled.div`
+export const BFLandingStyled = styled.div`
   background-color: var(--bf-gray);
   .hero-title span {
     color: var(--secondary);
