@@ -51,7 +51,7 @@ const Landing = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BFLandingStyled>
-        <FullBackground background={"var(--bf-black)"}>
+        <FullBackground id={"top"} background={"var(--bf-black)"}>
           <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#rocket"}></use>
           </svg>
@@ -195,7 +195,7 @@ const Landing = () => {
                       crush your Black Friday goals!
                     </StyledText>
                     <AnimationContainer delay={"3"} wobble={true}>
-                      <ScrollLink id="bf_landing_cta" href="#freeConsultation">
+                      <ScrollLink id="bf_landing_cta" href="#top">
                         <Button as={"span"}>
                           Schedule Free Consultation!
                           <span></span>
