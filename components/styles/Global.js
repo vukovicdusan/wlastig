@@ -375,10 +375,11 @@ margin-bottom: var(--s-1);
     }
 }
 .show-in-dark {
-		display: none;
+		display: ${({ isBlackFriday }) => (isBlackFriday ? "block" : "none")};
 	}
-	.hide-in-dark {
-		display: block;
+	
+.hide-in-dark {
+		display: ${({ isBlackFriday }) => (isBlackFriday ? "none" : "block")};
 	}
 
 @media (prefers-color-scheme: dark) {

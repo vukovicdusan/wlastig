@@ -44,6 +44,7 @@ function MyApp({ Component, pageProps }) {
   let backgroundColor = isBlackFriday
     ? "var(--bf-black)"
     : "var(--background-light)";
+
   return (
     <>
       <Head>
@@ -78,7 +79,10 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      <GlobalStyles backgroundColor={backgroundColor}></GlobalStyles>
+      <GlobalStyles
+        isBlackFriday={isBlackFriday}
+        backgroundColor={backgroundColor}
+      ></GlobalStyles>
       <ModalCtxProvider>
         <Layout>
           <Component {...pageProps} />
