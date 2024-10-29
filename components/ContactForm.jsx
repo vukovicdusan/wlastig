@@ -21,6 +21,7 @@ const ContactForm = (props) => {
     name: "",
     email: "",
     website: "",
+    pageUrl: "",
   });
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
@@ -33,6 +34,12 @@ const ContactForm = (props) => {
     // website: { error: true, message: "", show: false },
   });
   let router = useRouter();
+  useEffect(() => {
+    setContactFormData((prevData) => ({
+      ...prevData,
+      pageUrl: router.pathname,
+    }));
+  }, [router.pathname]);
   const modalCtx = useContext(ModalCtx);
   useEffect(() => {
     setHasMounted(true);

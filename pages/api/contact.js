@@ -28,6 +28,7 @@ const handler = async (req, res) => {
                 <li>Name: ${data.name}</li>
                 <li>Company Website: ${data.website || ""}</li>
                 <li>Comments: ${data.comments || ""}</li>
+                <li>Page: ${data.pageUrl || ""}</li>
               </ul>`,
     career: `<h1>Poruka od ${data.name} - ${data.email}</h1>
              <ul>
@@ -44,6 +45,7 @@ const handler = async (req, res) => {
                <li>Name: ${data.name}</li>
                <li>Company Website: ${data.website || ""}</li>
                <li>Comments: ${data.comments || ""}</li>
+               <li>Page: ${data.pageUrl || ""}</li>
              </ul>`,
   };
 
