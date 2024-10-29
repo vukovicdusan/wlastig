@@ -12,14 +12,9 @@ import ContactFormSection from "../components/ContactFormSection";
 import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import CompetitionSection from "../components/CompetitionSection";
 import AnimationContainer from "../components/AnimationContainer";
-import Faq from "../components/Faq";
 import Head from "next/head";
 import Modal from "../components/Modal";
-import {
-  processArr,
-  competitionArr,
-  faqArr,
-} from "../public/content/consulting";
+import { processArr, competitionArr } from "../public/content/consulting";
 import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";

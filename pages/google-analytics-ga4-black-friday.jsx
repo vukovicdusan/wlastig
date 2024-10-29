@@ -96,6 +96,7 @@ const Landing = () => {
                     SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
+                    formType={"freeConsultation"}
                     bf={true}
                     btnName={"Sign up now!"}
                     btnId={"landing_page"}
@@ -196,7 +197,7 @@ const Landing = () => {
                     <AnimationContainer delay={"3"} wobble={true}>
                       <ScrollLink
                         id="bf_landing_cta"
-                        href="#contact-form-section"
+                        href="#freeConsultation-bf"
                       >
                         <Button as={"span"}>
                           Schedule Free Consultation!
@@ -363,7 +364,7 @@ const Landing = () => {
                 Black Friday Ready!
               </StyledText>
               <AnimationContainer delay={"3"} wobble={true}>
-                <ScrollLink id="bf_landing_cta" href="#contact-form-section">
+                <ScrollLink id="bf_landing_cta" href="#freeConsultation-bf">
                   <Button as={"span"}>
                     Schedule Free Consultation!
                     <span></span>
@@ -491,6 +492,7 @@ const Landing = () => {
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
                   <StyledText
+                    id="freeConsultation-bf"
                     color={"var(--text-light)"}
                     as={"h3"}
                     className="title-xl text-center"
@@ -502,6 +504,7 @@ const Landing = () => {
               </AnimationContainer>
               <div className="contact-form-wrapper-gray">
                 <ContactForm
+                  formType={"freeConsultation"}
                   bf={true}
                   bfBg={"var(--bf-gray)"}
                   bfInputBg={"var(--bf-gray)"}
@@ -552,6 +555,7 @@ const Landing = () => {
           <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#present"}></use>
           </svg>
+
           <ContactFormSection
             shapedividerColor={"var(--bf-gray)"}
             formType={"freeConsultation"}
