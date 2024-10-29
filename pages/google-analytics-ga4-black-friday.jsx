@@ -614,7 +614,7 @@ export const BFLandingStyled = styled.div`
     position: absolute;
     top: 40%;
     left: 30%;
-    opacity: 0.2;
+    opacity: 0.8;
     z-index: 0;
     animation: slowSpin 180s linear infinite;
   }
