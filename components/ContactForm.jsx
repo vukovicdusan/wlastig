@@ -34,12 +34,14 @@ const ContactForm = (props) => {
     // website: { error: true, message: "", show: false },
   });
   let router = useRouter();
+
   useEffect(() => {
     setContactFormData((prevData) => ({
       ...prevData,
       pageUrl: router.pathname,
     }));
   }, [router.pathname]);
+
   const modalCtx = useContext(ModalCtx);
   useEffect(() => {
     setHasMounted(true);
@@ -48,6 +50,7 @@ const ContactForm = (props) => {
   if (!hasMounted) {
     return null;
   }
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     if (!anyError) {

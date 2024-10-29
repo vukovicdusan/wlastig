@@ -49,8 +49,11 @@ const handler = async (req, res) => {
              </ul>`,
   };
 
-  const subject = subjectMap[data.type];
-  const html = contentMap[data.type];
+  let formType = data.type.startsWith("freeConsultation") && "freeConsultation";
+  const subject =
+    subjectMap[data.type.startsWith("freeConsultation") && "freeConsultation"];
+  const html =
+    contentMap[data.type.startsWith("freeConsultation") && "freeConsultation"];
 
   if (!subject || !html) {
     return res.status(400).json({ message: "Invalid request type" });
