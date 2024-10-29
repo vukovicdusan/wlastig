@@ -195,10 +195,7 @@ const Landing = () => {
                       crush your Black Friday goals!
                     </StyledText>
                     <AnimationContainer delay={"3"} wobble={true}>
-                      <ScrollLink
-                        id="bf_landing_cta"
-                        href="#freeConsultation-bf"
-                      >
+                      <ScrollLink id="bf_landing_cta" href="#freeConsultation">
                         <Button as={"span"}>
                           Schedule Free Consultation!
                           <span></span>
