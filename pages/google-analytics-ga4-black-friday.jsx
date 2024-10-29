@@ -96,10 +96,10 @@ const Landing = () => {
                     SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
-                    formType={"freeConsultation"}
+                    formType={"freeConsultation1"}
                     bf={true}
                     btnName={"Sign up now!"}
-                    btnId={"landing_page"}
+                    btnId={"form_submit_consultation1"}
                     bfInputBg={"var(--bf-gray)"}
                     bfBg={"var(--bf-black)"}
                     textBf={"var(--secondary)"}
@@ -501,12 +501,13 @@ const Landing = () => {
               </AnimationContainer>
               <div className="contact-form-wrapper-gray">
                 <ContactForm
-                  formType={"freeConsultation"}
+                  formType={"freeConsultation2"}
                   bf={true}
                   bfBg={"var(--bf-gray)"}
                   bfInputBg={"var(--bf-gray)"}
                   textBf={"var(--secondary)"}
                   btnName={"Schedule Free Consultation!"}
+                  btnId={"form_submit_consultation2"}
                 ></ContactForm>
               </div>
             </Wrapper>
@@ -555,7 +556,8 @@ const Landing = () => {
 
           <ContactFormSection
             shapedividerColor={"var(--bf-gray)"}
-            formType={"freeConsultation"}
+            formType={"freeConsultation3"}
+            btnId={"form_submit_consultation3"}
             shapedivider={true}
             title={"Schedule a free consultation"}
             bg={"var(--bf-black)"}

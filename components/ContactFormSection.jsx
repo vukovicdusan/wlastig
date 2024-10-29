@@ -62,7 +62,7 @@ const ContactFormSection = (props) => {
               ) : (
                 <div className="contact-form-wrapper">
                   <ContactForm
-                    btnId={"form_submit_consultation"}
+                    btnId={props.btnId || "form_submit_consultation"}
                     formType={props.formType}
                     alignButton={"center"}
                     btnName={"Schedule Free Consultation!"}

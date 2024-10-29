@@ -74,9 +74,9 @@ const Landing2 = () => {
                     SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
-                    formType={"freeConsultation"}
+                    formType={"freeConsultation1"}
                     btnName={"Sign up now!"}
-                    btnId={"landing_page"}
+                    btnId={"form_submit_consultation1"}
                   ></ContactForm>
                 </div>
               </Switcher>
@@ -322,7 +322,10 @@ const Landing2 = () => {
                 </Stack>
               </AnimationContainer>
               <div className="contact-form-wrapper">
-                <ContactForm formType={"freeConsultation"}></ContactForm>
+                <ContactForm
+                  formType={"freeConsultation2"}
+                  btnId={"form_submit_consultation2"}
+                ></ContactForm>
               </div>
             </Wrapper>
           </Region>
@@ -350,9 +353,10 @@ const Landing2 = () => {
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
-          formType={"freeConsultation"}
+          formType={"freeConsultation3"}
           shapedivider={true}
           title={"Schedule a free consultation"}
+          btnId={"form_submit_consultation3"}
         >
           {" "}
         </ContactFormSection>
