@@ -61,6 +61,9 @@ const Landing = () => {
           <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
           </svg>
+          <svg className="bf-icon">
+            <use xlinkHref={"./img/bf-sprite.svg#shopping-bag"}></use>
+          </svg>
           <Region pt={"65px"} pb={"130px"}>
             <Wrapper>
               <Switcher className="center-mobile" gap={"var(--s4)"}>
@@ -396,7 +399,7 @@ const Landing = () => {
           </Shapedivider>
           <Region id="why-us" pt={"7rem"}>
             <svg className="bf-icon">
-              <use xlinkHref={"./img/bf-sprite.svg#shopping-bag"}></use>
+              <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
             </svg>
             <svg className="bf-icon">
               <use xlinkHref={"./img/bf-sprite.svg#rocket2"}></use>
@@ -546,19 +549,27 @@ const Landing = () => {
           shapeDividerFill={"var(--bg-bf)"}
           sidebarLayout={false}
         ></Testimonials>
-        <ContactFormSection
-          shapedividerColor={"var(--bf-gray)"}
-          formType={"freeConsultation"}
-          shapedivider={true}
-          title={"Schedule a free consultation"}
-          bg={"var(--bf-black)"}
-          bf={true}
-          bfInputBg={"var(--bf-gray)"}
-          bfBg={"var(--bf-black)"}
-          textBf={"var(--secondary)"}
-        >
-          {" "}
-        </ContactFormSection>
+        <div className="relative">
+          <svg className="bf-icon">
+            <use xlinkHref={"./img/bf-sprite.svg#shopping-bag"}></use>
+          </svg>
+          <svg className="bf-icon">
+            <use xlinkHref={"./img/bf-sprite.svg#present"}></use>
+          </svg>
+          <ContactFormSection
+            shapedividerColor={"var(--bf-gray)"}
+            formType={"freeConsultation"}
+            shapedivider={true}
+            title={"Schedule a free consultation"}
+            bg={"var(--bf-black)"}
+            bf={true}
+            bfInputBg={"var(--bf-gray)"}
+            bfBg={"var(--bf-black)"}
+            textBf={"var(--secondary)"}
+          >
+            {" "}
+          </ContactFormSection>
+        </div>
       </BFLandingStyled>
     </main>
   );
@@ -580,7 +591,9 @@ export const BFLandingStyled = styled.div`
     max-width: fit-content;
     transition: all 0.4s ease;
   }
-
+  .relative {
+    position: relative;
+  }
   .black-friday-border {
     border: 1px solid var(--secondary);
   }
@@ -617,6 +630,10 @@ export const BFLandingStyled = styled.div`
     top: -5%;
     left: 70%;
   }
+  .bf-icon:nth-child(4) {
+    top: 80%;
+    left: 70%;
+  }
   #why-us .bf-icon:nth-child(1) {
     top: 5%;
     left: 0;
@@ -624,6 +641,16 @@ export const BFLandingStyled = styled.div`
   #why-us .bf-icon:nth-child(2) {
     top: 15%;
     left: 80%;
+  }
+  .relative .bf-icon:nth-child(1) {
+    top: 75%;
+    left: 80%;
+    z-index: 1;
+  }
+  .relative .bf-icon:nth-child(2) {
+    top: 25%;
+    left: 0;
+    z-index: 1;
   }
 
   @-moz-keyframes slowSpin {
