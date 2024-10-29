@@ -13,6 +13,7 @@ export const StyledText = styled.p`
   @media (max-width: 450px) {
     font-size: ${(props) =>
       props.fontSize ? `calc(${props.fontSize} - 35%)` : ""};
+    margin-top: ${(props) => props.smMt || ""};
   }
 `;
 

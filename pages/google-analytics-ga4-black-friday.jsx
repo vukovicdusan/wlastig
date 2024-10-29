@@ -53,13 +53,13 @@ const Landing = () => {
       <BFLandingStyled>
         <FullBackground id={"top"} background={"var(--bf-black)"}>
           <svg className="bf-icon">
-            <use xlinkHref={"./img/bf-sprite.svg#rocket"}></use>
+            <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
           </svg>
           <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#present"}></use>
           </svg>
           <svg className="bf-icon">
-            <use xlinkHref={"./img/bf-sprite.svg#price-tag"}></use>
+            <use xlinkHref={"./img/bf-sprite.svg#rocket"}></use>
           </svg>
           <svg className="bf-icon">
             <use xlinkHref={"./img/bf-sprite.svg#shopping-bag"}></use>
@@ -188,6 +188,7 @@ const Landing = () => {
                       family={"var(--poppinsbold)"}
                       mb={"var(--s4)"}
                       mt={"var(--s6)"}
+                      smMt={"0"}
                       align={"center"}
                       className="max-w-prose-sm"
                     >
