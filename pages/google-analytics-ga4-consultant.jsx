@@ -74,6 +74,7 @@ const Landing = () => {
                     SIGN UP FOR<br></br> FREE CONSULTATION
                   </StyledText>
                   <ContactForm
+                    formType={"freeConsultation"}
                     btnName={"Sign up now!"}
                     btnId={"landing_page"}
                   ></ContactForm>
@@ -321,7 +322,7 @@ const Landing = () => {
                 </Stack>
               </AnimationContainer>
               <div className="contact-form-wrapper">
-                <ContactForm></ContactForm>
+                <ContactForm formType={"freeConsultation"}></ContactForm>
               </div>
             </Wrapper>
           </Region>
