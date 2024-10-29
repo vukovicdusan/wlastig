@@ -17,7 +17,7 @@ import { UnderlineStyled } from "../components/styles/UnderlineStyled.styled";
 import Testimonials from "../components/Testimonials";
 import ContactFormSection from "../components/ContactFormSection";
 import Infographic from "../components/Infographic";
-import { processArr, whyChooseWlastig } from "../public/content/landing";
+import { processArr, whyChooseWlastig } from "../public/content/bf-landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
 import CheckSvg from "../components/svg/CheckSvg";
@@ -84,7 +84,7 @@ const Landing = () => {
                   >
                     Black Friday is just around the corner. Maximize your
                     campaign success by optimizing your website’s conversion
-                    tracking
+                    tracking!
                   </StyledText>
                 </Stack>
                 <div className="contact-form-wrapper black-friday-border">
@@ -237,7 +237,7 @@ const Landing = () => {
                 align="center"
                 maxWidth={"100%"}
               >
-                GA4 Tracking Services Tailored to Your Business
+                GA4 Tracking Tailored to Your Business
               </StyledText>
               <Center>
                 <UnderlineStyled></UnderlineStyled>
@@ -251,22 +251,22 @@ const Landing = () => {
                 >
                   Unlock the full potential of your website data with customized
                   Google Analytics 4 (GA4) tracking solutions designed to meet
-                  the unique needs of your business. At Wlastig, we specialize
-                  in implementing advanced GA4 tracking and Server-Side Tracking
-                  via Google Tag Manager (GTM), ensuring you capture the right
-                  insights that drive growth.
+                  the unique needs of your business. At <bold>Wlastig</bold>, we
+                  specialize in implementing advanced GA4 tracking and
+                  Server-Side Tracking via Google Tag Manager (GTM), ensuring
+                  you capture the right insights that drive growth.
                 </StyledText>{" "}
                 <StyledText
                   color="var(--text-light)"
                   className="max-w-prose-plus"
                 >
                   {" "}
-                  Whether you’re looking to understand user behavior, optimize
-                  your conversions, or streamline marketing performance, our
-                  team ensures seamless data collection across platforms. With
-                  precision tracking and real-time analytics, you’ll have the
-                  data-driven tools needed to make informed decisions and
-                  outperform the competition.
+                  Whether you&apos;re looking to understand user behavior,
+                  optimize your conversions, or improve marketing performance,
+                  our team ensures accurate data collection across platforms.
+                  With precise tracking and actionable insights, you&apos;ll
+                  have the data-driven tools needed to make informed decisions
+                  and stay ahead of the competition.
                 </StyledText>
               </Stack>
             </AnimationContainer>
@@ -287,11 +287,9 @@ const Landing = () => {
                   img={"chart"}
                   width={100}
                   height={100}
-                  title={
-                    "Custom GA4 tracking setup tailored to your business goals:"
-                  }
+                  title={"More conversions, better campaign results:"}
                   content={
-                    "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
+                    "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spending, maximizing your return on investment."
                   }
                 ></IconBox>
               </Center>
@@ -305,11 +303,9 @@ const Landing = () => {
                   img={"data-analysis"}
                   width={100}
                   height={100}
-                  title={
-                    "Server-Side Tracking implementation for enhanced data accuracy and more conversions:"
-                  }
+                  title={"Custom GA4 Tracking:"}
                   content={
-                    "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to better understanding of user journeys, translating into more conversions and higher ROI."
+                    "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
                   }
                 ></IconBox>
               </Center>
@@ -329,9 +325,9 @@ const Landing = () => {
                   img={"ecommerce"}
                   width={100}
                   height={100}
-                  title={"More conversions, better campaign results:"}
+                  title={"Server-Side Tracking Implementation:"}
                   content={
-                    "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spend, maximizing your return on investment."
+                    "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to a better understanding of user journeys, translating into more conversions and higher ROI."
                   }
                 ></IconBox>
               </Center>
@@ -345,9 +341,7 @@ const Landing = () => {
                   img={"search"}
                   width={100}
                   height={100}
-                  title={
-                    "In-depth reporting and actionable insights to elevate your marketing strategies:"
-                  }
+                  title={"In-depth reporting and actionable insights:"}
                   content={
                     "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
                   }
@@ -430,11 +424,12 @@ const Landing = () => {
                       color="var(--text-light)"
                       className="max-w-prose-plus"
                     >
-                      At <strong>Wlastig</strong>, we specialize in advanced{" "}
-                      <strong>Google Analytics 4 (GA4)</strong> tracking
-                      solutions designed to give you the deepest insights into
-                      your website performance and user behavior. Here’s why
-                      Wlastig is your ideal partner for GA4 implementation:
+                      We specialize in advanced{" "}
+                      <strong>Google Analytics 4 (GA4)</strong>
+                      tracking solutions designed to give you the deepest
+                      insights into your website performance and user behavior.
+                      Here’s why <strong>Wlastig</strong> is your ideal partner
+                      for GA4 implementation:
                     </StyledText>
                   </Center>
                 </AnimationContainer>
@@ -500,7 +495,7 @@ const Landing = () => {
                     as={"h3"}
                     className="title-xl text-center"
                   >
-                    Schedule a free consultation
+                    Schedule A Free Consultation
                   </StyledText>
                   <UnderlineStyled></UnderlineStyled>
                 </Stack>
@@ -511,6 +506,7 @@ const Landing = () => {
                   bfBg={"var(--bf-gray)"}
                   bfInputBg={"var(--bf-gray)"}
                   textBf={"var(--secondary)"}
+                  btnName={"Schedule Free Consultation!"}
                 ></ContactForm>
               </div>
             </Wrapper>
