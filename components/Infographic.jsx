@@ -171,6 +171,11 @@ export const InfographicStyled = styled.ol`
   .title {
     font-family: var(--poppinsbold);
     word-break: break-word;
+    font-size: 17px;
+  }
+
+  .title + p {
+    font-size: 14px;
   }
 
   padding-bottom: 10rem;
