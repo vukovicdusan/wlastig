@@ -500,7 +500,7 @@ const BFAdvertisingLanding = () => {
               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
             </svg>
           </Shapedivider>
-          <Region pt="12rem" pb="12rem">
+          <Region pt="12rem">
             <Wrapper>
               <Stack>
                 <Center>
@@ -537,23 +537,10 @@ const BFAdvertisingLanding = () => {
                     </Center>
                   </AnimationContainer>
                 </Center>
-                <Center mt={"var(--s4)"}>
-                  <AnimationContainer delay={"3"} wobble={true}>
-                    <ScrollLink id="landing_cta" href="#freeConsultation3">
-                      <Button as={"span"}>
-                        Schedule Free Consultation!
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </Button>
-                    </ScrollLink>
-                  </AnimationContainer>
-                </Center>
               </Stack>
             </Wrapper>
           </Region>
-          {/* <Region id="freeConsultation-bf" pt={"12rem"} pb={"12rem"}>
+          <Region id="freeConsultation-bf" pb={"12rem"}>
             <Wrapper>
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
@@ -579,7 +566,7 @@ const BFAdvertisingLanding = () => {
                 ></ContactForm>
               </div>
             </Wrapper>
-          </Region> */}
+          </Region>
           <Shapedivider
             fill={"var(--bg-bf)"}
             position={"bottom"}
