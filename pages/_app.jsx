@@ -40,8 +40,9 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   const blackFridayUrls = [
-    "/google-advertising-black-friday",
+    "/google-ads-black-friday",
     "/google-analytics-ga4-black-friday",
+    "/ppc-agency-black-friday",
   ];
   const isBlackFriday = blackFridayUrls.includes(router.pathname);
   let backgroundColor = isBlackFriday
