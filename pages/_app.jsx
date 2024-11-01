@@ -39,8 +39,11 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
-  const isBlackFriday =
-    router.pathname === "/google-analytics-ga4-black-friday";
+  const blackFridayUrls = [
+    "/google-advertising-black-friday",
+    "/google-analytics-ga4-black-friday",
+  ];
+  const isBlackFriday = blackFridayUrls.includes(router.pathname);
   let backgroundColor = isBlackFriday
     ? "var(--bf-black)"
     : "var(--background-light)";

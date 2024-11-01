@@ -374,6 +374,7 @@ margin-bottom: var(--s-1);
         min-height: 1050px;
     }
 }
+
 .show-in-dark {
 		display: ${({ isBlackFriday }) => (isBlackFriday ? "block" : "none")};
 	}
