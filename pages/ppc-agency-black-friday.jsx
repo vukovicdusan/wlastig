@@ -627,13 +627,12 @@ const BFAdvertisingLanding = () => {
             formType={"freeConsultation3"}
             btnId={"form_submit_consultation3"}
             shapedivider={true}
-            title={"Ready to Grow?"}
+            title={"Schedule A Free Consultation"}
             bg={"var(--bf-black)"}
             bf={true}
             bfInputBg={"var(--bf-gray)"}
             bfBg={"var(--bf-black)"}
             textBf={"var(--secondary)"}
-            btnName={"Start Your Campaign Today"}
           >
             {" "}
           </ContactFormSection>

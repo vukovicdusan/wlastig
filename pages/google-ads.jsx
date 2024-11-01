@@ -444,9 +444,8 @@ const LandingAdvertising = () => {
         <ContactFormSection
           formType={"freeConsultation3"}
           shapedivider={true}
-          title={"Ready to Grow?"}
+          title={"Schedule A Free Consultation"}
           btnId={"form_submit_consultation3"}
-          btnName={"Start Your Campaign Today"}
         >
           {" "}
         </ContactFormSection>
