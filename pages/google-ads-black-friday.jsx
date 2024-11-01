@@ -352,7 +352,8 @@ const BFAdvertisingLanding = () => {
                 className="max-w-prose-sm"
                 color="var(--text-light)"
               >
-                If You Don’t Know Where To Waste Your Money Contact Wlastig!
+                Get Ready For Black Friday With Wlastig – Optimize Your PPC for
+                Maximum ROAS!
               </StyledText>
               <AnimationContainer delay={"3"} wobble={true}>
                 <ScrollLink id="bf_landing_cta" href="#freeConsultation3">
