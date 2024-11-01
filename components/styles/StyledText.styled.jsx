@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledText = styled.p`
+  display: ${(props) => props.display || ""};
   color: ${(props) => props.color || ""};
   text-transform: ${(props) => props.transform || ""};
   text-align: ${(props) => props.align || ""};

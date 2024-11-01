@@ -65,7 +65,7 @@ const ContactFormSection = (props) => {
                     btnId={props.btnId || "form_submit_consultation"}
                     formType={props.formType}
                     alignButton={"center"}
-                    btnName={"Schedule Free Consultation!"}
+                    btnName={props.btnName || "Schedule Free Consultation!"}
                     bf={props.bf || ""}
                     bfInputBg={props.bfInputBg || ""}
                     bfBg={props.bfBg || ""}

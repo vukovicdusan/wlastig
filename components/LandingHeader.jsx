@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const LandingHeader = (props) => {
+  console.log(props.isBlackFriday);
   return (
     <header
       style={{ background: props.isBlackFriday ? "var(--bf-black)" : "" }}

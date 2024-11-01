@@ -14,10 +14,14 @@ const Layout = ({ children }) => {
     "/google-analytics4-ga4-agency",
     "/google-analytics-ga4-black-friday",
     "/google-analytics-ga4-consultant",
+    "/google-advertising-agency",
+    "/google-advertising-black-friday",
   ];
-
-  const isBlackFriday =
-    router.pathname === "/google-analytics-ga4-black-friday";
+  const blackFridayUrls = [
+    "/google-advertising-black-friday",
+    "/google-analytics-ga4-black-friday",
+  ];
+  const isBlackFriday = blackFridayUrls.includes(router.pathname);
   const shouldHideHeader = hideHeaderOnPaths.includes(router.pathname);
   return (
     <LayoutStyled isBlackFriday={isBlackFriday}>
