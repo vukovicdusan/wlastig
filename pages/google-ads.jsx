@@ -122,18 +122,26 @@ const LandingAdvertising = () => {
             </Center>
             <AnimationContainer>
               <Stack stackAlign="center">
-                <p className="max-w-prose-plus">
+                <StyledText
+                  color="var(--text-light)"
+                  className="max-w-prose-plus"
+                >
                   <strong>Google</strong> and <strong>Bing Ads</strong> are like
                   your digital megaphones, bringing the right crowd straight to
                   your door. With search ads showing up when people are actively
                   looking for what you offer, and display ads popping up on
                   sites they love to visit, you’re always in the spotlight.
+                </StyledText>{" "}
+                <StyledText
+                  color="var(--text-light)"
+                  className="max-w-prose-plus"
+                >
                   These platforms don&apos;t just drive traffic—they bring in
                   relevant traffic. More clicks, more leads, better ROAS, and
                   ultimately, more revenue. It’s like putting your brand where
                   your audience is already hanging out, ready to engage.
                   Effortless growth, fueled by smart ads.
-                </p>{" "}
+                </StyledText>
               </Stack>
             </AnimationContainer>
             {/* <Switcher
@@ -255,24 +263,29 @@ const LandingAdvertising = () => {
                   </Center>
                 </AnimationContainer>
                 <AnimationContainer>
-                  <Center>
+                  <Stack stackAlign="center">
                     <StyledText
                       color="var(--text-light)"
                       className="max-w-prose-plus"
                     >
-                      At <strong>Wlastig</strong>, we are proud to have a team
-                      of dedicated digital marketing experts with over 10 years
-                      of experience in the industry. Our specialists are
-                      certified for PPC platforms, ensuring that your campaigns
-                      are managed by professionals who understand the
-                      intricacies of these powerful advertising platforms. With
-                      a track record of successful campaigns that deliver
+                      We are proud to have a team of dedicated digital marketing
+                      experts with over 10 years of experience in the industry.
+                      Our specialists are certified for PPC platforms, ensuring
+                      that your campaigns are managed by professionals who
+                      understand the intricacies of these powerful advertising
+                      platforms.
+                    </StyledText>
+                    <StyledText
+                      color="var(--text-light)"
+                      className="max-w-prose-plus"
+                    >
+                      With a track record of successful campaigns that deliver
                       measurable results, we are committed to helping your
                       business grow through tailored strategies and data-driven
                       insights—Trust Wlastig&apos;s team to take your digital
                       marketing to the next level.
                     </StyledText>
-                  </Center>
+                  </Stack>
                 </AnimationContainer>
                 {/* <Grid gridColumn={"400px"} gridGap={"var(--s5)"}>
                   {whyChooseWlastig
