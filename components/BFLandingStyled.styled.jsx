@@ -24,7 +24,7 @@ export const BFLandingStyled = styled.div`
   }
 
   .contact-form-wrapper-gray {
-    background-color: var(--bf-gray);
+    background-color: var(--bf-gray) !important;
   }
   .spacer {
     background: var(--bf-black);

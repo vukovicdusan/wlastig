@@ -123,7 +123,7 @@ const LandingAdvertising = () => {
             <AnimationContainer>
               <Stack stackAlign="center">
                 <StyledText
-                  color="var(--text-light)"
+                  color="var(--text-dark)"
                   className="max-w-prose-plus"
                 >
                   <strong>Google</strong> and <strong>Bing Ads</strong> are like
@@ -133,7 +133,7 @@ const LandingAdvertising = () => {
                   sites they love to visit, you’re always in the spotlight.
                 </StyledText>{" "}
                 <StyledText
-                  color="var(--text-light)"
+                  color="var(--text-dark)"
                   className="max-w-prose-plus"
                 >
                   These platforms don&apos;t just drive traffic—they bring in
