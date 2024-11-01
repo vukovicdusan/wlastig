@@ -419,12 +419,12 @@ const LandingAdvertising = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        {/* <Infographic
+        <Infographic
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic> */}
+        ></Infographic>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
