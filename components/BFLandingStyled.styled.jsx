@@ -78,6 +78,10 @@ export const BFLandingStyled = styled.div`
     z-index: 1;
   }
 
+  input {
+    color: var(--text-light);
+  }
+
   @-moz-keyframes slowSpin {
     100% {
       -moz-transform: rotate(360deg);
