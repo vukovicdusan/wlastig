@@ -78,7 +78,8 @@ export const BFLandingStyled = styled.div`
     z-index: 1;
   }
 
-  input {
+  input,
+  textarea {
     color: var(--text-light);
   }
 
