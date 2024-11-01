@@ -190,8 +190,8 @@ const BFAdvertisingLanding = () => {
                     align={"center"}
                     className="max-w-prose-sm"
                   >
-                    Get expert help to fine - tune your tracking today and crush
-                    your Black Friday goals!
+                    Boost Your Black Friday Success – Elevate Your PPC for
+                    Unmatched Results!
                   </StyledText>
                   <AnimationContainer delay={"3"} wobble={true}>
                     <ScrollLink id="bf_landing_cta" href="#top">
@@ -352,8 +352,7 @@ const BFAdvertisingLanding = () => {
                 className="max-w-prose-sm"
                 color="var(--text-light)"
               >
-                Don’t Leave Sales on the Table — Ensure Your Web Tracking is
-                Black Friday Ready!
+                If You Don’t Know Where To Waste Your Money Contact Wlastig!
               </StyledText>
               <AnimationContainer delay={"3"} wobble={true}>
                 <ScrollLink id="bf_landing_cta" href="#freeConsultation3">

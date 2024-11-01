@@ -9,7 +9,7 @@ export const BFLandingStyled = styled.div`
   .contact-form-wrapper,
   .contact-form-wrapper-gray {
     display: inline;
-    background-color: var(--bf-black);
+    background-color: var(--bf-black) !important;
     border-radius: 5px;
     padding: var(--s2) var(--s2);
     height: max-content;
