@@ -73,8 +73,8 @@ export const BFLandingStyled = styled.div`
     z-index: 1;
   }
   .relative .bf-icon:nth-child(2) {
-    top: 25%;
-    left: 0;
+    top: 15%;
+    left: -20%;
     z-index: 1;
   }
 
@@ -110,6 +110,10 @@ export const BFLandingStyled = styled.div`
     .bf-icon:nth-child(2) {
       top: 350px;
       left: 65%;
+    }
+
+    #why-us .bf-icon:nth-child(1) {
+      top: -5%;
     }
   }
   @media (max-width: 430px) {
