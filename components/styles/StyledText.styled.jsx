@@ -4,7 +4,7 @@ export const StyledText = styled.p`
   display: ${(props) => props.display || ""};
   color: ${(props) => props.color || ""};
   text-transform: ${(props) => props.transform || ""};
-  text-align: ${(props) => props.align || ""};
+  text-align: ${(props) => props.align || "center"};
   font-family: ${(props) => props.family || ""};
   font-size: ${(props) => props.fontSize || ""};
   max-width: ${(props) => props.maxWidth || ""};
@@ -15,6 +15,7 @@ export const StyledText = styled.p`
     font-size: ${(props) =>
       props.fontSize ? `calc(${props.fontSize} - 35%)` : ""};
     margin-top: ${(props) => props.smMt || ""};
+    text-align: ${(props) => props.smAlign || ""};
   }
 `;
 

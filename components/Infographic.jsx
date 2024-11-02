@@ -86,7 +86,11 @@ const Infographic = (props) => {
             ) : null}
             <AnimationContainer>
               <Center>
-                <StyledText as={"h2"} color={props.titleColor || ""}>
+                <StyledText
+                  smAlign={"center"}
+                  as={"h2"}
+                  color={props.titleColor || ""}
+                >
                   Our Roadmap to Success
                 </StyledText>
                 <UnderlineStyled></UnderlineStyled>
