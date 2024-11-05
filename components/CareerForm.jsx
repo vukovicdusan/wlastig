@@ -186,6 +186,10 @@ export const CareerFormStyled = styled.div`
   border-radius: 5px;
   margin: 0.5rem;
 
+  .hidden {
+    display: none;
+  }
+
   h2 {
     color: var(--primary);
   }
