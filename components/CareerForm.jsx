@@ -18,6 +18,7 @@ const CareerForm = () => {
     error: false,
     loading: false,
   });
+  const [honeypot, setHoneypot] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);
@@ -29,6 +30,9 @@ const CareerForm = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if (honeypot) {
+      return;
+    }
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
     try {
       const storageRef = ref(storage, contactFormData.cv.name);
@@ -143,6 +147,12 @@ const CareerForm = () => {
             ></textarea>
             <label htmlFor="cover">Cover Letter</label>
           </InputWrapper>
+          <input
+            onChange={() => setHoneypot(true)}
+            type="text"
+            className="hidden"
+            name="honeypot"
+          />
           <div className="button-loader">
             <Button>
               Submit <span></span>

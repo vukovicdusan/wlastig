@@ -33,6 +33,7 @@ const ContactForm = (props) => {
     name: { error: true, message: "", show: false },
     // website: { error: true, message: "", show: false },
   });
+  const [honeypot, setHoneypot] = useState(false);
   let router = useRouter();
 
   useEffect(() => {
@@ -53,6 +54,9 @@ const ContactForm = (props) => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if (honeypot) {
+      return;
+    }
     if (!anyError) {
       setContactFormProccess((prev) => ({ ...prev, loading: true }));
       try {
@@ -247,6 +251,12 @@ const ContactForm = (props) => {
               ></textarea>
               <label htmlFor="comments">Message</label>
             </InputWrapper>
+            <input
+              onChange={() => setHoneypot(true)}
+              type="text"
+              className="hidden"
+              name="honeypot"
+            />
             <div className="button-loader">
               <AnimationContainer wobble={true}>
                 <Button id={props.btnId || "form_submit_contact"}>
@@ -292,6 +302,10 @@ export const ContactFormStyled = styled.div`
 
   .error {
     color: var(--error-color);
+  }
+
+  .hidden {
+    display: none;
   }
 
   .button-loader {
