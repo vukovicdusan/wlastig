@@ -240,7 +240,8 @@ const Footer = (props) => {
         <div className="footers-footer">
           {" "}
           <p>
-            Copyright © {year} Wlastig | Website made by{" "}
+            <Link href={"/privacy-policy"}>Privacy Policy</Link> © {year}{" "}
+            Wlastig | Website made by{" "}
             <a
               href="https://www.dusanvukovic.com/"
               rel="noopener"

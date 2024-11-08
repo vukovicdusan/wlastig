@@ -18,7 +18,6 @@ const privacyPolicy = () => {
           content="Wanna hear a great story?
         A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
         />
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FullBackground
