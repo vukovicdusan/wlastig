@@ -68,6 +68,11 @@ export const InfographicNewStyled = styled.ol`
   --flame-inner-color: #fed103;
   --rocket-aspect: calc(134.13 / 196.24);
   --rocket-width: 6rem;
+  --number-circle-size: 2.5rem;
+  --number-circle-border-size: 0.25rem;
+  --number-line-height: 0.125rem;
+  --number-line-length: calc(var(--rocket-width) / 2 + var(--column-gap) / 2);
+  --number-line-dot-size: 0.25rem;
 
   display: grid;
   grid-template-areas:
@@ -148,6 +153,22 @@ export const InfographicNewStyled = styled.ol`
     justify-content: center;
     align-items: center;
     color: white;
+    z-index: 1;
+    border: 4px solid var(--primary);
+    padding: 1rem;
+    --circle-pos-x: calc(
+      var(--number-circle-size) / 2 + var(--column-gap) + var(--rocket-width) /
+        2
+    );
+    --dot-size: calc(
+      var(--number-circle-size) / -2 + var(--number-line-dot-size)
+    );
+    box-shadow: inset 0 0 0 var(--number-circle-border-size) currentcolor,
+      inset -0.125rem 0.125rem 0.25rem var(--number-circle-border-size) rgb(0 0
+            0 / 0.25),
+      -0.125rem 0.125rem 0.25rem rgb(0 0 0 / 0.5),
+      calc(var(--number-line-length) * var(--dot_pos_multiplier, 1)) 0 0
+        var(--dot-size) currentcolor;
   }
 
   li:nth-of-type(1) {

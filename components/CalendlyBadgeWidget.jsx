@@ -11,7 +11,7 @@ const CalendlyBadgeWidget = () => {
     script.onload = () => {
       if (window.Calendly) {
         window.Calendly.initBadgeWidget({
-          url: "https://calendly.com/wlastig/free-consultation",
+          url: "https://calendly.com/wlastig/free-consultation?hide_gdpr_banner=1",
           text: "Schedule Free </br> Consultation!",
           color: "#f2545b",
           textColor: "#ffffff",
