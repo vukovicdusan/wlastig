@@ -49,18 +49,17 @@ const ThankYouPage = () => {
               </StyledText>
             </Center>
           </AnimationContainer>
-          <AnimationContainer delay={"5"}>
-            <InlineWidget
-              styles={{
-                height: "700px",
-                minWidth: "300px",
-                marginInline: "auto",
-                marginBlock: "var(--s2)",
-                colorScheme: "light",
-              }}
-              url="https://calendly.com/wlastig/free-consultation"
-            />
-          </AnimationContainer>
+
+          <InlineWidget
+            styles={{
+              height: "700px",
+              minWidth: "300px",
+              marginInline: "auto",
+              marginBlock: "var(--s2)",
+              colorScheme: "light",
+            }}
+            url="https://calendly.com/wlastig/free-consultation"
+          />
         </Wrapper>
         <Shapedivider position={"bottom"} rotation={"0"} height={"80px"}>
           <svg

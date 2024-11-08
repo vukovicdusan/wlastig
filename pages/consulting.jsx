@@ -19,6 +19,7 @@ import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
 import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
+import InfographicNew from "../components/InfographicNew";
 
 const Consulting = () => {
   return (
@@ -125,6 +126,7 @@ const Consulting = () => {
       </FullBackground>
 
       <Infographic ctaButton={true} processArr={processArr}></Infographic>
+      {/* <InfographicNew processArr={processArr}></InfographicNew> */}
 
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
       <ContactFormSection
