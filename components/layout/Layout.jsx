@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 
   // Define pages where the header should not be displayed
   const hideHeaderOnPaths = [
-    "/google-analytics4-ga4-agency",
+    "/google-analytics-ga4-agency",
     "/google-analytics-ga4-black-friday",
     "/google-analytics-ga4-consultant",
     "/google-ads",

@@ -12,6 +12,7 @@ import AnimationContainer from "./AnimationContainer";
 import { useRouter } from "next/router";
 import ContactForm from "./ContactForm";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
+import { Center } from "./styles/Center.styled";
 
 const ContactFormSection = (props) => {
   const router = useRouter();
@@ -45,18 +46,38 @@ const ContactFormSection = (props) => {
       <Region id="contact-form-section">
         <Wrapper>
           <ContactFormSectionStyled>
-            <AnimationContainer>
-              <Stack stackJustify={"center"} stackAlign={"center"}>
-                <h3 className="title-xl">{props.title || ""}</h3>
-                <UnderlineStyled></UnderlineStyled>
-                {/* {subTitleContent} */}
-              </Stack>
-            </AnimationContainer>
+            {!props.subTitle ? (
+              <Center>
+                <AnimationContainer>
+                  <Stack stackJustify={"center"} stackAlign={"center"}>
+                    <h3 className="title-xl">{props.title || ""}</h3>
+                    <UnderlineStyled></UnderlineStyled>
+                    {subTitleContent}
+                  </Stack>
+                </AnimationContainer>
+              </Center>
+            ) : (
+              ""
+            )}
             <Switcher
               reverse={"row-reverse"}
               switcherJustify={"center"}
               gap={"var(--s5)"}
             >
+              {" "}
+              {props.subTitle ? (
+                <Center>
+                  <AnimationContainer>
+                    <Stack stackJustify={"center"} stackAlign={"center"}>
+                      <h3 className="title-xl">{props.title || ""}</h3>
+                      <UnderlineStyled></UnderlineStyled>
+                      {subTitleContent}
+                    </Stack>
+                  </AnimationContainer>
+                </Center>
+              ) : (
+                ""
+              )}
               {router.pathname === "/careers/[career]" ? (
                 <CareerForm></CareerForm>
               ) : (

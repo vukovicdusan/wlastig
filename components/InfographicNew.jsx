@@ -92,11 +92,24 @@ export const InfographicNewStyled = styled.ol`
   }
 
   /** TITLE */
+
+  .title {
+    font-family: var(--poppinsbold);
+    word-break: break-word;
+    font-size: 17px;
+  }
+
+  .title + p {
+    font-size: 14px;
+  }
+
   li .title {
     position: absolute;
     bottom: -50%;
     left: 25%;
     transform: translateY(-50%);
+    /* height: 50px; */
+    color: var(--primary);
   }
 
   li:nth-child(even) .title {
@@ -116,27 +129,55 @@ export const InfographicNewStyled = styled.ol`
   .tooltip {
     content: "";
     position: absolute;
-    width: 30px;
+    width: 40px;
     height: 1px;
-    background-color: black;
+    background-color: var(--primary);
     bottom: 0;
     left: 0;
   }
 
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    transform: translateY(50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 100px;
+    background-color: var(--primary);
+  }
+
+  li:nth-child(even) .tooltip::after {
+    bottom: revert;
+    right: revert;
+    top: 0;
+    left: -50%;
+    transform: translateX(-50%);
+  }
+
   li:nth-child(even) .tooltip {
     width: 1px;
-    height: 30px;
+    height: 40px;
     bottom: 0px;
     left: 0;
   }
 
   li:last-of-type .tooltip {
-    width: 30px;
+    width: 40px;
     height: 1px;
     bottom: revert;
     left: revert;
     top: 0;
     right: 0;
+  }
+
+  li:last-of-type .tooltip::after {
+    bottom: revert;
+    right: revert;
+    left: 0;
+    top: -50%;
+    transform: translateY(-50%);
   }
 
   /* POINT */
@@ -145,10 +186,10 @@ export const InfographicNewStyled = styled.ol`
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: black;
+    background-color: var(--primary);
     border-radius: 100px;
-    bottom: -12px;
-    left: -16px;
+    bottom: -20px;
+    left: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,10 +197,6 @@ export const InfographicNewStyled = styled.ol`
     z-index: 1;
     border: 4px solid var(--primary);
     padding: 1rem;
-    --circle-pos-x: calc(
-      var(--number-circle-size) / 2 + var(--column-gap) + var(--rocket-width) /
-        2
-    );
     --dot-size: calc(
       var(--number-circle-size) / -2 + var(--number-line-dot-size)
     );
@@ -192,8 +229,8 @@ export const InfographicNewStyled = styled.ol`
   li:last-of-type::before {
     bottom: revert;
     left: revert;
-    top: -8px;
-    right: -7px;
+    top: -20px;
+    right: -20px;
   }
 
   /** LINE */
@@ -241,7 +278,7 @@ export const InfographicNewStyled = styled.ol`
     transform: revert;
   }
 
-  & li:nth-child(8)::before {
+  & li:nth-child(1)::before {
     background-color: #e52b50;
   }
 

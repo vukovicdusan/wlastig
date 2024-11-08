@@ -635,6 +635,9 @@ const BFAdvertisingLanding = () => {
             bfInputBg={"var(--bf-gray)"}
             bfBg={"var(--bf-black)"}
             textBf={"var(--secondary)"}
+            // subTitle={[
+            //   "Interested in improving your paid advertising efforts? Book a free consultation to review your current digital campaigns and discover how to improve targeting, performance, and return on investment.",
+            // ]}
           >
             {" "}
           </ContactFormSection>

@@ -133,9 +133,7 @@ const Consulting = () => {
         shapedivider={false}
         title={"Schedule a free consultation"}
         subTitle={[
-          "Are you seeing a lot of (not sets) in your reports? Purchase revenue isn’t correct? Are you struggling with reading GA4 reports? Your GA4 data is not accurate enough?",
-          "If your answer to any of these questions is yes or maybe - we are here to hear you out and help you improve your tracking so you can rely on data and be confident in making data-driven decisions!",
-          "We are offering a free 30-minute consultation with one of our experts to delve deeper into your specific challenges, answer any further questions you may have, and explore how Wlastig can help you achieve your goals.",
+          "Improve PPC campaigns and web analytics to achieve maximum ROI. Book your free consultation to gain expert insights on optimizing your pay-per-click strategies and leveraging analytics to track, measure, and refine your marketing efforts.",
         ]}
         formType={"freeConsultation"}
       ></ContactFormSection>
