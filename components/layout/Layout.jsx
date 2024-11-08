@@ -28,7 +28,11 @@ const Layout = ({ children }) => {
   const shouldHideHeader = hideHeaderOnPaths.includes(router.pathname);
   return (
     <LayoutStyled isBlackFriday={isBlackFriday}>
-      <CalendlyBadgeWidget></CalendlyBadgeWidget>
+      {router.pathname !== "/thank-you-page" ? (
+        <CalendlyBadgeWidget></CalendlyBadgeWidget>
+      ) : (
+        ""
+      )}
       {!shouldHideHeader ? (
         <Header></Header>
       ) : (
