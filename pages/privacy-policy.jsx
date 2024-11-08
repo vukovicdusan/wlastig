@@ -53,16 +53,16 @@ const privacyPolicy = () => {
         <Wrapper>
           <Stack stackSpace={"var(--s4)"}>
             <p>
-              WLASTIG, (“Wlastig,” “we,” or “us”), has created this privacy
-              policy (this “Privacy Policy”) to demonstrate our commitment to
-              protecting the privacy of users, visitors, and customers
-              (collectively “Customers” or “you”) of our website located at
-              <a href="https://www.wlastig.com/">wlastig.com</a>(the “Website”).
-              Privacy on our Website is of great importance to us. As we gather
-              certain information from our users, this Privacy Policy outlines
-              our information collection, usage, and disclosure practices. By
-              accessing our Website, you acknowledge and agree to the practices
-              outlined in this Privacy Policy.
+              WLASTIG, (“Wlastig”), has created this privacy policy (this
+              “Privacy Policy”) to demonstrate our commitment to protecting the
+              privacy of users, visitors, and customers (collectively
+              “Customers” or “you”) of our website located at
+              <a href="https://www.wlastig.com/"> wlastig.com</a>(the
+              “Website”). Privacy on our Website is of great importance to us.
+              As we gather certain information from our users, this Privacy
+              Policy outlines our information collection, usage, and disclosure
+              practices. By accessing our Website, you acknowledge and agree to
+              the practices outlined in this Privacy Policy.
             </p>
             <Stack>
               <h2>Information We Collect</h2>
@@ -73,11 +73,7 @@ const privacyPolicy = () => {
                 name, company name, address, phone number, email address,
                 cookies, IP logs, and other details (collectively “Personal
                 Information”). In addition to Personal Information, we may also
-                collect data regarding your use of the Website. From time to
-                time, we may request additional information that will also be
-                considered Personal Information. Providing this information is
-                optional, but choosing not to may limit your ability to use
-                certain features of the Website.
+                collect data regarding your use of the Website.
               </p>
               <p>
                 We use the information we collect to provide, maintain, and
