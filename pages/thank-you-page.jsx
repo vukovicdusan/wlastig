@@ -49,7 +49,6 @@ const ThankYouPage = () => {
               </StyledText>
             </Center>
           </AnimationContainer>
-
           <InlineWidget
             styles={{
               height: "700px",
@@ -58,7 +57,7 @@ const ThankYouPage = () => {
               marginBlock: "var(--s2)",
               colorScheme: "light",
             }}
-            url="https://calendly.com/wlastig/free-consultation"
+            url="https://calendly.com/wlastig/free-consultation?hide_gdpr_banner=1"
           />
         </Wrapper>
         <Shapedivider position={"bottom"} rotation={"0"} height={"80px"}>
