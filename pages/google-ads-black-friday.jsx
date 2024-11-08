@@ -341,32 +341,6 @@ const BFAdvertisingLanding = () => {
                 ></IconBox>
               </Center>
             </Switcher> */}
-
-            <Center>
-              <StyledText
-                fontSize={"var(--s2)"}
-                family={"var(--poppinsbold)"}
-                mb={"var(--s4)"}
-                mt={"var(--s4)"}
-                align={"center"}
-                className="max-w-prose-sm"
-                color="var(--text-light)"
-              >
-                Get Ready For Black Friday With Wlastig – Optimize Your PPC for
-                Maximum ROAS!
-              </StyledText>
-              <AnimationContainer delay={"3"} wobble={true}>
-                <ScrollLink id="bf_landing_cta" href="#freeConsultation3">
-                  <Button as={"span"}>
-                    Schedule Free Consultation!
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </Button>
-                </ScrollLink>
-              </AnimationContainer>
-            </Center>
           </Wrapper>
         </Region>
         <FullBackground background={"var(--bf-black)"}>
@@ -436,6 +410,31 @@ const BFAdvertisingLanding = () => {
                     </StyledText>
                   </Stack>
                 </AnimationContainer>
+                <Center>
+                  <StyledText
+                    fontSize={"var(--s2)"}
+                    family={"var(--poppinsbold)"}
+                    mb={"var(--s4)"}
+                    mt={"var(--s4)"}
+                    align={"center"}
+                    className="max-w-prose-sm"
+                    color="var(--text-light)"
+                  >
+                    Get Ready For Black Friday With Wlastig – Optimize Your PPC
+                    for Maximum ROAS!
+                  </StyledText>
+                  <AnimationContainer delay={"3"} wobble={true}>
+                    <ScrollLink id="bf_landing_cta" href="#freeConsultation3">
+                      <Button as={"span"}>
+                        Schedule Free Consultation!
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </Button>
+                    </ScrollLink>
+                  </AnimationContainer>
+                </Center>
                 {/* <Grid gridColumn={"400px"} gridGap={"var(--s5)"}>
                   {whyChooseWlastig
                     .slice(0, serviceCount)
@@ -462,7 +461,7 @@ const BFAdvertisingLanding = () => {
                     </Button>
                   </Center>
                 ) : null} */}
-                <AnimationContainer mt={"var(--s4)"} delay={"3"} wobble={true}>
+                {/* <AnimationContainer mt={"var(--s4)"} delay={"3"} wobble={true}>
                   <Link className="a-exception" href={"/our-team"} passHref>
                     <Button as={"span"}>
                       Learn More About Our Team
@@ -472,7 +471,7 @@ const BFAdvertisingLanding = () => {
                       <span></span>
                     </Button>
                   </Link>
-                </AnimationContainer>
+                </AnimationContainer> */}
               </Stack>
             </Wrapper>
           </Region>
@@ -540,33 +539,49 @@ const BFAdvertisingLanding = () => {
               </Stack>
             </Wrapper>
           </Region>
-          <Region id="freeConsultation-bf" pb={"12rem"}>
-            <Wrapper>
-              <AnimationContainer>
-                <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <StyledText
-                    color={"var(--text-light)"}
-                    as={"h3"}
-                    className="title-xl text-center"
-                  >
-                    Schedule A Free Consultation
-                  </StyledText>
-                  <UnderlineStyled></UnderlineStyled>
-                </Stack>
-              </AnimationContainer>
-              <div className="contact-form-wrapper-gray">
-                <ContactForm
-                  formType={"freeConsultation2"}
-                  bf={true}
-                  bfBg={"var(--bf-gray)"}
-                  bfInputBg={"var(--bf-gray)"}
-                  textBf={"var(--secondary)"}
-                  btnName={"Schedule Free Consultation!"}
-                  btnId={"form_submit_consultation2"}
-                ></ContactForm>
-              </div>
-            </Wrapper>
-          </Region>
+          <FullBackground background={"var(--bf-black)"}>
+            <Region id="freeConsultation-bf" pb={"12rem"} pt={"10rem"}>
+              <Shapedivider
+                position={"top"}
+                fill={"var(--bf-gray)"}
+                height={"100px"}
+              >
+                <svg
+                  data-name="Layer 1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1200 120"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+                </svg>
+              </Shapedivider>
+              <Wrapper>
+                <AnimationContainer>
+                  <Stack stackJustify={"center"} stackAlign={"center"}>
+                    <StyledText
+                      color={"var(--text-light)"}
+                      as={"h3"}
+                      className="title-xl text-center"
+                    >
+                      Schedule A Free Consultation
+                    </StyledText>
+                    <UnderlineStyled></UnderlineStyled>
+                  </Stack>
+                </AnimationContainer>
+                <div className="contact-form-wrapper">
+                  <ContactForm
+                    formType={"freeConsultation2"}
+                    bf={true}
+                    bfBg={"var(--bf-black)"}
+                    bfInputBg={"var(--bf-gray)"}
+                    textBf={"var(--secondary)"}
+                    btnName={"Schedule Free Consultation!"}
+                    btnId={"form_submit_consultation2"}
+                  ></ContactForm>
+                </div>
+              </Wrapper>
+            </Region>
+          </FullBackground>
           <Shapedivider
             fill={"var(--bg-bf)"}
             position={"bottom"}
