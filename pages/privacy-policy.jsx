@@ -57,12 +57,12 @@ const privacyPolicy = () => {
               policy (this “Privacy Policy”) to demonstrate our commitment to
               protecting the privacy of users, visitors, and customers
               (collectively “Customers” or “you”) of our website located at
-              [Insert Website URL] (the “Website”). Privacy on our Website is of
-              great importance to us. As we gather certain information from our
-              users, this Privacy Policy outlines our information collection,
-              usage, and disclosure practices. By accessing our Website, you
-              acknowledge and agree to the practices outlined in this Privacy
-              Policy.
+              <a href="https://www.wlastig.com/">wlastig.com</a>(the “Website”).
+              Privacy on our Website is of great importance to us. As we gather
+              certain information from our users, this Privacy Policy outlines
+              our information collection, usage, and disclosure practices. By
+              accessing our Website, you acknowledge and agree to the practices
+              outlined in this Privacy Policy.
             </p>
             <Stack>
               <h2>Information We Collect</h2>
