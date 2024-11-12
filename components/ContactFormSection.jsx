@@ -13,15 +13,21 @@ import { useRouter } from "next/router";
 import ContactForm from "./ContactForm";
 import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 import { Center } from "./styles/Center.styled";
+import { StyledText } from "./styles/StyledText.styled";
 
 const ContactFormSection = (props) => {
   const router = useRouter();
 
   const subTitleContent = props.subTitle
     ? props.subTitle.map((content, index) => (
-        <p key={index} className="title-s">
+        <StyledText
+          key={index}
+          fontSize={"var(--s1)"}
+          color={"var(--text-light)"}
+          align={"center"}
+        >
           {content}
-        </p>
+        </StyledText>
       ))
     : "";
 
@@ -46,19 +52,15 @@ const ContactFormSection = (props) => {
       <Region id="contact-form-section">
         <Wrapper>
           <ContactFormSectionStyled>
-            {!props.subTitle ? (
-              <Center>
-                <AnimationContainer>
-                  <Stack stackJustify={"center"} stackAlign={"center"}>
-                    <h3 className="title-xl">{props.title || ""}</h3>
-                    <UnderlineStyled></UnderlineStyled>
-                    {subTitleContent}
-                  </Stack>
-                </AnimationContainer>
-              </Center>
-            ) : (
-              ""
-            )}
+            <Center>
+              <AnimationContainer>
+                <Stack stackJustify={"center"} stackAlign={"center"}>
+                  <h3 className="title-xl">{props.title || ""}</h3>
+                  <UnderlineStyled></UnderlineStyled>
+                </Stack>
+              </AnimationContainer>
+            </Center>
+
             <Switcher
               reverse={"row-reverse"}
               switcherJustify={"center"}
@@ -69,8 +71,6 @@ const ContactFormSection = (props) => {
                 <Center>
                   <AnimationContainer>
                     <Stack stackJustify={"center"} stackAlign={"center"}>
-                      <h3 className="title-xl">{props.title || ""}</h3>
-                      <UnderlineStyled></UnderlineStyled>
                       {subTitleContent}
                     </Stack>
                   </AnimationContainer>
@@ -132,7 +132,7 @@ export const ContactFormSectionStyled = styled.div`
   }
 
   & .title-s:first-child {
-    font-family: var(--poppinsbold), "Times New Roman", Times, serif;
+    font-family: var(--poppinsmedium), "Times New Roman", Times, serif;
   }
 
   .contact-form-wrapper {

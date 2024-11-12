@@ -186,7 +186,8 @@ export const InfographicNewStyled = styled.ol`
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+
     border-radius: 100px;
     bottom: -20px;
     left: -20px;
@@ -195,7 +196,7 @@ export const InfographicNewStyled = styled.ol`
     align-items: center;
     color: white;
     z-index: 1;
-    border: 4px solid var(--primary);
+    /* border: 4px solid var(--primary); */
     padding: 1rem;
     --dot-size: calc(
       var(--number-circle-size) / -2 + var(--number-line-dot-size)
@@ -239,8 +240,8 @@ export const InfographicNewStyled = styled.ol`
     content: "";
     position: absolute;
     width: var(--diagonal);
-    height: 5px;
-    background-image: radial-gradient(
+    height: 15px;
+    /* background-image: radial-gradient(
         ellipse at center top,
         var(--flame-inner-color) 20%,
         transparent 50%
@@ -257,11 +258,28 @@ export const InfographicNewStyled = styled.ol`
         ellipse at center top,
         var(--flame-outer-color) 35%,
         transparent 65%
+      ); */
+    background-image: radial-gradient(
+        ellipse at left center,
+        var(--flame-inner-color) 20%,
+        transparent 50%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 20%,
+        var(--flame-outer-color) 40%,
+        var(--flame-inner-color) 50%,
+        var(--flame-outer-color) 60%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse at left center,
+        var(--flame-outer-color) 35%,
+        transparent 65%
       );
+
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 100% calc(var(--rocket-height) * 0.4), 100%,
-      100% calc(var(--rocket-height) * 0.4);
     border-radius: 100px;
     bottom: 0;
     left: 0;
@@ -304,6 +322,12 @@ export const InfographicNewStyled = styled.ol`
 
   & li:nth-child(7)::before {
     background-color: #f4581b;
+  }
+
+  li::before {
+    background-image: url("./img/startup(1).png");
+    background-position: center;
+    background-size: contain;
   }
 
   /* COUNTER POINTS */
