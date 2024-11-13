@@ -76,11 +76,14 @@ export const InfographicNewStyled = styled.ol`
 
   display: grid;
   grid-template-areas:
-    "a1 a2 a3 a4 a5"
-    "b1 b2 b3 b4 b5"
-    "c1 c2 c3 c4 c5";
-  grid-template-columns: 150px 150px 150px 150px 150px;
-  grid-template-rows: 150px 150px 150px;
+    "a1 a2 a3 a4"
+    "b1 b2 b3 b4"
+    "c1 c2 c3 c4"
+    "d1 d2 d3 d4"
+    "e1 e2 e3 e4"
+    "f1 f2 f3 f4";
+  grid-template-columns: repeat(4, var(--item-width));
+  grid-template-rows: repeat(6, var(--item-width));
   justify-content: center;
   counter-reset: liCount 0;
 
@@ -89,13 +92,41 @@ export const InfographicNewStyled = styled.ol`
     width: var(--item-width);
     height: var(--item-height);
     counter-increment: liCount 1;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* text-align: center; */
+    z-index: 5;
+  }
+
+  li:nth-of-type(even) {
+    text-align: end;
+  }
+
+  li:nth-of-type(1) {
+    grid-area: f1;
+  }
+  li:nth-of-type(2) {
+    grid-area: e4;
+  }
+  li:nth-of-type(3) {
+    grid-area: d1;
+  }
+  li:nth-of-type(4) {
+    grid-area: c4;
+  }
+  li:nth-of-type(5) {
+    grid-area: b1;
+  }
+  li:nth-of-type(6) {
+    grid-area: a4;
   }
 
   /** TITLE */
 
   .title {
     font-family: var(--poppinsbold);
-    word-break: break-word;
+    /* word-break: break-word; */
     font-size: 17px;
   }
 
@@ -104,99 +135,29 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li .title {
-    position: absolute;
-    bottom: -50%;
-    left: 25%;
-    transform: translateY(-50%);
-    /* height: 50px; */
-    color: var(--primary);
-  }
-
-  li:nth-child(even) .title {
-    left: 0;
-    bottom: 0;
-    padding-bottom: 0.5rem;
-  }
-
-  li:last-of-type .title {
-    left: revert;
-    bottom: revert;
-    top: 0;
-    right: 0;
-  }
-
-  /** TITLE TOOLTIP */
-  .tooltip {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 1px;
-    background-color: var(--primary);
-    bottom: 0;
-    left: 0;
-  }
-
-  .tooltip::after {
-    content: "";
-    position: absolute;
-    bottom: 50%;
-    right: 0;
-    transform: translateY(50%);
-    width: 5px;
-    height: 5px;
-    border-radius: 100px;
-    background-color: var(--primary);
-  }
-
-  li:nth-child(even) .tooltip::after {
-    bottom: revert;
-    right: revert;
-    top: 0;
-    left: -50%;
-    transform: translateX(-50%);
-  }
-
-  li:nth-child(even) .tooltip {
-    width: 1px;
-    height: 40px;
-    bottom: 0px;
-    left: 0;
-  }
-
-  li:last-of-type .tooltip {
-    width: 40px;
-    height: 1px;
-    bottom: revert;
-    left: revert;
-    top: 0;
-    right: 0;
-  }
-
-  li:last-of-type .tooltip::after {
-    bottom: revert;
-    right: revert;
-    left: 0;
-    top: -50%;
-    transform: translateY(-50%);
+    color: var(--text-dark);
+    position: relative;
   }
 
   /* POINT */
   li::before {
     content: counter(liCount, decimal-leading-zero);
+    /* content: ""; */
     position: absolute;
-    width: 30px;
-    height: 30px;
-    /* background-color: var(--primary); */
-
+    padding: 0.5rem;
+    border: 5px solid var(--text-dark);
     border-radius: 100px;
+    aspect-ratio: 1;
+    width: 60px;
+    height: 60px;
     bottom: -20px;
     left: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    font-family: var(--poppinsbold);
     z-index: 1;
-    /* border: 4px solid var(--primary); */
     padding: 1rem;
     --dot-size: calc(
       var(--number-circle-size) / -2 + var(--number-line-dot-size)
@@ -209,82 +170,33 @@ export const InfographicNewStyled = styled.ol`
         var(--dot-size) currentcolor;
   }
 
-  li:nth-of-type(1) {
-    grid-area: c1;
-  }
-  li:nth-of-type(2) {
-    grid-area: b2;
-  }
-  li:nth-of-type(3) {
-    grid-area: b3;
-  }
-  li:nth-of-type(4) {
-    grid-area: a4;
-  }
-  li:nth-of-type(5) {
-    grid-area: a5;
-  }
-  li:nth-of-type(6) {
-    grid-area: a5;
-  }
-  li:last-of-type::before {
-    bottom: revert;
-    left: revert;
-    top: -20px;
+  li:nth-of-type(even)::before {
     right: -20px;
+    left: revert;
+  }
+
+  li:last-of-type::before {
+    content: "";
+    left: revert;
+    right: -20px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent !important;
+    transform: rotate(31deg);
   }
 
   /** LINE */
-
   li::after {
     content: "";
     position: absolute;
-    width: var(--diagonal);
-    height: 15px;
-    /* background-image: radial-gradient(
-        ellipse at center top,
-        var(--flame-inner-color) 20%,
-        transparent 50%
-      ),
-      linear-gradient(
-        to right,
-        transparent 20%,
-        var(--flame-outer-color) 40%,
-        var(--flame-inner-color) 50%,
-        var(--flame-outer-color) 60%,
-        transparent 80%
-      ),
-      radial-gradient(
-        ellipse at center top,
-        var(--flame-outer-color) 35%,
-        transparent 65%
-      ); */
-    background-image: radial-gradient(
-        ellipse at left center,
-        var(--flame-inner-color) 20%,
-        transparent 50%
-      ),
-      linear-gradient(
-        to bottom,
-        transparent 20%,
-        var(--flame-outer-color) 40%,
-        var(--flame-inner-color) 50%,
-        var(--flame-outer-color) 60%,
-        transparent 80%
-      ),
-      radial-gradient(
-        ellipse at left center,
-        var(--flame-outer-color) 35%,
-        transparent 65%
-      );
-
-    background-repeat: no-repeat;
-    background-position: top center;
-    border-radius: 100px;
+    width: calc(var(--diagonal) * 2.9);
+    height: 10px;
+    opacity: 0.8;
+    border-top: 8px dashed var(--text-dark);
     bottom: 0;
-    left: 0;
+    left: 5px;
     transform-origin: bottom left;
-    transform: rotate(-45deg);
+    transform: rotate(-15deg);
   }
 
   li:last-of-type::after {
@@ -292,8 +204,11 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:nth-child(even)::after {
-    width: var(--item-width);
-    transform: revert;
+    transform: rotate(15deg);
+    bottom: revert;
+    top: -10px;
+    left: revert;
+    right: -25px;
   }
 
   & li:nth-child(1)::before {
@@ -324,12 +239,17 @@ export const InfographicNewStyled = styled.ol`
     background-color: #f4581b;
   }
 
-  li::before {
+  li.fade-in-hidden:last-of-type::before {
     background-image: url("./img/startup(1).png");
     background-position: center;
     background-size: contain;
+    transform: translate(-575px, 150px);
+    transition: transform 0.3s ease;
   }
 
+  li.fade-in-show:last-of-type::before {
+    transform: translate(0px, 0px) !important;
+  }
   /* COUNTER POINTS */
 
   @media (max-width: 750px) {
