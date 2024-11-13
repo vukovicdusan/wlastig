@@ -124,7 +124,7 @@ const InfographicNew = (props) => {
 export default InfographicNew;
 
 export const InfographicNewStyled = styled.ol`
-  --item-height: 150px;
+  --item-height: 100px;
   --item-width: 150px;
   --diagonal: calc(var(--item-width) * 1.414);
   --rocket-height: calc(var(--rocket-width) / var(--rocket-aspect));
@@ -147,7 +147,7 @@ export const InfographicNewStyled = styled.ol`
     "e1 e2 e3 e4"
     "f1 f2 f3 f4";
   grid-template-columns: repeat(4, var(--item-width));
-  grid-template-rows: repeat(6, var(--item-width));
+  grid-template-rows: repeat(6, var(--item-height));
   justify-content: center;
   counter-reset: liCount 0;
 
@@ -202,6 +202,7 @@ export const InfographicNewStyled = styled.ol`
   li .title {
     color: var(--text-dark);
     position: relative;
+    margin-bottom: 4rem;
   }
 
   /* POINT */
@@ -260,7 +261,7 @@ export const InfographicNewStyled = styled.ol`
     bottom: 0;
     left: 5px;
     transform-origin: bottom left;
-    transform: rotate(-15deg);
+    transform: rotate(-10deg);
     opacity: 0.4;
   }
 
@@ -269,7 +270,7 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:nth-child(even)::after {
-    transform: rotate(15deg);
+    transform: rotate(10deg);
     bottom: revert;
     top: -10px;
     left: revert;
