@@ -2,6 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
+import { FullBackground } from "./styles/FullBackground.styled";
+import { Shapedivider } from "./styles/Shapedivider.styled";
+import AnimationContainer from "./AnimationContainer";
+import { Stack } from "./styles/Stack.styled";
+import { Center } from "./styles/Center.styled";
+import { StyledText } from "./styles/StyledText.styled";
+import { UnderlineStyled } from "./styles/UnderlineStyled.styled";
 
 const InfographicNew = (props) => {
   let animationRef = useRef();
@@ -26,34 +33,91 @@ const InfographicNew = (props) => {
   }, []);
 
   return (
-    <Region>
-      <Wrapper>
-        <InfographicNewStyled
-          fireHeight={props.fireHeight}
-          processesNum={processesNum}
-          ref={animationRef}
-          textColor={props.textColor || ""}
+    <FullBackground>
+      <Shapedivider
+        fill={props.shapeDividerFill || ""}
+        position={"top"}
+        rotation={"0"}
+      >
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
         >
-          {/* <div
-          className={show ? "enter-up-show rocket" : "enter-up-hidden rocket"}
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+          ></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+      </Shapedivider>
+      <Region pb={"12rem"}>
+        <Wrapper>
+          <Stack
+            stackSpace={"var(--s5) !important"}
+            stackAlign={"center"}
+            mt={"var(--s7)"}
           >
-          <svg className="icon">
-          <use xlinkHref={"./img/subservices/sprite.svg#rocket"}></use>
-          </svg>
-          </div> */}
-          {[...props.processArr].reverse().map((process, index) => (
-            <li
-              className={show ? "fade-in-show" : "fade-in-hidden"}
-              key={index}
+            <AnimationContainer>
+              <Center>
+                <StyledText
+                  smAlign={"center"}
+                  as={"h2"}
+                  color={props.titleColor || ""}
+                >
+                  Our Roadmap to Success
+                </StyledText>
+                <UnderlineStyled></UnderlineStyled>
+              </Center>
+            </AnimationContainer>
+            <InfographicNewStyled
+              fireHeight={props.fireHeight}
+              processesNum={processesNum}
+              ref={animationRef}
+              textColor={props.textColor || ""}
             >
-              <div className="title">{process.title}</div>
-              <p>{process.body ? process.body : ""}</p>
-              <span className="tooltip"></span>
-            </li>
-          ))}
-        </InfographicNewStyled>
-      </Wrapper>
-    </Region>
+              {[...props.processArr].reverse().map((process, index) => (
+                <li
+                  className={show ? "fade-in-show" : "fade-in-hidden"}
+                  key={index}
+                >
+                  <div className="title">{process.title}</div>
+                  <p>{process.body ? process.body : ""}</p>
+                  <span className="tooltip"></span>
+                </li>
+              ))}
+            </InfographicNewStyled>
+          </Stack>
+        </Wrapper>
+      </Region>
+      <Shapedivider
+        fill={props.shapeDividerFill || ""}
+        position={"bottom"}
+        rotation={"180"}
+      >
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+          ></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+      </Shapedivider>
+    </FullBackground>
   );
 };
 
@@ -97,6 +161,7 @@ export const InfographicNewStyled = styled.ol`
     align-items: center;
     /* text-align: center; */
     z-index: 5;
+    transition: all 1s ease;
   }
 
   li:nth-of-type(even) {
@@ -142,7 +207,6 @@ export const InfographicNewStyled = styled.ol`
   /* POINT */
   li::before {
     content: counter(liCount, decimal-leading-zero);
-    /* content: ""; */
     position: absolute;
     padding: 0.5rem;
     border: 5px solid var(--text-dark);
@@ -197,6 +261,7 @@ export const InfographicNewStyled = styled.ol`
     left: 5px;
     transform-origin: bottom left;
     transform: rotate(-15deg);
+    opacity: 0.4;
   }
 
   li:last-of-type::after {
@@ -239,16 +304,26 @@ export const InfographicNewStyled = styled.ol`
     background-color: #f4581b;
   }
 
-  li.fade-in-hidden:last-of-type::before {
+  .fade-in-hidden {
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  .fade-in-show {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  li:last-child::before {
+    transform: translate(-575px, 150px) rotate(31deg);
+    transition: transform 2s ease;
+  }
+
+  .fade-in-show:last-child::before {
     background-image: url("./img/startup(1).png");
     background-position: center;
     background-size: contain;
-    transform: translate(-575px, 150px);
-    transition: transform 0.3s ease;
-  }
-
-  li.fade-in-show:last-of-type::before {
-    transform: translate(0px, 0px) !important;
+    transform: translate(0px, 0px) rotate(31deg) !important;
   }
   /* COUNTER POINTS */
 
