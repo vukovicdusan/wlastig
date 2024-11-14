@@ -20,6 +20,7 @@ import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
 import { LandingStyled } from "../components/LandingStyled.styled";
+import InfographicNew from "../components/InfographicNew";
 
 const Landing2 = () => {
   const isSmallScreen = useScreenSize();
@@ -350,6 +351,12 @@ const Landing2 = () => {
           treshold={0.3}
           fireHeight={"218vh"}
         ></Infographic>
+        {/* <InfographicNew
+          ctaButton={false}
+          processArr={processArr}
+          treshold={0.3}
+          fireHeight={"218vh"}
+        ></InfographicNew> */}
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection

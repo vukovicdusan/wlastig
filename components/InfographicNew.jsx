@@ -86,8 +86,13 @@ const InfographicNew = (props) => {
                   className={show ? "fade-in-show" : "fade-in-hidden"}
                   key={index}
                 >
-                  <div className="title">{process.title}</div>
-                  <p>{process.body ? process.body : ""}</p>
+                  <div className="title">
+                    {process.title}
+                    <p class="process-body">
+                      {process.body ? process.body : ""}
+                    </p>
+                  </div>
+
                   <span className="tooltip"></span>
                 </li>
               ))}
@@ -195,14 +200,27 @@ export const InfographicNewStyled = styled.ol`
     font-size: 17px;
   }
 
-  .title + p {
-    font-size: 14px;
-  }
-
   li .title {
     color: var(--text-dark);
     position: relative;
     margin-bottom: 4rem;
+  }
+
+  li .title:hover .process-body {
+    visibility: visible;
+  }
+
+  /* PROCESS BODY */
+  .process-body {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    font-size: 14px;
+    font-family: var(--poppinsregular);
+    backdrop-filter: blur(30px);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 4px;
   }
 
   /* POINT */
@@ -254,15 +272,36 @@ export const InfographicNewStyled = styled.ol`
   li::after {
     content: "";
     position: absolute;
-    width: calc(var(--diagonal) * 2.9);
-    height: 10px;
+    width: 50px;
+    height: calc(var(--diagonal) * 2.8);
     opacity: 0.8;
-    border-top: 8px dashed var(--text-dark);
-    bottom: 0;
+    /* border-top: 8px dashed var(--text-dark); */
+    background-image: radial-gradient(
+        ellipse at center top,
+        var(--flame-inner-color) 20%,
+        transparent 50%
+      ),
+      linear-gradient(
+        to right,
+        transparent 20%,
+        var(--flame-outer-color) 40%,
+        var(--flame-inner-color) 50%,
+        var(--flame-outer-color) 60%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse at center top,
+        var(--flame-outer-color) 35%,
+        transparent 65%
+      );
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% calc(var(--rocket-height) * 0.4), 100%,
+      100% calc(var(--rocket-height) * 0.4);
+    bottom: 30px;
     left: 5px;
     transform-origin: bottom left;
-    transform: rotate(-10deg);
-    opacity: 0.4;
+    transform: rotate(80deg);
   }
 
   li:last-of-type::after {
@@ -270,9 +309,8 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:nth-child(even)::after {
-    transform: rotate(10deg);
-    bottom: revert;
-    top: -10px;
+    transform: rotate(-80deg);
+    bottom: -20px;
     left: revert;
     right: -25px;
   }
@@ -316,7 +354,7 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:last-child::before {
-    transform: translate(-575px, 150px) rotate(31deg);
+    transform: translate(-575px, 100px) rotate(31deg);
     transition: transform 2s ease;
   }
 
@@ -326,6 +364,7 @@ export const InfographicNewStyled = styled.ol`
     background-size: contain;
     transform: translate(0px, 0px) rotate(31deg) !important;
   }
+
   /* COUNTER POINTS */
 
   @media (max-width: 750px) {
