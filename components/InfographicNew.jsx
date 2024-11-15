@@ -88,9 +88,14 @@ const InfographicNew = (props) => {
                 >
                   <div className="title">
                     {process.title}
-                    <p class="process-body">
-                      {process.body ? process.body : ""}
-                    </p>
+                    {/* {processBodyElement} */}
+                    {process.body ? (
+                      <p className="process-body">
+                        {process.body ? process.body : ""}
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <span className="tooltip"></span>
@@ -144,15 +149,18 @@ export const InfographicNewStyled = styled.ol`
   --number-line-dot-size: 0.25rem;
 
   display: grid;
-  grid-template-areas:
+  /* grid-template-areas:
     "a1 a2 a3 a4"
     "b1 b2 b3 b4"
     "c1 c2 c3 c4"
     "d1 d2 d3 d4"
     "e1 e2 e3 e4"
-    "f1 f2 f3 f4";
+    "f1 f2 f3 f4"; */
   grid-template-columns: repeat(4, var(--item-width));
-  grid-template-rows: repeat(6, var(--item-height));
+  grid-template-rows: repeat(
+    ${(props) => props.processesNum - 1 || 6},
+    var(--item-height)
+  );
   justify-content: center;
   counter-reset: liCount 0;
 
@@ -174,22 +182,34 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:nth-of-type(1) {
-    grid-area: f1;
+    grid-row: ${(props) => props.processesNum - 1 || 6};
   }
   li:nth-of-type(2) {
-    grid-area: e4;
+    grid-row: ${(props) => props.processesNum - 2 || 6};
   }
   li:nth-of-type(3) {
-    grid-area: d1;
+    grid-row: ${(props) => props.processesNum - 3 || 6};
   }
   li:nth-of-type(4) {
-    grid-area: c4;
+    grid-row: ${(props) => props.processesNum - 4 || 6};
   }
   li:nth-of-type(5) {
-    grid-area: b1;
+    grid-row: ${(props) => props.processesNum - 5 || 6};
   }
   li:nth-of-type(6) {
-    grid-area: a4;
+    grid-row: ${(props) => props.processesNum - 6 || 6};
+  }
+  li:nth-of-type(7) {
+    grid-row: ${(props) => props.processesNum - 7 || 6};
+  }
+  li:nth-of-type(8) {
+    grid-row: ${(props) => props.processesNum - 8 || 6};
+  }
+  li:nth-of-type(odd) {
+    grid-column: 1;
+  }
+  li:nth-of-type(even) {
+    grid-column: 4;
   }
 
   /** TITLE */
@@ -354,7 +374,11 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:last-child::before {
-    transform: translate(-575px, 100px) rotate(31deg);
+    transform: ${(props) =>
+        props.processesNum % 2 === 0
+          ? "translate(450px, 109px)"
+          : "translate(-575px, 100px)"}
+      rotate(${(props) => (props.processesNum % 2 === 0 ? "-123deg" : "31deg")});
     transition: transform 2s ease;
   }
 
@@ -362,7 +386,11 @@ export const InfographicNewStyled = styled.ol`
     background-image: url("./img/startup(1).png");
     background-position: center;
     background-size: contain;
-    transform: translate(0px, 0px) rotate(31deg) !important;
+    transform: ${(props) =>
+        props.processesNum % 2 === 0
+          ? "translate(-135px, 2px)"
+          : "translate(0px, 0px)"}
+      rotate(${(props) => (props.processesNum % 2 === 0 ? "-123deg" : "31deg")}) !important;
   }
 
   /* COUNTER POINTS */

@@ -126,7 +126,7 @@ const Consulting = () => {
       </FullBackground>
 
       <Infographic ctaButton={true} processArr={processArr}></Infographic>
-
+      {/* <InfographicNew ctaButton={true} processArr={processArr}></InfographicNew> */}
       <CompetitionSection competitionArr={competitionArr}></CompetitionSection>
       <ContactFormSection
         shapedivider={false}
