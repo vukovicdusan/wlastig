@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         console.error("Error determining incognito mode:", error);
         window.dataLayer.push({
           event: "isIncognito",
-          isIncognito: false,
+          isIncognito: result.isPrivate,
           browser: "unknown",
         });
       });
