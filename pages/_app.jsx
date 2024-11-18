@@ -4,16 +4,23 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import detectIncognito from "detectincognitojs";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
   useEffect(() => {
-    // Initialize dataLayer if not already present
     window.dataLayer = window.dataLayer || [];
 
-    // Function to push the user's color scheme to dataLayer
+    detectIncognito().then((result) => {
+      window.dataLayer.push({
+        event: "isIncognito",
+        isIncognito: result.isPrivate,
+      });
+    });
+
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
