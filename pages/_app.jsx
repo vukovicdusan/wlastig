@@ -12,10 +12,21 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Client-side only
+      detectIncognito()
+        .then((result) => {
+          console.log(result.browserName, result.isPrivate);
+        })
+        .catch((error) => {
+          console.error("Error detecting incognito mode:", error);
+        });
+    }
+  }, []);
+
+  useEffect(() => {
     window.dataLayer = window.dataLayer || [];
-    detectIncognito().then((result) => {
-      console.log(result.browserName, result.isPrivate);
-    });
+
     // detectIncognito()
     //   .then((result) => {
     //     window.dataLayer.push({
