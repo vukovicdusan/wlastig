@@ -13,23 +13,25 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
-
-    detectIncognito()
-      .then((result) => {
-        window.dataLayer.push({
-          event: "isIncognito",
-          isIncognito: result.isPrivate,
-          browser: result.browserName,
-        });
-      })
-      .catch((error) => {
-        console.error("Error determining incognito mode:", error);
-        window.dataLayer.push({
-          event: "isIncognito",
-          isIncognito: result.isPrivate,
-          browser: "unknown",
-        });
-      });
+    detectIncognito().then((result) => {
+      console.log(result.browserName, result.isPrivate);
+    });
+    // detectIncognito()
+    //   .then((result) => {
+    //     window.dataLayer.push({
+    //       event: "isIncognito",
+    //       isIncognito: result.isPrivate,
+    //       browser: result.browserName,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error determining incognito mode:", error);
+    //     window.dataLayer.push({
+    //       event: "isIncognito",
+    //       isIncognito: result.isPrivate,
+    //       browser: "unknown",
+    //     });
+    //   });
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
