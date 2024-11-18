@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import detectIncognito from "detectincognitojs";
 
@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       window.dataLayer.push({
         event: "isIncognito",
         isIncognito: result.isPrivate,
+        browser: result.browserName,
       });
     });
 
