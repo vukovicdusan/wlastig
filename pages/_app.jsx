@@ -12,14 +12,16 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof navigator !== "undefined") {
-      detectIncognito()
-        .then((result) => {
-          console.log(result.browserName, result.isPrivate);
-        })
-        .catch((error) => {
-          console.error("Error detecting incognito mode:", error);
-        });
+    if (typeof window !== "undefined") {
+      import("detectincognitojs").then(({ detectIncognito }) => {
+        detectIncognito()
+          .then((result) => {
+            console.log(result.browserName, result.isPrivate);
+          })
+          .catch((error) => {
+            console.error("Error detecting incognito mode:", error);
+          });
+      });
     }
 
     // detectIncognito()
