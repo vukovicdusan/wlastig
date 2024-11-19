@@ -24,14 +24,6 @@ function MyApp({ Component, pageProps }) {
       });
     }
 
-    // detectIncognito()
-    //   .then((result) => {
-    //     console.log(result.browserName, result.isPrivate);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error detecting incognito mode:", error);
-    //   });
-
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
