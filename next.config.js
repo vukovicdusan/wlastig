@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -36,11 +35,4 @@ const nextConfig = {
   },
 };
 
-module.exports = {
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals.push("detect-incognito");
-    }
-    return config;
-  },
-};
+module.exports = nextConfig;

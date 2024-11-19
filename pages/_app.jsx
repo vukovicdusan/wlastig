@@ -4,25 +4,30 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import detectIncognito from "detectincognitojs";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
+  const [isPrivate, setIsPrivate] = useState(null);
+  console.log(isPrivate);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("detectincognitojs").then(({ detectIncognito }) => {
-        detectIncognito()
-          .then((result) => {
-            console.log(result.browserName, result.isPrivate);
-          })
-          .catch((error) => {
-            console.error("Error detecting incognito mode:", error);
-          });
-      });
-    }
+    const checkIncognito = async () => {
+      if (typeof window !== "undefined") {
+        try {
+          const { detectIncognito } = await import("detectincognitojs");
+          const result = await detectIncognito();
+          setIsPrivate(result.isPrivate);
+          console.log(result.browserName, result.isPrivate);
+        } catch (error) {
+          console.error("Error detecting incognito mode:", error);
+          setIsPrivate(false);
+        }
+      }
+    };
+
+    checkIncognito();
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
