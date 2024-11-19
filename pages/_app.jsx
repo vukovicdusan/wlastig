@@ -4,16 +4,19 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import detectIncognito from "detectincognitojs";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Client-side only
+    setHasMounted(true);
+    window.dataLayer = window.dataLayer || [];
+    if (hasMounted) {
+      console.log("mounted");
       detectIncognito()
         .then((result) => {
           console.log(result.browserName, result.isPrivate);
@@ -21,12 +24,9 @@ function MyApp({ Component, pageProps }) {
         .catch((error) => {
           console.error("Error detecting incognito mode:", error);
         });
+    } else {
+      console.log("not mounted yet");
     }
-  }, []);
-
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-
     // detectIncognito()
     //   .then((result) => {
     //     window.dataLayer.push({
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
     };
-  }, []);
+  }, [hasMounted]);
 
   const blackFridayUrls = [
     "/google-ads-black-friday",
