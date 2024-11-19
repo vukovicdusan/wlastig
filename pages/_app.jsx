@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
     };
-  }, [hasMounted]);
+  }, []);
 
   const blackFridayUrls = [
     "/google-ads-black-friday",
