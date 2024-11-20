@@ -11,13 +11,33 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    detectIncognito().then((result) => {
+    if (typeof detectIncognito === "function") {
+      detectIncognito()
+        .then((result) => {
+          window.dataLayer.push({
+            event: "isIncognito",
+            browser: result.browserName,
+            isIncognito: result.isPrivate,
+          });
+        })
+        .catch((error) => {
+          console.error("Error detecting incognito mode:", error);
+          // Handle fallback or log for analysis
+          window.dataLayer.push({
+            event: "isIncognito",
+            browser: "Unknown",
+            isIncognito: false,
+          });
+        });
+    } else {
+      console.warn("detectIncognito is unavailable. Brave or script blocked.");
+      // Fallback logic if detectIncognito is not defined
       window.dataLayer.push({
         event: "isIncognito",
-        broser: result.browserName,
-        isIncognito: result.isPrivate,
+        browser: "Unknown",
+        isIncognito: false,
       });
-    });
+    }
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
