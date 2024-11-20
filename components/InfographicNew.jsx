@@ -212,6 +212,30 @@ export const InfographicNewStyled = styled.ol`
     grid-column: 4;
   }
 
+  & li:nth-child(7) {
+    transition-delay: 1.3s;
+  }
+
+  & li:nth-child(6) {
+    transition-delay: 1.3s;
+  }
+
+  & li:nth-child(5) {
+    transition-delay: 1.1s;
+  }
+
+  & li:nth-child(4) {
+    transition-delay: 0.9s;
+  }
+
+  & li:nth-child(3) {
+    transition-delay: 0.7s;
+  }
+
+  & li:nth-child(2) {
+    transition-delay: 0.5s;
+  }
+
   /** TITLE */
 
   .title {
@@ -224,6 +248,8 @@ export const InfographicNewStyled = styled.ol`
     color: var(--text-dark);
     position: relative;
     margin-bottom: 4rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
   }
 
   li .title:hover .process-body {
@@ -237,10 +263,12 @@ export const InfographicNewStyled = styled.ol`
     z-index: 1;
     font-size: 14px;
     font-family: var(--poppinsregular);
-    backdrop-filter: blur(30px);
+    /* backdrop-filter: blur(30px); */
     text-align: center;
     padding: 1rem;
     border-radius: 4px;
+    background-color: var(--background-light);
+    border: 1px solid var(--text-dark);
   }
 
   /* POINT */
@@ -395,6 +423,12 @@ export const InfographicNewStyled = styled.ol`
 
   /* COUNTER POINTS */
 
-  @media (max-width: 750px) {
+  @media (max-width: 660px) {
+    li {
+      --item-height: 50px;
+      --item-width: 100px;
+      width: 50px;
+      height: 100px;
+    }
   }
 `;

@@ -98,6 +98,12 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Script
+        src={
+          "https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"
+        }
+        strategy="beforeInteractive"
+      ></Script>
+      <Script
         id="gtm"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -106,12 +112,6 @@ function MyApp({ Component, pageProps }) {
             `,
         }}
       />
-      <Script
-        src={
-          "https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"
-        }
-        strategy="beforeInteractive"
-      ></Script>
 
       <GlobalStyles
         isBlackFriday={isBlackFriday}
