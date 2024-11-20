@@ -8,29 +8,32 @@ import { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import detectIncognito from "detectincognitojs";
 import dynamic from "next/dynamic";
+import DetectIncognito from "../components/DetectIncognito";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  useMemo(() => dynamic(() => import("detectincognitojs"), { ssr: false }), []);
+  // const isIncognito = dynamic(() => import("detectincognitojs"), {
+  //   ssr: false,
+  // });
 
   useEffect(() => {
-    const checkIncognito = async () => {
-      if (typeof window !== "undefined") {
-        detectIncognito()
-          .then((result) => {
-            console.log(result.browserName, result.isPrivate);
-          })
-          .catch((error) => {
-            console.error("Error detecting incognito mode:", error);
-          });
-      }
-    };
+    // const checkIncognito = async () => {
+    //   if (typeof window !== "undefined") {
+    //     isIncognito()
+    //       .then((result) => {
+    //         console.log(result.browserName, result.isPrivate);
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error detecting incognito mode:", error);
+    //       });
+    //   }
+    // };
 
-    if (document.readyState === "complete") {
-      checkIncognito();
-    } else {
-      window.addEventListener("load", checkIncognito);
-    }
+    // if (document.readyState === "complete") {
+    //   checkIncognito();
+    // } else {
+    //   window.addEventListener("load", checkIncognito);
+    // }
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
@@ -55,7 +58,7 @@ function MyApp({ Component, pageProps }) {
 
     return () => {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
-      window.removeEventListener("load", checkIncognito);
+      // window.removeEventListener("load", checkIncognito);
     };
   }, []);
 
@@ -109,6 +112,7 @@ function MyApp({ Component, pageProps }) {
       ></GlobalStyles>
       <ModalCtxProvider>
         <Layout>
+          <DetectIncognito></DetectIncognito>
           <Component {...pageProps} />
         </Layout>
       </ModalCtxProvider>
