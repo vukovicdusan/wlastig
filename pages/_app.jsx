@@ -4,37 +4,31 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import detectIncognito from "detectincognitojs";
-import dynamic from "next/dynamic";
-import DetectIncognito from "../components/DetectIncognito";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  // const isIncognito = dynamic(() => import("detectincognitojs"), {
-  //   ssr: false,
-  // });
 
   useEffect(() => {
-    // const checkIncognito = async () => {
-    //   if (typeof window !== "undefined") {
-    //     isIncognito()
-    //       .then((result) => {
-    //         console.log(result.browserName, result.isPrivate);
-    //       })
-    //       .catch((error) => {
-    //         console.error("Error detecting incognito mode:", error);
-    //       });
-    //   }
-    // };
+    const checkIncognito = async () => {
+      if (typeof window !== "undefined") {
+        const detectIncognito = (await import("detectincognitojs")).default;
 
-    // if (document.readyState === "complete") {
-    //   checkIncognito();
-    // } else {
-    //   window.addEventListener("load", checkIncognito);
-    // }
+        detectIncognito()
+          .then((result) => {
+            console.log(result.browserName, result.isPrivate);
+          })
+          .catch((error) => {
+            console.error("Error detecting incognito mode:", error);
+          });
+      }
+    };
 
+    checkIncognito();
+  }, []);
+
+  useEffect(() => {
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -112,7 +106,6 @@ function MyApp({ Component, pageProps }) {
       ></GlobalStyles>
       <ModalCtxProvider>
         <Layout>
-          <DetectIncognito></DetectIncognito>
           <Component {...pageProps} />
         </Layout>
       </ModalCtxProvider>
