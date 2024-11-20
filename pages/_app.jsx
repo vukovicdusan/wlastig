@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import detectIncognito from "detectincognitojs";
 import dynamic from "next/dynamic";
@@ -12,18 +12,25 @@ import dynamic from "next/dynamic";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useMemo(() => dynamic(() => import("detectincognitojs"), { ssr: false }), []);
-  const [isPrivate, setIsPrivate] = useState(null);
-  console.log(isPrivate);
+
   useEffect(() => {
     const checkIncognito = async () => {
       if (typeof window !== "undefined") {
-        detectIncognito().then((result) => {
-          console.log(result.browserName, result.isPrivate);
-        });
+        detectIncognito()
+          .then((result) => {
+            console.log(result.browserName, result.isPrivate);
+          })
+          .catch((error) => {
+            console.error("Error detecting incognito mode:", error);
+          });
       }
     };
 
-    checkIncognito();
+    if (document.readyState === "complete") {
+      checkIncognito();
+    } else {
+      window.addEventListener("load", checkIncognito);
+    }
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
@@ -45,8 +52,10 @@ function MyApp({ Component, pageProps }) {
     darkModeMediaQuery.addEventListener("change", detectColorScheme);
 
     // Cleanup event listener when component unmounts
+
     return () => {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
+      window.removeEventListener("load", checkIncognito);
     };
   }, []);
 
