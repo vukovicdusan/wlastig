@@ -11,24 +11,9 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const checkIncognito = async () => {
-      if (typeof window !== "undefined") {
-        const detectIncognito = (await import("detectincognitojs")).default;
-
-        detectIncognito()
-          .then((result) => {
-            console.log(result.browserName, result.isPrivate);
-          })
-          .catch((error) => {
-            console.error("Error detecting incognito mode:", error);
-          });
-      }
-    };
-
-    checkIncognito();
-  }, []);
-
-  useEffect(() => {
+    detectIncognito().then((result) => {
+      console.log(result.browserName, result.isPrivate);
+    });
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -99,6 +84,12 @@ function MyApp({ Component, pageProps }) {
             `,
         }}
       />
+      <Script
+        src={
+          "https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"
+        }
+        strategy="beforeInteractive"
+      ></Script>
 
       <GlobalStyles
         isBlackFriday={isBlackFriday}
