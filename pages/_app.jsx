@@ -4,49 +4,39 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [isIncognito, setIsIncognito] = useState(false);
+  const [browserName, setBrowserName] = useState("");
+  const [colorScheme, setColorScheme] = useState("");
 
   useEffect(() => {
     if (typeof detectIncognito === "function") {
       detectIncognito()
         .then((result) => {
-          window.dataLayer.push({
-            event: "isIncognito",
-            browser: result.browserName,
-            isIncognito: result.isPrivate,
-          });
+          setIsIncognito(result.isPrivate);
+          setBrowserName(result.browserName);
         })
         .catch((error) => {
           console.error("Error detecting incognito mode:", error);
-          // Handle fallback or log for analysis
-          window.dataLayer.push({
-            event: "isIncognito",
-            browser: "Unknown",
-            isIncognito: false,
-          });
+          setIsIncognito(result.isPrivate);
+          setBrowserName("Unknown, Brave or uBlock Origin");
         });
     } else {
       console.warn("detectIncognito is unavailable. Brave or script blocked.");
-      // Fallback logic if detectIncognito is not defined
-      window.dataLayer.push({
-        event: "isIncognito",
-        browser: "Unknown",
-        isIncognito: false,
-      });
+      setIsIncognito(result.isPrivate);
+      setBrowserName("Unknown, Brave or uBlock Origin");
     }
 
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      window.dataLayer.push({
-        event: "color_scheme",
-        color_scheme: prefersDarkMode ? "dark" : "light",
-      });
+
+      setColorScheme(prefersDarkMode ? "dark" : "light");
     };
 
     // Run once when the app loads
@@ -58,6 +48,12 @@ function MyApp({ Component, pageProps }) {
     );
     darkModeMediaQuery.addEventListener("change", detectColorScheme);
 
+    window.dataLayer.push({
+      event: "global",
+      color_scheme: colorScheme,
+      isIncognito: isIncognito,
+      browser: browserName,
+    });
     // Cleanup event listener when component unmounts
 
     return () => {
