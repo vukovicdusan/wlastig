@@ -12,8 +12,13 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     detectIncognito().then((result) => {
-      console.log(result.browserName, result.isPrivate);
+      window.dataLayer.push({
+        event: "isIncognito",
+        broser: result.browserName,
+        isIncognito: result.isPrivate,
+      });
     });
+
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
