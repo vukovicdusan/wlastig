@@ -60,6 +60,10 @@ export const GlobalStyles = createGlobalStyle`
 	box-sizing: border-box;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 /* Remove default margin */
 body,
 h1,

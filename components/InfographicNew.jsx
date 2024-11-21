@@ -472,23 +472,23 @@ export const InfographicNewStyled = styled.ol`
     --item-height: 90px;
     --item-width: 70px;
     --rocket-start-translate-even: 450px, 109px;
-    --rocket-start-rotate-even: -123deg;
+    --rocket-start-rotate-even: -119deg;
     --rocket-start-translate-odd: -575px, 100px;
     --rocket-start-rotate-odd: 31deg;
-    --rocket-end-translate-even: -95px, 3px;
+    --rocket-end-translate-even: -60px, 3px;
     --rocket-end-translate-odd: 0, 0;
     --rocket-end-rotate-odd: 31deg;
-    --rocket-end-rotate-even: -123deg;
-    --fire-line-rotate-even: -77deg;
+    --rocket-end-rotate-even: -119deg;
+    --fire-line-rotate-even: -71deg;
     --fire-line-bottom-even: -20px;
     --fire-line-right-even: -25px;
     --fire-line-bottom-odd: 30px;
     --fire-line-left-odd: 5px;
-    --fire-line-rotate-odd: 77deg;
+    --fire-line-rotate-odd: 71deg;
     --point-size: 50px;
 
     .title {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 `;
