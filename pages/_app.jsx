@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
       darkModeMediaQuery.removeEventListener("change", detectColorScheme);
       // window.removeEventListener("load", checkIncognito);
     };
-  }, []);
+  }, [browserName, colorScheme, isIncognito]);
 
   const blackFridayUrls = [
     "/google-ads-black-friday",
