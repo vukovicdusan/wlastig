@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "adblock-checker": "^0.2.4",
     "babel-plugin-styled-components": "^2.0.7",
     "firebase": "^9.17.2",
     "next": "^13.2.1",

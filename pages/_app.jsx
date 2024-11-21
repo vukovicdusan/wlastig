@@ -6,6 +6,7 @@ import { ModalCtxProvider } from "../store/ModalCtx";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { checkAdBlock } from "adblock-checker";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -17,8 +18,17 @@ function MyApp({ Component, pageProps }) {
     browserName: "",
     colorScheme: "",
   });
-
+  const [isAdBlockEnabled, setIsAdBlockEnabled] = useState(null);
+  // console.log(isAdBlockEnabled);
   useEffect(() => {
+    // checkAdBlock().then((result) => {
+    //   setIsAdBlockEnabled(result);
+    // });
+    // const checkForAdBlock = async () => {
+    //   const result = await checkAdBlock();
+    //   setIsAdBlockEnabled(result);
+    // };
+
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -42,6 +52,7 @@ function MyApp({ Component, pageProps }) {
         console.warn(
           "detectIncognito is unavailable. Brave or script blocked."
         );
+        checkForAdBlock();
       }
 
       const colorScheme = detectColorScheme();
