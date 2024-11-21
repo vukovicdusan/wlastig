@@ -273,13 +273,16 @@ export const InfographicNewStyled = styled.ol`
     z-index: 1;
     font-size: 14px;
     font-family: var(--poppinsregular);
-    /* backdrop-filter: blur(30px); */
     text-align: center;
     padding: 1rem;
     border-radius: 4px;
     background-color: var(--background-light);
     border: 1px solid var(--text-dark);
     min-width: 200px;
+  }
+
+  li:nth-child(even) .process-body {
+    right: 0;
   }
 
   /* POINT */
