@@ -12,56 +12,74 @@ function MyApp({ Component, pageProps }) {
   const [isIncognito, setIsIncognito] = useState(false);
   const [browserName, setBrowserName] = useState("");
   const [colorScheme, setColorScheme] = useState("");
+  const [globalState, setGlobalState] = useState({
+    isIncognito: false,
+    browserName: "",
+    colorScheme: "",
+  });
 
   useEffect(() => {
-    if (typeof detectIncognito === "function") {
-      detectIncognito()
-        .then((result) => {
-          setIsIncognito(result.isPrivate);
-          setBrowserName(result.browserName);
-        })
-        .catch((error) => {
-          console.error("Error detecting incognito mode:", error);
-          setIsIncognito(result.isPrivate);
-          setBrowserName("Unknown, Brave or uBlock Origin");
-        });
-    } else {
-      console.warn("detectIncognito is unavailable. Brave or script blocked.");
-      setIsIncognito(result.isPrivate);
-      setBrowserName("Unknown, Brave or uBlock Origin");
-    }
-
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-
-      setColorScheme(prefersDarkMode ? "dark" : "light");
+      return prefersDarkMode ? "dark" : "light";
     };
 
-    // Run once when the app loads
-    detectColorScheme();
+    const initializeState = async () => {
+      let isPrivate = false;
+      let browserName = "Unknown, Brave or uBlock Origin";
+
+      if (typeof detectIncognito === "function") {
+        try {
+          const result = await detectIncognito();
+          isPrivate = result.isPrivate;
+          browserName = result.browserName;
+        } catch (error) {
+          console.error("Error detecting incognito mode:", error);
+        }
+      } else {
+        console.warn(
+          "detectIncognito is unavailable. Brave or script blocked."
+        );
+      }
+
+      const colorScheme = detectColorScheme();
+
+      // Update the combined state
+      setGlobalState({ isIncognito: isPrivate, browserName, colorScheme });
+
+      // Push to dataLayer once
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "global",
+        color_scheme: colorScheme,
+        isIncognito: isPrivate,
+        browser: browserName,
+      });
+    };
+
+    // Call the initialization function
+    initializeState();
 
     // Listen for system color scheme changes
     const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
-    darkModeMediaQuery.addEventListener("change", detectColorScheme);
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "global",
-      color_scheme: colorScheme,
-      isIncognito: isIncognito,
-      browser: browserName,
-    });
-
-    // Cleanup event listener when component unmount
-    return () => {
-      darkModeMediaQuery.removeEventListener("change", detectColorScheme);
-      // window.removeEventListener("load", checkIncognito);
+    const handleColorSchemeChange = () => {
+      const colorScheme = detectColorScheme();
+      setGlobalState((prevState) => ({
+        ...prevState,
+        colorScheme,
+      }));
     };
-  }, [browserName, colorScheme, isIncognito]);
+    darkModeMediaQuery.addEventListener("change", handleColorSchemeChange);
+
+    // Cleanup event listener
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", handleColorSchemeChange);
+    };
+  }, []);
 
   const blackFridayUrls = [
     "/google-ads-black-friday",
