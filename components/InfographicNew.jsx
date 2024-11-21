@@ -83,7 +83,9 @@ const InfographicNew = (props) => {
             >
               {[...props.processArr].reverse().map((process, index) => (
                 <li
-                  className={show ? "fade-in-show" : "fade-in-hidden"}
+                  className={`${show ? "fade-in-show " : "fade-in-hidden "}  ${
+                    processesNum % 2 === 0 ? "even" : "odd"
+                  }`}
                   key={index}
                 >
                   <div className="title">
@@ -142,20 +144,28 @@ export const InfographicNewStyled = styled.ol`
   --flame-inner-color: #fed103;
   --rocket-aspect: calc(134.13 / 196.24);
   --rocket-width: 6rem;
+  --point-size: 60px;
   --number-circle-size: 2.5rem;
   --number-circle-border-size: 0.25rem;
   --number-line-height: 0.125rem;
   --number-line-length: calc(var(--rocket-width) / 2 + var(--column-gap) / 2);
   --number-line-dot-size: 0.25rem;
+  --rocket-start-translate-even: 450px, 109px;
+  --rocket-start-rotate-even: -123deg;
+  --rocket-start-translate-odd: -575px, 100px;
+  --rocket-start-rotate-odd: 31deg;
+  --rocket-end-translate-even: -135px, 2px;
+  --rocket-end-translate-odd: 0, 0;
+  --rocket-end-rotate-odd: 31deg;
+  --rocket-end-rotate-even: -123deg;
+  --fire-line-rotate-even: -80deg;
+  --fire-line-bottom-even: -20px;
+  --fire-line-right-even: -25px;
+  --fire-line-bottom-odd: 30px;
+  --fire-line-left-odd: 5px;
+  --fire-line-rotate-odd: 80deg;
 
   display: grid;
-  /* grid-template-areas:
-    "a1 a2 a3 a4"
-    "b1 b2 b3 b4"
-    "c1 c2 c3 c4"
-    "d1 d2 d3 d4"
-    "e1 e2 e3 e4"
-    "f1 f2 f3 f4"; */
   grid-template-columns: repeat(4, var(--item-width));
   grid-template-rows: repeat(
     ${(props) => props.processesNum - 1 || 6},
@@ -269,6 +279,7 @@ export const InfographicNewStyled = styled.ol`
     border-radius: 4px;
     background-color: var(--background-light);
     border: 1px solid var(--text-dark);
+    min-width: 200px;
   }
 
   /* POINT */
@@ -279,8 +290,8 @@ export const InfographicNewStyled = styled.ol`
     border: 5px solid var(--text-dark);
     border-radius: 100px;
     aspect-ratio: 1;
-    width: 60px;
-    height: 60px;
+    width: var(--point-size);
+    height: var(--point-size);
     bottom: -20px;
     left: -20px;
     display: flex;
@@ -346,10 +357,10 @@ export const InfographicNewStyled = styled.ol`
     background-position: top center;
     background-size: 100% calc(var(--rocket-height) * 0.4), 100%,
       100% calc(var(--rocket-height) * 0.4);
-    bottom: 30px;
-    left: 5px;
+    bottom: var(--fire-line-bottom-odd);
+    left: var(--fire-line-left-odd);
     transform-origin: bottom left;
-    transform: rotate(80deg);
+    transform: rotate(var(--fire-line-rotate-odd));
   }
 
   li:last-of-type::after {
@@ -357,10 +368,11 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:nth-child(even)::after {
-    transform: rotate(-80deg);
-    bottom: -20px;
+    transform: rotate(var(--fire-line-rotate-even));
+
+    bottom: var(--fire-line-bottom-even);
     left: revert;
-    right: -25px;
+    right: var(--fire-line-right-even);
   }
 
   & li:nth-child(1)::before {
@@ -402,33 +414,81 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li:last-child::before {
-    transform: ${(props) =>
-        props.processesNum % 2 === 0
-          ? "translate(450px, 109px)"
-          : "translate(-575px, 100px)"}
-      rotate(${(props) => (props.processesNum % 2 === 0 ? "-123deg" : "31deg")});
     transition: transform 2s ease;
+    transition-delay: 1s;
+  }
+
+  li.even:last-child::before {
+    transform: translate(var(--rocket-start-translate-even))
+      rotate(var(--rocket-start-rotate-even));
+  }
+
+  li.odd:last-child::before {
+    transform: translate(var(--rocket-start-translate-odd))
+      rotate(var(--rocket-start-rotate-odd));
   }
 
   .fade-in-show:last-child::before {
-    background-image: url("./img/startup(1).png");
+    background-image: url("./img/startup.png");
     background-position: center;
     background-size: contain;
-    transform: ${(props) =>
-        props.processesNum % 2 === 0
-          ? "translate(-135px, 2px)"
-          : "translate(0px, 0px)"}
-      rotate(${(props) => (props.processesNum % 2 === 0 ? "-123deg" : "31deg")}) !important;
   }
 
-  /* COUNTER POINTS */
+  li.fade-in-show.even:last-child::before {
+    transform: translate(var(--rocket-end-translate-even))
+      rotate(var(--rocket-end-rotate-even)) !important;
+  }
+
+  li.fade-in-show.odd:last-child::before {
+    transform: translate(var(--rocket-end-translate-odd))
+      rotate(var(--rocket-end-rotate-odd)) !important;
+  }
 
   @media (max-width: 660px) {
-    li {
-      --item-height: 50px;
-      --item-width: 100px;
-      width: 50px;
-      height: 100px;
+    --item-height: 90px;
+    --item-width: 100px;
+    --rocket-start-translate-even: 450px, 109px;
+    --rocket-start-rotate-even: -123deg;
+    --rocket-start-translate-odd: -575px, 100px;
+    --rocket-start-rotate-odd: 31deg;
+    --rocket-end-translate-even: -95px, 3px;
+    --rocket-end-translate-odd: 0, 0;
+    --rocket-end-rotate-odd: 31deg;
+    --rocket-end-rotate-even: -123deg;
+    --fire-line-rotate-even: -77deg;
+    --fire-line-bottom-even: -20px;
+    --fire-line-right-even: -25px;
+    --fire-line-bottom-odd: 30px;
+    --fire-line-left-odd: 5px;
+    --fire-line-rotate-odd: 77deg;
+    --point-size: 50px;
+
+    .title {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 451px) {
+    --item-height: 90px;
+    --item-width: 70px;
+    --rocket-start-translate-even: 450px, 109px;
+    --rocket-start-rotate-even: -123deg;
+    --rocket-start-translate-odd: -575px, 100px;
+    --rocket-start-rotate-odd: 31deg;
+    --rocket-end-translate-even: -95px, 3px;
+    --rocket-end-translate-odd: 0, 0;
+    --rocket-end-rotate-odd: 31deg;
+    --rocket-end-rotate-even: -123deg;
+    --fire-line-rotate-even: -77deg;
+    --fire-line-bottom-even: -20px;
+    --fire-line-right-even: -25px;
+    --fire-line-bottom-odd: 30px;
+    --fire-line-left-odd: 5px;
+    --fire-line-rotate-odd: 77deg;
+    --point-size: 50px;
+
+    .title {
+      font-size: 14px;
     }
   }
 `;
