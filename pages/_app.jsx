@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
       // Push to dataLayer once
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "global",
+        event: "entry_info",
         color_scheme: colorScheme,
         isIncognito: isPrivate,
         browser: browserName,
