@@ -10,6 +10,7 @@ import { checkAdBlock } from "adblock-checker";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [loadScript, setLoadScript] = useState(false);
 
   useEffect(() => {
     const detectColorScheme = () => {
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }) {
         browser: browserName,
         isAdBlock,
       });
+      setLoadScript(true);
     };
 
     // Call the initialization function
@@ -114,15 +116,17 @@ function MyApp({ Component, pageProps }) {
         }
         strategy="beforeInteractive"
       ></Script>
-      <Script
-        id="gtm"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://load.data.wlastig.com/yousqvsq.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P3TMF2H');
-            `,
-        }}
-      />
+      {loadScript ? (
+        <Script
+          id="gtm"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://load.data.wlastig.com/yousqvsq.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P3TMF2H');
+          `,
+          }}
+        />
+      ) : null}
 
       <GlobalStyles
         isBlackFriday={isBlackFriday}
