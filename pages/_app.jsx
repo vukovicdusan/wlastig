@@ -10,25 +10,8 @@ import { checkAdBlock } from "adblock-checker";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [isIncognito, setIsIncognito] = useState(false);
-  const [browserName, setBrowserName] = useState("");
-  const [colorScheme, setColorScheme] = useState("");
-  const [globalState, setGlobalState] = useState({
-    isIncognito: false,
-    browserName: "",
-    colorScheme: "",
-  });
-  const [isAdBlockEnabled, setIsAdBlockEnabled] = useState(null);
-  // console.log(isAdBlockEnabled);
-  useEffect(() => {
-    // checkAdBlock().then((result) => {
-    //   setIsAdBlockEnabled(result);
-    // });
-    // const checkForAdBlock = async () => {
-    //   const result = await checkAdBlock();
-    //   setIsAdBlockEnabled(result);
-    // };
 
+  useEffect(() => {
     const detectColorScheme = () => {
       const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -52,13 +35,10 @@ function MyApp({ Component, pageProps }) {
         console.warn(
           "detectIncognito is unavailable. Brave or script blocked."
         );
-        checkForAdBlock();
       }
 
       const colorScheme = detectColorScheme();
-
-      // Update the combined state
-      setGlobalState({ isIncognito: isPrivate, browserName, colorScheme });
+      const isAdBlock = await checkAdBlock();
 
       // Push to dataLayer once
       window.dataLayer = window.dataLayer || [];
@@ -67,6 +47,7 @@ function MyApp({ Component, pageProps }) {
         color_scheme: colorScheme,
         isIncognito: isPrivate,
         browser: browserName,
+        isAdBlock,
       });
     };
 
