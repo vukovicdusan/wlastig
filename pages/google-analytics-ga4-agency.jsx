@@ -61,6 +61,7 @@ const Landing2 = () => {
                     fontSize={"var(--s2)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
+                    align={"start"}
                   >
                     Advanced GA4 Tracking Solutions to Elevate Your Data
                     Insights and Drive Growth.
@@ -268,7 +269,7 @@ const Landing2 = () => {
                     .slice(0, serviceCount)
                     .map((item, index) => (
                       // <div >
-                      <Stack key={index}>
+                      <Stack key={index} stackAlign={"center"}>
                         <StyledText as={"h4"} color={"var(--secondary)"}>
                           {item.title}
                         </StyledText>
@@ -345,18 +346,21 @@ const Landing2 = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic
+        {/* <Infographic
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic>
-        {/* <InfographicNew
+        ></Infographic> */}
+
+        <InfographicNew
+          titleColor={"var(--text-dark)"}
+          textColor={"var(--text-dark)"}
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></InfographicNew> */}
+        ></InfographicNew>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection

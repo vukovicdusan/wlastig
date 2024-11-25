@@ -25,6 +25,7 @@ import ScrollLink from "../components/ScrollLink";
 import GoogleAdSvg from "../components/svg/GoogleAdSvg";
 import Link from "next/link";
 import { BFLandingStyled } from "../components/BFLandingStyled.styled";
+import InfographicNew from "../components/InfographicNew";
 
 const BFAdvertisingLanding = () => {
   // const isSmallScreen = useScreenSize();
@@ -82,6 +83,7 @@ const BFAdvertisingLanding = () => {
                     fontSize={"var(--s1)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
+                    align={"start"}
                   >
                     Black Friday is just around the corner! Maximize your
                     campaign success by optimizing your PPC campaigns.
@@ -601,7 +603,7 @@ const BFAdvertisingLanding = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic
+        {/* <Infographic
           titleColor={"var(--text-light)"}
           textColor={"var(--text-light)"}
           shapeDividerFill={"var(--bg-bf)"}
@@ -609,7 +611,16 @@ const BFAdvertisingLanding = () => {
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic>
+        ></Infographic> */}
+        <InfographicNew
+          titleColor={"var(--text-light)"}
+          textColor={"var(--text-light)"}
+          shapeDividerFill={"var(--bg-bf)"}
+          ctaButton={false}
+          processArr={processArr}
+          treshold={0.3}
+          fireHeight={"218vh"}
+        ></InfographicNew>
         <div className="spacer"></div>
         <Testimonials
           bgCard={"var(--bg-bf)"}

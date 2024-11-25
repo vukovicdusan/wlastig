@@ -20,6 +20,7 @@ import { processArr, whyChooseWlastig } from "../public/content/landing";
 import { Button } from "../components/styles/Button.styled";
 import useScreenSize from "../hooks/useScreenSize";
 import { LandingStyled } from "../components/LandingStyled.styled";
+import InfographicNew from "../components/InfographicNew";
 
 const Landing = () => {
   const isSmallScreen = useScreenSize();
@@ -60,6 +61,7 @@ const Landing = () => {
                     fontSize={"var(--s2)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
+                    align={"start"}
                   >
                     Advanced GA4 Tracking Solutions to Elevate Your Data
                     Insights and Drive Growth.
@@ -138,36 +140,32 @@ const Landing = () => {
               mt={"var(--s4)"}
             >
               <AnimationContainer>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"chart"}
-                    width={100}
-                    height={100}
-                    title={"Custom GA4 tracking:"}
-                    content={
-                      "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
-                    }
-                  ></IconBox>
-                </Center>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"chart"}
+                  width={100}
+                  height={100}
+                  title={"Custom GA4 tracking:"}
+                  content={
+                    "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
+                  }
+                ></IconBox>
               </AnimationContainer>
               <AnimationContainer delay={"2"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"data-analysis"}
-                    width={100}
-                    height={100}
-                    title={"Server-Side Tracking Implementation:"}
-                    content={
-                      "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to a better understanding of user journeys, translating into more conversions and higher ROI."
-                    }
-                  ></IconBox>
-                </Center>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"data-analysis"}
+                  width={100}
+                  height={100}
+                  title={"Server-Side Tracking Implementation:"}
+                  content={
+                    "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to a better understanding of user journeys, translating into more conversions and higher ROI."
+                  }
+                ></IconBox>
               </AnimationContainer>
             </Switcher>
             <Switcher
@@ -177,36 +175,32 @@ const Landing = () => {
               gap={"var(--s4)"}
             >
               <AnimationContainer delay={"3"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"ecommerce"}
-                    width={100}
-                    height={100}
-                    title={"More conversions, better campaign results:"}
-                    content={
-                      "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spending, maximizing your return on investment."
-                    }
-                  ></IconBox>
-                </Center>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"ecommerce"}
+                  width={100}
+                  height={100}
+                  title={"More conversions, better campaign results:"}
+                  content={
+                    "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spending, maximizing your return on investment."
+                  }
+                ></IconBox>
               </AnimationContainer>
               <AnimationContainer delay={"6"}>
-                <Center>
-                  <IconBox
-                    flexDirection={"row"}
-                    color={"var(--theme-text-dark)"}
-                    boxBorderColor={"transparent"}
-                    img={"search"}
-                    width={100}
-                    height={100}
-                    title={"In-depth reporting and actionable insights:"}
-                    content={
-                      "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
-                    }
-                  ></IconBox>
-                </Center>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"search"}
+                  width={100}
+                  height={100}
+                  title={"In-depth reporting and actionable insights:"}
+                  content={
+                    "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
+                  }
+                ></IconBox>
               </AnimationContainer>
             </Switcher>
           </Wrapper>
@@ -267,7 +261,7 @@ const Landing = () => {
                     .slice(0, serviceCount)
                     .map((item, index) => (
                       // <div >
-                      <Stack key={index}>
+                      <Stack key={index} stackAlign={"center"}>
                         <StyledText as={"h4"} color={"var(--secondary)"}>
                           {item.title}
                         </StyledText>
@@ -344,12 +338,21 @@ const Landing = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic
+        {/* <Infographic
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic>
+        ></Infographic> */}
+        <InfographicNew
+          titleColor={"var(--text-dark)"}
+          textColor={"var(--text-dark)"}
+          shapeDividerFill={"var(--primary)"}
+          ctaButton={false}
+          processArr={processArr}
+          treshold={0.3}
+          fireHeight={"218vh"}
+        ></InfographicNew>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection

@@ -602,7 +602,7 @@ const BFAdvertisingLanding = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic
+        {/* <Infographic
           titleColor={"var(--text-light)"}
           textColor={"var(--text-light)"}
           shapeDividerFill={"var(--bg-bf)"}
@@ -610,8 +610,8 @@ const BFAdvertisingLanding = () => {
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic>
-        {/* <InfographicNew
+        ></Infographic> */}
+        <InfographicNew
           titleColor={"var(--text-light)"}
           textColor={"var(--text-light)"}
           shapeDividerFill={"var(--bg-bf)"}
@@ -619,7 +619,7 @@ const BFAdvertisingLanding = () => {
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></InfographicNew> */}
+        ></InfographicNew>
         <div className="spacer"></div>
         <Testimonials
           bgCard={"var(--bg-bf)"}

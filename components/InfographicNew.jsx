@@ -165,6 +165,7 @@ export const InfographicNewStyled = styled.ol`
   --fire-line-left-odd: 5px;
   --fire-line-rotate-odd: 80deg;
 
+  color: ${(props) => props.textColor || "var(--text-light)"};
   display: grid;
   grid-template-columns: repeat(4, var(--item-width));
   grid-template-rows: repeat(
@@ -255,7 +256,6 @@ export const InfographicNewStyled = styled.ol`
   }
 
   li .title {
-    color: var(--text-dark);
     position: relative;
     margin-bottom: 4rem;
     transition: all 0.4s ease;

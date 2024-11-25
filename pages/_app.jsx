@@ -62,16 +62,15 @@ function MyApp({ Component, pageProps }) {
     );
     const handleColorSchemeChange = () => {
       const colorScheme = detectColorScheme();
-      setGlobalState((prevState) => ({
-        ...prevState,
-        colorScheme,
-      }));
+      // setGlobalState((prevState) => ({
+      //   ...prevState,
+      //   colorScheme,
+      // }));
     };
-    darkModeMediaQuery.addEventListener("change", handleColorSchemeChange);
+    darkModeMediaQuery.addEventListener("change", detectColorScheme);
 
-    // Cleanup event listener
     return () => {
-      darkModeMediaQuery.removeEventListener("change", handleColorSchemeChange);
+      darkModeMediaQuery.removeEventListener("change", detectColorScheme);
     };
   }, []);
 

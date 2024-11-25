@@ -23,6 +23,7 @@ import useScreenSize from "../hooks/useScreenSize";
 import { LandingStyled } from "../components/LandingStyled.styled";
 import ScrollLink from "../components/ScrollLink";
 import Link from "next/link";
+import InfographicNew from "../components/InfographicNew";
 
 const LandingAdvertising = () => {
   const isSmallScreen = useScreenSize();
@@ -56,7 +57,11 @@ const LandingAdvertising = () => {
             <Wrapper>
               <Switcher className="center-mobile" gap={"var(--s4)"}>
                 <Stack stackJustify={"center"}>
-                  <StyledH1 color="var(--text-light)" className="hero-title">
+                  <StyledH1
+                    color="var(--text-light)"
+                    className="hero-title"
+                    align={"start"}
+                  >
                     Boost Your Revenue or Number of Leads with Targeted (Ili
                     Tailored) PPC Campaigns!
                   </StyledH1>
@@ -64,6 +69,7 @@ const LandingAdvertising = () => {
                     fontSize={"var(--s2)"}
                     color={"var(--text-light)"}
                     maxWidth={"40ch"}
+                    align={"start"}
                   >
                     Harness the power of PPC advertising to attract the right
                     audience to your website. Our experts run efficient
@@ -420,12 +426,21 @@ const LandingAdvertising = () => {
           formType={"freeConsultation"}
           title={"Schedule a free consultation"}
         ></ContactFormSection> */}
-        <Infographic
+        {/* <Infographic
           ctaButton={false}
           processArr={processArr}
           treshold={0.3}
           fireHeight={"218vh"}
-        ></Infographic>
+        ></Infographic> */}
+        <InfographicNew
+          titleColor={"var(--text-dark)"}
+          textColor={"var(--text-dark)"}
+          shapeDividerFill={"var(--primary)"}
+          ctaButton={false}
+          processArr={processArr}
+          treshold={0.3}
+          fireHeight={"218vh"}
+        ></InfographicNew>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
