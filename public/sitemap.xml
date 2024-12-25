@@ -4,65 +4,59 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
 <url>
-<loc>https://www.wlastig.com/</loc>
-<lastmod>2024-11-08T14:22:55+00:00</lastmod>
-<priority>1.00</priority>
+  <loc>https://www.wlastig.com/</loc>
+  <lastmod>2024-11-26T12:08:42+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/web-analytics</loc>
-<lastmod>2024-11-08T14:22:55+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/web-analytics</loc>
+  <lastmod>2024-12-25T11:47:53+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/advertising</loc>
-<lastmod>2024-11-08T14:22:55+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/advertising</loc>
+  <lastmod>2024-12-25T11:47:53+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/consulting</loc>
-<lastmod>2024-11-08T14:22:56+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/consulting</loc>
+  <lastmod>2024-12-25T11:47:54+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/our-team</loc>
-<lastmod>2024-11-08T14:22:56+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/our-team</loc>
+  <lastmod>2024-12-25T11:47:54+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/careers</loc>
-<lastmod>2024-11-08T14:22:57+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/careers</loc>
+  <lastmod>2024-12-25T11:47:57+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/contact</loc>
-<lastmod>2024-11-08T14:22:56+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/contact</loc>
+  <lastmod>2024-12-25T11:47:54+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/privacy-policy</loc>
-<lastmod>2024-11-08T14:22:57+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://www.wlastig.com/privacy-policy</loc>
+  <lastmod>2024-12-25T11:47:54+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/careers/software-engeineer</loc>
-<lastmod>2024-11-08T14:22:57+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://www.wlastig.com/careers/software-engeineer</loc>
+  <lastmod>2024-12-25T11:47:57+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>
-https://www.wlastig.com/careers/salesfore-marketing-clout-specialist
-</loc>
-<lastmod>2024-11-08T14:22:57+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://www.wlastig.com/careers/salesfore-marketing-clout-specialist</loc>
+  <lastmod>2024-12-25T11:47:57+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>https://www.wlastig.com/careers/backend-engineer</loc>
-<lastmod>2024-11-08T14:22:57+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://www.wlastig.com/careers/backend-engineer</loc>
+  <lastmod>2024-12-25T11:47:57+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-
 </urlset>
