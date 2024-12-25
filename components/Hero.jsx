@@ -83,7 +83,7 @@ function Hero() {
 }
 
 export const HeroStyled = styled.div`
-  background-image: url("./img/hero.avif");
+  background-image: url("./img/hero.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
