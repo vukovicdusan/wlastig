@@ -1,6 +1,6 @@
 import bex from "../img/bex.svg";
 import strategyx from "../img/strategyx-logo.svg";
-import yolobook from "../img/yolobook-logo.avif";
+import yolobook from "../img/yolobook-logo.jpg";
 
 export const testimonialsLanding = [
   {
