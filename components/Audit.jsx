@@ -6,7 +6,7 @@ import { Stack } from "./styles/Stack.styled";
 import { Button } from "./styles/Button.styled";
 import Loader from "./Loader";
 import Image from "next/image";
-import img from "../public/img/popup_pic.png";
+import img from "../public/img/popup_pic.avif";
 import { Switcher } from "./styles/Switcher.styled";
 import { StyledText } from "./styles/StyledText.styled";
 import { useRouter } from "next/router";

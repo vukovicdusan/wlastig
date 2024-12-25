@@ -18,7 +18,7 @@ import { processArr, competitionArr } from "../public/content/consulting";
 import ReportAnalysisSvg from "../components/svg/ReportAnalysisSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
-import ilustration from "../public/img/pages/hero-consulting-ilustration.png";
+import ilustration from "../public/img/pages/hero-consulting-ilustration.avif";
 import InfographicNew from "../components/InfographicNew";
 
 const Consulting = () => {
@@ -38,7 +38,7 @@ const Consulting = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ServicesHeroStyled backgroundImg={"./img/pages/hero-consulting.png"}>
+      <ServicesHeroStyled backgroundImg={"./img/pages/hero-consulting.avif"}>
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
             <div className="hero-content consulting-hero">

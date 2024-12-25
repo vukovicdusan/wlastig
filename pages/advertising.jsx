@@ -23,8 +23,8 @@ import {
 import GoogleAdSvg from "../components/svg/GoogleAdSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
-import ilustration1 from "../public/img/pages/hero-advertising-ilustration1.png";
-import ilustration2 from "../public/img/pages/hero-advertising-ilustration2.png";
+import ilustration1 from "../public/img/pages/hero-advertising-ilustration1.avif";
+import ilustration2 from "../public/img/pages/hero-advertising-ilustration2.webp";
 
 const Advertising = () => {
   return (
@@ -44,7 +44,7 @@ const Advertising = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled
-        backgroundImg={"./img/pages/hero-advertising.png"}
+        backgroundImg={"./img/pages/hero-advertising.avif"}
         deskPos={"45%"}
       >
         <Stack stackAlign={"inherit"}>

@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import Image from "next/image";
-import dollar from "../public/img/dollar.png";
+import dollar from "../public/img/dollar.avif";
 import { Switcher } from "./styles/Switcher.styled";
 import { Stack } from "./styles/Stack.styled";
 import { Center } from "./styles/Center.styled";
@@ -83,7 +83,7 @@ function Hero() {
 }
 
 export const HeroStyled = styled.div`
-  background-image: url("./img/hero.jpg");
+  background-image: url("./img/hero.avif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

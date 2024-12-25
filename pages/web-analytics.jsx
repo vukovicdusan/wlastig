@@ -26,7 +26,7 @@ import ReportAnalysis2Svg from "../components/svg/ReportAnalysis2Svg";
 import CheckSvg from "../components/svg/CheckSvg";
 import ScrollLink from "../components/ScrollLink";
 import Image from "next/image";
-import ilustration from "../public/img/pages/hero-analytics-ilustration.png";
+import ilustration from "../public/img/pages/hero-analytics-ilustration.avif";
 const webAnalytics = () => {
   return (
     <main>
@@ -50,7 +50,7 @@ const webAnalytics = () => {
           type="image/svg+xml"
         />
       </Head>
-      <ServicesHeroStyled backgroundImg={"./img/pages/hero-analytics.png"}>
+      <ServicesHeroStyled backgroundImg={"./img/pages/hero-analytics.avif"}>
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
             <div className="hero-content analytics-hero">

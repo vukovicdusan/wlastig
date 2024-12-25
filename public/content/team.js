@@ -1,15 +1,15 @@
-import vladam from "../img/team/VladaM.png";
-import vladaj from "../img/team/Vladic.png";
-import igork from "../img/team/IgorK.png";
-import stefan from "../img/team/StefanI.png";
-import sanjin from "../img/team/Sanjin.png";
-import ljubo from "../img/team/Ljubo.png";
-import dzuna from "../img/team/Dzuna.png";
-import filipl from "../img/team/Lazovic.png";
-import jovank from "../img/team/Komljenovic.png";
-import iva from "../img/team/Iva.png";
-import denic from "../img/team/Denic.png";
-import aleksandars from "../img/team/AleksandarS.png";
+import vladam from "../img/team/VladaM.avif";
+import vladaj from "../img/team/Vladic.avif";
+import igork from "../img/team/IgorK.avif";
+import stefan from "../img/team/StefanI.avif";
+import sanjin from "../img/team/Sanjin.avif";
+import ljubo from "../img/team/Ljubo.avif";
+import dzuna from "../img/team/Dzuna.avif";
+import filipl from "../img/team/Lazovic.avif";
+import jovank from "../img/team/Komljenovic.avif";
+import iva from "../img/team/Iva.avif";
+import denic from "../img/team/Denic.avif";
+import aleksandars from "../img/team/AleksandarS.avif";
 
 export const teamArr = [
   {

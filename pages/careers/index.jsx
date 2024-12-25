@@ -19,7 +19,7 @@ import { ServicesHeroStyled } from "../../components/styles/services/ServicesHer
 import Link from "next/link";
 import { careersArr } from "../../public/content/careersArr";
 import Image from "next/image";
-import ilustration from "../../public/img/pages/hero-careers-ilustration-1.png";
+import ilustration from "../../public/img/pages/hero-careers-ilustration-1.webp";
 
 const Careers = ({ data }) => {
   return (
@@ -38,7 +38,7 @@ const Careers = ({ data }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ServicesHeroStyled backgroundImg={"./img/pages/hero-careers.png"}>
+      <ServicesHeroStyled backgroundImg={"./img/pages/hero-careers.avif"}>
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
             <div className="hero-content ">

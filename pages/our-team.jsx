@@ -13,7 +13,7 @@ import { Shapedivider } from "../components/styles/Shapedivider.styled";
 import Head from "next/head";
 import Modal from "../components/Modal";
 import ContactFormSection from "../components/ContactFormSection";
-import ilustration from "../public/img/pages/hero-team-ilustration.png";
+import ilustration from "../public/img/pages/hero-team-ilustration.webp";
 import ReadMore from "../components/ReadMore";
 
 const ourTeam = () => {

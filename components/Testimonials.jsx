@@ -337,13 +337,13 @@ export const TestimonialsStyled = styled.div`
   }
 
   .reelItemFooter > *:nth-child(2) {
-    background-image: url("./img/brda-chart.png");
+    background-image: url("./img/brda-chart.webp");
   }
   .reelItemFooter > *:nth-child(1) {
-    background-image: url("./img/stubovi.png");
+    background-image: url("./img/stubovi.avif");
   }
   .reelItemFooter > *:nth-child(3) {
-    background-image: url("./img/doline-chart.png");
+    background-image: url("./img/doline-chart.webp");
   }
 
   .quoteEnd img {
