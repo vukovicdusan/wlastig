@@ -42,11 +42,10 @@ const LandingAdvertising = () => {
   return (
     <main>
       <Head>
-        <title>Wlastig Analytics</title>
+        <title>Wlastig Analytics - Google Ads</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-        A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Drive targeted traffic and maximize conversions with Wlastig’s Google Ads services. Our experts create optimized campaigns that deliver measurable results and boost your online presence."
         />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />

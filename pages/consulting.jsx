@@ -28,8 +28,7 @@ const Consulting = () => {
         <title>Wlastig Analytics - Consulting Service</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Transform your business with Wlastig's consulting services. Our experts provide tailored strategies in web analytics, advertising, and digital transformation to help you achieve measurable results."
         />
         <link
           rel="canonical"

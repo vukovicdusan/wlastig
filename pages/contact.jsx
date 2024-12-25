@@ -24,8 +24,7 @@ const Contact = () => {
         <title>Wlastig Analytics - Contact Us</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Get in touch with Wlastig today. Whether you need web analytics, advertising, or consulting solutions, our experts are here to help your business succeed."
         />
         <link
           rel="canonical"

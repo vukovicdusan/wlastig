@@ -11,12 +11,11 @@ export default function Home() {
     <main>
       <Head>
         <title>
-          Wlastig Analytics - Web Analytics, Advertising and Consulting
+          Wlastig Analytics - Web Analytics, Advertising, and Consulting
         </title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Wlastig: Your trusted partner for web analytics, advertising, and consulting. Maximize your digital performance with expert GA4 tracking, GTM solutions, and tailored strategies for success!"
         />
         <link rel="canonical" href="https://www.wlastig.com/" key="canonical" />
         <link rel="icon" href="/favicon.ico" />

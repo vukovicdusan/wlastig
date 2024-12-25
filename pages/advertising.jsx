@@ -33,8 +33,7 @@ const Advertising = () => {
         <title>Wlastig Analytics - Advertising Service</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Elevate your brand with Wlastig's advertising services. We craft data-driven campaigns to maximize ROI, boost visibility, and drive conversions across all digital channels."
         />
         <link
           rel="canonical"

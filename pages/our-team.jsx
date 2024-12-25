@@ -23,8 +23,7 @@ const ourTeam = () => {
         <title>Wlastig Analytics - Our Team</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Meet the experts behind Wlastig's success. Our dedicated team specializes in web analytics, advertising, and consulting, delivering data-driven solutions to help your business thrive."
         />
         <link
           rel="canonical"

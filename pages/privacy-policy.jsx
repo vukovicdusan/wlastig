@@ -12,7 +12,7 @@ const privacyPolicy = () => {
   return (
     <main style={{ position: "relative" }}>
       <Head>
-        <title>Wlastig Analytics</title>
+        <title>Wlastig Analytics - Privacy Policy</title>
         <meta
           name="description"
           content="Wanna hear a great story?

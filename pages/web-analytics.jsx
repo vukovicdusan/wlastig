@@ -34,8 +34,7 @@ const webAnalytics = () => {
         <title>Wlastig Analytics - Web Analytics Service</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Discover Wlastig's web analytics expertise. From Google Analytics 4 (GA4) tracking to Server-Side Tagging with Google Tag Manager (GTM), we provide actionable insights to optimize your business performance."
         />
         <link
           rel="canonical"

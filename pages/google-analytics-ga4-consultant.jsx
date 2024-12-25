@@ -39,11 +39,10 @@ const Landing = () => {
   return (
     <main>
       <Head>
-        <title>Wlastig Analytics</title>
+        <title>Wlastig Analytics - Google Analytics Consultant</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-        A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Unlock the full potential of Google Analytics 4 (GA4) with Wlastig’s expert consulting services. We provide tailored GA4 strategies, implementation, and insights to drive your business forward."
         />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />

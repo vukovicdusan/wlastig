@@ -28,8 +28,7 @@ const Careers = ({ data }) => {
         <title>Wlastig Analytics - Careers</title>
         <meta
           name="description"
-          content="Wanna hear a great story?
-					A moving story about a brave company that made use of data on her way to become a market leader and a household brand. What company are we talking about? Yours!"
+          content="Join Wlastig and shape the future of digital innovation. Explore exciting career opportunities in web analytics, advertising, and consulting with a team dedicated to driving success."
         />
         <link
           rel="canonical"
