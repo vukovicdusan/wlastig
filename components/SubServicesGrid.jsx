@@ -36,6 +36,7 @@ const SubServicesGrid = (props) => {
         </svg>
       </Shapedivider>
       <Region pt={"7rem"}>
+        <h2 className="visually-hidden">Subservices</h2>
         <Wrapper>
           <Wrap
             mt={"var(--s4)"}

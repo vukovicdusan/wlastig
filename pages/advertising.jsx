@@ -94,6 +94,7 @@ const Advertising = () => {
         </Stack>
       </ServicesHeroStyled>
       <Region>
+        <h2 className="visually-hidden">Why do you need Advertising?</h2>
         <Wrapper>
           <Stack stackSpace={"var(--s4) !important"}>
             <Switcher>

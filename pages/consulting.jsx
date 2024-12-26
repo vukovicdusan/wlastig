@@ -78,6 +78,7 @@ const Consulting = () => {
       </ServicesHeroStyled>
       <FullBackground>
         <Region>
+          <h2 className="visually-hidden">Why do you need Consulting?</h2>
           <Wrapper>
             <Switcher mb={"var(--s5)"}>
               <Stack stackSpace={"var(--s4)"} className="service-info">
