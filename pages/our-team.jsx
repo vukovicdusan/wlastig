@@ -81,10 +81,10 @@ const ourTeam = () => {
                       stackJustify={"center"}
                       stackAlign={"flex-start"}
                     >
-                      <h4>
+                      <h2>
                         {member.name}
                         <span> ({member.position})</span>
-                      </h4>
+                      </h2>
                       <ReadMore content={member.content}></ReadMore>
                     </Stack>
                   </Switcher>
@@ -136,6 +136,10 @@ export const OurTeamStyled = styled.div`
     align-items: flex-end;
   }
 
+  h2 {
+    font-size: var(--s1);
+  }
+
   .shapedivider {
     z-index: -1;
   }
@@ -156,6 +160,9 @@ export const OurTeamStyled = styled.div`
   @media (max-width: 700px) {
     .member-content-container:last-child {
       padding-block-end: var(--s4);
+    }
+    h2 {
+      font-size: var(--s0);
     }
   }
 `;
