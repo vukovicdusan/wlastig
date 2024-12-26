@@ -24,7 +24,7 @@ const FocusSection = () => {
     <FullBackground background={"var(--primary)"}>
       <Wrapper>
         <Region>
-          <h2 class="visually-hidden">Our Focus</h2>
+          <h2 className="visually-hidden">Our Focus</h2>
           <Stack stackAlign={"center"} stackSpace={"var(--s5)"}>
             <Switcher
               switcherJustify={"center"}

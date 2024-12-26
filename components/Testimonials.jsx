@@ -338,10 +338,10 @@ export const TestimonialsStyled = styled.div`
   }
 
   .reelItemFooter > *:nth-child(2) {
-    background-image: url("./img/brda-chart.webp");
+    background-image: url("./img/brda-chart.avif");
   }
   .reelItemFooter > *:nth-child(1) {
-    background-image: url("./img/stubovi.avif");
+    background-image: url("./img/stubovi.webp");
   }
   .reelItemFooter > *:nth-child(3) {
     background-image: url("./img/doline-chart.webp");
