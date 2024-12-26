@@ -88,6 +88,7 @@ const Testimonials = (props) => {
       </Shapedivider>
       <Region pb={"0"}>
         <Wrapper>
+          <h2 className="visually-hidden">Testimonials</h2>
           <AnimationContainer delay={"4"}>
             <TestimonialsStyled
               bgCard={props.bgCard || ""}

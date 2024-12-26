@@ -55,7 +55,7 @@ const ContactFormSection = (props) => {
             <Center>
               <AnimationContainer>
                 <Stack stackJustify={"center"} stackAlign={"center"}>
-                  <h3 className="title-xl">{props.title || ""}</h3>
+                  <h2 className="title-xl">{props.title || ""}</h2>
                   <UnderlineStyled></UnderlineStyled>
                 </Stack>
               </AnimationContainer>
