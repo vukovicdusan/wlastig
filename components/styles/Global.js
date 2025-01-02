@@ -64,6 +64,10 @@ html {
 	overflow-x: hidden;
 }
 
+body {
+	overflow: visible !important;
+}
+
 /* Remove default margin */
 body,
 h1,
