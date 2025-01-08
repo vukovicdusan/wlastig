@@ -182,6 +182,7 @@ button:disabled {
 		url("/fonts/poppins-extrabold-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -190,6 +191,7 @@ button:disabled {
 		url("/fonts/poppins-medium-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
@@ -198,6 +200,7 @@ button:disabled {
 		url("/fonts/poppins-regular-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
 
 body {
