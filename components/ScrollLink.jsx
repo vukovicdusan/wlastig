@@ -11,9 +11,8 @@ const ScrollLink = ({ children, ...props }) => {
     if (elem) {
       // Get the element's position relative to the document
       const offsetTop = elem.getBoundingClientRect().top + window.scrollY;
-      console.log(offsetTop);
       window.scrollTo({
-        top: offsetTop,
+        top: offsetTop - 100,
         behavior: "smooth",
       });
     }

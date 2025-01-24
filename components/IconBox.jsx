@@ -22,7 +22,7 @@ function IconBox(props) {
           >
             <svg className="icon">
               <use
-                xlinkHref={"./img/subservices/sprite.svg#" + props.img}
+                xlinkHref={"../img/subservices/sprite.svg#" + props.img}
               ></use>
             </svg>
             <Stack stackAlign={"flex-start"} stackJustify={"flex-start"}>
@@ -34,7 +34,7 @@ function IconBox(props) {
           <Stack stackAlign={"center"} stackJustify={"center"}>
             <svg className="icon">
               <use
-                xlinkHref={"./img/subservices/sprite.svg#" + props.img}
+                xlinkHref={"../img/subservices/sprite.svg#" + props.img}
               ></use>
             </svg>
             <h4>{props.title}</h4>

@@ -379,6 +379,9 @@ border-width: 0;
 .mb-s-1 {
 margin-bottom: var(--s-1);
 }
+.z-index-1 {
+	z-index: 1;
+}
 
 @media only screen and (max-width: 780px) {
     .calendly-inline-widget {

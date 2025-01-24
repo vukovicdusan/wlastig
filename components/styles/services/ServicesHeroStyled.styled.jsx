@@ -61,6 +61,20 @@ export const ServicesHeroStyled = styled.div`
     font-family: var(--poppinsmedium);
   }
 
+  .hero-background::before {
+    content: "";
+    display: ${(props) => props.overlay || "none"};
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) => props.overlayTone || "rgba(0, 0, 0, 0.5)"};
+    z-index: 0;
+  }
+
   @media (max-width: 850px) {
     /* .desktop {
       display: none;
@@ -136,13 +150,14 @@ export const ServicesHeroStyled = styled.div`
     .hero-background::before {
       content: "";
       position: absolute;
+      display: block;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: ${(props) => props.overlayTone || "rgba(0, 0, 0, 0.5)"};
       z-index: 0;
     }
   }

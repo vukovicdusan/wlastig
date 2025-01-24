@@ -13,6 +13,11 @@ export const LandingStyled = styled.div`
     max-width: fit-content;
     transition: all 0.4s ease;
   }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
   .spacer {
     background-color: var(--primary);
     padding-block: 5rem;

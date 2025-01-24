@@ -432,7 +432,7 @@ export const InfographicNewStyled = styled.ol`
   }
 
   .fade-in-show:last-child::before {
-    background-image: url("./img/startup.avif");
+    background-image: url("../img/startup.avif");
     background-position: center;
     background-size: contain;
   }
