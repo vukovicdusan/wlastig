@@ -1,30 +1,30 @@
 import React from "react";
-import { Wrapper } from "../components/styles/Wrapper.styled";
-import { Region } from "../components/styles/Region.styled";
-import { Stack } from "../components/styles/Stack.styled";
-import { Switcher } from "../components/styles/Switcher.styled";
-import { ServicesHeroStyled } from "../components/styles/services/ServicesHeroStyled.styled";
-import { Center } from "../components/styles/Center.styled";
-import { Button } from "../components/styles/Button.styled";
-import SubServicesGrid from "../components/SubServicesGrid";
-import Infographic from "../components/Infographic";
-import ContactFormSection from "../components/ContactFormSection";
-import CompetitionSection from "../components/CompetitionSection";
-import AnimationContainer from "../components/AnimationContainer";
-import Faq from "../components/Faq";
+import { Wrapper } from "../../components/styles/Wrapper.styled";
+import { Region } from "../../components/styles/Region.styled";
+import { Stack } from "../../components/styles/Stack.styled";
+import { Switcher } from "../../components/styles/Switcher.styled";
+import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled";
+import { Center } from "../../components/styles/Center.styled";
+import { Button } from "../../components/styles/Button.styled";
+import SubServicesGrid from "../../components/SubServicesGrid";
+import Infographic from "../../components/Infographic";
+import ContactFormSection from "../../components/ContactFormSection";
+import CompetitionSection from "../../components/CompetitionSection";
+import AnimationContainer from "../../components/AnimationContainer";
+import Faq from "../../components/Faq";
 import Head from "next/head";
-import Modal from "../components/Modal";
+import Modal from "../../components/Modal";
 import {
   subsArr,
   processArr,
   competitionArr,
   faqArr,
-} from "../public/content/advertising";
-import GoogleAdSvg from "../components/svg/GoogleAdSvg";
-import ScrollLink from "../components/ScrollLink";
+} from "../../public/content/advertising";
+import GoogleAdSvg from "../../components/svg/GoogleAdSvg";
+import ScrollLink from "../../components/ScrollLink";
 import Image from "next/image";
-import ilustration1 from "../public/img/pages/hero-advertising-ilustration1.avif";
-import ilustration2 from "../public/img/pages/hero-advertising-ilustration2.webp";
+import ilustration1 from "../../public/img/pages/hero-advertising-ilustration1.avif";
+import ilustration2 from "../../public/img/pages/hero-advertising-ilustration2.webp";
 
 const Advertising = () => {
   return (

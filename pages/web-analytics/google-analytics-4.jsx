@@ -24,11 +24,9 @@ import useScreenSize from "../../hooks/useScreenSize";
 import { LandingStyled } from "../../components/LandingStyled.styled";
 import InfographicNew from "../../components/InfographicNew";
 import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled";
-import Image from "next/image";
 import ScrollLink from "../../components/ScrollLink";
-// import ilustration from "../../public/img/pages/google-analytics-4.avif";
 
-const Landing = () => {
+const GoogleAnalytycs4 = () => {
   const isSmallScreen = useScreenSize();
   const [serviceCount, setserviceCount] = React.useState(4);
 
@@ -61,16 +59,7 @@ const Landing = () => {
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
             <div className="hero-content analytics-hero">
-              <div>
-                {/* <Image
-                  className="hero-ilustration"
-                  src={ilustration}
-                  width={500}
-                  height={350}
-                  alt="ilustration"
-                  priority
-                ></Image> */}
-              </div>
+              <div></div>
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
                   <h1 className="z-index-1">
@@ -351,4 +340,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default GoogleAnalytycs4;
