@@ -7,6 +7,9 @@ module.exports = withBundleAnalyzer({});
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ["sandracvijovic.com"],
+  },
   async headers() {
     return [
       {
