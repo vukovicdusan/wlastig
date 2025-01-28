@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import { useState } from "react";
 import Link from "next/link";
-import { useEffect } from "react";
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const BlogSidebar = (props) => {
   // const [list, setList] = useState(props.list);
@@ -53,7 +51,13 @@ const BlogSidebar = (props) => {
             ""
           )}
         </form>
+
         <Image alt="logo" width={150} src={logo}></Image>
+        <span>
+          Wanna hear a great story? A moving story about a brave company that
+          made use of data on her way to become a market leader and a household
+          brand. What company are we talking about? Yours!
+        </span>
       </div>
     </BlogSidebarStyled>
   );
@@ -64,12 +68,30 @@ export default BlogSidebar;
 export const BlogSidebarStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-inline: auto;
-  justify-content: center;
-  gap: 2rem;
+  /* margin-inline: auto;
+  justify-content: center; */
+  gap: 4rem;
+
+  & > :last-child {
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
+
+  & > :first-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   & form {
     position: relative;
+  }
+
+  & > * {
+    color: #ddd;
   }
 
   .search-list {
@@ -102,12 +124,7 @@ export const BlogSidebarStyled = styled.div`
     font-size: var(--s-1);
   }
 
-  & > * {
-    color: #ddd;
-  }
-
   .sidebar {
-    /* flex-grow: 1; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,16 +132,6 @@ export const BlogSidebarStyled = styled.div`
   }
   .sidebar img {
     object-fit: contain;
-  }
-
-  & > *:first-child {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-inline-size: 60%;
-    max-width: 60ch;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
 
   & label,

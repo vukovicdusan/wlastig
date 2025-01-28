@@ -75,7 +75,7 @@ const Blog = ({ posts }) => {
                 ></UnderlineStyled>
               </div>
               <BlogSidebar list={posts}>
-                <Stack>
+                <div>
                   {posts.map((post) => (
                     <div key={post.id}>
                       <Link
@@ -110,7 +110,7 @@ const Blog = ({ posts }) => {
                       </Link>
                     </div>
                   ))}
-                </Stack>
+                </div>
               </BlogSidebar>
             </BlogPostsStyled>
           </Wrapper>
