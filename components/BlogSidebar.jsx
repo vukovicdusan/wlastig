@@ -6,20 +6,16 @@ import { InputWrapper } from "./styles/InputWrapper.styled";
 import { useState } from "react";
 import Link from "next/link";
 import { useEffect } from "react";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const BlogSidebar = (props) => {
-  const [list, setList] = useState("");
+  // const [list, setList] = useState(props.list);
   const [filteredList, setFilteredList] = useState("");
-
-  useEffect(() => {
-    const posts = JSON.parse(localStorage.getItem("posts"));
-    setList(posts);
-  }, []);
 
   const inputHandler = (e) => {
     const term = e.target.value;
 
-    const searchedList = list.filter((post) =>
+    const searchedList = props.list.filter((post) =>
       post.title.toLowerCase().includes(term.toLowerCase())
     );
 

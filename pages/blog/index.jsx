@@ -74,7 +74,7 @@ const Blog = ({ posts }) => {
                   underlineMargin={"var(--s-4)"}
                 ></UnderlineStyled>
               </div>
-              <BlogSidebar list={posts} searchTermsHandler={searchTermsHandler}>
+              <BlogSidebar list={posts}>
                 <Stack>
                   {posts.map((post) => (
                     <div key={post.id}>
