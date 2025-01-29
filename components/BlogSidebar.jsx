@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
 import { useState } from "react";
 import Link from "next/link";
+import { StyledText } from "./styles/StyledText.styled";
 
 const BlogSidebar = (props) => {
   // const [list, setList] = useState(props.list);
@@ -53,11 +54,11 @@ const BlogSidebar = (props) => {
         </form>
 
         <Image alt="logo" width={150} src={logo}></Image>
-        <span>
+        <StyledText color={"var(--theme-text-dark)"}>
           Wanna hear a great story? A moving story about a brave company that
           made use of data on her way to become a market leader and a household
           brand. What company are we talking about? Yours!
-        </span>
+        </StyledText>
       </div>
     </BlogSidebarStyled>
   );
@@ -83,11 +84,11 @@ export const BlogSidebarStyled = styled.div`
     min-inline-size: 60%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
 
   & form {
     position: relative;
+    width: 100%;
   }
 
   & > * {
@@ -101,6 +102,7 @@ export const BlogSidebarStyled = styled.div`
     height: min-content;
     background-color: var(--background-light);
     color: var(--text-dark);
+    border: 1px solid;
   }
 
   .search-list li {
@@ -136,7 +138,7 @@ export const BlogSidebarStyled = styled.div`
 
   & label,
   & input {
-    background-color: var(--primary) !important;
-    color: var(--text-light);
+    /* background-color: var(--primary) !important; */
+    color: var(--theme-text-dark);
   }
 `;
