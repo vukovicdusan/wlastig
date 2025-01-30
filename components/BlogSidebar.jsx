@@ -8,14 +8,16 @@ import Link from "next/link";
 import { StyledText } from "./styles/StyledText.styled";
 
 const BlogSidebar = (props) => {
-  // const [list, setList] = useState(props.list);
   const [filteredList, setFilteredList] = useState("");
 
   const inputHandler = (e) => {
     const term = e.target.value;
 
-    const searchedList = props.list.filter((post) =>
-      post.title.toLowerCase().includes(term.toLowerCase())
+    /* Search by title and/or category */
+    const searchedList = props.list.filter(
+      (post) =>
+        post.title.toLowerCase().includes(term.toLowerCase()) ||
+        post.categories.nodes[0].slug.includes(term.toLowerCase())
     );
 
     setFilteredList(term !== "" ? searchedList : "");
@@ -36,8 +38,8 @@ const BlogSidebar = (props) => {
           </InputWrapper>
           {filteredList !== "" ? (
             <ul className="search-list">
-              {filteredList.map((item, index) => (
-                <li key={index}>
+              {filteredList.map((item) => (
+                <li key={item.id}>
                   <Link
                     onClick={() => setFilteredList("")}
                     href={`/blog/${item.slug}`}
@@ -55,9 +57,8 @@ const BlogSidebar = (props) => {
 
         <Image alt="logo" width={150} src={logo}></Image>
         <StyledText color={"var(--theme-text-dark)"}>
-          Wanna hear a great story? A moving story about a brave company that
-          made use of data on her way to become a market leader and a household
-          brand. What company are we talking about? Yours!
+          Unlocking the power of data, one story at a time – explore our
+          insights on analytics, strategy, and business intelligence.
         </StyledText>
       </div>
     </BlogSidebarStyled>

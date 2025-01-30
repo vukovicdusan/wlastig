@@ -1,11 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { FullBackground } from "../../components/styles/FullBackground.styled";
 import { Region } from "../../components/styles/Region.styled";
 import { Wrapper } from "../../components/styles/Wrapper.styled";
-import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
-import { Stack } from "../../components/styles/Stack.styled";
 import styled from "styled-components";
 import BlogSidebar from "../../components/BlogSidebar";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper.styled";
@@ -13,6 +10,7 @@ import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { dateFormater } from "../../helpers/dateFormater";
 import ContactFormSection from "../../components/ContactFormSection";
+import dummy from "../../public/img/dummy-post.avif";
 
 const client = new ApolloClient({
   uri: "https://sandracvijovic.com/testing/graphql",
@@ -25,13 +23,19 @@ const GET_POSTS = gql`
       nodes {
         title
         excerpt
-        content
         date
         slug
+        id
         featuredImage {
           node {
             sourceUrl
             altText
+          }
+        }
+        categories {
+          nodes {
+            name
+            slug
           }
         }
         author {
@@ -66,15 +70,13 @@ const Blog = ({ posts }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <FullBackground className={""} background={"var(--primary)"}> */}
       <Region>
         <Wrapper>
           <BlogPostsStyled>
             <div>
-              <h1>Blog</h1>
-              <UnderlineStyled underlineMargin={"var(--s-4)"}></UnderlineStyled>
+              <h1 className="visually-hidden">Blog</h1>
             </div>
-            <BlogSidebar list={posts}>
+            <BlogSidebar list={posts || []}>
               <div className="post-list">
                 {posts.map((post) => (
                   <div key={post.id}>
@@ -90,7 +92,7 @@ const Blog = ({ posts }) => {
                         <Image
                           width={800}
                           height={350}
-                          src={post.featuredImage.node.sourceUrl || ""}
+                          src={post.featuredImage?.node?.sourceUrl || dummy}
                           alt="blog thumbnail"
                           quality={70}
                           placeholder="blur"
@@ -126,7 +128,6 @@ const Blog = ({ posts }) => {
       >
         {" "}
       </ContactFormSection>
-      {/* </FullBackground> */}
     </>
   );
 };
@@ -134,6 +135,7 @@ const Blog = ({ posts }) => {
 export default Blog;
 
 export const BlogPostsStyled = styled.div`
+  margin-top: var(--s5);
   .wrapper {
     display: flex;
     flex-direction: column;

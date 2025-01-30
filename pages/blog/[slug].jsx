@@ -1,7 +1,6 @@
 import React from "react";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Head from "next/head";
-import { FullBackground } from "../../components/styles/FullBackground.styled";
 import { Region } from "../../components/styles/Region.styled";
 import { Wrapper } from "../../components/styles/Wrapper.styled";
 import BlogSidebar from "../../components/BlogSidebar";
@@ -24,6 +23,13 @@ const GET_POSTS = gql`
       nodes {
         title
         slug
+        id
+        categories {
+          nodes {
+            name
+            slug
+          }
+        }
       }
     }
   }
@@ -103,7 +109,7 @@ export async function getStaticProps({ params }) {
         post: postResponse.data.postBy,
         list: postsResponse.data.posts.nodes,
       },
-      revalidate: 60, // Optional: Revalidate every minute
+      // revalidate: 60, // Optional: Revalidate every minute
     };
   } catch (error) {
     console.error("Error in getStaticProps:", error);
@@ -119,6 +125,7 @@ const SinglePost = ({ post, list }) => {
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
+
   return (
     <>
       <Head>
@@ -129,7 +136,6 @@ const SinglePost = ({ post, list }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <FullBackground className={""} background={"var(--primary)"}> */}
       <Region>
         <Wrapper>
           <SinglePostStyled>
@@ -163,13 +169,6 @@ const SinglePost = ({ post, list }) => {
                 <div>
                   <span>{dateFormater(post.date)}</span>
                   <h1>{post.title}</h1>
-                  {/* {post.status === "draft" ? (
-                      <span className="draft-warning">
-                        This is just a draft
-                      </span>
-                    ) : (
-                      ""
-                    )} */}
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </div>
@@ -188,7 +187,6 @@ const SinglePost = ({ post, list }) => {
       >
         {" "}
       </ContactFormSection>
-      {/* </FullBackground> */}
     </>
   );
 };
@@ -196,7 +194,7 @@ const SinglePost = ({ post, list }) => {
 export default SinglePost;
 
 export const SinglePostStyled = styled.div`
-  margin-top: 2rem;
+  margin-top: var(--s3);
 
   .post-content {
     gap: var(--s2);
