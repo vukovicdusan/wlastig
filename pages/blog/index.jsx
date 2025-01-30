@@ -10,7 +10,7 @@ import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { postDateFormater } from "../../helpers/postDateFormater";
 import ContactFormSection from "../../components/ContactFormSection";
-import dummy from "../../public/img/dummy-post.avif";
+import dummy from "../../public/img/dummy-post.webp";
 import { StyledText } from "../../components/styles/StyledText.styled";
 
 const client = new ApolloClient({
