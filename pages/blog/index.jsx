@@ -8,9 +8,10 @@ import BlogSidebar from "../../components/BlogSidebar";
 import { BlogImageWrapper } from "../../components/styles/BlogImageWrapper.styled";
 import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { dateFormater } from "../../helpers/dateFormater";
+import { postDateFormater } from "../../helpers/postDateFormater";
 import ContactFormSection from "../../components/ContactFormSection";
 import dummy from "../../public/img/dummy-post.avif";
+import { StyledText } from "../../components/styles/StyledText.styled";
 
 const client = new ApolloClient({
   uri: "https://sandracvijovic.com/testing/graphql",
@@ -18,8 +19,8 @@ const client = new ApolloClient({
 });
 
 const GET_POSTS = gql`
-  query GetPosts {
-    posts {
+  query GetPosts($first: Int, $after: String) {
+    posts(first: $first, after: $after) {
       nodes {
         title
         excerpt
@@ -44,21 +45,53 @@ const GET_POSTS = gql`
           }
         }
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
   }
 `;
 
-export async function getStaticProps() {
-  const { data } = await client.query({ query: GET_POSTS });
+export async function getStaticProps({ params }) {
+  const { data } = await client.query({
+    query: GET_POSTS,
+    variables: {
+      first: 5, // Number of posts per page
+      after: params?.after || null, // Cursor for pagination
+    },
+  });
 
   return {
     props: {
       posts: data.posts.nodes,
+      pageInfo: data.posts.pageInfo,
     },
   };
 }
+import { useState } from "react";
+import { Button } from "../../components/styles/Button.styled";
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts, pageInfo }) => {
+  const [currentPosts, setCurrentPosts] = useState(posts);
+  const [currentPageInfo, setCurrentPageInfo] = useState(pageInfo);
+  const [loading, setLoading] = useState(false);
+
+  const loadMorePosts = async () => {
+    setLoading(true);
+    const { data } = await client.query({
+      query: GET_POSTS,
+      variables: {
+        first: 10,
+        after: currentPageInfo.endCursor,
+      },
+    });
+
+    setCurrentPosts([...currentPosts, ...data.posts.nodes]);
+    setCurrentPageInfo(data.posts.pageInfo);
+    setLoading(false);
+  };
+
   return (
     <>
       <Head>
@@ -76,9 +109,9 @@ const Blog = ({ posts }) => {
             <div>
               <h1 className="visually-hidden">Blog</h1>
             </div>
-            <BlogSidebar list={posts || []}>
+            <BlogSidebar list={currentPosts || []}>
               <div className="post-list">
-                {posts.map((post) => (
+                {currentPosts.map((post) => (
                   <div key={post.id}>
                     <Link
                       className="wrapper"
@@ -96,12 +129,14 @@ const Blog = ({ posts }) => {
                           alt="blog thumbnail"
                           quality={70}
                           placeholder="blur"
-                          blurDataURL={`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAABQFJREFUSEtV1VurJFcZgOG3Tl3HVWut6t0zmUwkMiMRJOqVd/4noxKQMBqE4JmI8YCRxDggCKKTfyGYq6AgKhJhZkjcu491WNXd1YeSVd0ze3JfPLx86/so58H9+/2xP7LfdWw3LWtT0dYL2nLGenXJtrykNyu8Y0gUTUjzm2R6QlaMyZQiVYJEpIRZTBiH+JGPH3i4nosz4McnuGHdVrTVEvMs3p7xcEIqT7jQYzKtSKQgyVOiNGaUjAjCAM/ivsXfe1K+HcrbodziU9rV1VB+NOV1ubyBsOUDLkllTpInT3E/fLb8nd/1fX9kt+vYWLytMPWCppxhVldsyksOpsLrI+LogjS/gSgm5LogU/I8loQwjc7l/rncwXnw9nt9fzyy259wYyrqekFdzWhWV7TllENb4x0jovgCkU/IiwuELhAWl9m5PGQUB+eZuzh25u//4rfDg3a2fNvSmIqqWVCVM8rVFFNN2RmD28ck8RghJ0g9RhYaoXIyi4uYKA0ZJT52LF7g4HoOzvs/ffcpvt4a6rairJcsqxnL1ZSqmrNt1wOexmOkvEAXBVJrciUQMiUWEVE6YhT7BJE34I7FH/zonf54PNDtO9ptO+DLesm8mjEvZ8yrOabd4vYJIiko1AVjXaC1RA54QjLgAaPYww9dvJEtB+fBG78Zyre77YCXbcWiWTKt5lyWMz6plszXOxwSxknBTTXmRqEZa4lSGSJPSMVowMPYxQ+dAXcs/ufXfz3s+XbfYbaG1bpm3iy5rOY8Lmf8pyp5uN6Dk/JcWnBXFdzWmkmRU8iMXEYDHqf+NR70J/xPr/2qPwz4FrNtB3zaLPm4XvDfcs4HVQXrI7gpZJqXVMHdQnNLC8YqReYxmQhIUo9R7BDY8qDH9XqcP7768/5gx7LvaM74lVnyuF7wr3LBP+oG1j142YCjC76qJZ/ROROVoPMIIQLixCNKLM41/odv/Ow08zO+XNdY/GGz5G/Vkoe1gY3zDK75spbcUTk3VUKRh+QiIE09whhGIfi23O9xfv/Km9d413LCywH/oFoxb1rYuuAJyBQozee05PNacEuljPMQOeAucexc43Ys97/2k0/jm2v8L3VJ02yg8864BqV4QUteVoLnVcJFHqFEQJZ6Ax6GPX4Ani1/95Ufnrbl0GG69fCgV23Jo2bFX5uKymyh869xqbitJC9rwW2ZciFDdBaQZR5J7BKFEAQ9ng/O21//3ulC9ztM17LaNMzaksdNyYdNzbTtoAvAF5BokIoXteQLtlymTGSEFgEi9UljhyhyCOzndiy//OYbZ7yj7daUm4Z5W/GxKfln0/Cw3cFudCpPFEi7jpKXhrGkTHKLj8gtnrjEocPIfm73/K1Xv3vCD7sBrzcNi7bmf6bko8bwb3tAFnevy78kJXd0zq2n5SFywL0BD0cOvsXf/NbrA77b71gPuGHZVkxNzSNj+Pv6cMbzU3mu+IpSvKgEzw14jBYWD8gSjyRyCQMH3878x6995ym+6dY0G0PZ1szaik9My4ftgcPOXkYOsSLPFV+UdmMsnnEhYwqLZwEi9k/4yD2V/+Devb4/9uwOHZtug9kYqrZmYWouTctH6yPTARcQa14QirvKbozgpsqY5PFwpSoNEInFvXO5g/P9b987/aAPO2x5e8aXpuHKtDxaH3m8D8E9ld8Ris8qxfP2Qp+U5xEyHZ1xlyhw8X2H/wO4ArWA9xUOigAAAABJRU5ErkJggg==`}
+                          blurDataURL={`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAAAXNSR0IArs4c6QAABQFJREFUSEtV1VurJFcZgOG3Tl3HVWut6t0zmUwkMiMRJOqVd/4noxKQMBqE4JmI8YCRxDggCKKTfyGYq6AgKhJhZkjcu491WNXd1YeSVd0ze3JfPLx86/so58H9+/2xP7LfdWw3LWtT0dYL2nLGenXJtrykNyu8Y0gUTUjzm2R6QlaMyZQiVYJEpIRZTBiH+JGPH3i4nosz4McnuGHdVrTVEvMs3p7xcEIqT7jQYzKtSKQgyVOiNGaUjAjCAM/ivsXfe1K+HcrboczgU9rV1VB+NOV1ubyBsOUDLkllTpInT3E/fLb8nd/1fX9kt+vYWLytMPWCppxhVldsyksOpsLrI+LogjS/gSgm5LogU/I8loQwjc7l/rncwXnw9nt9fzyy259wYyrqekFdzWhWV7TllENb4x0jovgCkU/IiwuELhAWl9m5PGQUB+eZuzh25u//4rfDg3a2fNvSmIqqWVCVM8rVFFNN2RmD28ck8RghJ0g9RhYaoXIyi4uYKA0ZJT52LF7g4HoOzvs/ffcpvt4a6rairJcsqxnL1ZSqmrNt1wOexmOkvEAXBVJrciUQMiUWEVE6YhT7BJE34I7FH/zonf54PNDtO9ptO+DLesm8mjEvZ8yrOabd4vYJIiko1AVjXaC1RA54QjLgAaPYww9dvJEtB+fBG78Zyre77YCXbcWiWTKt5lyWMz6plszXOxwSxknBTTXmRqEZa4lSGSJPSMVowMPYxQ+dAXcs/ufXfz3s+XbfYbaG1bpm3iy5rOY8Lmf8pyp5uN6Dk/JcWnBXFdzWmkmRU8iMXEYDHqf+NR70J/xPr/2qPwz4FrNtB/yyXnJZzXlczvhPVfJwvQcn5bm04K4quK01kyKnkBm5jAY8Tv1rPOhP+J9e+1V/GPAtZtsO+GVt8Tn/qUoerjfgpDyXFtxVBbe1ZlLkFDIjlxFJ6hHGcI3bsdz/2k8+jW+u8b/UJU2zgc474xqU4gUteVkJnlcJF3mEEgFZ6g14GPb4AXi2/N1XfnjalkOH6dbDg161JY+aFX9tKiqzhc6/xqXitpK8rAW3ZcqFDNFZQJZ5JLFDFEIQ9Hg+OG9//XunC93vMF3LatMwa0seNyUfNjXTtoMuAF9AokEqXtSSL9hykTKREVoEiNQnjR2iyCGwn9ux/PKbb5zxjrZbU24a5m3Fx6bkn03Dw3YHuxG4AlIF0q6j5KVhLCmT3OIjcosnLnHoMLKf2z1/69XvnvDDbsDrTcOirfmfKfmoMfzbHpDF3evyL0nJHZ1z62l5iBxwb8DDkYNv8Te/9fqA7/Y71gNuWLYVU1PzyBj+vt6f8fxUniu+ohQvKsFzAx6jhcUDssQjiVyCwMG3M//xa995im+6Nc3GULY1s7biE9PycXvgsLOXkUOsyHPFF6XdGItnXMiYwuJZgIj9Ez5yT+U/uHev7489u0PHpttgNoaqrVmYmivT8nB95PE+BPdUfkco7iq7MYLnKmOSx8OVqjRAJBb3zuUOzvfvfO/0gz7ssOXtGV+ahivT8mh95PE+BPdUfkcoPqsUz9sLfVKeR8h0dMZdosDF9x3+D+AK1APeVzgoAAAAAElFTkSuQmCC`}
                         ></Image>
                       </BlogImageWrapper>
                       <div>
-                        <span className="date">{dateFormater(post.date)}</span>
                         <h2>{post.title}</h2>
+                        <span className="date">
+                          {postDateFormater(post.date)}
+                        </span>
                       </div>
                       <div
                         className="extract"
@@ -110,10 +145,41 @@ const Blog = ({ posts }) => {
                         }}
                       />
                     </Link>
+                    <div className="category-container">
+                      <svg
+                        viewBox="0 0 512 512"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width=".85em"
+                        height=".85em"
+                        fill="rgba(250,250,250,0.4)"
+                      >
+                        <path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z"></path>
+                      </svg>{" "}
+                      <StyledText
+                        color={"rgba(250,250,250,0.4)"}
+                        fontSize={"var(--s-1)"}
+                      >
+                        {post.categories.nodes[0].name}
+                      </StyledText>
+                    </div>
                   </div>
                 ))}
               </div>
             </BlogSidebar>
+            {currentPageInfo.hasNextPage && (
+              <Button
+                mt={"var(--s4)"}
+                onClick={loadMorePosts}
+                disabled={loading}
+              >
+                {loading ? "Loading..." : "Load More Posts"}
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </Button>
+            )}
           </BlogPostsStyled>
         </Wrapper>
       </Region>
@@ -142,9 +208,25 @@ export const BlogPostsStyled = styled.div`
     gap: 1rem;
     /* max-width: 60ch; */
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
     border-bottom: 1px solid var(--secondary);
     overflow: hidden;
+  }
+
+  /* button {
+    margin-top: var(--s5);
+    padding: var(--s-1) var(--s1);
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--s-2);
+    cursor: pointer;
+  } */
+
+  button:disabled {
+    /* background-color: var(--secondary); */
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 
   .wrapper::after {
@@ -154,6 +236,12 @@ export const BlogPostsStyled = styled.div`
 
   .post-list {
     gap: var(--s5);
+  }
+
+  .category-container {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
   }
 
   & > div:first-child {

@@ -9,8 +9,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { dateFormater } from "../../helpers/dateFormater";
+import { postDateFormater } from "../../helpers/postDateFormater";
 import ContactFormSection from "../../components/ContactFormSection";
+import { StyledText } from "../../components/styles/StyledText.styled";
+import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 
 const client = new ApolloClient({
   uri: "https://sandracvijovic.com/testing/graphql",
@@ -54,6 +56,12 @@ const GET_SINGLE_POST = gql`
       author {
         node {
           name
+        }
+      }
+      categories {
+        nodes {
+          name
+          slug
         }
       }
       featuredImage {
@@ -167,8 +175,31 @@ const SinglePost = ({ post, list }) => {
                   ></Image>
                 </BlogImageWrapper>
                 <div>
-                  <span>{dateFormater(post.date)}</span>
                   <h1>{post.title}</h1>
+                  <UnderlineStyled
+                    underlineMargin={"var(--s-1)"}
+                  ></UnderlineStyled>
+                  <StyledText fontSize={"var(--s-1)"} align={"start"}>
+                    {postDateFormater(post.date)}
+                  </StyledText>
+                  {/* <div className="category-container">
+                    <svg
+                      viewBox="0 0 512 512"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width=".85em"
+                      height=".85em"
+                      fill="rgba(250,250,250,0.4)"
+                    >
+                      <path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z"></path>
+                    </svg>{" "}
+                    <StyledText
+                      color={"rgba(250,250,250,0.4)"}
+                      fontSize={"var(--s-1)"}
+                    >
+                      {post.categories.nodes[0].name}
+                    </StyledText>
+                  </div> */}
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </div>
@@ -195,6 +226,12 @@ export default SinglePost;
 
 export const SinglePostStyled = styled.div`
   margin-top: var(--s3);
+
+  .category-container {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
 
   .post-content {
     gap: var(--s2);
