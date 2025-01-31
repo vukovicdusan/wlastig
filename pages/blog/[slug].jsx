@@ -60,6 +60,41 @@ const GET_POSTS_SLUGS = gql`
   }
 `;
 
+// const GET_SINGLE_POST = gql`
+//   query GetSinglePost($slug: String!) {
+//     postBy(slug: $slug) {
+//       title
+//       content
+//       date
+//       author {
+//         node {
+//           name
+//         }
+//       }
+//       categories {
+//         nodes {
+//           name
+//           slug
+//         }
+//       }
+//       featuredImage {
+//         node {
+//           sourceUrl
+//           altText
+//         }
+//       }
+//       seo {
+//         metaDesc
+//         opengraphTitle
+//         opengraphDescription
+//         opengraphImage {
+//           sourceUrl
+//         }
+//       }
+//     }
+//   }
+// `;
+
 const GET_SINGLE_POST = gql`
   query GetSinglePost($slug: String!) {
     postBy(slug: $slug) {
@@ -84,12 +119,10 @@ const GET_SINGLE_POST = gql`
         }
       }
       seo {
-        metaDesc
-        opengraphTitle
-        opengraphDescription
-        opengraphImage {
-          sourceUrl
-        }
+        canonicalUrl
+        description
+        fullHead
+        title
       }
     }
   }
@@ -157,24 +190,34 @@ const SinglePost = ({ post, list, popularPosts }) => {
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
-
+  console.log(post.seo.fullHead);
   return (
     <>
       <Head>
         <title>Wlastig Analytics - {post.title}</title>
-        <meta name="description" content={post.seo ? post.seo.metaDesc : ""} />
+        <div dangerouslySetInnerHTML={{ __html: post.seo.fullHead }} />
+        {/* <meta
+          name="description"
+          content={post.seo.metaDesc ? post.seo.metaDesc : ""}
+        />
         <meta
           property="og:title"
-          content={post.seo ? post.seo.opengraphTitle : ""}
+          content={post.seo.opengraphTitle ? post.seo.opengraphTitle : ""}
         />
         <meta
           property="og:description"
-          content={post.seo ? post.seo.opengraphDescription : ""}
-        />
-        <meta
+          content={
+            post.seo.opengraphDescription ? post.seo.opengraphDescription : ""
+          }
+        /> */}
+        {/* <meta
           property="og:image"
-          content={post.seo ? post.seo.opengraphImage.sourceUrl : ""}
-        />
+          content={
+            post.seo.opengraphImage.sourceUrl
+              ? post.seo.opengraphImage.sourceUrl
+              : ""
+          }
+        /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Region>
