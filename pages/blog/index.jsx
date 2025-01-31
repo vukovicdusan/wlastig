@@ -18,6 +18,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// const GET_POPULAR_POSTS =
+
 const GET_POSTS = gql`
   query GetPosts($first: Int, $after: String) {
     posts(first: $first, after: $after) {
@@ -213,18 +215,7 @@ export const BlogPostsStyled = styled.div`
     overflow: hidden;
   }
 
-  /* button {
-    margin-top: var(--s5);
-    padding: var(--s-1) var(--s1);
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: var(--s-2);
-    cursor: pointer;
-  } */
-
   button:disabled {
-    /* background-color: var(--secondary); */
     opacity: 0.3;
     cursor: not-allowed;
   }

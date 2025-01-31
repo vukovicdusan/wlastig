@@ -6,6 +6,7 @@ import { InputWrapper } from "./styles/InputWrapper.styled";
 import { useState } from "react";
 import Link from "next/link";
 import { StyledText } from "./styles/StyledText.styled";
+import { Stack } from "./styles/Stack.styled";
 
 const BlogSidebar = (props) => {
   const [filteredList, setFilteredList] = useState("");
@@ -22,6 +23,14 @@ const BlogSidebar = (props) => {
 
     setFilteredList(term !== "" ? searchedList : "");
   };
+
+  const popularList = props.list.filter((post) =>
+    post.categories.nodes[0].slug.includes("popular")
+  );
+
+  popularList.map((post) => {
+    console.log(post.title);
+  });
 
   return (
     <BlogSidebarStyled>
@@ -56,10 +65,29 @@ const BlogSidebar = (props) => {
         </form>
 
         <Image alt="logo" width={150} src={logo}></Image>
-        <StyledText color={"var(--theme-text-dark)"}>
+        <StyledText align={"justify"} color={"var(--theme-text-dark)"}>
           Unlocking the power of data, one story at a time – explore our
           insights on analytics, strategy, and business intelligence.
         </StyledText>
+        <div>
+          <StyledText
+            align={"justify"}
+            family={"var(--poppinsbold)"}
+            fontSize={"var(--s2)"}
+            mb={"var(--s0)"}
+          >
+            Most Popular
+          </StyledText>
+          <Stack as="ul" stackSpace={"var(--s-2)"}>
+            {popularList.map((post) => (
+              <li key={post.id}>
+                <Link href={`/blog/${post.slug}`} passHref>
+                  {post.title}
+                </Link>
+              </li>
+            ))}
+          </Stack>
+        </div>
       </div>
     </BlogSidebarStyled>
   );
@@ -70,19 +98,17 @@ export default BlogSidebar;
 export const BlogSidebarStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* margin-inline: auto;
-  justify-content: center; */
-  gap: 4rem;
+  gap: 2rem;
 
   & > :last-child {
     flex-grow: 1;
-    flex-basis: 30%;
+    flex-basis: 25%;
   }
 
   & > :first-child {
     flex-basis: 0;
     flex-grow: 999;
-    min-inline-size: 60%;
+    min-inline-size: 70%;
     display: flex;
     flex-direction: column;
   }
@@ -130,11 +156,12 @@ export const BlogSidebarStyled = styled.div`
   .sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     gap: 2rem;
   }
   .sidebar img {
     object-fit: contain;
+    margin-inline: auto;
   }
 
   & label,
