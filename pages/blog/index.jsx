@@ -55,6 +55,18 @@ const GET_POSTS = gql`
   }
 `;
 
+const GET_POPULAR = gql`
+  query GetPosts {
+    posts(where: { categoryName: "popular" }) {
+      nodes {
+        title
+        slug
+        id
+      }
+    }
+  }
+`;
+
 export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: GET_POSTS,
@@ -64,17 +76,22 @@ export async function getStaticProps({ params }) {
     },
   });
 
+  const { data: popularPostsData } = await client.query({
+    query: GET_POPULAR,
+  });
+
   return {
     props: {
       posts: data.posts.nodes,
       pageInfo: data.posts.pageInfo,
+      popularPosts: popularPostsData.posts.nodes,
     },
   };
 }
 import { useState } from "react";
 import { Button } from "../../components/styles/Button.styled";
 
-const Blog = ({ posts, pageInfo }) => {
+const Blog = ({ posts, pageInfo, popularPosts }) => {
   const [currentPosts, setCurrentPosts] = useState(posts);
   const [currentPageInfo, setCurrentPageInfo] = useState(pageInfo);
   const [loading, setLoading] = useState(false);
@@ -111,7 +128,10 @@ const Blog = ({ posts, pageInfo }) => {
             <div>
               <h1 className="visually-hidden">Blog</h1>
             </div>
-            <BlogSidebar list={currentPosts || []}>
+            <BlogSidebar
+              popularList={popularPosts || []}
+              list={currentPosts || []}
+            >
               <div className="post-list">
                 {currentPosts.map((post) => (
                   <div key={post.id}>

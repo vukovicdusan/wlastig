@@ -38,6 +38,7 @@ export const BlogImageWrapper = styled.div`
     font-size: var(--s3) !important;
     font-weight: bold;
     text-transform: capitalize;
+    color: var(--text-light);
   }
 
   @media (max-width: 600px) {

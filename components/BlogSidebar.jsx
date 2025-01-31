@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../public/img/logo/Wlastig_logo_sajt_color.png";
+import logoColor from "../public/img/logo/Wlastig_logo_sajt_color-cut.png";
+import logoWhite from "../public/img/logo/logo-white.png";
 import Image from "next/image";
 import styled from "styled-components";
 import { InputWrapper } from "./styles/InputWrapper.styled";
@@ -23,14 +24,6 @@ const BlogSidebar = (props) => {
 
     setFilteredList(term !== "" ? searchedList : "");
   };
-
-  const popularList = props.list.filter((post) =>
-    post.categories.nodes[0].slug.includes("popular")
-  );
-
-  popularList.map((post) => {
-    console.log(post.title);
-  });
 
   return (
     <BlogSidebarStyled>
@@ -64,7 +57,22 @@ const BlogSidebar = (props) => {
           )}
         </form>
 
-        <Image alt="logo" width={150} src={logo}></Image>
+        <Image
+          className="hide-in-dark"
+          style={{ objectFit: "contain" }}
+          width="150"
+          src={logoColor}
+          priority
+          alt="logo"
+        />
+        <Image
+          className="show-in-dark"
+          style={{ objectFit: "contain" }}
+          width="150"
+          src={logoWhite}
+          priority
+          alt="logo"
+        />
         <StyledText align={"justify"} color={"var(--theme-text-dark)"}>
           Unlocking the power of data, one story at a time – explore our
           insights on analytics, strategy, and business intelligence.
@@ -74,12 +82,13 @@ const BlogSidebar = (props) => {
             align={"justify"}
             family={"var(--poppinsbold)"}
             fontSize={"var(--s2)"}
-            mb={"var(--s0)"}
+            mb={"var(--s-1)"}
+            color={"var(--theme-text-dark)"}
           >
             Most Popular
           </StyledText>
           <Stack as="ul" stackSpace={"var(--s-2)"}>
-            {popularList.map((post) => (
+            {props.popularList.map((post) => (
               <li key={post.id}>
                 <Link href={`/blog/${post.slug}`} passHref>
                   {post.title}
@@ -99,6 +108,10 @@ export const BlogSidebarStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+
+  ul {
+    color: var(--theme-text-dark);
+  }
 
   & > :last-child {
     flex-grow: 1;

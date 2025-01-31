@@ -38,6 +38,18 @@ const GET_POSTS = gql`
   }
 `;
 
+const GET_POPULAR = gql`
+  query GetPosts {
+    posts(where: { categoryName: "popular" }) {
+      nodes {
+        title
+        slug
+        id
+      }
+    }
+  }
+`;
+
 const GET_POSTS_SLUGS = gql`
   query GetPostSlugs {
     posts {
@@ -105,6 +117,9 @@ export async function getStaticProps({ params }) {
       }),
       client.query({ query: GET_POSTS }),
     ]);
+    const { data: popularPostsData } = await client.query({
+      query: GET_POPULAR,
+    });
 
     // If post not found, return 404
     if (!postResponse.data.postBy) {
@@ -117,6 +132,7 @@ export async function getStaticProps({ params }) {
       props: {
         post: postResponse.data.postBy,
         list: postsResponse.data.posts.nodes,
+        popularPosts: popularPostsData.posts.nodes,
       },
       // revalidate: 60, // Optional: Revalidate every minute
     };
@@ -128,7 +144,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const SinglePost = ({ post, list }) => {
+const SinglePost = ({ post, list, popularPosts }) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -159,7 +175,7 @@ const SinglePost = ({ post, list }) => {
                 <li>{post.title}</li>
               </ol>
             </nav>
-            <BlogSidebar list={list}>
+            <BlogSidebar popularList={popularPosts} list={list}>
               <div className="post-content">
                 <BlogImageWrapper>
                   <div>
@@ -176,11 +192,21 @@ const SinglePost = ({ post, list }) => {
                   ></Image>
                 </BlogImageWrapper>
                 <div>
-                  <h1>{post.title}</h1>
+                  <StyledText
+                    as={"h1"}
+                    color={"var(--theme-text-dark)"}
+                    align={"start"}
+                  >
+                    {post.title}
+                  </StyledText>
                   <UnderlineStyled
                     underlineMargin={"var(--s-1)"}
                   ></UnderlineStyled>
-                  <StyledText fontSize={"var(--s-1)"} align={"start"}>
+                  <StyledText
+                    color={"var(--theme-text-dark)"}
+                    fontSize={"var(--s-1)"}
+                    align={"start"}
+                  >
                     {postDateFormater(post.date)}
                   </StyledText>
                   {/* <div className="category-container">
@@ -202,7 +228,10 @@ const SinglePost = ({ post, list }) => {
                     </StyledText>
                   </div> */}
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                <div
+                  className="post-content"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
               </div>
             </BlogSidebar>
           </SinglePostStyled>
@@ -227,6 +256,10 @@ export default SinglePost;
 
 export const SinglePostStyled = styled.div`
   margin-top: var(--s3);
+
+  .post-content {
+    color: var(--theme-text-dark);
+  }
 
   .category-container {
     display: flex;
