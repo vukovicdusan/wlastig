@@ -134,7 +134,7 @@ export async function getStaticProps({ params }) {
         list: postsResponse.data.posts.nodes,
         popularPosts: popularPostsData.posts.nodes,
       },
-      // revalidate: 60, // Optional: Revalidate every minute
+      revalidate: 60, // Optional: Revalidate every minute
     };
   } catch (error) {
     console.error("Error in getStaticProps:", error);

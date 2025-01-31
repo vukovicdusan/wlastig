@@ -86,6 +86,7 @@ export async function getStaticProps({ params }) {
       pageInfo: data.posts.pageInfo,
       popularPosts: popularPostsData.posts.nodes,
     },
+    revalidate: 60,
   };
 }
 import { useState } from "react";
