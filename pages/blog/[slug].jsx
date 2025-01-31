@@ -83,6 +83,14 @@ const GET_SINGLE_POST = gql`
           altText
         }
       }
+      seo {
+        metaDesc
+        opengraphTitle
+        opengraphDescription
+        opengraphImage {
+          sourceUrl
+        }
+      }
     }
   }
 `;
@@ -134,7 +142,6 @@ export async function getStaticProps({ params }) {
         list: postsResponse.data.posts.nodes,
         popularPosts: popularPostsData.posts.nodes,
       },
-      revalidate: 60, // Optional: Revalidate every minute
     };
   } catch (error) {
     console.error("Error in getStaticProps:", error);
@@ -155,9 +162,18 @@ const SinglePost = ({ post, list, popularPosts }) => {
     <>
       <Head>
         <title>Wlastig Analytics - {post.title}</title>
+        <meta name="description" content={post.seo ? post.seo.metaDesc : ""} />
         <meta
-          name="description"
-          content={post.title || "Read this blog post"}
+          property="og:title"
+          content={post.seo ? post.seo.opengraphTitle : ""}
+        />
+        <meta
+          property="og:description"
+          content={post.seo ? post.seo.opengraphDescription : ""}
+        />
+        <meta
+          property="og:image"
+          content={post.seo ? post.seo.opengraphImage.sourceUrl : ""}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
