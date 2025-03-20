@@ -156,9 +156,9 @@ const Blog = ({ posts, pageInfo, popularPosts }) => {
                       </BlogImageWrapper>
                       <div>
                         <h2>{post.title}</h2>
-                        <span className="date">
+                        {/* <span className="date">
                           {postDateFormater(post.date)}
-                        </span>
+                        </span> */}
                       </div>
                       <div
                         className="extract"

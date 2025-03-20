@@ -190,7 +190,7 @@ const SinglePost = ({ post, list, popularPosts }) => {
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
-  console.log(post.seo.fullHead);
+  // console.log(post.seo.fullHead);
   return (
     <>
       <Head>
@@ -261,13 +261,13 @@ const SinglePost = ({ post, list, popularPosts }) => {
                   <UnderlineStyled
                     underlineMargin={"var(--s-1)"}
                   ></UnderlineStyled>
-                  <StyledText
+                  {/* <StyledText
                     color={"var(--theme-text-dark)"}
                     fontSize={"var(--s-1)"}
                     align={"start"}
                   >
                     {postDateFormater(post.date)}
-                  </StyledText>
+                  </StyledText> */}
                   {/* <div className="category-container">
                     <svg
                       viewBox="0 0 512 512"
