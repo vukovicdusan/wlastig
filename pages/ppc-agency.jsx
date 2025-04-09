@@ -57,8 +57,8 @@ const LandingAdvertising = () => {
               <Switcher className="center-mobile" gap={"var(--s4)"}>
                 <Stack stackJustify={"center"}>
                   <StyledH1 color="var(--text-light)" className="hero-title">
-                    Boost Your Revenue or Number of Leads with Targeted (Ili
-                    Tailored) PPC Campaigns!
+                    Boost Your Revenue or Number of Leads with Targeted PPC
+                    Campaigns!
                   </StyledH1>
                   <StyledText
                     fontSize={"var(--s2)"}

@@ -61,8 +61,8 @@ const LandingAdvertising = () => {
                     className="hero-title"
                     align={"start"}
                   >
-                    Boost Your Revenue or Number of Leads with Targeted (Ili
-                    Tailored) PPC Campaigns!
+                    Boost Your Revenue or Number of Leads with Targeted PPC
+                    Campaigns!
                   </StyledH1>
                   <StyledText
                     fontSize={"var(--s2)"}
