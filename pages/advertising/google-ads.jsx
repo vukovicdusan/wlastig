@@ -25,6 +25,8 @@ import Link from "next/link";
 import InfographicNew from "../../components/InfographicNew";
 import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled";
 import ScrollLink from "../../components/ScrollLink";
+import Image from "next/image";
+import ilustration from "../../public/img/pages/google-ads-fotka-cropped.webp";
 
 const GoogleAds = () => {
   const isSmallScreen = useScreenSize();
@@ -52,14 +54,23 @@ const GoogleAds = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled
-        backgroundImg={"../img/pages/google-analytics-4.avif"}
         overlay={true}
-        overlayTone={"rgba(0, 0, 0, 0.8)"}
+        overlayTone={"rgba(0, 0, 0, 0.2)"}
+        backgroundImg={"./img/pages/hero-consulting.avif"}
       >
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
-            <div className="hero-content analytics-hero">
-              <div></div>
+            <div className="hero-content">
+              <div>
+                <Image
+                  className="hero-ilustration"
+                  src={ilustration}
+                  width={450}
+                  height={400}
+                  alt="ilustration"
+                  priority
+                ></Image>
+              </div>
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
                   <h1 className="z-index-1">

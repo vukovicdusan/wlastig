@@ -65,11 +65,11 @@ const webAnalytics = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
-                  <h1>
+                  <h1 className="z-index-1">
                     &quot;Knowing yourself is the beginning of all wisdom.&quot;
                     Aristotle
                   </h1>
-                  <h3>
+                  <h3 className="z-index-1">
                     The same goes for businesses. Every company’s data has
                     hidden gems.
                   </h3>

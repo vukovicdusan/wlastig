@@ -37,7 +37,11 @@ const Consulting = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ServicesHeroStyled backgroundImg={"./img/pages/hero-consulting.avif"}>
+      <ServicesHeroStyled
+        backgroundImg={"./img/pages/hero-consulting.avif"}
+        overlay={true}
+        overlayTone={"rgba(0, 0, 0, 0.2)"}
+      >
         <Stack stackAlign={"inherit"}>
           <div className="hero-background">
             <div className="hero-content consulting-hero">
@@ -53,11 +57,11 @@ const Consulting = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
-                  <h1>
+                  <h1 className="z-index-1">
                     &quot;Failing to plan is planning to fail.&quot; - Benjamin
                     Franklin
                   </h1>
-                  <h3>
+                  <h3 className="z-index-1">
                     Big budgets don&apos;t guarantee success. Solid plans do.
                   </h3>
                 </Stack>

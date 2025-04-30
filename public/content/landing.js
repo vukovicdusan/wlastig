@@ -84,6 +84,33 @@ export const processArr = [
   },
 ];
 
+export const gtmProcessArr = [
+  {
+    title: "Google Tag Manager container audit",
+    body: "",
+  },
+  {
+    title: "Reporting issues found during the audit",
+    body: "",
+  },
+  {
+    title: "Setting up the GTM container structure",
+    body: "",
+  },
+  {
+    title: "Tag, trigger, and variable configurations",
+    body: "",
+  },
+  {
+    title: "Quality Assurance – tracking validation",
+    body: "",
+  },
+  {
+    title: "Ongoing tracking support",
+    body: "",
+  },
+];
+
 export const whyChooseWlastig = [
   {
     title: "Expertise You Can Trust",
@@ -116,5 +143,40 @@ export const whyChooseWlastig = [
   {
     title: "Expert Guidance for Precision Tracking",
     body: "Choosing Wlastig as your GA4 implementation partner ensures a meticulous and strategic setup tailored to your business goals. Our deep expertise guarantees that every event and conversion is accurately tracked, providing you with the insights needed for data-driven decisions. With Wlastig, you’re not just getting an implementation; you’re gaining a trusted partner committed to delivering measurable impact and long-term success.",
+  },
+];
+
+export const whyChooseWlastigGTM = [
+  {
+    title: "Expertise You Can Trust",
+    body: "We go beyond basic tag setup, building custom tracking systems that capture the right data for your business—whether it’s custom events, enhanced ecommerce, or advanced configurations.",
+  },
+  {
+    title: "Proven Results, Real Impact",
+    body: "Our GTM implementations drive better data accuracy, marketing performance, and decision-making, helping you optimize campaigns and measure ROI with confidence.",
+  },
+  {
+    title: "Accurate and Reliable Data",
+    body: "We meticulously test every tag, trigger, and variable to eliminate duplicate events, misfires, and inaccuracies, ensuring trustworthy analytics.",
+  },
+  {
+    title: "Server-Side Tracking Expertise",
+    body: "Server-side tracking bypasses ad blockers, improves data accuracy, and enhances privacy compliance (GDPR & CCPA)—giving you better control over data processing.",
+  },
+  {
+    title: "Faster Tag Deployment and Management",
+    body: "Deploy and manage tracking tags without developer reliance, making updates quick and hassle-free for seamless marketing execution.",
+  },
+  {
+    title: "Enhanced Security & Compliance",
+    body: "We align your GTM setup with GDPR & CCPA regulations, ensuring secure data handling and compliance while maximizing tracking reliability.",
+  },
+  {
+    title: "Seamless Integration with Your Marketing Tools",
+    body: "GTM connects with GA4, Google Ads, Meta Pixel, LinkedIn Insights, and more, streamlining data collection across your entire marketing stack.",
+  },
+  {
+    title: "Custom Solutions Tailored to Your Business Needs",
+    body: "We create GTM setups customized to your goals, including conversion tracking, cross-domain measurement, and dynamic remarketing for precise data insights. At Wlastig, we offer more than just a basic GTM setup. We provide a comprehensive, reliable, and scalable solution that ensures you get the most accurate data possible, allowing you to optimize marketing strategies, improve ROI, and make smarter decisions. Partner with us today to take control of your tracking with expert GTM and server-side tracking solutions.",
   },
 ];

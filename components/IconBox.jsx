@@ -7,6 +7,12 @@ import { Switcher } from "./styles/Switcher.styled";
 function IconBox(props) {
   let horizontal = props.flexDirection === "row";
 
+  let renderContent = props.html ? (
+    <p dangerouslySetInnerHTML={{ __html: props.content }} />
+  ) : (
+    <p>{props.content}</p>
+  );
+
   return (
     <IconBoxStyled horizontal={horizontal}>
       <Box
@@ -27,7 +33,7 @@ function IconBox(props) {
             </svg>
             <Stack stackAlign={"flex-start"} stackJustify={"flex-start"}>
               <h4>{props.title}</h4>
-              <p>{props.content}</p>
+              {renderContent}
             </Stack>
           </Switcher>
         ) : (
@@ -38,7 +44,7 @@ function IconBox(props) {
               ></use>
             </svg>
             <h4>{props.title}</h4>
-            <p>{props.content}</p>
+            {renderContent}
           </Stack>
         )}
       </Box>

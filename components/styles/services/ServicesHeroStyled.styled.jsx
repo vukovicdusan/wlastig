@@ -10,8 +10,8 @@ export const ServicesHeroStyled = styled.div`
     justify-content: center;
     background-image: url(${(props) => props.backgroundImg || ""});
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: ${(props) => props.backgroundSize || "cover"};
+    background-position: ${(props) => props.backgroundPosition || "center"};
   }
 
   .hero-content {
@@ -63,7 +63,7 @@ export const ServicesHeroStyled = styled.div`
 
   .hero-background::before {
     content: "";
-    display: ${(props) => props.overlay || "none"};
+    display: ${(props) => (props.overlay ? "block" : "none")};
     position: absolute;
     top: 0;
     left: 0;
@@ -150,14 +150,14 @@ export const ServicesHeroStyled = styled.div`
     .hero-background::before {
       content: "";
       position: absolute;
-      display: block;
+      display: ${(props) => (props.overlay ? "block" : "none")};
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       width: 100%;
       height: 100%;
-      background-color: ${(props) => props.overlayTone || "rgba(0, 0, 0, 0.5)"};
+      background-color: ${(props) => props.overlayTone || "rgba(0, 0, 0, 0.3)"};
       z-index: 0;
     }
   }

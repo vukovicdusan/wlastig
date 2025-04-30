@@ -7,10 +7,7 @@ import { Stack } from "../../components/styles/Stack.styled";
 import ContactForm from "../../components/ContactForm";
 import { Shapedivider } from "../../components/styles/Shapedivider.styled";
 import { FullBackground } from "../../components/styles/FullBackground.styled";
-import {
-  StyledH1,
-  StyledText,
-} from "../../components/styles/StyledText.styled";
+import { StyledText } from "../../components/styles/StyledText.styled";
 import Head from "next/head";
 import AnimationContainer from "../../components/AnimationContainer";
 import IconBox from "../../components/IconBox";
@@ -18,7 +15,10 @@ import { Grid } from "../../components/styles/Grid.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import Testimonials from "../../components/Testimonials";
 import ContactFormSection from "../../components/ContactFormSection";
-import { processArr, whyChooseWlastig } from "../../public/content/landing";
+import {
+  gtmProcessArr,
+  whyChooseWlastigGTM,
+} from "../../public/content/landing";
 import { Button } from "../../components/styles/Button.styled";
 import useScreenSize from "../../hooks/useScreenSize";
 import { LandingStyled } from "../../components/LandingStyled.styled";
@@ -26,9 +26,9 @@ import InfographicNew from "../../components/InfographicNew";
 import { ServicesHeroStyled } from "../../components/styles/services/ServicesHeroStyled.styled";
 import ScrollLink from "../../components/ScrollLink";
 import Image from "next/image";
-import ilustration from "../../public/img/pages/ga4-novi3-cropped.webp";
+import ilustration from "../../public/img/pages/gtm-vizual-novi-cropped.webp";
 
-const GoogleAnalytycs4 = () => {
+const GoogleTagManager = () => {
   const isSmallScreen = useScreenSize();
   const [serviceCount, setserviceCount] = React.useState(4);
 
@@ -45,22 +45,22 @@ const GoogleAnalytycs4 = () => {
   return (
     <main>
       <Head>
-        <title>Wlastig Analytics - Google Analytics 4</title>
+        <title>Wlastig Analytics - Google Tag Manager (GTM)</title>
         <meta
           name="description"
-          content="Unlock the full potential of Google Analytics 4 (GA4) with Wlastig’s expert consulting services. We provide tailored GA4 strategies, implementation, and insights to drive your business forward."
+          content="Optimize your tracking with expert Google Tag Manager (GTM) implementation from Wlastig. We ensure your tags, triggers, and variables are set up correctly so your data is accurate, structured, and actionable. Whether you need a fresh GTM setup, debugging, or advanced tracking configurations, our expertise guarantees reliable data for better marketing and business decisions."
         />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled
-        backgroundImg={"../../../public/img/hero.webp"}
         overlay={true}
         overlayTone={"rgba(0, 0, 0, 0.2)"}
+        backgroundImg={"./img/pages/hero-consulting.avif"}
       >
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">
-            <div className="hero-content">
+            <div className="hero-content ga4-hero">
               <div>
                 <Image
                   className="hero-ilustration"
@@ -74,11 +74,12 @@ const GoogleAnalytycs4 = () => {
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
                   <h1 className="z-index-1">
-                    Unlock the Full Potential of Google Analytics 4
+                    Your Data Is Only as Good as Your Tracking
                   </h1>
                   <h3 className="z-index-1">
-                    Advanced GA4 Tracking Solutions to Elevate Your Data
-                    Insights and Drive Growth.
+                    Properly configured Google Tag Manager is the foundation of
+                    accurate tracking. It ensures your data is trustworthy,
+                    structured, and ready to drive smarter decisions.
                   </h3>
                 </Stack>
 
@@ -102,7 +103,7 @@ const GoogleAnalytycs4 = () => {
           <Wrapper>
             <AnimationContainer>
               <StyledText as={"h2"} align="center" maxWidth={"100%"}>
-                GA4 Tracking Services Tailored to Your Business
+                Flawless Tracking Starts with a Solid GTM Setup
               </StyledText>
               <Center>
                 <UnderlineStyled></UnderlineStyled>
@@ -111,22 +112,15 @@ const GoogleAnalytycs4 = () => {
             <AnimationContainer>
               <Stack stackAlign="center">
                 <p className="max-w-prose-plus">
-                  Unlock the full potential of your website data with customized
-                  Google Analytics 4 (GA4) tracking solutions designed to meet
-                  the unique needs of your business. At <bold>Wlastig</bold>, we
-                  specialize in implementing advanced GA4 tracking and
-                  Server-Side Tracking via Google Tag Manager (GTM), ensuring
-                  you capture the right insights that drive growth.
+                  Google Tag Manager is a powerful tool—but only when configured
+                  correctly. A poorly implemented GTM setup can lead to missing
+                  data, tracking discrepancies, and unreliable insights. At
+                  Wlastig, we ensure every tag, trigger, and variable is
+                  structured for accuracy and efficiency. From event tracking to
+                  advanced configurations, we build a GTM setup that delivers
+                  trustworthy data, empowering you to make confident marketing
+                  decisions.
                 </p>{" "}
-                <p className="max-w-prose-plus">
-                  {" "}
-                  Whether you&apos;re looking to understand user behavior,
-                  optimize your conversions, or improve marketing performance,
-                  our team ensures accurate data collection across platforms.
-                  With precise tracking and actionable insights, you&apos;ll
-                  have the data-driven tools needed to make informed decisions
-                  and stay ahead of the competition.
-                </p>
               </Stack>
             </AnimationContainer>
             <Switcher
@@ -145,9 +139,10 @@ const GoogleAnalytycs4 = () => {
                   img={"chart"}
                   width={100}
                   height={100}
-                  title={"Custom GA4 tracking:"}
+                  html={true}
+                  title={"Data Accuracy & Reliability"}
                   content={
-                    "We create a tracking architecture built around the key performance indicators (KPIs) that matter most to your business. From event tracking to funnel analysis, we ensure you’re getting the data you need to drive smart decisions."
+                    "&#x2022; Ensures that all tracking events are correctly captured and reported.<br> &#x2022; Reduces data discrepancies between platforms like Google Analytics, Google Ads, Meta Pixel, TikTok Ads, etc."
                   }
                 ></IconBox>
               </AnimationContainer>
@@ -156,12 +151,13 @@ const GoogleAnalytycs4 = () => {
                   flexDirection={"row"}
                   color={"var(--theme-text-dark)"}
                   boxBorderColor={"transparent"}
-                  img={"data-analysis"}
+                  img={"report"}
                   width={100}
                   height={100}
-                  title={"Server-Side Tracking Implementation:"}
+                  html={true}
+                  title={"Improved Marketing & Advertising ROI"}
                   content={
-                    "Our Server-Side Tracking solutions ensure that your data is more accurate by reducing loss from ad blockers and browser restrictions. This improved data accuracy leads to a better understanding of user journeys, translating into more conversions and higher ROI."
+                    "&#x2022; Ensures accurate conversion tracking for better ad targeting and attribution.<br> &#x2022; Helps optimize ad spend by tracking user interactions effectively."
                   }
                 ></IconBox>
               </AnimationContainer>
@@ -180,9 +176,47 @@ const GoogleAnalytycs4 = () => {
                   img={"ecommerce"}
                   width={100}
                   height={100}
-                  title={"More conversions, better campaign results:"}
+                  html={true}
+                  title={"Improved Website Performance"}
                   content={
-                    "With higher accuracy in tracking user actions, your marketing and ad campaigns benefit from better data. This means you can optimize your campaigns more effectively, leading to increased conversions and more efficient ad spending, maximizing your return on investment."
+                    "&#x2022; Loads tags asynchronously, preventing slowdowns and ensuring a smooth user experience.<br>&#x2022; Reduces the need for multiple tracking scripts embedded directly in the site’s code."
+                  }
+                ></IconBox>
+              </AnimationContainer>
+              <AnimationContainer delay={"6"}>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"keyword-search"}
+                  width={100}
+                  height={100}
+                  html={true}
+                  title={"Enhanced Security & Compliance"}
+                  content={
+                    "&#x2022; Controls which third-party scripts run on your site, reducing security risks.<br>&#x2022; Helps with GDPR and CCPA compliance by managing consent-based tracking."
+                  }
+                ></IconBox>
+              </AnimationContainer>
+            </Switcher>
+            <Switcher
+              switcherJustify={"center"}
+              flexBasis={"40rem"}
+              elCount={"2"}
+              gap={"var(--s4)"}
+            >
+              <AnimationContainer delay={"3"}>
+                <IconBox
+                  flexDirection={"row"}
+                  color={"var(--theme-text-dark)"}
+                  boxBorderColor={"transparent"}
+                  img={"direction"}
+                  width={100}
+                  height={100}
+                  html={true}
+                  title={"Scalability & Flexibility"}
+                  content={
+                    "&#x2022; Adapts to business growth with an easily expandable tracking setup.<br>&#x2022; Works efficiently for both small websites and enterprise-level businesses."
                   }
                 ></IconBox>
               </AnimationContainer>
@@ -194,9 +228,10 @@ const GoogleAnalytycs4 = () => {
                   img={"search"}
                   width={100}
                   height={100}
-                  title={"In-depth reporting and actionable insights:"}
+                  html={true}
+                  title={"Future-Proof Tracking"}
                   content={
-                    "We go beyond basic analytics with in-depth reports that highlight actionable insights. By leveraging this data, you can fine-tune your strategies, refine your audience targeting, and optimize your user experience for continuous growth."
+                    "&#x2022; Keeps your analytics setup adaptable to new tracking requirements and platform updates.<br>&#x2022; Supports server-side tracking for greater data control and privacy compliance."
                   }
                 ></IconBox>
               </AnimationContainer>
@@ -268,7 +303,7 @@ const GoogleAnalytycs4 = () => {
               >
                 <AnimationContainer>
                   <StyledText as={"h2"} align="center" maxWidth={"100%"}>
-                    Why Choose Wlastig for GA4 Tracking?
+                    Why Choose Wlastig for Google Tag Manager?
                   </StyledText>
                   <Center>
                     <UnderlineStyled></UnderlineStyled>
@@ -277,17 +312,18 @@ const GoogleAnalytycs4 = () => {
                 <AnimationContainer>
                   <Center>
                     <StyledText className="max-w-prose-plus">
-                      We specialize in advanced{" "}
-                      <strong>Google Analytics 4 (GA4)</strong>
-                      tracking solutions designed to give you the deepest
-                      insights into your website performance and user behavior.
-                      Here’s why <strong>Wlastig</strong> is your ideal partner
-                      for GA4 implementation:
+                      At Wlastig, we specialize in delivering precision-driven{" "}
+                      <strong>Google Tag Manager (GTM)</strong> setups that
+                      ensure your tracking is accurate, efficient, and scalable.
+                      We understand that reliable data is the backbone of smart
+                      decision-making, and we bring deep expertise to every
+                      aspect of GTM management. Here’s why Wlastig is the best
+                      choice for your GTM needs:
                     </StyledText>
                   </Center>
                 </AnimationContainer>
                 <Grid gridColumn={"400px"} gridGap={"var(--s5)"}>
-                  {whyChooseWlastig
+                  {whyChooseWlastigGTM
                     .slice(0, serviceCount)
                     .map((item, index) => (
                       // <div >
@@ -300,7 +336,7 @@ const GoogleAnalytycs4 = () => {
                       // </div>
                     ))}
                 </Grid>
-                {serviceCount < whyChooseWlastig.length && isSmallScreen ? (
+                {serviceCount < whyChooseWlastigGTM.length && isSmallScreen ? (
                   <Center mt={"var(--s4)"}>
                     <Button id="see_more_services" onClick={seeMore}>
                       See More <span></span>
@@ -329,7 +365,7 @@ const GoogleAnalytycs4 = () => {
           textColor={"var(--text-dark)"}
           shapeDividerFill={"var(--primary)"}
           ctaButton={false}
-          processArr={processArr}
+          processArr={gtmProcessArr}
           treshold={0.3}
           fireHeight={"218vh"}
         ></InfographicNew>
@@ -351,4 +387,4 @@ const GoogleAnalytycs4 = () => {
   );
 };
 
-export default GoogleAnalytycs4;
+export default GoogleTagManager;

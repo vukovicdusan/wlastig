@@ -69,11 +69,11 @@ const Advertising = () => {
               </div>
               <Stack stackAlign={"end"}>
                 <Stack stackAlign={"end"}>
-                  <h1>
+                  <h1 className="z-index-1">
                     Don&apos;t waste money on secret formulas and marketing
                     wizards.
                   </h1>
-                  <h3>
+                  <h3 className="z-index-1">
                     Trust in data and math. It&apos;s when you become
                     data-driven that the real magic kicks in!
                   </h3>
