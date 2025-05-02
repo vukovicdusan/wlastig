@@ -86,11 +86,11 @@ export const NavItemHasChildrenStyled = styled.div`
     display: none;
   }
 
-  .dropdown-link:hover > * > .icon-closed {
+  .dropdown-link:hover > * > * > .icon-closed {
     display: none;
   }
 
-  .dropdown-link:hover > * > .icon-open {
+  .dropdown-link:hover > * > * > .icon-open {
     display: block;
   }
 

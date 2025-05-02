@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SubmenuIcon() {
+function SubmenuIcon(props) {
+  const [isOpen, setIsOpen] = useState(false);
+  let onClickHandler = props.click
+    ? () => {
+        setIsOpen(!isOpen);
+        props.dropdownHandler();
+      }
+    : () => {
+        return;
+      };
+
   return (
-    <>
+    <span onClick={onClickHandler}>
       <svg
-        className="icon-closed"
+        className={
+          `${props.click && isOpen ? "display-none " : ""}` + "icon-closed"
+        }
         height={24}
         width={24}
         clipRule="evenodd"
@@ -21,7 +33,9 @@ function SubmenuIcon() {
         />
       </svg>
       <svg
-        className="icon-open"
+        className={
+          `${props.click && !isOpen ? "display-none " : ""}` + "icon-open"
+        }
         clipRule="evenodd"
         fillRule="evenodd"
         strokeLinejoin="round"
@@ -37,7 +51,7 @@ function SubmenuIcon() {
           fill="#fff"
         />
       </svg>
-    </>
+    </span>
   );
 }
 

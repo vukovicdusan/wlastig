@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { DisabledLink } from "./styles/DisabledLink.styled";
 import { Wrapper } from "./styles/Wrapper.styled";
 import { Region } from "./styles/Region.styled";
 import { Stack } from "./styles/Stack.styled";
 import { TextMedium } from "./styles/TextMedium.styled";
+import NavItemHasChildrenMobile from "./NavItemHasChildrenMobile";
 
 const MobileMenu = (props) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -30,22 +30,47 @@ const MobileMenu = (props) => {
                   <TextMedium as="li">
                     <Link href={"/"}>Home</Link>
                   </TextMedium>
-                  <Stack as={"ul"} stackAlign={"flex-end"}>
-                    <DisabledLink>
-                      <TextMedium color={"var(--text-light)"}>
-                        Services <span className="arrow">&#10549;</span>
-                      </TextMedium>
-                    </DisabledLink>
-                    <li className="subservice">
-                      <Link href={"/web-analytics"}>Web Analytics</Link>
-                    </li>
-                    <li className="subservice">
-                      <Link href={"/advertising"}>Advertising</Link>
-                    </li>
-                    <li className="subservice">
-                      <Link href={"/consulting"}>Consulting</Link>
-                    </li>
-                  </Stack>
+                  {/* <Stack as={"ul"} stackAlign={"flex-end"}> */}
+                  <NavItemHasChildrenMobile
+                    disabledLink={true}
+                    name={"Services"}
+                  >
+                    <Stack as="ul" stackAlign={"flex-end"}>
+                      <NavItemHasChildrenMobile
+                        name={"Web Analytics"}
+                        link={"/web-analytics"}
+                      >
+                        <Stack as="ul">
+                          <li>
+                            <Link href={"/web-analytics/google-analytics-4"}>
+                              Google Analytics
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href={"/web-analytics/google-tag-manager"}>
+                              Google Tag Manager
+                            </Link>
+                          </li>
+                        </Stack>
+                      </NavItemHasChildrenMobile>
+                      <NavItemHasChildrenMobile
+                        name={"Advertising"}
+                        link={"/advertising"}
+                      >
+                        <Stack as="ul" stackAlign={"flex-end"}>
+                          <li>
+                            <Link href={"/advertising/google-ads"}>
+                              Google Ads
+                            </Link>
+                          </li>
+                        </Stack>
+                      </NavItemHasChildrenMobile>
+                      <li>
+                        <Link href={"/consulting"}>Consulting</Link>
+                      </li>
+                    </Stack>
+                  </NavItemHasChildrenMobile>
+                  {/* </Stack> */}
                   <TextMedium as="li">
                     <Link href={"/our-team"}>Our Team</Link>
                   </TextMedium>
