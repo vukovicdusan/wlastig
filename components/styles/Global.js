@@ -263,6 +263,7 @@ max-width: 80ch;
 	display: none !important;
 }
 
+
 @media (max-width: 450px) {
 	h1 {
 		font-size: var(--s2);
@@ -391,6 +392,10 @@ margin-bottom: var(--s-1);
     .calendly-inline-widget {
         min-height: 1050px;
     }
+
+.remove-mobile {
+	display: none;
+}
 }
 
 .show-in-dark {

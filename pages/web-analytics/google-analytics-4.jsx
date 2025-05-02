@@ -324,15 +324,17 @@ const GoogleAnalytycs4 = () => {
             </svg>
           </Shapedivider>
         </FullBackground>
-        <InfographicNew
-          titleColor={"var(--text-dark)"}
-          textColor={"var(--text-dark)"}
-          shapeDividerFill={"var(--primary)"}
-          ctaButton={false}
-          processArr={processArr}
-          treshold={0.3}
-          fireHeight={"218vh"}
-        ></InfographicNew>
+        <div className="remove-mobile">
+          <InfographicNew
+            titleColor={"var(--text-dark)"}
+            textColor={"var(--text-dark)"}
+            shapeDividerFill={"var(--primary)"}
+            ctaButton={false}
+            processArr={processArr}
+            treshold={0.3}
+            fireHeight={"218vh"}
+          ></InfographicNew>
+        </div>
         <div className="spacer"></div>
         <Testimonials sidebarLayout={false}></Testimonials>
         <ContactFormSection
