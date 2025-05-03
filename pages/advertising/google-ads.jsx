@@ -56,7 +56,7 @@ const GoogleAds = () => {
       <ServicesHeroStyled
         overlay={true}
         overlayTone={"rgba(0, 0, 0, 0.2)"}
-        backgroundImg={"./img/pages/hero-consulting.avif"}
+        backgroundImg={"../img/hero.jpg"}
       >
         <Stack stackSpace={"var(--s4)"} stackAlign={"inherit"}>
           <div className="hero-background">

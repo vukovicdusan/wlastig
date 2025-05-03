@@ -54,7 +54,7 @@ const GoogleAnalytycs4 = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled
-        backgroundImg={"../../../public/img/hero.webp"}
+        backgroundImg={"../img/hero.jpg"}
         overlay={true}
         overlayTone={"rgba(0, 0, 0, 0.2)"}
       >
