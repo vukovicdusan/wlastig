@@ -77,6 +77,11 @@ export const NavItemHasChildrenStyled = styled.div`
   .dropdown-link.open > .dropdown {
     padding-block: var(--s-2);
   }
+
+  .icon-closed,
+  .icon-open {
+    transform: translateY(2px);
+  }
 `;
 
 export default NavItemHasChildren;
