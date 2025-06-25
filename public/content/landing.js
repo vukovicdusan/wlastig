@@ -86,19 +86,7 @@ export const processArr = [
 
 export const gtmProcessArr = [
   {
-    title: "Google Tag Manager container audit",
-    body: "",
-  },
-  {
-    title: "Reporting issues found during the audit",
-    body: "",
-  },
-  {
-    title: "Setting up the GTM container structure",
-    body: "",
-  },
-  {
-    title: "Tag, trigger, and variable configurations",
+    title: "Ongoing tracking support",
     body: "",
   },
   {
@@ -106,7 +94,19 @@ export const gtmProcessArr = [
     body: "",
   },
   {
-    title: "Ongoing tracking support",
+    title: "Tag, trigger, and variable configurations",
+    body: "",
+  },
+  {
+    title: "Setting up the GTM container structure",
+    body: "",
+  },
+  {
+    title: "Reporting issues found during the audit",
+    body: "",
+  },
+  {
+    title: "Google Tag Manager container audit",
     body: "",
   },
 ];
