@@ -16,9 +16,11 @@ import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled"
 import dummy from "../../public/img/dummy-post.webp";
 
 const client = new ApolloClient({
-    uri: "https://snow-gazelle-262455.hostingersite.com/graphql",
-    cache: new InMemoryCache(),
+  uri: "https://snow-gazelle-262455.hostingersite.com/graphql",
+  cache: new InMemoryCache(),
+  ssrMode: true,
 });
+
 
 const GET_POSTS = gql`
     query GetPosts {
@@ -129,59 +131,37 @@ const GET_SINGLE_POST = gql`
 `;
 
 export async function getStaticPaths() {
-    try {
-        const { data } = await client.query({ query: GET_POSTS_SLUGS });
-
-        const paths = data.posts.nodes.map((post) => ({
-            params: { slug: post.slug },
-        }));
-
-        return {
-            paths,
-            fallback: false,
-        };
-    } catch (error) {
-        console.error("Error in getStaticPaths:", error);
-        return {
-            paths: [],
-            fallback: false,
-        };
-    }
+  try {
+    const { data } = await client.query({ query: GET_POSTS_SLUGS });
+    const paths = (data?.posts?.nodes || []).map(p => ({ params: { slug: p.slug } }));
+    return { paths, fallback: 'blocking' }; // ⬅️ change from false
+  } catch (e) {
+    return { paths: [], fallback: 'blocking' };
+  }
 }
 
 export async function getStaticProps({ params }) {
-    try {
-        const [postResponse, postsResponse] = await Promise.all([
-            client.query({
-                query: GET_SINGLE_POST,
-                variables: { slug: params.slug },
-            }),
-            client.query({ query: GET_POSTS }),
-        ]);
-        const { data: popularPostsData } = await client.query({
-            query: GET_POPULAR,
-        });
+  try {
+    const [postRes, postsRes, popularRes] = await Promise.all([
+      client.query({ query: GET_SINGLE_POST, variables: { slug: params.slug } }),
+      client.query({ query: GET_POSTS }),
+      client.query({ query: GET_POPULAR }),
+    ]);
 
-        // If post not found, return 404
-        if (!postResponse.data.postBy) {
-            return {
-                notFound: true,
-            };
-        }
+    const post = postRes?.data?.postBy;
+    if (!post) return { notFound: true, revalidate: 60 };
 
-        return {
-            props: {
-                post: postResponse.data.postBy,
-                list: postsResponse.data.posts.nodes,
-                popularPosts: popularPostsData.posts.nodes,
-            },
-        };
-    } catch (error) {
-        console.error("Error in getStaticProps:", error);
-        return {
-            notFound: true,
-        };
-    }
+    return {
+      props: {
+        post,
+        list: postsRes?.data?.posts?.nodes || [],
+        popularPosts: popularRes?.data?.posts?.nodes || [],
+      },
+      revalidate: 60, // ISR
+    };
+  } catch (e) {
+    return { notFound: true, revalidate: 60 };
+  }
 }
 
 const SinglePost = ({ post, list, popularPosts }) => {
@@ -193,33 +173,32 @@ const SinglePost = ({ post, list, popularPosts }) => {
     // console.log(post.seo.fullHead);
     return (
         <>
-            <Head>
-                <title>Wlastig Analytics - {post.title}</title>
-                <div dangerouslySetInnerHTML={{ __html: post.seo.fullHead }} />
-                {/* <meta
-          name="description"
-          content={post.seo.metaDesc ? post.seo.metaDesc : ""}
-        />
-        <meta
-          property="og:title"
-          content={post.seo.opengraphTitle ? post.seo.opengraphTitle : ""}
-        />
-        <meta
-          property="og:description"
-          content={
-            post.seo.opengraphDescription ? post.seo.opengraphDescription : ""
-          }
-        /> */}
-                {/* <meta
-          property="og:image"
-          content={
-            post.seo.opengraphImage.sourceUrl
-              ? post.seo.opengraphImage.sourceUrl
-              : ""
-          }
-        /> */}
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <Head>
+            <title>
+                {(post?.seo?.title ?? `Wlastig Analytics - ${post.title}`)}
+            </title>
+
+            {post?.seo?.description && (
+                <meta name="description" content={post.seo.description} />
+            )}
+
+            {post?.seo?.canonicalUrl && (
+                <link rel="canonical" href={post.seo.canonicalUrl} />
+            )}
+
+            {/* Optional basic OG/Twitter tags (build from your data) */}
+            <meta property="og:title" content={(post?.seo?.title ?? post.title)} />
+            {post?.seo?.description && (
+                <meta property="og:description" content={post.seo.description} />
+            )}
+            {post?.featuredImage?.node?.sourceUrl && (
+                <meta property="og:image" content={post.featuredImage.node.sourceUrl} />
+            )}
+            <meta name="twitter:card" content="summary_large_image" />
+
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
+
             <Region>
                 <Wrapper>
                     <SinglePostStyled>
