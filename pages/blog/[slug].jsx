@@ -304,6 +304,7 @@ export const SinglePostStyled = styled.div`
   word-wrap: break-word;
   .wp-block-image img {
     object-fit: contain;
+    height: auto;
   }
   h2,
   h3,
