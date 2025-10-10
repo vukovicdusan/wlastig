@@ -7,75 +7,96 @@ const handler = async (req, res) => {
     const { name, email, type, website, comments } = req.body.data;
     const listId =
       type === "contact" ? contact_form_list_id : free_consultation;
-    const options = {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        revision: "2024-05-15",
-        "content-type": "application/json",
-        Authorization: `Klaviyo-API-Key ${api_key}`,
-      },
-      body: JSON.stringify({
-        data: {
-          type: "profile",
-          attributes: {
-            email: email,
-            first_name: name,
-            organization: website,
-            properties: { message: comments, name: name },
-          },
-        },
-      }),
+    const headers = {
+      accept: "application/json",
+      revision: "2024-07-15", // use the latest consistently
+      "content-type": "application/json",
+      Authorization: `Klaviyo-API-Key ${api_key}`,
     };
 
-    const response = await fetch(
-      `https://a.klaviyo.com/api/profiles/`,
-      options
+    // Helper: get or create a profile, returning { id, created: boolean }
+    const getOrCreateProfile = async () => {
+      // Try create
+      const createResp = await fetch("https://a.klaviyo.com/api/profiles/", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          data: {
+            type: "profile",
+            attributes: {
+              email,
+              first_name: name,
+              organization: website,
+              properties: { message: comments, name },
+            },
+          },
+        }),
+      });
+
+      if (createResp.ok) {
+        const created = await createResp.json();
+        return { id: created.data.id, created: true };
+      }
+
+      // If create failed, try to find by email; treat found as non-fatal “exists”
+      let details;
+      try {
+        details = await createResp.json();
+      } catch {}
+
+      // Query by email
+      const filterEmail = encodeURIComponent(`equals(email,"${email}")`);
+      const lookupResp = await fetch(
+        `https://a.klaviyo.com/api/profiles/?filter=${filterEmail}`,
+        {
+          method: "GET",
+          headers,
+        }
+      );
+      if (lookupResp.ok) {
+        const data = await lookupResp.json();
+        const existing = data?.data?.[0];
+        if (existing?.id) return { id: existing.id, created: false };
+      }
+
+      // If we’re here, it’s a hard failure
+      throw new Error(`Klaviyo profile error: ${JSON.stringify(details)}`);
+    };
+
+    // 1) Get or create profile
+    const { id: profileId, created } = await getOrCreateProfile();
+
+    // 2) Add to list (idempotent-ish; Klaviyo may return 409 if already in list)
+    const addToListResp = await fetch(
+      `https://a.klaviyo.com/api/lists/${listId}/relationships/profiles/`,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          data: [{ type: "profile", id: profileId }],
+        }),
+      }
     );
 
-    if (response.ok) {
-      const listId =
-        type === "contact" ? contact_form_list_id : free_consultation;
-      const data = await response.json();
-      let profileId = data.data.id;
-      // res.status(200).json(data);
-      const addToListOptions = {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          revision: "2024-07-15",
-          "content-type": "application/json",
-          Authorization: `Klaviyo-API-Key ${api_key}`,
-        },
-        body: JSON.stringify({
-          data: [
-            {
-              type: "profile",
-              id: profileId, // Use the profile ID in the request body
-            },
-          ],
-        }),
-      };
-      const addToListResponse = await fetch(
-        `https://a.klaviyo.com/api/lists/${listId}/relationships/profiles/`,
-        addToListOptions
-      );
-      if (addToListResponse.ok) {
-        const listData = await addToListResponse.json();
-        res.status(200).json(listData);
-      } else {
-        const errorData = await addToListResponse.json();
-        console.error("Error addToList Response Data: ", errorData);
-        throw new Error(`Error adding profile to Klaviyo list: ${errorData}`);
-      }
-    } else {
-      const errorData = await response.json();
-      console.error("Error Response Data:", errorData);
-      throw new Error(`Error adding profile to Klaviyo list: ${errorData}`);
+    let warnings = [];
+    if (!addToListResp.ok) {
+      // Try to read the error but don’t fail the whole flow — return warning to client
+      let err;
+      try {
+        err = await addToListResp.json();
+      } catch {}
+      console.error("Add-to-list warning:", err);
+      warnings.push("Could not add profile to list");
     }
+    res.status(200).json({
+      ok: true,
+      created,
+      profileId,
+      warnings,
+    });
   } catch (error) {
     console.error("Catch Block Error:", error);
-    res.status(500).json({ error: error.message || "Server error" });
+    res.status(500).json({ ok: false, error: error.message || "Server error" });
   }
 };
 

@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { inputChecker } from "../helpers/inputChecker";
 import ModalCtx from "../store/ModalCtx";
 import AnimationContainer from "./AnimationContainer";
+import { sendToSimpleCrm } from "../lib/sendToSimpleCrm";
 
 const ContactForm = (props) => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -60,11 +61,58 @@ const ContactForm = (props) => {
     if (!anyError) {
       setContactFormProccess((prev) => ({ ...prev, loading: true }));
       try {
-        await Promise.all([
-          sendContactForm(contactFormData),
-          sendToKlaviyo(contactFormData),
-          firebaseWriteHandler(contactFormData),
+        // await Promise.all([
+        //   sendContactForm(contactFormData),
+        //   sendToKlaviyo(contactFormData),
+        //   firebaseWriteHandler(contactFormData),
+        //   sendToSimpleCrm(contactFormData),
+        // ]);
+        const results = await Promise.allSettled([
+          sendContactForm(contactFormData), // [0] critical (e.g., email delivery / main backend)
+          sendToKlaviyo(contactFormData), // [1] non-blocking
+          firebaseWriteHandler(contactFormData), // [2] non-blocking (analytics/logging)
+          sendToSimpleCrm(contactFormData), // [3] non-blocking (sync)
         ]);
+
+        const [emailRes, klaviyoRes, fbRes, crmRes] = results;
+
+        const emailOk = emailRes.status === "fulfilled";
+        const klaviyoOk = klaviyoRes.status === "fulfilled";
+        const fbOk = fbRes.status === "fulfilled";
+        const crmOk = crmRes.status === "fulfilled";
+
+        if (emailOk) {
+          setContactFormProccess((prev) => ({
+            ...prev,
+            success: true,
+            loading: false,
+          }));
+          // optionally stash warnings to show on the thank-you page or toast
+          const warnings = [];
+          if (!klaviyoOk)
+            warnings.push(
+              "We couldn’t add you to our newsletter/list right now."
+            );
+          if (!fbOk)
+            warnings.push("We couldn’t log your submission for analytics.");
+          if (!crmOk) warnings.push("We couldn’t sync to CRM right now.");
+          // You could put warnings in router query or context:
+          // router.push({ pathname: "/thank-you-page", query: { formType: contactFormData.type, warnings: JSON.stringify(warnings) } }, "/thank-you-page");
+          modalCtx.modalCloseHandler();
+          router.push(
+            {
+              pathname: "/thank-you-page",
+              query: { formType: contactFormData.type },
+            },
+            "/thank-you-page"
+          );
+        } else {
+          setContactFormProccess((prev) => ({
+            ...prev,
+            error: true,
+            loading: false,
+          }));
+        }
         setContactFormProccess((prev) => ({
           ...prev,
           success: true,

@@ -115,6 +115,15 @@ function MyApp({ Component, pageProps }) {
         }
         strategy="beforeInteractive"
       ></Script>
+      <Script
+        src="https://staging.simplecrm.xyz/embed.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          try {
+            window.scrm?.init?.();
+          } catch {}
+        }}
+      />
       {loadScript ? (
         <Script
           id="gtm"
