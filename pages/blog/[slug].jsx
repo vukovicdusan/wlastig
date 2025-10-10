@@ -61,7 +61,6 @@ const GET_POSTS_SLUGS = gql`
   }
 `;
 
-// const GET_SINGLE_POST = gql`
 //   query GetSinglePost($slug: String!) {
 //     postBy(slug: $slug) {
 //       title
@@ -135,7 +134,7 @@ export async function getStaticPaths() {
     const paths = (data?.posts?.nodes || []).map((p) => ({
       params: { slug: p.slug },
     }));
-    return { paths, fallback: "blocking" }; // ⬅️ change from false
+    return { paths, fallback: "blocking" };
   } catch (e) {
     return { paths: [], fallback: "blocking" };
   }
@@ -311,7 +310,12 @@ export const SinglePostStyled = styled.div`
   h4,
   h5,
   h6 {
-    margin-top: var(--s2);
+    margin-top: var(--s4);
+    margin-bottom: var(--s-1);
+  }
+
+  p {
+    margin-bottom: var(--s-2);
   }
 
   .post-content {
