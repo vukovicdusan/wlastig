@@ -228,10 +228,9 @@ const GoogleAnalytycs4 = () => {
                   <UnderlineStyled></UnderlineStyled>
                 </Stack>
               </AnimationContainer>
-              <div className="contact-form-wrapper bg-primary">
+              <div className="contact-form-wrapper bg-light">
                 <ContactForm
-                  textBf={"var(--text-light)"}
-                  bfBg={"var(--primary)"}
+                  bfBg={"--background-light"}
                   formType={"freeConsultation2"}
                   btnId={"form_submit_consultation2"}
                 ></ContactForm>

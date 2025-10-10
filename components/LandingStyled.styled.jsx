@@ -5,13 +5,14 @@ export const LandingStyled = styled.div`
     color: var(--secondary);
   }
   .contact-form-wrapper {
-    display: inline;
+    display: block;
     background-color: var(--background-light);
     border-radius: 5px;
     padding: var(--s2) var(--s2);
     height: max-content;
-    max-width: fit-content;
+    width: fit-content;
     transition: all 0.4s ease;
+    margin-inline: auto;
   }
 
   .bg-primary {
