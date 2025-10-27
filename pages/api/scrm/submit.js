@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
 
     const upstream = await fetch(
-      "https://develop-api.simplecrm.xyz/v1/collect-external",
+      "https://core-api.simplecrm.xyz/v1/collect-external",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
