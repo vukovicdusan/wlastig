@@ -116,7 +116,7 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
       ></Script>
       <Script
-        src="https://staging.simplecrm.xyz/embed.js"
+        src="https://app.simplecrm.xyz/embed.js"
         strategy="afterInteractive"
         onLoad={() => {
           try {
