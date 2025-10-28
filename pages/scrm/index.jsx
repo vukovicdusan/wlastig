@@ -53,6 +53,13 @@ export const ScrmStagingStyled = styled.div`
     height: 600px;
     width: 600px;
   }
+  @media (max-width: 650px) {
+    iframe {
+      border: none;
+      height: 600px;
+      width: 340px;
+    }
+  }
 `;
 
 export default SCRM;

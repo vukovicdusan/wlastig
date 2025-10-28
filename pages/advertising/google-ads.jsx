@@ -50,7 +50,7 @@ const GoogleAds = () => {
           name="description"
           content="Drive targeted traffic and maximize conversions with Wlastig’s Google Ads services. Our experts create optimized campaigns that deliver measurable results and boost your online presence."
         />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled

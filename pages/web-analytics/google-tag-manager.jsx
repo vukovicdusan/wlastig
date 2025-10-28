@@ -50,7 +50,7 @@ const GoogleTagManager = () => {
           name="description"
           content="Optimize your tracking with expert Google Tag Manager (GTM) implementation from Wlastig. We ensure your tags, triggers, and variables are set up correctly so your data is accurate, structured, and actionable. Whether you need a fresh GTM setup, debugging, or advanced tracking configurations, our expertise guarantees reliable data for better marketing and business decisions."
         />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled
