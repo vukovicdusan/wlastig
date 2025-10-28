@@ -5,6 +5,7 @@ import { Region } from "../../components/styles/Region.styled";
 import ContactForm from "../../components/ContactForm";
 import { Stack } from "../../components/styles/Stack.styled";
 import styled from "styled-components";
+import Script from "next/script";
 
 const SCRM = () => {
   return (
