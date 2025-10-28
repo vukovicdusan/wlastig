@@ -50,7 +50,7 @@ const GoogleAnalytycs4 = () => {
           name="description"
           content="Unlock the full potential of Google Analytics 4 (GA4) with Wlastig’s expert consulting services. We provide tailored GA4 strategies, implementation, and insights to drive your business forward."
         />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServicesHeroStyled

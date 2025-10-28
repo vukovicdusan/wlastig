@@ -61,17 +61,11 @@ const ContactForm = (props) => {
     if (!anyError) {
       setContactFormProccess((prev) => ({ ...prev, loading: true }));
       try {
-        // await Promise.all([
-        //   sendContactForm(contactFormData),
-        //   sendToKlaviyo(contactFormData),
-        //   firebaseWriteHandler(contactFormData),
-        //   sendToSimpleCrm(contactFormData),
-        // ]);
         const results = await Promise.allSettled([
           sendContactForm(contactFormData), // [0] critical (e.g., email delivery / main backend)
           sendToKlaviyo(contactFormData), // [1] non-blocking
           firebaseWriteHandler(contactFormData), // [2] non-blocking (analytics/logging)
-          sendToSimpleCrm(contactFormData), // [3] non-blocking (sync)
+          sendToSimpleCrm(contactFormData, props.scrmIsStaging || false), // [3] non-blocking (sync)
         ]);
 
         const [emailRes, klaviyoRes, fbRes, crmRes] = results;
