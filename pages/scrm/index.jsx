@@ -5,7 +5,6 @@ import { Region } from "../../components/styles/Region.styled";
 import ContactForm from "../../components/ContactForm";
 import { Stack } from "../../components/styles/Stack.styled";
 import styled from "styled-components";
-import Script from "next/script";
 
 const SCRM = () => {
   return (
@@ -16,15 +15,6 @@ const SCRM = () => {
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Script
-        src="https://staging.simplecrm.xyz/embed.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          try {
-            window.scrm?.init?.();
-          } catch {}
-        }}
-      />
 
       <Region>
         <Wrapper>
