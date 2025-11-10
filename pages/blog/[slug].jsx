@@ -311,7 +311,7 @@ export const SinglePostStyled = styled.div`
   h5,
   h6 {
     margin-top: var(--s4);
-    margin-bottom: var(--s-1);
+    margin-bottom: var(--s0);
   }
 
   p {
@@ -320,6 +320,10 @@ export const SinglePostStyled = styled.div`
 
   .post-content {
     color: var(--theme-text-dark);
+  }
+
+  .post-content .wp-block-heading {
+    margin-bottom: var(--s0);
   }
 
   .category-container {
@@ -337,7 +341,22 @@ export const SinglePostStyled = styled.div`
     font-size: 14px;
   }
 
-  ol {
+  .post-content .wp-block-list {
+    list-style: revert;
+    padding-left: revert;
+    margin-block: var(--s2);
+    display: revert;
+  }
+  .post-content .wp-block-list > * {
+    margin-bottom: var(--s-1);
+  }
+
+  .post-content .wp-block-image {
+    margin-block-end: var(--s2);
+    margin-block-end: var(--s4);
+  }
+
+  nav ol {
     display: flex;
     gap: 0.5rem;
     color: var(--theme-text-dark);
