@@ -34,7 +34,7 @@ const ContactForm = (props) => {
     name: { error: true, message: "", show: false },
     // website: { error: true, message: "", show: false },
   });
-  const [honeypot, setHoneypot] = useState(false);
+  const [phone, setPhone] = useState(false);
   let router = useRouter();
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const ContactForm = (props) => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    if (honeypot) {
+    if (phone) {
       return;
     }
     if (!anyError) {
@@ -84,9 +84,7 @@ const ContactForm = (props) => {
           // optionally stash warnings to show on the thank-you page or toast
           const warnings = [];
           if (!klaviyoOk)
-            warnings.push(
-              "We couldn’t add you to our newsletter/list right now."
-            );
+            warnings.push("We couldn’t add you to our contact list right now.");
           if (!fbOk)
             warnings.push("We couldn’t log your submission for analytics.");
           if (!crmOk) warnings.push("We couldn’t sync to CRM right now.");
@@ -293,12 +291,9 @@ const ContactForm = (props) => {
               ></textarea>
               <label htmlFor="comments">Message</label>
             </InputWrapper>
-            <input
-              onChange={() => setHoneypot(true)}
-              type="text"
-              className="hidden"
-              name="honeypot"
-            />
+            <div className="phone-field">
+              <input onChange={() => setPhone(true)} type="text" name="phone" />
+            </div>
             <div className="button-loader">
               <AnimationContainer wobble={true}>
                 <Button id={props.btnId || "form_submit_contact"}>
@@ -346,8 +341,12 @@ export const ContactFormStyled = styled.div`
     color: var(--error-color);
   }
 
-  .hidden {
-    display: none;
+  .phone-field {
+    position: absolute;
+    left: -5000px;
+    overflow: hidden;
+    height: 0;
+    width: 0;
   }
 
   .button-loader {
