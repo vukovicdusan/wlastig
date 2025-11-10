@@ -14,9 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const detectColorScheme = () => {
-      const prefersDarkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
+      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
       return prefersDarkMode ? "dark" : "light";
     };
 
@@ -33,9 +31,7 @@ function MyApp({ Component, pageProps }) {
           console.error("Error detecting incognito mode:", error);
         }
       } else {
-        console.warn(
-          "detectIncognito is unavailable. Brave or script blocked."
-        );
+        console.warn("detectIncognito is unavailable. Brave or script blocked.");
       }
 
       const colorScheme = detectColorScheme();
@@ -57,9 +53,7 @@ function MyApp({ Component, pageProps }) {
     initializeState();
 
     // Listen for system color scheme changes
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleColorSchemeChange = () => {
       const colorScheme = detectColorScheme();
       // setGlobalState((prevState) => ({
@@ -74,49 +68,22 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
-  const blackFridayUrls = [
-    "/google-ads-black-friday",
-    "/google-analytics-ga4-black-friday",
-    "/ppc-agency-black-friday",
-  ];
+  const blackFridayUrls = ["/google-ads-black-friday", "/google-analytics-ga4-black-friday", "/ppc-agency-black-friday"];
   const isBlackFriday = blackFridayUrls.includes(router.pathname);
-  let backgroundColor = isBlackFriday
-    ? "var(--bf-black)"
-    : "var(--background-light)";
+  let backgroundColor = isBlackFriday ? "var(--bf-black)" : "var(--background-light)";
+
+  let scrmPixel = router.pathname === "/scrm" ? "https://staging.simplecrm.xyz/embed.js" : "https://app.simplecrm.xyz/embed.js";
 
   return (
     <>
       <Head>
-        <link
-          rel="preload"
-          href="/fonts/poppins-extrabold-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/poppins-medium-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/poppins-regular-webfont.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" href="/fonts/poppins-extrabold-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/poppins-medium-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/poppins-regular-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </Head>
+      <Script src={"https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"} strategy="beforeInteractive"></Script>
       <Script
-        src={
-          "https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"
-        }
-        strategy="beforeInteractive"
-      ></Script>
-      <Script
-        src="https://app.simplecrm.xyz/embed.js"
+        src={scrmPixel}
         strategy="afterInteractive"
         onLoad={() => {
           try {
@@ -136,10 +103,7 @@ function MyApp({ Component, pageProps }) {
         />
       ) : null}
 
-      <GlobalStyles
-        isBlackFriday={isBlackFriday}
-        backgroundColor={backgroundColor}
-      ></GlobalStyles>
+      <GlobalStyles isBlackFriday={isBlackFriday} backgroundColor={backgroundColor}></GlobalStyles>
       <ModalCtxProvider>
         <Layout>
           <Component {...pageProps} />
