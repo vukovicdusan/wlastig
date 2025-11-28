@@ -314,6 +314,14 @@ export const SinglePostStyled = styled.div`
     margin-bottom: var(--s0);
   }
 
+  a {
+    text-decoration-color: var(--secondary);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    text-decoration-line: underline;  
+  }
+
+
   p {
     margin-bottom: var(--s-2);
   }
