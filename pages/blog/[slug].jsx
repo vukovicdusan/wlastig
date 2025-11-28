@@ -323,7 +323,7 @@ export const SinglePostStyled = styled.div`
 
 
   p {
-    margin-bottom: var(--s-3);
+    margin-bottom: var(--s0);
   }
 
   .post-content {
