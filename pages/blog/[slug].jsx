@@ -314,7 +314,7 @@ export const SinglePostStyled = styled.div`
     margin-bottom: var(--s0);
   }
 
-  a {
+  & a {
     text-decoration-color: var(--secondary);
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
@@ -398,4 +398,34 @@ export const SinglePostStyled = styled.div`
   .ql-align-center > * {
     margin-inline: auto;
   }
+
+  /* TABLES */
+  .wp-block-table {
+  overflow: scroll;
+  }
+  
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  margin-block: var(--s2);
+}
+
+th, td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;     /* pale border */
+}
+
+th {
+  background: #f5f5f5;        /* slightly gray header */
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: #fafafa;        /* pale gray alternating rows */
+}
+
+
+
+
 `;
