@@ -323,7 +323,7 @@ export const SinglePostStyled = styled.div`
 
 
   p {
-    margin-bottom: var(--s-2);
+    margin-bottom: var(--s-3);
   }
 
   .post-content {
@@ -403,7 +403,7 @@ export const SinglePostStyled = styled.div`
   .wp-block-table {
   overflow: scroll;
   }
-  
+
 table {
   width: 100%;
   border-collapse: collapse;
