@@ -422,12 +422,12 @@ export const SinglePostStyled = styled.div`
   }
 
   tr:nth-child(even) {
-    background: #fafafa; /* pale gray alternating rows */
+    background: var(--primary-shade); /* pale gray alternating rows */
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     tr:nth-child(even) {
       background: var(--primary-shade);
     }
-  }
+  } */
 `;
