@@ -122,7 +122,6 @@ const GET_SINGLE_POST = gql`
       seo {
         canonicalUrl
         description
-        fullHead
         title
       }
     }
@@ -200,7 +199,10 @@ const SinglePost = ({ post, list, popularPosts }) => {
           />
         )}
         <meta name="twitter:card" content="summary_large_image" />
-
+        <meta
+          property="og:url"
+          content={`https://wlastig.com/blog/${post.slug}`}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
