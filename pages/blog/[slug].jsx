@@ -62,44 +62,11 @@ const GET_POSTS_SLUGS = gql`
   }
 `;
 
-//   query GetSinglePost($slug: String!) {
-//     postBy(slug: $slug) {
-//       title
-//       content
-//       date
-//       author {
-//         node {
-//           name
-//         }
-//       }
-//       categories {
-//         nodes {
-//           name
-//           slug
-//         }
-//       }
-//       featuredImage {
-//         node {
-//           sourceUrl
-//           altText
-//         }
-//       }
-//       seo {
-//         metaDesc
-//         opengraphTitle
-//         opengraphDescription
-//         opengraphImage {
-//           sourceUrl
-//         }
-//       }
-//     }
-//   }
-// `;
-
 const GET_SINGLE_POST = gql`
   query GetSinglePost($slug: String!) {
     postBy(slug: $slug) {
       title
+      slug
       content
       date
       author {
