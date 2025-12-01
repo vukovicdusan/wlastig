@@ -14,7 +14,7 @@ import ContactFormSection from "../../components/ContactFormSection";
 import { StyledText } from "../../components/styles/StyledText.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import dummy from "../../public/img/dummy-post.webp";
-import PostLightbox from "../../components/LightBox";
+import PostLightbox from "../../components/PostLightbox";
 
 const client = new ApolloClient({
   uri: "https://snow-gazelle-262455.hostingersite.com/graphql",

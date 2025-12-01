@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 export default function PostLightbox() {
   const [open, setOpen] = useState(false);
   const [slides, setSlides] = useState([]);
   const [index, setIndex] = useState(0);
+  const zoomRef = React.useRef(null);
 
   useEffect(() => {
     // Find all images inside the WP content
@@ -29,11 +31,22 @@ export default function PostLightbox() {
   }, []);
 
   return (
-    <Lightbox
-      open={open}
-      close={() => setOpen(false)}
-      slides={slides}
-      index={index}
-    />
+    <>
+      <Lightbox
+        open={open}
+        plugins={[Zoom]}
+        close={() => setOpen(false)}
+        slides={slides}
+        index={index}
+        zoom={{ ref: zoomRef, maxZoomPixelRatio: 3, zoomInMultiplier: 1.5 }}
+      />
+      <button type="button" onClick={() => zoomRef.current?.zoomIn()}>
+        Zoom In
+      </button>
+
+      <button type="button" onClick={() => zoomRef.current?.zoomOut()}>
+        Zoom Out
+      </button>
+    </>
   );
 }
