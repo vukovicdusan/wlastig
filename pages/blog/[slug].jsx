@@ -14,6 +14,8 @@ import ContactFormSection from "../../components/ContactFormSection";
 import { StyledText } from "../../components/styles/StyledText.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import dummy from "../../public/img/dummy-post.webp";
+import Lightbox from "yet-another-react-lightbox";
+import PostLightbox from "../../components/LightBox";
 
 const client = new ApolloClient({
   uri: "https://snow-gazelle-262455.hostingersite.com/graphql",
@@ -276,6 +278,7 @@ const SinglePost = ({ post, list, popularPosts }) => {
                     __html: post.content,
                   }}
                 />
+                <PostLightbox />
               </div>
             </BlogSidebar>
           </SinglePostStyled>
@@ -424,10 +427,4 @@ export const SinglePostStyled = styled.div`
   tr:nth-child(even) {
     background: var(--primary-shade); /* pale gray alternating rows */
   }
-
-  /* @media (prefers-color-scheme: dark) {
-    tr:nth-child(even) {
-      background: var(--primary-shade);
-    }
-  } */
 `;
