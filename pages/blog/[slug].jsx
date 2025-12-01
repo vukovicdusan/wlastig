@@ -318,9 +318,8 @@ export const SinglePostStyled = styled.div`
     text-decoration-color: var(--secondary);
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
-    text-decoration-line: underline;  
+    text-decoration-line: underline;
   }
-
 
   p {
     margin-bottom: var(--s0);
@@ -401,31 +400,34 @@ export const SinglePostStyled = styled.div`
 
   /* TABLES */
   .wp-block-table {
-  overflow: scroll;
+    overflow: scroll;
   }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: sans-serif;
-  margin-block: var(--s2);
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    margin-block: var(--s2);
+  }
 
-th, td {
-  padding: 12px 16px;
-  border: 1px solid #ddd;     /* pale border */
-}
+  th,
+  td {
+    padding: 12px 16px;
+    border: 1px solid #ddd; /* pale border */
+  }
 
-th {
-  background: #f5f5f5;        /* slightly gray header */
-  font-weight: 600;
-}
+  th {
+    background: #f5f5f5; /* slightly gray header */
+    font-weight: 600;
+  }
 
-tr:nth-child(even) {
-  background: #fafafa;        /* pale gray alternating rows */
-}
+  tr:nth-child(even) {
+    background: #fafafa; /* pale gray alternating rows */
+  }
 
-
-
-
+  @media (prefers-color-scheme: dark) {
+    tr:nth-child(even) {
+      background: var(--primary-shade);
+    }
+  }
 `;
