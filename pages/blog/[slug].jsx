@@ -14,7 +14,6 @@ import ContactFormSection from "../../components/ContactFormSection";
 import { StyledText } from "../../components/styles/StyledText.styled";
 import { UnderlineStyled } from "../../components/styles/UnderlineStyled.styled";
 import dummy from "../../public/img/dummy-post.webp";
-import Lightbox from "yet-another-react-lightbox";
 import PostLightbox from "../../components/LightBox";
 
 const client = new ApolloClient({
