@@ -150,9 +150,10 @@ const SinglePost = ({ post, list, popularPosts }) => {
           <meta name="description" content={post.seo.description} />
         )}
 
-        {post?.seo?.canonicalUrl && (
+        {/* {post?.seo?.canonicalUrl && (
           <link rel="canonical" href={post.seo.canonicalUrl} />
-        )}
+        )} */}
+        <link rel="canonical" href={`https://wlastig.com/blog/${post.slug}`} />
 
         {/* Optional basic OG/Twitter tags (build from your data) */}
         <meta property="og:title" content={post?.seo?.title ?? post.title} />
