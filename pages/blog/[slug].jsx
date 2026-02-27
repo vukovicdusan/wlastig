@@ -335,6 +335,10 @@ export const SinglePostStyled = styled.div`
     margin-block-end: var(--s4);
   }
 
+  .post-content + button, .post-content + button + button {
+    display: none;
+  }
+
   nav ol {
     display: flex;
     gap: 0.5rem;

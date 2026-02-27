@@ -78,6 +78,9 @@ const BlogSidebar = (props) => {
           insights on analytics, strategy, and business intelligence.
         </StyledText>
         <div>
+           {
+            props.popularList === "" ?
+            <>
           <StyledText
             align={"justify"}
             family={"var(--poppinsbold)"}
@@ -96,6 +99,8 @@ const BlogSidebar = (props) => {
               </li>
             ))}
           </Stack>
+            </> : ""
+          }
         </div>
       </div>
     </BlogSidebarStyled>

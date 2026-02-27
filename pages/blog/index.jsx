@@ -170,7 +170,7 @@ const Blog = ({ posts, pageInfo, popularPosts }) => {
                                                 }}
                                             />
                                         </Link>
-                                        <div className="category-container">
+                                        {/* <div className="category-container">
                                             <svg
                                                 viewBox="0 0 512 512"
                                                 aria-hidden="true"
@@ -187,7 +187,7 @@ const Blog = ({ posts, pageInfo, popularPosts }) => {
                                             >
                                                 {post.categories.nodes[0].name}
                                             </StyledText>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 ))}
                             </div>

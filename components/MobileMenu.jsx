@@ -78,6 +78,9 @@ const MobileMenu = (props) => {
                     <Link href={"/careers"}>Careers</Link>
                   </TextMedium>
                   <TextMedium as="li">
+                    <Link href={"/blog"}>Blog</Link>
+                  </TextMedium>
+                  <TextMedium as="li">
                     <Link href={"contact"}>Contact Us</Link>
                   </TextMedium>
                 </Stack>
